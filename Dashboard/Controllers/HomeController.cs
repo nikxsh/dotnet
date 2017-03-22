@@ -17,6 +17,45 @@ namespace Dashboard.Controllers
         {
             return View();
         }
-                
+     
+        public ActionResult Table()
+        {
+            return View();
+        }
+        
+        public ActionResult Forms()
+        {
+            return View();
+        }     
+        
+        public ActionResult Panels()
+        {
+            return View();
+        }
+
+        public ActionResult Buttons()
+        {
+            return View();
+        }
+
+        public ActionResult Notifications()
+        {
+            return View();
+        }
+
+        public ActionResult Typography()
+        {
+            return View();
+        }
+
+        public ActionResult Icons()
+        {
+            return View();
+        }
+
+        public ActionResult Grid()
+        {
+            return View();
+        }
     }
 }

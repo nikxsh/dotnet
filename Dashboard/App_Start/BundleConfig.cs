@@ -32,12 +32,21 @@ namespace Dashboard
                       "~/Scripts/morris.js",
                       "~/Scripts/morris-data.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/tables").Include(
+                      "~/Scripts/jquery.dataTables.js",
+                      "~/Scripts/dataTables.bootstrap.js",
+                      "~/Scripts/dataTables.responsive.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/site.css",
                       "~/Content/css/metisMenu.css",
                       "~/Content/css/font-awesome.css",
                       "~/Content/css/morris.css"));
+
+            bundles.Add(new StyleBundle("~/Content/tables").Include(
+                      "~/Content/css/dataTables.bootstrap.css",
+                      "~/Content/css/dataTables.responsive.css"));
         }
     }
 }
