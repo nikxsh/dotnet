@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EntityFrameworkDemo;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Dashboard.Controllers
@@ -56,6 +54,13 @@ namespace Dashboard.Controllers
         public ActionResult Grid()
         {
             return View();
+        }
+
+        public ActionResult Forum()
+        {
+            var dataobject = new ForumRepository();
+            var topic = dataobject.GetTopics().ToList();
+            return View(topic);
         }
     }
 }
