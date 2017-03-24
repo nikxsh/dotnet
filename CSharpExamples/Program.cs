@@ -45,8 +45,8 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region OOPS Test
-            //var test = new Oops();
-            //test.OOPSTest();
+            var test = new Oops();
+            test.OOPSTest();
             #endregion
 
             #region Linq Test
@@ -86,8 +86,8 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region Garbage Collection
-            var test = new GarbageCollection();
-            test.WithIDisposable();
+            //var test = new GarbageCollection();
+            //test.WithIDisposable();
             #endregion
 
             #region Performance Test

@@ -45,16 +45,6 @@ namespace DotNetDemos.CSharpExamples
 
             //GrandChild objChild10 = new SuperGrandChild();
             //objChild10.SayHello();
-            //objChild10.Shadow();
-
-            //It will call shadow1() and shadow2() of GrandChild() class
-            //GrandChild objChild10 = new SuperGrandChild();
-            //objChild10.Shadow1();
-            //objChild10.Shadow2();
-
-            //SuperGrandChild objChild11 = new SuperGrandChild();
-            //objChild11.Shadow1();
-            //objChild11.Shadow2();
 
             //AccountBase objAccount = new SavingAccount(20000,2);
             //objAccount.DisplayAmount();
@@ -63,14 +53,44 @@ namespace DotNetDemos.CSharpExamples
             //var obj = new StaticTest();
             //var val = new ChildOfStaticTest();
 
-
             //PrivateConstructorExample.staticValue = "Private";
             //var exp = new PrivateConstructorExample();
             //DerivedAbstract.staticValue = "LOL";
             //var obj  = new DerivedAbstract();
+
+            Beta objBeta = new Beta();
+            objBeta.BaseMethod();
+            objBeta.Display();
+
+            Baap objBaapWithBeta = new Beta();
+            objBaapWithBeta.BaseMethod();
+            objBaapWithBeta.Display();
         }
 
     }
+
+    #region MethodHiding
+    class Baap
+    {
+        public void BaseMethod()
+        {
+            Console.WriteLine("Baap's Method");
+        }
+
+        public void Display()
+        {
+            Console.WriteLine("Display Baap");
+        }
+    }
+
+    class Beta : Baap
+    {
+        public new void Display()
+        {
+            Console.WriteLine("Display Baap");
+        }
+    }
+    #endregion
 
     #region SOLID
 
@@ -512,17 +532,7 @@ namespace DotNetDemos.CSharpExamples
         {
             Console.WriteLine("Grand Child's EmptyConstructor");
         }
-
-        public void Shadow1()
-        {
-            Console.WriteLine("Grand Child's Shadow1 Method");
-        }
-
-        public void Shadow2()
-        {
-            Console.WriteLine("Grand Child's Shadow2 Method");
-        }
-
+        
         public sealed override void SayHello()
         {
             base.SayHello(); //Call Base method
@@ -537,16 +547,7 @@ namespace DotNetDemos.CSharpExamples
         {
             Console.WriteLine("Super Grand Child's EmptyConstructor");
         }
-
-        public new void Shadow1()
-        {
-            Console.WriteLine("Super Grand Child's Shadow1 Method");
-        }
-
-        public void Shadow2()
-        {
-            Console.WriteLine("Super Grand Child's Shadow2 Method");
-        }
+        
         //can not override SayHello() as it is sealed
         //public override void SayHello()
         //{
