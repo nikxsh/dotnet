@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace EntityFrameworkDemo
 {
@@ -10,5 +11,10 @@ namespace EntityFrameworkDemo
 
         public DbSet<Topic> Topics { get; set; }
         public DbSet<Reply> Reply { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
     }
 }

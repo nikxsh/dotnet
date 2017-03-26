@@ -1,4 +1,5 @@
-﻿using EntityFrameworkDemo;
+﻿using Dashboard.Models;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -6,61 +7,42 @@ namespace Dashboard.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index() => View();
+
+        public ActionResult Dashboard() => View();
+
+        public ActionResult Table() => View();
+
+        public ActionResult Forms() => View();
+
+        public ActionResult Panels() => View();
+
+        public ActionResult Buttons() => View();
+
+        public ActionResult Notifications() => View();
+
+        public ActionResult Typography() => View();
+
+        public ActionResult Icons() => View();
+
+        public ActionResult Grid() => View();
+
+        public ActionResult Forum() => View();
+
+        [HttpPost]
+        public ActionResult Forum(Topic topic)
         {
+            var dataobject = new EntityFrameworkDemo.ForumRepository();
+            dataobject.SubmitTopic(new EntityFrameworkDemo.Topic { Id = Guid.NewGuid() , Title = topic.Title, Body = topic.Body, Created = DateTime.Now });
+            ModelState.Clear();
             return View();
         }
 
-        public ActionResult Dashboard()
+        public ActionResult DisplayTopics()
         {
-            return View();
-        }
-     
-        public ActionResult Table()
-        {
-            return View();
-        }
-        
-        public ActionResult Forms()
-        {
-            return View();
-        }     
-        
-        public ActionResult Panels()
-        {
-            return View();
-        }
-
-        public ActionResult Buttons()
-        {
-            return View();
-        }
-
-        public ActionResult Notifications()
-        {
-            return View();
-        }
-
-        public ActionResult Typography()
-        {
-            return View();
-        }
-
-        public ActionResult Icons()
-        {
-            return View();
-        }
-
-        public ActionResult Grid()
-        {
-            return View();
-        }
-
-        public ActionResult Forum()
-        {
-            var dataobject = new ForumRepository();
-            var topic = dataobject.GetTopics().ToList();
-            return View(topic);
+            var dataobject = new EntityFrameworkDemo.ForumRepository();
+            var topic = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title, Body = x.Body, Created = x.Created }).OrderByDescending(y => y.Created);
+            return PartialView(topic);
         }
     }
 }

@@ -1,10 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EntityFrameworkDemo
 {
     interface IForumRepository
     {
-        IQueryable<Reply> GetRepliesByTopic(int id);
-        IQueryable<Topic> GetTopics();
+        IEnumerable<Reply> GetRepliesByTopic(Guid id);
+        IEnumerable<Topic> GetTopics();
+        void SubmitTopic(Topic Topic);
     }
 }

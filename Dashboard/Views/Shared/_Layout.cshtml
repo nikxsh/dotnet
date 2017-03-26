@@ -252,90 +252,66 @@
                         </li>
                         <li>
                             @Html.ActionLink("Forum (Topics)", "Forum")
-                        </li>
+                        </li>                       
                         <li>
-                            @Html.ActionLink("Dashboard", "Dashboard")
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Flot Charts</a>
+                                    <a href="@Url.Action("Index")"><i class="fa fa-check-circle-o fa-fw"></i>  Blank Page</a>
                                 </li>
                                 <li>
-                                    <a href="#">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Table")"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Forms")"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="@Url.Action("Panels")">Panels and Wells</a>
+                                    <a href="@Url.Action("Login","Account")"><i class="fa fa-users fa-fw"></i>  Login Page</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("Buttons")">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Notifications")">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Typography")">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Icons")"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Grid")">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <a href="#" ><i class="fa fa-bars fa-fw"></i> All you want <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="@Url.Action("Dashboard")"><i class="fa fa-dashboard fa-fw"></i> Tables</a>
                                         </li>
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="#">Flot Charts</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Morris.js Charts</a>
+                                                </li>
+                                            </ul>
+                                            <!-- /.nav-second-level -->
                                         </li>
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="@Url.Action("Table")"><i class="fa fa-table fa-fw"></i> Tables</a>
                                         </li>
                                         <li>
-                                            <a href="#">Third Level Item</a>
+                                            <a href="@Url.Action("Forms")"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="@Url.Action("Panels")">Panels and Wells</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Buttons")">Buttons</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Notifications")">Notifications</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Typography")">Typography</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Icons")"> Icons</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Grid")">Grid</a>
+                                                </li>
+                                            </ul>
+                                            <!-- /.nav-second-level -->
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li class="active">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a class="active" href="@Url.Action("Index")">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Login","Account")">Login Page</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
