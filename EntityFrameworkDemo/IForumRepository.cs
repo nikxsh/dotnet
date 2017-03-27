@@ -4,10 +4,11 @@ using System.Linq;
 
 namespace EntityFrameworkDemo
 {
-    interface IForumRepository
+    public interface IForumRepository
     {
         IEnumerable<Reply> GetRepliesByTopic(Guid id);
         IEnumerable<Topic> GetTopics();
         void SubmitTopic(Topic Topic);
+        void SubmitReply(Reply Reply);
     }
 }

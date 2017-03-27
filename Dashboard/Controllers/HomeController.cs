@@ -41,11 +41,27 @@ namespace Dashboard.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult SubmitReply()
+        {
+            var id = Guid.Parse(Request.QueryString["TopicId"]);
+            return PartialView(new Reply { TopicId = id });
+        }
+
+        [HttpPost]
+        public ActionResult SaveReply(Reply reply)
+        {
+            var dataobject = new EntityFrameworkDemo.ForumRepository();
+            dataobject.SubmitReply(new EntityFrameworkDemo.Reply { Id = Guid.NewGuid(), Body = reply.Body, Created = DateTime.Now, TopicId = reply.TopicId });
+            return View();
+        }
+
         public ActionResult DisplayTopics()
         {
             var dataobject = new EntityFrameworkDemo.ForumRepository();
             var topic = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title, Body = x.Body, Created = x.Created });
             return PartialView(topic);
         }
+
     }
 }

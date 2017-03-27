@@ -36,6 +36,22 @@ namespace EntityFrameworkDemo
             }
         }
 
+        public void SubmitReply(Reply Reply)
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    context.Reply.Add(Reply);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void SubmitTopic(Topic Topic)
         {
             try

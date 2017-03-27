@@ -41,7 +41,6 @@
     <div class="row" id="ResultSection">
         <center><img src="~/Content/images/loading-bar.gif" /></center>
     </div>
-
 </div>
 @section scripts{
     <script>
@@ -60,5 +59,11 @@
             $('#ResultSection').load($url);
         };
 
+        var replyToTopic = function ($id) {
+            var url = '@Url.Action("SubmitReply")?TopicId=' + $id;
+            alert(url)
+            var tabId = '#ReplyTab-' + $id;
+            $(tabId).load(url);
+        };
     </script>
 }

@@ -1,0 +1,22 @@
+﻿@model Dashboard.Models.Reply
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Reply
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            @using (Html.BeginForm("SaveReply","Home", FormMethod.Post, new { @role = "form", @id = "replyForm" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                <div class="form-group">
+                    @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "Submit your reply"})
+                    @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
+                </div>
+                <input type="submit" name="Submit Reply" class="btn btn-default" id="submitForm" />
+            }
+        </div>
+    </div>
+</div>
