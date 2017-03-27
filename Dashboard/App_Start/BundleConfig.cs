@@ -37,6 +37,15 @@ namespace Dashboard
                       "~/Scripts/dataTables.bootstrap.js",
                       "~/Scripts/dataTables.responsive.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/flot").Include(
+                      "~/Scripts/excanvas.js",
+                      "~/Scripts/jquery.flot.js",
+                      "~/Scripts/jquery.flot.pie.js",
+                      "~/Scripts/jquery.flot.resize.js",
+                      "~/Scripts/jquery.flot.time.js",
+                      "~/Scripts/jquery.flot.tooltip.js",
+                      "~/Scripts/flot-data.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/site.css",

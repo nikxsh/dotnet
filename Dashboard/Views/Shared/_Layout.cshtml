@@ -251,8 +251,8 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            @Html.ActionLink("Forum (Topics)", "Forum")
-                        </li>                       
+                            @Html.ActionLink("Forum (MVC)", "Forum")
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -263,19 +263,19 @@
                                     <a href="@Url.Action("Login","Account")"><i class="fa fa-users fa-fw"></i>  Login Page</a>
                                 </li>
                                 <li>
-                                    <a href="#" ><i class="fa fa-bars fa-fw"></i> All you want <span class="fa arrow"></span></a>
+                                    <a href="#"><i class="fa fa-bars fa-fw"></i> All you want <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="@Url.Action("Dashboard")"><i class="fa fa-dashboard fa-fw"></i> Tables</a>
+                                            <a href="@Url.Action("Dashboard")"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                                         </li>
                                         <li>
                                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                                             <ul class="nav nav-second-level">
                                                 <li>
-                                                    <a href="#">Flot Charts</a>
+                                                    <a href="@Url.Action("Flot")">Flot Charts</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Morris.js Charts</a>
+                                                    <a href="@Url.Action("Morris")">Morris.js Charts</a>
                                                 </li>
                                             </ul>
                                             <!-- /.nav-second-level -->

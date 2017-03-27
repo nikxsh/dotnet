@@ -27,7 +27,7 @@ namespace EntityFrameworkDemo
             {
                 using (var context = new ForumContext())
                 {
-                    return context.Topics.ToList();
+                    return context.Topics.OrderByDescending(y => y.Created).ToList();
                 }
             }
             catch (Exception ex)

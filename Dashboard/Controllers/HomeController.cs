@@ -13,6 +13,9 @@ namespace Dashboard.Controllers
 
         public ActionResult Table() => View();
 
+        public ActionResult Flot() => View();
+        public ActionResult Morris() => View();
+
         public ActionResult Forms() => View();
 
         public ActionResult Panels() => View();
@@ -41,7 +44,7 @@ namespace Dashboard.Controllers
         public ActionResult DisplayTopics()
         {
             var dataobject = new EntityFrameworkDemo.ForumRepository();
-            var topic = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title, Body = x.Body, Created = x.Created }).OrderByDescending(y => y.Created);
+            var topic = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title, Body = x.Body, Created = x.Created });
             return PartialView(topic);
         }
     }
