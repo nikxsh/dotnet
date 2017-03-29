@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Dashboard.Models
 {
@@ -8,5 +9,7 @@ namespace Dashboard.Models
         public string Title { get; set; }
         public string Body { get; set; }
         public DateTime Created { get; set; }
+
+        public IEnumerable<Reply> Replies { get; set; }
     }
 }

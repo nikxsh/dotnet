@@ -364,10 +364,11 @@
     <Content Include="Views\Home\Icons.cshtml" />
     <Content Include="Views\Home\Grid.cshtml" />
     <Content Include="Views\Home\Forum.cshtml" />
-    <Content Include="Views\Home\DisplayTopics.cshtml" />
     <Content Include="Views\Home\Flot.cshtml" />
     <Content Include="Views\Home\Morris.cshtml" />
     <Content Include="Views\Home\SubmitReply.cshtml" />
+    <Content Include="Views\Home\GetTopics.cshtml" />
+    <Content Include="Views\Home\GetTopicsHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

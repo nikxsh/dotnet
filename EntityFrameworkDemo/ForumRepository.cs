@@ -36,6 +36,21 @@ namespace EntityFrameworkDemo
             }
         }
 
+        public Topic GetTopicById(Guid topicId)
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    return context.Topics.FirstOrDefault(x => x.Id == topicId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void SubmitReply(Reply Reply)
         {
             try

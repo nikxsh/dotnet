@@ -46,7 +46,7 @@
     <script>
 
         $(document).ready(function () {
-            var url = '@Url.Action("DisplayTopics")';
+            var url = '@Url.Action("GetTopicsHeader")';
             loadResult(url);
 
             $('#submitForm').click(function () {
@@ -61,7 +61,6 @@
 
         var replyToTopic = function ($id) {
             var url = '@Url.Action("SubmitReply")?TopicId=' + $id;
-            alert(url)
             var tabId = '#ReplyTab-' + $id;
             $(tabId).load(url);
         };
