@@ -15,22 +15,32 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-lg-6">
-                        @using (Html.BeginForm(new { @role = "form", @id = "topicForm" }))
+                        @using (Ajax.BeginForm("Forum", "Home", new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            UpdateTargetId = "ResultSection",
+                            InsertionMode = InsertionMode.Replace,
+                            OnSuccess = "Success",
+                            LoadingElementId = "FormLoader"
+                        }, new { id = "topicForm" }))
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                             <div class="form-group">
                                 <label>Subject</label>
-                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "Enter topic name" })
-                                @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                                <input class="form-control" id="Title" name="Title" placeholder="Enter topic name" type="text" value="" required />
                             </div>
                             <div class="form-group">
                                 <label>Body</label>
-                                @Html.TextAreaFor(m => m.Body, new { @class = "form-control", @placeholder = "Describe your topic" })
-                                @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
+                                <textarea class="form-control" cols="20" id="Body" name="Body" placeholder="Describe your topic" rows="2" required></textarea>
                             </div>
                             <input type="submit" name="Submit Topic" class="btn btn-default" id="submitForm" />
+                            <div id="FormLoader" style="display:none">
+                                <center>
+                                    <img src="~/Content/images/submittingForm.gif" />
+                                </center>
+                            </div>
                         }
                     </div>
                 </div>
@@ -44,25 +54,15 @@
 </div>
 @section scripts{
     <script>
-
         $(document).ready(function () {
             var url = '@Url.Action("GetTopicsHeader")';
-            loadResult(url);
-
-            $('#submitForm').click(function () {
-                $('#ResultSection').load($url);
-                $('#topicForm')[0].reset();
-            })
+            $('#ResultSection').load(url);
         });
 
-        var loadResult = function ($url) {
-            $('#ResultSection').load($url);
-        };
+        $('#topicForm').validator();
 
-        var replyToTopic = function ($id) {
-            var url = '@Url.Action("SubmitReply")?TopicId=' + $id;
-            var tabId = '#ReplyTab-' + $id;
-            $(tabId).load(url);
-        };
+        function Success() {
+            $('#topicForm')[0].reset();
+        }
     </script>
 }

@@ -35,10 +35,23 @@ namespace Dashboard.Controllers
         [HttpPost]
         public ActionResult Forum(Topic topic)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             var dataobject = new EntityFrameworkDemo.ForumRepository();
-            dataobject.SubmitTopic(new EntityFrameworkDemo.Topic { Id = Guid.NewGuid(), Title = topic.Title, Body = topic.Body, Created = DateTime.Now });
+            dataobject.SubmitTopic(new EntityFrameworkDemo.Topic
+            {
+                Id = Guid.NewGuid(),
+                Title = topic.Title,
+                Body = topic.Body,
+                Created = DateTime.Now
+            });
+
             ModelState.Clear();
-            return View();
+            var topicList = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title });
+            return PartialView("GetTopicsHeader", topicList);
         }
 
         [HttpGet]
@@ -50,6 +63,11 @@ namespace Dashboard.Controllers
         [HttpPost]
         public ActionResult SaveReply(Reply reply)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(reply);
+            }
+
             var dataobject = new EntityFrameworkDemo.ForumRepository();
             dataobject.SubmitReply(new EntityFrameworkDemo.Reply { Id = Guid.NewGuid(), Body = reply.Body, Created = DateTime.Now, TopicId = reply.TopicId });
             return RedirectToActionPermanent("GetTopics", new { topicId = reply.TopicId });
