@@ -8,6 +8,7 @@ namespace EntityFrameworkDemo
     {
         IEnumerable<Reply> GetRepliesByTopic(Guid id);
         IEnumerable<Topic> GetTopics();
+        Topic GetTopicById(Guid topicId);
         void SubmitTopic(Topic Topic);
         void SubmitReply(Reply Reply);
     }

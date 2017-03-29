@@ -35,32 +35,69 @@ namespace Dashboard.Controllers
         [HttpPost]
         public ActionResult Forum(Topic topic)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             var dataobject = new EntityFrameworkDemo.ForumRepository();
-            dataobject.SubmitTopic(new EntityFrameworkDemo.Topic { Id = Guid.NewGuid() , Title = topic.Title, Body = topic.Body, Created = DateTime.Now });
+            dataobject.SubmitTopic(new EntityFrameworkDemo.Topic
+            {
+                Id = Guid.NewGuid(),
+                Title = topic.Title,
+                Body = topic.Body,
+                Created = DateTime.Now
+            });
+
             ModelState.Clear();
-            return View();
+            var topicList = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title });
+            return PartialView("GetTopicsHeader", topicList);
         }
 
         [HttpGet]
-        public ActionResult SubmitReply()
+        public ActionResult SubmitReply(Guid id)
         {
-            var id = Guid.Parse(Request.QueryString["TopicId"]);
             return PartialView(new Reply { TopicId = id });
         }
 
         [HttpPost]
         public ActionResult SaveReply(Reply reply)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(reply);
+            }
+
             var dataobject = new EntityFrameworkDemo.ForumRepository();
             dataobject.SubmitReply(new EntityFrameworkDemo.Reply { Id = Guid.NewGuid(), Body = reply.Body, Created = DateTime.Now, TopicId = reply.TopicId });
-            return View();
+            return RedirectToActionPermanent("GetTopics", new { topicId = reply.TopicId });
         }
 
-        public ActionResult DisplayTopics()
+        public ActionResult GetTopicsHeader()
         {
             var dataobject = new EntityFrameworkDemo.ForumRepository();
-            var topic = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title, Body = x.Body, Created = x.Created });
+            var topic = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title });
             return PartialView(topic);
+        }
+
+        public ActionResult GetTopics(Guid topicId)
+        {
+            var dataobject = new EntityFrameworkDemo.ForumRepository();
+            var topic = dataobject.GetTopicById(topicId);
+            var result = new Topic
+            {
+                Id = topic.Id,
+                Title = topic.Title,
+                Body = topic.Body,
+                Created = topic.Created,
+                Replies = dataobject.GetRepliesByTopic(topicId).Select(x => new Reply
+                {
+                    Id = x.Id,
+                    Body = x.Body,
+                    Created = x.Created
+                }).OrderByDescending(x => x.Created)
+            };
+            return View(result);
         }
 
     }
