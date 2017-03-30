@@ -224,6 +224,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\css\metisMenu.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\404.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\loading-bar.gif" />
     <Content Include="Content\images\sort_asc.png" />
@@ -244,6 +245,7 @@
     <Content Include="Content\less\variables.min.css">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
+    <Content Include="Error.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
