@@ -10,7 +10,7 @@
     @Styles.Render("~/Content/css")
     @RenderSection("Styles", false)
 </head>
-<body>
+<body ng-app="myApp" >
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -251,6 +251,9 @@
                             <!-- /input-group -->
                         </li>
                         <li>
+                            @Html.ActionLink("Tables (Angulajs)", "AngularTable")
+                        </li>
+                        <li>
                             @Html.ActionLink("Forum (MVC)", "Forum")
                         </li>
                         <li>
@@ -329,6 +332,7 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/main")
 </body>

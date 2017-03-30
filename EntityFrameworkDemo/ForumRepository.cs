@@ -82,5 +82,20 @@ namespace EntityFrameworkDemo
                 throw ex;
             }
         }
+
+        public IEnumerable<User> GetUsers()
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    return context.Users.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace Dashboard.Controllers
         public ActionResult Dashboard() => View();
 
         public ActionResult Table() => View();
+        public ActionResult AngularTable() => View();
 
         public ActionResult Flot() => View();
         public ActionResult Morris() => View();

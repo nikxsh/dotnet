@@ -50,9 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EFDemoMigrations\201703260929028_EFDemoMigrations.cs" />
-    <Compile Include="EFDemoMigrations\201703260929028_EFDemoMigrations.Designer.cs">
-      <DependentUpon>201703260929028_EFDemoMigrations.cs</DependentUpon>
+    <Compile Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.cs" />
+    <Compile Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.Designer.cs">
+      <DependentUpon>201703301011225_EFDemoIntialMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="EFDemoMigrations\Configuration.cs" />
     <Compile Include="ForumContext.cs" />
@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply.cs" />
     <Compile Include="Topic.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,8 +71,8 @@
     <Content Include="Commonds.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EFDemoMigrations\201703260929028_EFDemoMigrations.resx">
-      <DependentUpon>201703260929028_EFDemoMigrations.cs</DependentUpon>
+    <EmbeddedResource Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.resx">
+      <DependentUpon>201703301011225_EFDemoIntialMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
