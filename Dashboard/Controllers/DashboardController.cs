@@ -6,7 +6,7 @@ using System.Web.Http;
 
 namespace Dashboard.Controllers
 {
-    [RoutePrefix("api/Dhashboard")]
+    [RoutePrefix("api/dashboard")]
     public class DashboardController : ApiController
     {
         private EntityFrameworkDemo.IForumRepository _forumRepository;
@@ -30,7 +30,7 @@ namespace Dashboard.Controllers
             return replies;
         }
 
-        [Route("topics/Send")]
+        [Route("topics/send")]
         [HttpPost]
         public IHttpActionResult SubmitTopic(Topic topic)
         {
@@ -44,6 +44,22 @@ namespace Dashboard.Controllers
         {
             var users = _forumRepository.GetUsers();
             return Ok(users);
+        }
+
+        [Route("saveuser")]
+        [HttpPost]
+        public IHttpActionResult SaveNewUser([FromBody]User user)
+        {
+            _forumRepository.SaveUser(new EntityFrameworkDemo.User
+            {
+                Id = Guid.NewGuid(),
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Dob = user.Dob
+            });
+            return Ok("Success");
         }
     }
 }

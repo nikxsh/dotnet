@@ -97,5 +97,21 @@ namespace EntityFrameworkDemo
                 throw ex;
             }
         }
+
+        public void SaveUser(User user)
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

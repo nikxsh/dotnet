@@ -10,7 +10,7 @@ namespace Dashboard
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             // Web API configuration and services
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();

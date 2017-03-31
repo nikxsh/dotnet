@@ -6,10 +6,6 @@ module.config(function ($routeProvider) {
             templateUrl: '/Templates/Users.html',
             controller: 'userController'
         })
-        .when('/users', {
-            templateUrl: '/Templates/Users.html',
-            controller: 'userController'
-        })
         .otherwise({
             redirectTo: '/'
         });
@@ -21,19 +17,74 @@ module.config(function ($routeProvider) {
 //    $locationProvider.hashPrefix('');
 //}]);
 
-module.controller('userController', function ($scope, $http) {
-    $scope.count = 0;
+module.controller('userController', ["$scope", "$http", "$window", "userDataService", function ($scope, $http, $window, userDataService) {
     $scope.Name = "Users";
-    $scope.data = [];
+    $scope.data = userDataService;
+    $scope.newUser = {};
 
-    $http.get("/api/Dhashboard/users")
+    userDataService.GetUsers()
     .then(function (result) {
         //Succes
-        angular.copy(result.data, $scope.data);
-        $scope.count = result.data.length;
     },
     function () {
         //error
-        alert("Error Occured")
     });
+
+    $scope.save = function () {        
+        userDataService.AddUser($scope.newUser)
+            .then(function (result) {
+                //Succes
+                $window.location.href = "/";
+            },
+            function () {
+                //error
+            });
+    };
+
+    $scope.resetForm = function (form) {
+        angular.copy({}, form);
+    }
+}]);
+
+module.factory("userDataService", function ($http,$q) {
+
+    var _users = [];
+    var _getUsers = function () {
+
+        var deferred = $q.defer();
+
+        $http.get("/api/dashboard/users")
+        .then(function (result) {
+            //Succes
+            angular.copy(result.data, _users);
+            deferred.resolve();
+        },
+        function () {
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    };
+
+
+    var _addUser = function (newUser) {
+        var deferred = $q.defer();
+
+        $http.post("api/dashboard/saveuser", newUser)
+        .then(function (result) {
+            //success
+            var createdTopic = result.data;
+            deferred.resolve(createdTopic);
+        },
+        function () {
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    }
+    return {
+        Users: _users,
+        GetUsers: _getUsers,
+        AddUser: _addUser
+    };
 });
