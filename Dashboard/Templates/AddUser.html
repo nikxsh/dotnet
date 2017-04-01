@@ -1,34 +1,36 @@
-﻿<div class="modal-content">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add New User</h4>
-    </div>
-    <form role="form" novalidate>
-        <div class="modal-body">
-            <div class="form-group">
-                <label>User Name</label>
-                <input class="form-control" id="userName" name="username" placeholder="nik90" ng-model="newUser.UserName">
-            </div>
-            <div class="form-group">
-                <label>First Name</label>
-                <input class="form-control" id="fname" placeholder="ajay" ng-model="newUser.FirstName">
-            </div>
-            <div class="form-group">
-                <label>Last Name</label>
-                <input class="form-control" id="lname" placeholder="sinha" ng-model="newUser.LastName">
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input class="form-control" id="lname" placeholder="abc@gmail.com" ng-model="newUser.Email">
-            </div>
-            <div class="form-group">
-                <label>Date of Birth</label>
-                <input class="form-control" id="dob" placeholder="mm/dd/yyyy" ng-model="newUser.Dob">
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" name="saveform" id="Save" />
-        </div>
-    </form>
+﻿
+<div class="modal-header" id="modal-header">
+    <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Add New User</h4>
 </div>
+<form role="form" name="addUserForm" ng-submit="$ctrl.ok()" data-toggle="validator">
+    <div class="modal-body" id="modal-body">
+        <div class="form-group">
+            <label>User Name</label>
+            <input class="form-control" id="userName" name="username" placeholder="nik90" ng-model="newUser.UserName" required>
+        </div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control" id="fname" placeholder="ajay" ng-model="newUser.FirstName" required>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input class="form-control" id="lname" placeholder="sinha" ng-model="newUser.LastName" required>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" id="lname" placeholder="abc@gmail.com" type="email" data-error="Bruh, that email address is invalid" ng-model="newUser.Email" required>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input class="form-control" id="dob" placeholder="mm/dd/yyyy" ng-model="newUser.Dob" type="date" required>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" class="btn btn-primary" value="Add" />
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.Reset(newUser)">Reset</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+</form>
+

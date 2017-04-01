@@ -1,10 +1,10 @@
-﻿var module = angular.module('myApp', ['ngRoute']);
+﻿var module = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 
 module.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: '/Templates/Users.html',
-            controller: 'userController'
+            controller: 'UserController'
         })
         .otherwise({
             redirectTo: '/'
@@ -17,12 +17,12 @@ module.config(function ($routeProvider) {
 //    $locationProvider.hashPrefix('');
 //}]);
 
-module.controller('userController', ["$scope", "$http", "$window", "userDataService", function ($scope, $http, $window, userDataService) {
+module.controller('UserController', ["$scope", "$http", "$window", "UserDataService", function ($scope, $http, $window, UserDataService) {
     $scope.Name = "Users";
-    $scope.data = userDataService;
-    $scope.newUser = {};
+    $scope.data = UserDataService;
 
-    userDataService.GetUsers()
+
+    UserDataService.GetUsers()
     .then(function (result) {
         //Succes
     },
@@ -30,23 +30,72 @@ module.controller('userController', ["$scope", "$http", "$window", "userDataServ
         //error
     });
 
-    $scope.save = function () {        
-        userDataService.AddUser($scope.newUser)
-            .then(function (result) {
-                //Succes
-                $window.location.href = "/";
-            },
-            function () {
-                //error
-            });
-    };
+    $scope.$on("updateList", function (e, a) {
 
-    $scope.resetForm = function (form) {
-        angular.copy({}, form);
+        $scope.data = a;
+
+    });
+
+}]);
+
+module.controller('ModalController', ["$uibModal", "$document", function ($uibModal, $document) {
+
+    var $ctrl = this;
+
+    $ctrl.animationsEnabled = true;
+
+    $ctrl.open = function (size, parentSelector) {
+        
+        var modalInstance = $uibModal.open({
+            animation: $ctrl.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: '/Templates/AddUser.html',
+            controller: 'ModalInstanceController',
+            controllerAs: '$ctrl',
+            size: size,
+            resolve: {}
+        });
+
+        modalInstance.result.then(function (status) {
+            //ok from modal
+        }, function () {
+            //cancel from modal
+        });
     }
 }]);
 
-module.factory("userDataService", function ($http,$q) {
+module.controller('ModalInstanceController', function ($uibModalInstance, $scope, UserDataService) {
+    var $ctrl = this;
+    var result = UserDataService;
+    $scope.newUser = {};
+
+    $ctrl.ok = function () {
+        UserDataService.AddUser($scope.newUser)
+            .then(function (result) {
+                //Success
+                $uibModalInstance.close("Done");
+                //Update Grid
+                UserDataService.GetUsers();
+                $rootScope.$broadcast('updateList', { data: result });
+            },
+            function () {
+                //error
+                $uibModalInstance.close("Error");
+            });
+    };
+
+    $ctrl.Reset = function (form) {
+        angular.copy({}, form);
+    }
+
+    $ctrl.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+});
+
+
+module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
 
     var _users = [];
     var _getUsers = function () {
@@ -87,4 +136,4 @@ module.factory("userDataService", function ($http,$q) {
         GetUsers: _getUsers,
         AddUser: _addUser
     };
-});
+}]);

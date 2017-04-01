@@ -1,130 +1,76 @@
-﻿
-<div id="page-wrapper" ng-controller="userController">
-
-    <div class="row">
-        <h1></h1>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {{ Name }}
+﻿<div class="row" ng-controller="UserController">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ Name }}
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="col-sm-5">
+                    <div class="dataTables_length" id="dataTables-example_length">
+                        <label>
+                            Show <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
+                                <option value="random">{{ data.Users.length }}</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> entries
+                        </label>
+                    </div>
                 </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div class="col-sm-5">
-                        <div class="dataTables_length" id="dataTables-example_length">
-                            <label>
-                                Show <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
-                                    <option value="random">{{ data.Users.length }}</option>
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select> entries
-                            </label>
-                        </div>
+                <div class="col-sm-6">
+                    <div id="dataTables-example_filter" class="dataTables_filter">
+                        <label>
+                            Search:
+                            <input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example">
+                        </label>
                     </div>
-                    <div class="col-sm-6">
-                        <div id="dataTables-example_filter" class="dataTables_filter">
-                            <label>
-                                Search:
-                                <input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example">
-                            </label>
-                        </div>
-                    </div>
-                    <br />
-                    <br />
-                    <div>
-                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                            <thead>
-                                <tr>
-                                    <th>User Name</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Date of Birth</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="item in data.Users">
-                                    <td>{{ item.userName }}</td>
-                                    <td>{{ item.firstName }}</td>
-                                    <td>{{ item.lastName }}</td>
-                                    <td>{{ item.email }}</td>
-                                    <td>{{ item.dob | date:"mediumDate" }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-lg-1">
-                        <button type="button" class="btn btn-default" id="AddUserButton" data-toggle="modal" data-target="#myModal">
+                </div>
+                <br />
+                <br />
+                <div>
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Date of Birth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in data.Users">
+                                <td>{{ item.userName }}</td>
+                                <td>{{ item.firstName }}</td>
+                                <td>{{ item.lastName }}</td>
+                                <td>{{ item.email }}</td>
+                                <td>{{ item.dob | date:"mediumDate" }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-1" ng-controller="ModalController as $ctrl">
+                    <div class="modal-demo">
+                        <button type="button" class="btn btn-default" id="AddUserButton" ng-click="$ctrl.open()">
                             Add User
                         </button>
                     </div>
-                    <div class="dataTables_paginate paging_simple_numbers col-lg-11" id="dataTables-example_paginate">
-                        <ul class="pagination">
-                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li>
-                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li>
-                            <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">2</a></li>
-                            <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">3</a></li>
-                            <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">4</a></li>
-                            <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">5</a></li>
-                            <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">6</a></li>
-                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li>
-                        </ul>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel-body">
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="myModalLabel">Add New User</h4>
-                            </div>
-                            <form role="form" name="addUserForm" ng-submit="save()" data-toggle="validator">
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label>User Name</label>
-                                        <input class="form-control" id="userName" name="username" placeholder="nik90" ng-model="newUser.UserName" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input class="form-control" id="fname" placeholder="ajay" ng-model="newUser.FirstName" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input class="form-control" id="lname" placeholder="sinha" ng-model="newUser.LastName" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input class="form-control" id="lname" placeholder="abc@gmail.com" type="email" data-error="Bruh, that email address is invalid" ng-model="newUser.Email" required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Date of Birth</label>
-                                        <input class="form-control" id="dob" placeholder="mm/dd/yyyy" ng-model="newUser.Dob" type="date" required>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="submit" class="btn btn-primary" name="saveform" id="submitForm"/>
-                                    <button type="button" class="btn btn-default" ng-click="resetForm(newUser)">Reset</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                <div class="dataTables_paginate paging_simple_numbers col-lg-11" id="dataTables-example_paginate">
+                    <ul class="pagination">
+                        <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li>
+                        <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li>
+                        <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">2</a></li>
+                        <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">3</a></li>
+                        <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">4</a></li>
+                        <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">5</a></li>
+                        <li class="paginate_button" aria-controls="dataTables-example" tabindex="0"><a href="#">6</a></li>
+                        <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
