@@ -102,7 +102,7 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
 
         var deferred = $q.defer();
 
-        $http.get("/api/dashboard/users")
+        $http.get("http://localhost:5658/api/users")
         .then(function (result) {
             //Succes
             angular.copy(result.data, _users);
@@ -119,7 +119,7 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
     var _addUser = function (newUser) {
         var deferred = $q.defer();
 
-        $http.post("api/dashboard/saveuser", newUser)
+        $http.post("http://localhost:5658/api/users/add", newUser)
         .then(function (result) {
             //success
             var createdTopic = result.data;
@@ -137,3 +137,4 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
         AddUser: _addUser
     };
 }]);
+

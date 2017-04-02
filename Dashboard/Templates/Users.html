@@ -6,7 +6,7 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <div class="dataTables_length" id="dataTables-example_length">
                         <label>
                             Show <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
@@ -20,10 +20,10 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div id="dataTables-example_filter" class="dataTables_filter">
+                    <div id="dataTables-example_filter" class="dataTables_filter col-lg-11">
                         <label>
                             Search:
-                            <input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example">
+                            <input type="search" class="form-control input-sm" placeholder="Table Search" aria-controls="dataTables-example">
                         </label>
                     </div>
                 </div>
@@ -38,6 +38,7 @@
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Date of Birth</th>
+                                <th width="20"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +48,19 @@
                                 <td>{{ item.lastName }}</td>
                                 <td>{{ item.email }}</td>
                                 <td>{{ item.dob | date:"mediumDate" }}</td>
+                                <td>
+                                    <div class="btn-group-xs" uib-dropdown keyboard-nav dropdown-append-to="appendToEl"  ng-controller="ModalController as $ctrl">
+                                        <button id="btn-append-to" type="button" class="btn btn-facebook" uib-dropdown-toggle>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to">
+                                            <li role="menuitem"><a ng-click="$ctrl.open()">Edit</a></li>
+                                            <li role="menuitem"><a ng-click="$ctrl.open()">Remove</a></li>
+                                            <li class="divider"></li>
+                                            <li role="menuitem"><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

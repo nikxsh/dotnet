@@ -1,6 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Dashboard.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Dashboard.App_Start.NinjectWebCommon), "Stop")]
-namespace Dashboard.App_Start
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebApiServices.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WebApiServices.App_Start.NinjectWebCommon), "Stop")]
+
+namespace WebApiServices.App_Start
 {
     using System;
     using System.Web;
