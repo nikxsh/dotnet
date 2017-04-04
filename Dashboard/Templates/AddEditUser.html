@@ -1,9 +1,9 @@
 ﻿
 <div class="modal-header" id="modal-header">
     <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
-    <h4 class="modal-title" id="myModalLabel">Add New User</h4>
+    <h4 class="modal-title" id="myModalLabel">{{ title }} User</h4>
 </div>
-<form role="form" name="addUserForm" ng-submit="$ctrl.ok()" data-toggle="validator">
+<form role="form" name="addUserForm" ng-submit="$ctrl.ok(isNew)" data-toggle="validator">
     <div class="modal-body" id="modal-body">
         <div class="form-group">
             <label>User Name</label>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <input type="submit" class="btn btn-primary" value="Add" />
+        <input type="submit" class="btn btn-primary" value="Save" />
         <button type="button" class="btn btn-danger" ng-click="$ctrl.Reset(user)">Reset</button>
         <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
     </div>

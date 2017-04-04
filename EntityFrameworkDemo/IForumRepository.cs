@@ -14,5 +14,7 @@ namespace EntityFrameworkDemo
         void SubmitTopic(Topic Topic);
         void SubmitReply(Reply Reply);
         void SaveUser(User user);
+        void EditUser(User user);
+        void DeleteUser(Guid userId);
     }
 }

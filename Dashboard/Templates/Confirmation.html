@@ -1,0 +1,13 @@
+﻿
+<div class="modal-header" id="modal-header">
+    <button type="button" class="close" ng-click="$ctrl.cancel()" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Delete User?</h4>
+</div>
+<div class="modal-body" id="modal-body">
+    Are you sure you want to delete <b>{{ UserName }}</b>?
+</div>
+<div class="modal-footer">
+    <input type="submit" class="btn btn-warning " ng-click="$ctrl.Delete(UserIdToDelete)" value="Yes Please!" />
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.cancel()">OMG! No!</button>
+</div>
+

@@ -38,7 +38,7 @@ module.controller('UserController', ["$scope", "$http", "$window", "UserDataServ
 
 }]);
 
-module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserDataService", function ($scope,$uibModal, $document, UserDataService) {
+module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserDataService", function ($scope, $uibModal, $document, UserDataService) {
 
     var $ctrl = this;
     $ctrl.animationsEnabled = true;
@@ -46,18 +46,24 @@ module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserD
 
     $ctrl.openAddUserModal = function () {
 
+        $scope.isNew = true;
+        $scope.title = 'Add';
+
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
-            templateUrl: '/Templates/AddUser.html',
+            templateUrl: '/Templates/AddEditUser.html',
             controller: 'ModalInstanceController',
             controllerAs: '$ctrl',
+            scope: $scope,
             resolve: {}
         });
 
         modalInstance.result.then(function (status) {
             //ok from modal
+            //alert("ok");
         }, function () {
             //cancel from modal
+            //alert("dismiss");
         });
     }
 
@@ -68,6 +74,12 @@ module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserD
             //Succes
             $scope.user = result.data;
             $scope.user.dob = new Date($scope.user.dob);
+
+            $scope.tempUser = result.data;
+            $scope.tempUser.dob = new Date($scope.user.dob);
+
+            $scope.isNew = false;
+            $scope.title = 'Edit';
         },
         function () {
             //error
@@ -75,7 +87,7 @@ module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserD
 
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
-            templateUrl: '/Templates/AddUser.html',
+            templateUrl: '/Templates/AddEditUser.html',
             controller: 'ModalInstanceController',
             controllerAs: '$ctrl',
             scope: $scope,
@@ -86,7 +98,31 @@ module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserD
             }
         });
 
-        modalInstance.result.then(function (response) {           
+        modalInstance.result.then(function (response) {
+            //ok from modal
+            //alert("ok");
+        }, function () {
+            //cancel from modal
+            //alert("dismiss");
+        });
+    }
+
+
+    $ctrl.openDeleteUserModal = function (userId, userName) {
+
+        $scope.UserIdToDelete = userId;
+        $scope.UserName = userName;
+
+        var modalInstance = $uibModal.open({
+            animation: $ctrl.animationsEnabled,
+            templateUrl: '/Templates/Confirmation.html',
+            controller: 'ModalInstanceController',
+            controllerAs: '$ctrl',
+            scope: $scope,
+            resolve: {}
+        });
+
+        modalInstance.result.then(function (response) {
             //ok from modal
         }, function () {
             //cancel from modal
@@ -98,9 +134,45 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
     var $ctrl = this;
     var result = UserDataService;
 
-    $ctrl.ok = function () {
+    $ctrl.ok = function (isNewUser) {
 
-        UserDataService.AddUser($scope.user)
+        if (isNewUser) {
+
+            UserDataService.AddUser($scope.user)
+                .then(function (result) {
+                    //Success
+                    $uibModalInstance.close("Done");
+                    //Update Grid
+                    UserDataService.GetUsers();
+                    $rootScope.$broadcast('updateList', { data: result });
+                },
+                function () {
+                    //error
+                    $uibModalInstance.close("Error");
+                });
+        }
+        else if (!isNewUser) {
+
+            UserDataService.EditUser($scope.user)
+                .then(function (result) {
+                    //Success
+                    $uibModalInstance.close("Done");
+                    //Update Grid
+                    UserDataService.GetUsers();
+                    $rootScope.$broadcast('updateList', { data: result });
+                },
+                function () {
+                    //error
+                    $uibModalInstance.close("Error");
+                });
+
+
+        }
+    };
+
+    $ctrl.Delete = function (id) {
+
+        UserDataService.DeleteUser(id)
             .then(function (result) {
                 //Success
                 $uibModalInstance.close("Done");
@@ -112,7 +184,8 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
                 //error
                 $uibModalInstance.close("Error");
             });
-    };
+
+    }
 
     $ctrl.Reset = function (form) {
         angular.copy({}, form);
@@ -168,8 +241,22 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
         $http.post("http://localhost:5658/api/users/add", newUser)
         .then(function (result) {
             //success
-            var createdTopic = result.data;
-            deferred.resolve(createdTopic);
+            deferred.resolve();
+        },
+        function () {
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    };
+
+    var _editUser = function (user) {
+        var deferred = $q.defer();
+
+        $http.post("http://localhost:5658/api/users/edit", user)
+        .then(function (result) {
+            //success
+            deferred.resolve();
         },
         function () {
             deferred.reject();
@@ -177,12 +264,30 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
 
         return deferred.promise;
     }
+
+    var _deleteUser = function (userId) {
+        var deferred = $q.defer();
+
+        $http.post("http://localhost:5658/api/users/" + userId + "/delete")
+        .then(function (result) {
+            //success
+            deferred.resolve();
+        },
+        function () {
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    }
+
     return {
         Users: _users,
         User: _user,
         UserById: _getUserById,
         GetUsers: _getUsers,
-        AddUser: _addUser
+        AddUser: _addUser,
+        EditUser: _editUser,
+        DeleteUser: _deleteUser
     };
 }]);
 

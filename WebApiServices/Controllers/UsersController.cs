@@ -23,11 +23,11 @@ namespace WebApiServices.Controllers
             return Ok(users);
         }
 
-        [Route("{id:Guid}")]
+        [Route("{userId:Guid}")]
         [HttpGet]
-        public IHttpActionResult GetUserById(Guid id)
+        public IHttpActionResult GetUserById(Guid userId)
         {
-            var user = _forumRepository.GetUserById(id);
+            var user = _forumRepository.GetUserById(userId);
             var result = new User
             {
                 Id = user.Id,
@@ -53,6 +53,30 @@ namespace WebApiServices.Controllers
                 Email = user.Email,
                 Dob = DateTime.Parse(user.Dob)
             });
+            return Ok("Success");
+        }
+
+        [Route("edit")]
+        [HttpPost]
+        public IHttpActionResult Edit([FromBody]User user)
+        {
+            _forumRepository.EditUser(new EntityFrameworkDemo.User
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Dob = DateTime.Parse(user.Dob)
+            });
+            return Ok("Success");
+        }
+
+        [Route("{userId:Guid}/delete")]
+        [HttpPost]
+        public IHttpActionResult Delete(Guid userId)
+        {
+            _forumRepository.DeleteUser(userId);
             return Ok("Success");
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace EntityFrameworkDemo
@@ -121,6 +122,37 @@ namespace EntityFrameworkDemo
                 using (var context = new ForumContext())
                 {
                     return context.Users.Where(x => x.Id == Id).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EditUser(User user)
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    context.Users.AddOrUpdate(user);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteUser(Guid userId)
+        {  try
+            {
+                using (var context = new ForumContext())
+                {
+                    context.Users.Remove(context.Users.Where(x => x.Id == userId).FirstOrDefault());
+                    context.SaveChanges();
                 }
             }
             catch (Exception ex)
