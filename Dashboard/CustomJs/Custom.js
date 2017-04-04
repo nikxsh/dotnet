@@ -38,26 +38,55 @@ module.controller('UserController', ["$scope", "$http", "$window", "UserDataServ
 
 }]);
 
-module.controller('ModalController', ["$uibModal", "$document", function ($uibModal, $document) {
+module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserDataService", function ($scope,$uibModal, $document, UserDataService) {
 
     var $ctrl = this;
-
     $ctrl.animationsEnabled = true;
+    $scope.user = UserDataService;
 
-    $ctrl.open = function (size, parentSelector) {
-        
+    $ctrl.openAddUserModal = function () {
+
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
             templateUrl: '/Templates/AddUser.html',
             controller: 'ModalInstanceController',
             controllerAs: '$ctrl',
-            size: size,
             resolve: {}
         });
 
         modalInstance.result.then(function (status) {
+            //ok from modal
+        }, function () {
+            //cancel from modal
+        });
+    }
+
+    $ctrl.openEditUserModal = function (userId) {
+
+        UserDataService.UserById(userId)
+        .then(function (result) {
+            //Succes
+            $scope.user = result.data;
+            $scope.user.dob = new Date($scope.user.dob);
+        },
+        function () {
+            //error
+        });
+
+        var modalInstance = $uibModal.open({
+            animation: $ctrl.animationsEnabled,
+            templateUrl: '/Templates/AddUser.html',
+            controller: 'ModalInstanceController',
+            controllerAs: '$ctrl',
+            scope: $scope,
+            resolve: {
+                data: function () {
+                    return angular.copy($scope.user);
+                }
+            }
+        });
+
+        modalInstance.result.then(function (response) {           
             //ok from modal
         }, function () {
             //cancel from modal
@@ -68,10 +97,10 @@ module.controller('ModalController', ["$uibModal", "$document", function ($uibMo
 module.controller('ModalInstanceController', function ($uibModalInstance, $scope, UserDataService) {
     var $ctrl = this;
     var result = UserDataService;
-    $scope.newUser = {};
 
     $ctrl.ok = function () {
-        UserDataService.AddUser($scope.newUser)
+
+        UserDataService.AddUser($scope.user)
             .then(function (result) {
                 //Success
                 $uibModalInstance.close("Done");
@@ -98,6 +127,7 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
 module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
 
     var _users = [];
+    var _user = {};
     var _getUsers = function () {
 
         var deferred = $q.defer();
@@ -115,6 +145,22 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
         return deferred.promise;
     };
 
+    var _getUserById = function (id) {
+
+        var deferred = $q.defer();
+
+        $http.get("http://localhost:5658/api/users/" + id)
+        .then(function (result) {
+            //Succes
+            angular.copy(result.data, _user);
+            deferred.resolve(result);
+        },
+        function () {
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    };
 
     var _addUser = function (newUser) {
         var deferred = $q.defer();
@@ -133,6 +179,8 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
     }
     return {
         Users: _users,
+        User: _user,
+        UserById: _getUserById,
         GetUsers: _getUsers,
         AddUser: _addUser
     };

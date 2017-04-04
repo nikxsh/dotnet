@@ -54,8 +54,8 @@
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu pull-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to">
-                                            <li role="menuitem"><a ng-click="$ctrl.open()">Edit</a></li>
-                                            <li role="menuitem"><a ng-click="$ctrl.open()">Remove</a></li>
+                                            <li role="menuitem"><a ng-click="$ctrl.openEditUserModal(item.id)">Edit</a></li>
+                                            <li role="menuitem"><a>Remove</a></li>
                                             <li class="divider"></li>
                                             <li role="menuitem"><a href="#">Separated link</a></li>
                                         </ul>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-lg-1" ng-controller="ModalController as $ctrl">
                     <div class="modal-demo">
-                        <button type="button" class="btn btn-default" id="AddUserButton" ng-click="$ctrl.open()">
+                        <button type="button" class="btn btn-default" id="AddUserButton" ng-click="$ctrl.openAddUserModal()">
                             Add User
                         </button>
                     </div>

@@ -113,5 +113,20 @@ namespace EntityFrameworkDemo
                 throw ex;
             }
         }
+
+        public User GetUserById(Guid Id)
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    return context.Users.Where(x => x.Id == Id).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

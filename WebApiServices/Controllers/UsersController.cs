@@ -23,6 +23,22 @@ namespace WebApiServices.Controllers
             return Ok(users);
         }
 
+        [Route("{id:Guid}")]
+        [HttpGet]
+        public IHttpActionResult GetUserById(Guid id)
+        {
+            var user = _forumRepository.GetUserById(id);
+            var result = new User
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Dob = user.Dob.ToString("MM/dd/yyyy")
+            };
+            return Ok(result);
+        }
 
         [Route("add")]
         [HttpPost]
@@ -35,7 +51,7 @@ namespace WebApiServices.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                Dob = user.Dob
+                Dob = DateTime.Parse(user.Dob)
             });
             return Ok("Success");
         }
