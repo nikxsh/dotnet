@@ -143,7 +143,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityFrameworkDemo\EFDataStorage.csproj">
+    <ProjectReference Include="..\EFDataStorage\EFDataStorage.csproj">
       <Project>{5cdc4aed-ff01-421f-9660-689513aaeb72}</Project>
       <Name>EFDataStorage</Name>
     </ProjectReference>
