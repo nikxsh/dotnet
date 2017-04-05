@@ -7,8 +7,8 @@
     <ProjectGuid>{5CDC4AED-FF01-421F-9660-689513AAEB72}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EntityFrameworkDemo</RootNamespace>
-    <AssemblyName>EntityFrameworkDemo</AssemblyName>
+    <RootNamespace>EFDataStorage</RootNamespace>
+    <AssemblyName>EFDataStorage</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -50,18 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.cs" />
     <Compile Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.Designer.cs">
       <DependentUpon>201703301011225_EFDemoIntialMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="EFDemoMigrations\Configuration.cs" />
     <Compile Include="ForumContext.cs" />
-    <Compile Include="ForumRepository.cs" />
-    <Compile Include="IForumRepository.cs" />
+    <Compile Include="Repositories\ForumRepository.cs" />
+    <Compile Include="Contracts\IForumRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reply.cs" />
-    <Compile Include="Topic.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Entities\Reply.cs" />
+    <Compile Include="Entities\Topic.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

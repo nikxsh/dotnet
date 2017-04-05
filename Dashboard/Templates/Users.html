@@ -24,7 +24,7 @@
                     <div id="dataTables-example_filter" class="dataTables_filter col-lg-11">
                         <label>
                             Search:
-                            <input type="search" class="form-control input-sm" placeholder="Table Search" aria-controls="dataTables-example"  ng-model="keyword">
+                            <input type="search" class="form-control input-sm" placeholder="Table Search" aria-controls="dataTables-example"  ng-model="keyword" ng-change="search()">
                             <span class="input-group-sm">
                                 <button class="btn btn-sm" type="button" ng-click="search()">
                                     <i class="fa fa-search"></i>

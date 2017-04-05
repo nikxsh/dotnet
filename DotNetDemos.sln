@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard", "Dashboard\Dash
 		{5D9E5A95-4008-4625-A51B-42359DF90250} = {5D9E5A95-4008-4625-A51B-42359DF90250}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkDemo", "EntityFrameworkDemo\EntityFrameworkDemo.csproj", "{5CDC4AED-FF01-421F-9660-689513AAEB72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDataStorage", "EntityFrameworkDemo\EFDataStorage.csproj", "{5CDC4AED-FF01-421F-9660-689513AAEB72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiServices", "WebApiServices\WebApiServices.csproj", "{5D9E5A95-4008-4625-A51B-42359DF90250}"
 EndProject

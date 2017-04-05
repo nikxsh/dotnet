@@ -1,104 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Linq;
+using EFDataStorage.Contracts;
+using System.Data.Entity.Migrations;
+using EFDataStorage.Entities;
 
-namespace EntityFrameworkDemo
+namespace EFDataStorage.Repositories
 {
-    public class ForumRepository : IForumRepository
+    public class UserRepository : IUserRepository
     {
-        public IEnumerable<Reply> GetRepliesByTopic(Guid Id)
-        {
-            try
-            {
-                using (var context = new ForumContext())
-                {
-                    return context.Reply.Where(x => x.TopicId == Id).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public IEnumerable<Topic> GetTopics()
-        {
-            try
-            {
-                using (var context = new ForumContext())
-                {
-                    return context.Topics.OrderByDescending(y => y.Created).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public Topic GetTopicById(Guid TopicId)
-        {
-            try
-            {
-                using (var context = new ForumContext())
-                {
-                    return context.Topics.FirstOrDefault(x => x.Id == TopicId);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void SubmitReply(Reply Reply)
-        {
-            try
-            {
-                using (var context = new ForumContext())
-                {
-                    context.Reply.Add(Reply);
-                    context.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void SubmitTopic(Topic Topic)
-        {
-            try
-            {
-                using (var context = new ForumContext())
-                {
-                    context.Topics.Add(Topic);
-                    context.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public IEnumerable<User> GetUsers(int PageSize, int PageNumber, string keyword)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    var records =  context.Users.OrderBy(x => x.UserName).Take(PageSize * PageNumber).Skip(PageSize * (PageNumber - 1)).ToList();
+                    var records = from user in context.Users
+                                  select user;
+
                     if (!string.IsNullOrEmpty(keyword))
                         records = records.Where(x => x.UserName.Contains(keyword) ||
                                                    x.FirstName.Contains(keyword) ||
                                                    x.LastName.Contains(keyword) ||
                                                    x.Email.Contains(keyword) ||
-                                                   x.Dob.ToString().Contains(keyword))
-                                  .ToList();
-                    return records;
+                                                   x.Dob.ToString().Contains(keyword));
+
+                    return records.OrderBy(x => x.UserName).Take(PageSize * PageNumber).Skip(PageSize * (PageNumber - 1)).ToList();
                 }
             }
             catch (Exception ex)
@@ -107,17 +34,17 @@ namespace EntityFrameworkDemo
             }
         }
 
-        public IEnumerable<KeyValuePair<Guid,string>> GlobalSearch(string keyword)
+        public IEnumerable<KeyValuePair<Guid, string>> GlobalSearch(string keyword)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    var usersearch =  context.Users.Where(x => x.UserName.Contains(keyword) || 
-                                                    x.FirstName.Contains(keyword) || 
-                                                    x.LastName.Contains(keyword) || 
-                                                    x.Email.Contains(keyword) || 
-                                                    x.Dob.ToString().Contains(keyword))
+                    var usersearch = context.Users.Where(x => x.UserName.Contains(keyword) ||
+                                                   x.FirstName.Contains(keyword) ||
+                                                   x.LastName.Contains(keyword) ||
+                                                   x.Email.Contains(keyword) ||
+                                                   x.Dob.ToString().Contains(keyword))
                                              .ToList();
 
                     var result = usersearch.Select(y => new KeyValuePair<Guid, string>(y.Id, y.UserName));
@@ -194,7 +121,8 @@ namespace EntityFrameworkDemo
         }
 
         public void DeleteUser(Guid UserId)
-        {  try
+        {
+            try
             {
                 using (var context = new ForumContext())
                 {

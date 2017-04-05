@@ -1,7 +1,8 @@
-﻿using System.Data.Entity;
+﻿using EFDataStorage.Entities;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace EntityFrameworkDemo
+namespace EFDataStorage
 {
     class ForumContext : DbContext
     {

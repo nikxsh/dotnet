@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EntityFrameworkDemo
+namespace EFDataStorage.Entities
 {
     public class Topic
     {

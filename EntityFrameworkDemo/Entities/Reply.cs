@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EntityFrameworkDemo
+namespace EFDataStorage.Entities
 {
     public class Reply
     {

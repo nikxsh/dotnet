@@ -9,17 +9,17 @@ namespace WebApiServices.Controllers
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
-        private EntityFrameworkDemo.IForumRepository _forumRepository;
-        public UsersController(EntityFrameworkDemo.IForumRepository forumRepository)
+        private EFDataStorage.Contracts.IUserRepository _userRepository;
+        public UsersController(EFDataStorage.Contracts.IUserRepository userRepository)
         {
-            _forumRepository = forumRepository;
+            _userRepository = userRepository;
         }
 
         [Route("")]
         [HttpPost]
         public IHttpActionResult GetUsers([FromBody]PagingRequest pagingRequest)
         {
-            var result = _forumRepository.GetUsers(pagingRequest.PageSize, pagingRequest.PageNumber, pagingRequest.SearchString);
+            var result = _userRepository.GetUsers(pagingRequest.PageSize, pagingRequest.PageNumber, pagingRequest.SearchString);
             return Ok(result);
         }
 
@@ -27,7 +27,7 @@ namespace WebApiServices.Controllers
         [HttpGet]
         public IHttpActionResult GetUserMetaData(string keyword)
         {
-            var result = _forumRepository.GlobalSearch(keyword);
+            var result = _userRepository.GlobalSearch(keyword);
             return Ok(result);
         }
 
@@ -35,7 +35,7 @@ namespace WebApiServices.Controllers
         [HttpGet]
         public IHttpActionResult GetUserCount()
         {
-            var userCount = _forumRepository.GetUserCount();
+            var userCount = _userRepository.GetUserCount();
             return Ok(userCount);
         }
 
@@ -43,7 +43,7 @@ namespace WebApiServices.Controllers
         [HttpGet]
         public IHttpActionResult GetUserById(Guid userId)
         {
-            var user = _forumRepository.GetUserById(userId);
+            var user = _userRepository.GetUserById(userId);
             var result = new User
             {
                 Id = user.Id,
@@ -60,7 +60,7 @@ namespace WebApiServices.Controllers
         [HttpPost]
         public IHttpActionResult Save([FromBody]User user)
         {
-            _forumRepository.SaveUser(new EntityFrameworkDemo.User
+            _userRepository.SaveUser(new EFDataStorage.Entities.User
             {
                 Id = Guid.NewGuid(),
                 UserName = user.UserName,
@@ -76,7 +76,7 @@ namespace WebApiServices.Controllers
         [HttpPost]
         public IHttpActionResult Edit([FromBody]User user)
         {
-            _forumRepository.EditUser(new EntityFrameworkDemo.User
+            _userRepository.EditUser(new EFDataStorage.Entities.User
             {
                 Id = user.Id,
                 UserName = user.UserName,
@@ -92,7 +92,7 @@ namespace WebApiServices.Controllers
         [HttpPost]
         public IHttpActionResult Delete(Guid userId)
         {
-            _forumRepository.DeleteUser(userId);
+            _userRepository.DeleteUser(userId);
             return Ok("Success");
         }
     }

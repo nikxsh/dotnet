@@ -41,8 +41,8 @@ namespace Dashboard.Controllers
                 return View();
             }
 
-            var dataobject = new EntityFrameworkDemo.ForumRepository();
-            dataobject.SubmitTopic(new EntityFrameworkDemo.Topic
+            var dataobject = new EFDataStorage.Repositories.ForumRepository();
+            dataobject.SubmitTopic(new EFDataStorage.Entities.Topic
             {
                 Id = Guid.NewGuid(),
                 Title = topic.Title,
@@ -69,21 +69,21 @@ namespace Dashboard.Controllers
                 return View(reply);
             }
 
-            var dataobject = new EntityFrameworkDemo.ForumRepository();
-            dataobject.SubmitReply(new EntityFrameworkDemo.Reply { Id = Guid.NewGuid(), Body = reply.Body, Created = DateTime.Now, TopicId = reply.TopicId });
+            var dataobject = new EFDataStorage.Repositories.ForumRepository();
+            dataobject.SubmitReply(new EFDataStorage.Entities.Reply { Id = Guid.NewGuid(), Body = reply.Body, Created = DateTime.Now, TopicId = reply.TopicId });
             return RedirectToActionPermanent("GetTopics", new { topicId = reply.TopicId });
         }
 
         public ActionResult GetTopicsHeader()
         {
-            var dataobject = new EntityFrameworkDemo.ForumRepository();
+            var dataobject = new EFDataStorage.Repositories.ForumRepository();
             var topic = dataobject.GetTopics().Select(x => new Topic { Id = x.Id, Title = x.Title });
             return PartialView(topic);
         }
 
         public ActionResult GetTopics(Guid topicId)
         {
-            var dataobject = new EntityFrameworkDemo.ForumRepository();
+            var dataobject = new EFDataStorage.Repositories.ForumRepository();
             var topic = dataobject.GetTopicById(topicId);
             var result = new Topic
             {

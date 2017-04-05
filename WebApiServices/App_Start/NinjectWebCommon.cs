@@ -67,7 +67,8 @@ namespace WebApiServices.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<EntityFrameworkDemo.IForumRepository>().To<EntityFrameworkDemo.ForumRepository>();
+            kernel.Bind<EFDataStorage.Contracts.IForumRepository>().To<EFDataStorage.Repositories.ForumRepository>();
+            kernel.Bind<EFDataStorage.Contracts.IUserRepository>().To<EFDataStorage.Repositories.UserRepository>();
         }        
     }
 }

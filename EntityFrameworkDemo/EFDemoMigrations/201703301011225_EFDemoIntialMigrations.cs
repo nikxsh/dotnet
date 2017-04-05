@@ -1,4 +1,4 @@
-namespace EntityFrameworkDemo.EFDemoMigrations
+namespace EFDataStorage.EFDemoMigrations
 {
     using System;
     using System.Data.Entity.Migrations;

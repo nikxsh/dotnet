@@ -1,11 +1,10 @@
-namespace EntityFrameworkDemo.EFDemoMigrations
+namespace EFDataStorage.EFDemoMigrations
 {
+    using Entities;
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EntityFrameworkDemo.ForumContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ForumContext>
     {
         public Configuration()
         {
@@ -13,7 +12,7 @@ namespace EntityFrameworkDemo.EFDemoMigrations
             MigrationsDirectory = @"EFDemoMigrations";
         }
 
-        protected override void Seed(EntityFrameworkDemo.ForumContext context)
+        protected override void Seed(ForumContext context)
         {
             context.Users.AddOrUpdate(
                             n => n.Id,

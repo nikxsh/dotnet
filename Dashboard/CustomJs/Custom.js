@@ -95,26 +95,56 @@ module.controller('UserController', ["$scope", "$rootScope", "$http", "$window",
     };
 
     $scope.search = function () {
-        $scope.pagingRequest.SearchString = $scope.keyword;
-        UserDataService.GetUsers($scope.pagingRequest)
-                .then(function (result) {
-                    //Succes
-                    $scope.data = result;
-                    if (result.length > 0)
-                        $scope.bigTotalItems = result.length;
-                    else
-                        UserDataService.UserCount()
-                                .then(function (data) {
-                                    //success
-                                    $scope.bigTotalItems = data;
-                                },
-                                function () {
-                                    //error
-                                });
-                },
-                function () {
-                    //error
-                });
+        if ($scope.keyword != '' && $scope.keyword != undefined) {
+
+            $scope.pagingRequest.SearchString = $scope.keyword;
+            UserDataService.GetUsers($scope.pagingRequest)
+                    .then(function (result) {
+                        //Succes
+                        if (result.length > 0) {
+                            $scope.bigTotalItems = result.length;
+                            $scope.data = result;
+                        }
+                        else {
+                            UserDataService.UserCount()
+                                    .then(function (data) {
+                                        //success
+                                        $scope.bigTotalItems = data;
+                                    },
+                                    function () {
+                                        //error
+                                    });
+
+                            $scope.data = {};
+                        }
+                    },
+                    function () {
+                        //error
+                    });
+        }
+        else 
+        {
+
+            $scope.pagingRequest.SearchString = '';
+
+            UserDataService.GetUsers($scope.pagingRequest)
+           .then(function (result) {
+               //Succes
+               $scope.data = result;
+           },
+           function () {
+               //error
+           });
+
+            UserDataService.UserCount()
+            .then(function (data) {
+                //success
+                $scope.bigTotalItems = data;
+            },
+            function () {
+                //error
+            });
+        }
     };
 
 }]);
@@ -249,8 +279,14 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
                     //Success
                     $uibModalInstance.close("Done");
                     //Update Grid
-                    UserDataService.GetUsers(pagingRequest);
-                    $rootScope.$broadcast('updateList', { data: result });
+                    UserDataService.GetUsers(pagingRequest)
+                        .then(function (result) {
+                            //Succes
+                            $rootScope.$broadcast('updateList', { data: result });
+                        },
+                        function () {
+                            //error
+                        });
                 },
                 function () {
                     //error
