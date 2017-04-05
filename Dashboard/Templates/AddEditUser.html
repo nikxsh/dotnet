@@ -19,17 +19,17 @@
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input class="form-control" id="lname" placeholder="abc@gmail.com" type="email" ng-model="user.email" required>
+            <input class="form-control" id="email" placeholder="abc@gmail.com" type="email" ng-model="user.email" required>
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
             <label>Date of Birth</label>
-            <input class="form-control" id="dob" placeholder="mm/dd/yyyy" ng-model="user.dob"   type="date" required>
+            <input class="form-control" id="dob" placeholder="mm/dd/yyyy" ng-model="user.dob" type="date" required>
         </div>
     </div>
     <div class="modal-footer">
         <input type="submit" class="btn btn-primary" value="Save" />
-        <button type="button" class="btn btn-danger" ng-click="$ctrl.Reset(user)">Reset</button>
+        <button type="button" class="btn btn-danger" ng-click="$ctrl.Reset(isNew)">Reset</button>
         <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
     </div>
 </form>

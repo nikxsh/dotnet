@@ -1,5 +1,9 @@
 ﻿var module = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 
+module.constant('Constants', {
+    itemsPerPage: 5
+});
+
 module.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
@@ -17,24 +21,101 @@ module.config(function ($routeProvider) {
 //    $locationProvider.hashPrefix('');
 //}]);
 
-module.controller('UserController', ["$scope", "$http", "$window", "UserDataService", function ($scope, $http, $window, UserDataService) {
+module.controller('UserController', ["$scope", "$rootScope", "$http", "$window", "UserDataService", "Constants", function ($scope, $rootScope, $http, $window, UserDataService, Constants) {
     $scope.Name = "Users";
-    $scope.data = UserDataService;
+    $scope.pagingRequest = { PageNumber: 1, PageSize: Constants.itemsPerPage, SearchString: '' };
+    $scope.maxSize = 10;
+    $scope.bigTotalItems = 0;
+    $scope.bigCurrentPage = 1;
+    $scope.itemsPerPage = Constants.itemsPerPage;
+    $scope.pageSize = [{ id: 1, name: "5" }, { id: 2, name: "10" }, { id: 3, name: "50" }];
+    $scope.selected = undefined;
+    $scope.searchResult = [];
 
-
-    UserDataService.GetUsers()
+    UserDataService.GetUsers($scope.pagingRequest)
     .then(function (result) {
         //Succes
+        $scope.data = result;
     },
     function () {
         //error
     });
 
-    $scope.$on("updateList", function (e, a) {
+    $scope.$on("updateList", function (e, result) {
+        $scope.data = result.data;
 
-        $scope.data = a;
+        UserDataService.UserCount()
+        .then(function (data) {
+            //success
+            $scope.bigTotalItems = data;
+        },
+        function () {
+            //error
+        });
 
+        $scope.bigCurrentPage = 1;
     });
+
+    UserDataService.UserCount()
+    .then(function (data) {
+        //success
+        $scope.bigTotalItems = data;
+    },
+    function () {
+        //error
+    });
+
+    $scope.pageChanged = function () {
+        //what to do on page change
+        $scope.pagingRequest.PageNumber = $scope.bigCurrentPage;
+
+        UserDataService.GetUsers($scope.pagingRequest)
+        .then(function (result) {
+            //Succes
+            $scope.data = result;
+        },
+        function () {
+            //error
+        });
+    };
+
+    $scope.customRowsSelected = function () {
+
+        $scope.pagingRequest.pageSize = $scope.pageSize.name.name;
+        $scope.itemsPerPage = $scope.pagingRequest.pageSize;
+        UserDataService.GetUsers($scope.pagingRequest)
+            .then(function (result) {
+                //Succes
+                $scope.data = result;
+                $scope.bigTotalItems = data.length;
+            },
+            function () {
+                //error
+            });
+    };
+
+    $scope.search = function () {
+        $scope.pagingRequest.SearchString = $scope.keyword;
+        UserDataService.GetUsers($scope.pagingRequest)
+                .then(function (result) {
+                    //Succes
+                    $scope.data = result;
+                    if (result.length > 0)
+                        $scope.bigTotalItems = result.length;
+                    else
+                        UserDataService.UserCount()
+                                .then(function (data) {
+                                    //success
+                                    $scope.bigTotalItems = data;
+                                },
+                                function () {
+                                    //error
+                                });
+                },
+                function () {
+                    //error
+                });
+    };
 
 }]);
 
@@ -48,6 +129,10 @@ module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserD
 
         $scope.isNew = true;
         $scope.title = 'Add';
+        $scope.user = angular.copy({
+            email: '',
+            dob: ''
+        });
 
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
@@ -75,8 +160,8 @@ module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserD
             $scope.user = result.data;
             $scope.user.dob = new Date($scope.user.dob);
 
-            $scope.tempUser = result.data;
-            $scope.tempUser.dob = new Date($scope.user.dob);
+            $scope.master = result.data;
+            $scope.master.dob = new Date($scope.user.dob);
 
             $scope.isNew = false;
             $scope.title = 'Edit';
@@ -130,9 +215,9 @@ module.controller('ModalController', ["$scope", "$uibModal", "$document", "UserD
     }
 }]);
 
-module.controller('ModalInstanceController', function ($uibModalInstance, $scope, UserDataService) {
+module.controller('ModalInstanceController', function ($uibModalInstance, $scope, $rootScope, UserDataService, Constants) {
     var $ctrl = this;
-    var result = UserDataService;
+    var pagingRequest = { PageNumber: 1, PageSize: Constants.itemsPerPage };
 
     $ctrl.ok = function (isNewUser) {
 
@@ -143,8 +228,14 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
                     //Success
                     $uibModalInstance.close("Done");
                     //Update Grid
-                    UserDataService.GetUsers();
-                    $rootScope.$broadcast('updateList', { data: result });
+                    UserDataService.GetUsers(pagingRequest)
+                        .then(function (result) {
+                            //Succes
+                            $rootScope.$broadcast('updateList', { data: result });
+                        },
+                        function () {
+                            //error
+                        });
                 },
                 function () {
                     //error
@@ -158,16 +249,15 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
                     //Success
                     $uibModalInstance.close("Done");
                     //Update Grid
-                    UserDataService.GetUsers();
+                    UserDataService.GetUsers(pagingRequest);
                     $rootScope.$broadcast('updateList', { data: result });
                 },
                 function () {
                     //error
                     $uibModalInstance.close("Error");
                 });
-
-
         }
+        $ctrl.Reset();
     };
 
     $ctrl.Delete = function (id) {
@@ -177,8 +267,14 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
                 //Success
                 $uibModalInstance.close("Done");
                 //Update Grid
-                UserDataService.GetUsers();
-                $rootScope.$broadcast('updateList', { data: result });
+                UserDataService.GetUsers(pagingRequest)
+                .then(function (result) {
+                    //Succes
+                    $rootScope.$broadcast('updateList', { data: result });
+                },
+                function () {
+                    //error
+                });
             },
             function () {
                 //error
@@ -187,8 +283,11 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
 
     }
 
-    $ctrl.Reset = function (form) {
-        angular.copy({}, form);
+    $ctrl.Reset = function () {
+        $scope.user = angular.copy({
+            email: '',
+            dob: ''
+        });
     }
 
     $ctrl.cancel = function () {
@@ -196,26 +295,46 @@ module.controller('ModalInstanceController', function ($uibModalInstance, $scope
     };
 });
 
-
 module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
 
     var _users = [];
     var _user = {};
-    var _getUsers = function () {
 
-        var deferred = $q.defer();
+    var _getUsers = function (pagingRequest) {
 
-        $http.get("http://localhost:5658/api/users")
-        .then(function (result) {
-            //Succes
-            angular.copy(result.data, _users);
-            deferred.resolve();
-        },
-        function () {
-            deferred.reject();
-        });
+        var promise = $http.post("http://localhost:5658/api/users", pagingRequest)
+                .then(function (result) {
+                    //Succes
+                    return result.data;
+                },
+                function () {
+                    //Error
+                });
+        return promise;
+    };
 
-        return deferred.promise;
+    var _getUserCount = function () {
+        var promise = $http.get("http://localhost:5658/api/users/count")
+                        .then(function (result) {
+                            //Succes
+                            return result.data;
+                        },
+                        function () {
+                            //Error
+                        });
+        return promise;
+    };
+
+    var _getUserSearch = function (keyword) {
+        var promise = $http.get("http://localhost:5658/api/users/" + keyword + "/search")
+                        .then(function (result) {
+                            //Succes
+                            return result.data;
+                        },
+                        function () {
+                            //Error
+                        });
+        return promise;
     };
 
     var _getUserById = function (id) {
@@ -287,7 +406,9 @@ module.factory("UserDataService", ["$http", "$q", function ($http, $q) {
         GetUsers: _getUsers,
         AddUser: _addUser,
         EditUser: _editUser,
-        DeleteUser: _deleteUser
+        DeleteUser: _deleteUser,
+        UserCount: _getUserCount,
+        UserSearch: _getUserSearch
     };
 }]);
 

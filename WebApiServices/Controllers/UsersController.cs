@@ -5,8 +5,8 @@ using WebApiServices.Models;
 
 namespace WebApiServices.Controllers
 {
-    [RoutePrefix("api/users")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
         private EntityFrameworkDemo.IForumRepository _forumRepository;
@@ -16,11 +16,27 @@ namespace WebApiServices.Controllers
         }
 
         [Route("")]
-        [HttpGet]
-        public IHttpActionResult GetUsers()
+        [HttpPost]
+        public IHttpActionResult GetUsers([FromBody]PagingRequest pagingRequest)
         {
-            var users = _forumRepository.GetUsers();
-            return Ok(users);
+            var result = _forumRepository.GetUsers(pagingRequest.PageSize, pagingRequest.PageNumber, pagingRequest.SearchString);
+            return Ok(result);
+        }
+
+        [Route("{keyword}/search")]
+        [HttpGet]
+        public IHttpActionResult GetUserMetaData(string keyword)
+        {
+            var result = _forumRepository.GlobalSearch(keyword);
+            return Ok(result);
+        }
+
+        [Route("count")]
+        [HttpGet]
+        public IHttpActionResult GetUserCount()
+        {
+            var userCount = _forumRepository.GetUserCount();
+            return Ok(userCount);
         }
 
         [Route("{userId:Guid}")]

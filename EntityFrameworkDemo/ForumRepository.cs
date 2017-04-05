@@ -7,13 +7,13 @@ namespace EntityFrameworkDemo
 {
     public class ForumRepository : IForumRepository
     {
-        public IEnumerable<Reply> GetRepliesByTopic(Guid id)
+        public IEnumerable<Reply> GetRepliesByTopic(Guid Id)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    return context.Reply.Where(x => x.TopicId == id).ToList();
+                    return context.Reply.Where(x => x.TopicId == Id).ToList();
                 }
             }
             catch (Exception ex)
@@ -37,13 +37,13 @@ namespace EntityFrameworkDemo
             }
         }
 
-        public Topic GetTopicById(Guid topicId)
+        public Topic GetTopicById(Guid TopicId)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    return context.Topics.FirstOrDefault(x => x.Id == topicId);
+                    return context.Topics.FirstOrDefault(x => x.Id == TopicId);
                 }
             }
             catch (Exception ex)
@@ -84,13 +84,21 @@ namespace EntityFrameworkDemo
             }
         }
 
-        public IEnumerable<User> GetUsers()
+        public IEnumerable<User> GetUsers(int PageSize, int PageNumber, string keyword)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    return context.Users.ToList();
+                    var records =  context.Users.OrderBy(x => x.UserName).Take(PageSize * PageNumber).Skip(PageSize * (PageNumber - 1)).ToList();
+                    if (!string.IsNullOrEmpty(keyword))
+                        records = records.Where(x => x.UserName.Contains(keyword) ||
+                                                   x.FirstName.Contains(keyword) ||
+                                                   x.LastName.Contains(keyword) ||
+                                                   x.Email.Contains(keyword) ||
+                                                   x.Dob.ToString().Contains(keyword))
+                                  .ToList();
+                    return records;
                 }
             }
             catch (Exception ex)
@@ -99,13 +107,52 @@ namespace EntityFrameworkDemo
             }
         }
 
-        public void SaveUser(User user)
+        public IEnumerable<KeyValuePair<Guid,string>> GlobalSearch(string keyword)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    context.Users.Add(user);
+                    var usersearch =  context.Users.Where(x => x.UserName.Contains(keyword) || 
+                                                    x.FirstName.Contains(keyword) || 
+                                                    x.LastName.Contains(keyword) || 
+                                                    x.Email.Contains(keyword) || 
+                                                    x.Dob.ToString().Contains(keyword))
+                                             .ToList();
+
+                    var result = usersearch.Select(y => new KeyValuePair<Guid, string>(y.Id, y.UserName));
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int GetUserCount()
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    return context.Users.Count();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void SaveUser(User User)
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    context.Users.Add(User);
                     context.SaveChanges();
                 }
             }
@@ -130,13 +177,13 @@ namespace EntityFrameworkDemo
             }
         }
 
-        public void EditUser(User user)
+        public void EditUser(User User)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    context.Users.AddOrUpdate(user);
+                    context.Users.AddOrUpdate(User);
                     context.SaveChanges();
                 }
             }
@@ -146,12 +193,12 @@ namespace EntityFrameworkDemo
             }
         }
 
-        public void DeleteUser(Guid userId)
+        public void DeleteUser(Guid UserId)
         {  try
             {
                 using (var context = new ForumContext())
                 {
-                    context.Users.Remove(context.Users.Where(x => x.Id == userId).FirstOrDefault());
+                    context.Users.Remove(context.Users.Where(x => x.Id == UserId).FirstOrDefault());
                     context.SaveChanges();
                 }
             }

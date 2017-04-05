@@ -2302,6 +2302,7 @@ th {
 .table-condensed > tfoot > tr > td {
   padding: 5px;
 }
+
 .table-bordered {
   border: 1px solid #ddd;
 }

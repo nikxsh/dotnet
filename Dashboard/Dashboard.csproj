@@ -1120,6 +1120,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\AddEditUser.html" />
     <Content Include="Templates\Confirmation.html" />
+    <Content Include="Templates\CustomPopupTemplate.html" />
     <Content Include="Templates\Users.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
