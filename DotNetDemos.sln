@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExamples", "CSharpExamples\CSharpExamples.csproj", "{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}"
 EndProject
@@ -13,6 +13,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiServices", "WebApiServices\WebApiServices.csproj", "{5D9E5A95-4008-4625-A51B-42359DF90250}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDataStorage", "EFDataStorage\EFDataStorage.csproj", "{5CDC4AED-FF01-421F-9660-689513AAEB72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA-Dashboard-AJ1", "SPA-Dashboard-AJ1\SPA-Dashboard-AJ1.csproj", "{B7D4AFE7-7DF7-4F52-AD51-22A55ECC694A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,12 @@ Global
 		{5CDC4AED-FF01-421F-9660-689513AAEB72}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CDC4AED-FF01-421F-9660-689513AAEB72}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{5CDC4AED-FF01-421F-9660-689513AAEB72}.Test|Any CPU.Build.0 = Release|Any CPU
+		{B7D4AFE7-7DF7-4F52-AD51-22A55ECC694A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D4AFE7-7DF7-4F52-AD51-22A55ECC694A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D4AFE7-7DF7-4F52-AD51-22A55ECC694A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D4AFE7-7DF7-4F52-AD51-22A55ECC694A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D4AFE7-7DF7-4F52-AD51-22A55ECC694A}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D4AFE7-7DF7-4F52-AD51-22A55ECC694A}.Test|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
