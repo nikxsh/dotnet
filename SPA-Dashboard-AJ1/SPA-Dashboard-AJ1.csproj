@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,9 +45,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Content\scripts\dashboard\jquery.dataTables.js" />
+    <Content Include="Content\scripts\dashboard\jquery.flot.js" />
+    <Content Include="Content\scripts\dashboard\jquery.flot.pie.js" />
+    <Content Include="Content\scripts\dashboard\jquery.flot.resize.js" />
+    <Content Include="Content\scripts\dashboard\jquery.flot.time.js" />
+    <Content Include="Content\scripts\dashboard\jquery.flot.tooltip.js" />
+    <Content Include="Controllers\modal.controller.js" />
+    <Content Include="Controllers\user.controller.js" />
     <Content Include="packages.config" />
     <Content Include="Content\scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Content\scripts\jquery-3.1.1.min.map" />
+    <Content Include="Templates\Dashboard\Buttons.html" />
+    <Content Include="Templates\Dashboard\Flot.html" />
+    <Content Include="Templates\Dashboard\Forms.html" />
+    <Content Include="Templates\Dashboard\Grid.html" />
+    <Content Include="Templates\Dashboard\Icons.html" />
+    <Content Include="Templates\Dashboard\Morris.html" />
+    <Content Include="Templates\Dashboard\Notifications.html" />
+    <Content Include="Templates\Dashboard\Panels.html" />
+    <Content Include="Templates\Dashboard\Table.html" />
+    <Content Include="Templates\Dashboard\Typography.html" />
+    <Content Include="Templates\Dashboard\DashBoard.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -885,8 +906,12 @@
     <Content Include="Content\scripts\angular\i18n\angular-locale_zh.js" />
     <Content Include="Content\scripts\angular\i18n\angular-locale_zu-za.js" />
     <Content Include="Content\scripts\angular\i18n\angular-locale_zu.js" />
-    <Content Include="Templates\Blank.html" />
-    <Content Include="Templates\Login.html" />
+    <Content Include="Templates\User\AddEditUser.html" />
+    <Content Include="Templates\Common\Blank.html" />
+    <Content Include="Templates\User\Confirmation.html" />
+    <Content Include="Templates\Common\Login.html" />
+    <Content Include="Templates\NotFound.html" />
+    <Content Include="Templates\User\Users.html" />
     <Content Include="Web.config" />
     <Content Include="Content\scripts\angular\version.json" />
     <Content Include="Content\scripts\angular\errors.json" />
@@ -923,12 +948,18 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Factory\user.service.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

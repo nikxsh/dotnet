@@ -17,12 +17,12 @@
     <link href="Content/css/Site.css" rel="stylesheet" />
     <!-- Style : End-->
 
+    <script src="Content/scripts/jquery-3.1.1.min.js"></script>
+    <script src="Content/scripts/bootstrap.min.js"></script>
     <script src="Content/scripts/angular/angular.min.js"></script>
     <script src="Content/scripts/angular/angular-animate.min.js"></script>
     <script src="Content/scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="Content/scripts/angular/angular-route.min.js"></script>
-    <script src="Content/scripts/jquery-3.1.1.min.js"></script>
-    <script src="Content/scripts/bootstrap.min.js"></script>
     <script src="App/app.js"></script>
 </head>
 <body ng-app="SPADashBoardAJ1">
@@ -30,7 +30,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#!/home">Dashboard - AJ 1.0</a>
+                <a class="navbar-brand" ng-href="#!/home">Dashboard - AJ 1.0</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -260,52 +260,52 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-arrow-circle-right fa-fw"></i> Home</a>
+                            <a href="#!/users"><i class="fa fa-arrow-circle-right fa-fw"></i> Users</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bars fa-fw"></i> All you want <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#!/login"><i class="fa fa-users fa-fw"></i>  Login Page</a>
+                                    <a ng-href="#!/dashboard"><i class="fa fa-users fa-fw"></i>  DashBoard</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Flot Charts</a>
+                                            <a ng-href="#!/flotchart">Flot Charts</a>
                                         </li>
                                         <li>
-                                            <a href="#">Morris.js Charts</a>
+                                            <a ng-href="#!/morrischart">Morris.js Charts</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-second-level -->
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
+                                    <a ng-href="#!/tables"><i class="fa fa-table fa-fw"></i> Tables</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                                    <a ng-href="#!/forms"><i class="fa fa-edit fa-fw"></i> Forms</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                                    <a ng-href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Panels and Wells</a>
+                                            <a ng-href="#!/panels">Panels and Wells</a>
                                         </li>
                                         <li>
-                                            <a href="#">Buttons</a>
+                                            <a ng-href="#!/buttons">Buttons</a>
                                         </li>
                                         <li>
-                                            <a href="#">Notifications</a>
+                                            <a ng-href="#!/notifications">Notifications</a>
                                         </li>
                                         <li>
-                                            <a href="#">Typography</a>
+                                            <a ng-href="#!/typography">Typography</a>
                                         </li>
                                         <li>
-                                            <a href="#"> Icons</a>
+                                            <a ng-href="#!/icons"> Icons</a>
                                         </li>
                                         <li>
-                                            <a href="#">Grid</a>
+                                            <a ng-href="#!/grid">Grid</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-second-level -->
@@ -320,20 +320,33 @@
             <!-- /.navbar-static-side -->
         </nav>
         <!-- Navigation -->
-
         <!-- Page Content -->
         <div ng-view></div>
         <!-- /#page-wrapper -->
-
-
         <!-- Scripts : Start -->
+
+        <script src="Content/scripts/dashboard/jquery.dataTables.js"></script>
+        <script src="Content/scripts/dashboard/dataTables.responsive.js"></script>
+        <script src="Content/scripts/dashboard/dataTables.bootstrap.js"></script>
+
+        <!--<script src="Content/scripts/dashboard/raphael.js"></script>
+        <script src="Content/scripts/dashboard/morris.js"></script>
+        <script src="Content/scripts/dashboard/morris-data.js"></script>
+
+        <script src="Content/scripts/dashboard/excanvas.js"></script>
+        <script src="Content/scripts/dashboard/jquery.flot.js"></script>
+        <script src="Content/scripts/dashboard/jquery.flot.pie.js"></script>
+        <script src="Content/scripts/dashboard/jquery.flot.resize.js"></script>
+        <script src="Content/scripts/dashboard/jquery.flot.time.js"></script>
+        <script src="Content/scripts/dashboard/jquery.flot.tooltip.js"></script>
+        <script src="Content/scripts/dashboard/flot-data.js"></script>-->
+
         <script src="Content/scripts/dashboard/dashboard.js"></script>
         <script src="Content/scripts/dashboard/metisMenu.js"></script>
         <!-- Scripts : End -->
 
         <!-- Angular Scripts : Start -->
-        <script src="Controllers/home.controller.js"></script>
-        <script src="Controllers/login.controller.js"></script>
+        <script src="Factory/user.service.js"></script>
         <!-- Angular Scripts : End -->
     </div>
 </body>
