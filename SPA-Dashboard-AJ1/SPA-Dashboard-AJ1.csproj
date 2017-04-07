@@ -45,6 +45,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Content\css\morris.css" />
     <Content Include="Content\scripts\dashboard\jquery.dataTables.js" />
     <Content Include="Content\scripts\dashboard\jquery.flot.js" />
     <Content Include="Content\scripts\dashboard\jquery.flot.pie.js" />

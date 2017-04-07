@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
     Morris.Area({
         element: 'morris-area-chart',
@@ -113,5 +113,25 @@ $(function() {
         hideHover: 'auto',
         resize: true
     });
-    
+
+    var year_data = [
+  { "period": "2012", "licensed": 3407, "sorned": 660 },
+  { "period": "2011", "licensed": 3351, "sorned": 629 },
+  { "period": "2010", "licensed": 3269, "sorned": 618 },
+  { "period": "2009", "licensed": 3246, "sorned": 661 },
+  { "period": "2008", "licensed": 3257, "sorned": 667 },
+  { "period": "2007", "licensed": 3248, "sorned": 627 },
+  { "period": "2006", "licensed": 3171, "sorned": 660 },
+  { "period": "2005", "licensed": 3171, "sorned": 676 },
+  { "period": "2004", "licensed": 3201, "sorned": 656 },
+  { "period": "2003", "licensed": 3215, "sorned": 622 }
+    ];
+    Morris.Line({
+        element: 'morris-line-chart',
+        data: year_data,
+        xkey: 'period',
+        ykeys: ['licensed', 'sorned'],
+        labels: ['Licensed', 'SORN']
+    });
+
 });

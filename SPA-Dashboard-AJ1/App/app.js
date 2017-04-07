@@ -12,6 +12,9 @@ module.config(['$routeProvider', '$controllerProvider', function ($routeProvider
         .when('/', {
             templateUrl: '/Templates/Common/Blank.html'
         })
+        .when('/index', {
+            templateUrl: '/Templates/Common/Blank.html'
+        })
         .when('/home', {
             templateUrl: '/Templates/Common/Blank.html'
         })
