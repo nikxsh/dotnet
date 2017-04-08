@@ -51,7 +51,7 @@
 
         var modalInstance = $uibModal.open({
             animation: $ctrl.animationsEnabled,
-            templateUrl: '/Templates/AddEditUser.html',
+            templateUrl: '/Templates/User/AddEditUser.html',
             controller: 'ModalInstanceController',
             controllerAs: '$ctrl',
             scope: $scope,
