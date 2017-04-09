@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncAndParallel.cs" />
     <Compile Include="DesignPatternExamples.cs" />
     <Compile Include="DynamicLinq.cs" />
     <Compile Include="GarbageCollection.cs" />
@@ -66,7 +67,6 @@
     <Compile Include="MultiThreading.cs" />
     <Compile Include="Oops.cs" />
     <Compile Include="ActionAndFucntion.cs" />
-    <Compile Include="ParallelProgramming.cs" />
     <Compile Include="Performance.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
