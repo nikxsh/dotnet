@@ -62,6 +62,7 @@ namespace DotNetDemos.CSharpExamples
             #region Parallel Programming Test
             var obj = new AsyncAndParallel();
             obj.BasicPlay();
+            //obj.Play();
             #endregion
 
             #region Sorting Algo
