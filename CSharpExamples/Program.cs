@@ -55,8 +55,8 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region MultiThreading
-            //var obj = new MultiThreading();
-            //obj.DoAction();
+            var obj = new MultiThreading();
+            obj.DoAction();
             #endregion
 
             #region Parallel Programming Test

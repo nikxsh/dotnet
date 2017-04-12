@@ -25,7 +25,7 @@ namespace DotNetDemos.CSharpExamples
     public class MultiThreadingAndSynchronization
     {
 
-        private static SemaphoreSlim _sem = new SemaphoreSlim(3);
+        private static Semaphore _sem = new Semaphore(3, 3);
         private static object _locker = new object();
         private bool isDone = false;
         private static ReaderWriterLockSlim _rw = new ReaderWriterLockSlim();
@@ -61,36 +61,14 @@ namespace DotNetDemos.CSharpExamples
             //Thread t1 = new Thread(() => SimpleMutexExample());
             //Thread t2 = new Thread(() => SimpleMutexExample());
 
-            //Thread t1 = new Thread(() => SimpleSemaphoreExample());
-            //Thread t2 = new Thread(() => SimpleSemaphoreExample());
-            //Thread t3 = new Thread(() => SimpleSemaphoreExample());
-            //Thread t4 = new Thread(() => SimpleSemaphoreExample());
-            //Thread t5 = new Thread(() => SimpleSemaphoreExample());
-
-            //t1.Name = "Thread 1";
-            //t2.Name = "Thread 2";
-            //t3.Name = "Thread 3";
-            //t4.Name = "Thread 4";
-            //t5.Name = "Thread 5";
-            //t1.Start();
-            //t2.Start();
-            //t3.Start();
-            //t4.Start();
-            //t5.Start();
-
-
-            //Reader/Writer Locks
-            Thread t6 = new Thread(() => Write(10));
-            Thread t7 = new Thread(() => Write(20));
-
-            Thread t1 = new Thread(() => Read());
-            Thread t2 = new Thread(() => Read());
-            Thread t3 = new Thread(() => Read());
-            Thread t4 = new Thread(() => Read());
-            Thread t5 = new Thread(() => Read());
-
-            Thread t8 = new Thread(() => Write(30));
-            Thread t9 = new Thread(() => Write(40));
+            Thread t1 = new Thread(SimpleSemaphoreExample);
+            Thread t2 = new Thread(SimpleSemaphoreExample);
+            Thread t3 = new Thread(SimpleSemaphoreExample);
+            Thread t4 = new Thread(SimpleSemaphoreExample);
+            Thread t5 = new Thread(SimpleSemaphoreExample);
+            Thread t6 = new Thread(SimpleSemaphoreExample);
+            Thread t7 = new Thread(SimpleSemaphoreExample);
+            Thread t8 = new Thread(SimpleSemaphoreExample);
 
             t1.Name = "Thread 1";
             t2.Name = "Thread 2";
@@ -100,17 +78,48 @@ namespace DotNetDemos.CSharpExamples
             t6.Name = "Thread 6";
             t7.Name = "Thread 7";
             t8.Name = "Thread 8";
-            t9.Name = "Thread 9";
-
-            t6.Start();
-            t7.Start();
             t1.Start();
             t2.Start();
             t3.Start();
             t4.Start();
             t5.Start();
+            t6.Start();
+            t7.Start();
             t8.Start();
-            t9.Start();
+
+
+            //Reader/Writer Locks
+            //Thread t6 = new Thread(() => Write(10));
+            //Thread t7 = new Thread(() => Write(20));
+
+            //Thread t1 = new Thread(() => Read());
+            //Thread t2 = new Thread(() => Read());
+            //Thread t3 = new Thread(() => Read());
+            //Thread t4 = new Thread(() => Read());
+            //Thread t5 = new Thread(() => Read());
+
+            //Thread t8 = new Thread(() => Write(30));
+            //Thread t9 = new Thread(() => Write(40));
+
+            //t1.Name = "Thread 1";
+            //t2.Name = "Thread 2";
+            //t3.Name = "Thread 3";
+            //t4.Name = "Thread 4";
+            //t5.Name = "Thread 5";
+            //t6.Name = "Thread 6";
+            //t7.Name = "Thread 7";
+            //t8.Name = "Thread 8";
+            //t9.Name = "Thread 9";
+
+            //t6.Start();
+            //t7.Start();
+            //t1.Start();
+            //t2.Start();
+            //t3.Start();
+            //t4.Start();
+            //t5.Start();
+            //t8.Start();
+            //t9.Start();
         }
 
 
@@ -130,7 +139,9 @@ namespace DotNetDemos.CSharpExamples
         }
 
         /// <summary>
-        /// Ensures just one thread can access a resource, or section of code at a time
+        /// Like the lock keyword, monitors prevent blocks of code from simultaneous execution by multiple threads. 
+        /// The Enter method allows one and only one thread to proceed into the following statements; 
+        /// all other threads are blocked until the executing thread calls Exit. This is just like using the lock keyword.
         /// </summary>
         private void SimpleMonitorExample()
         {
@@ -147,11 +158,13 @@ namespace DotNetDemos.CSharpExamples
             }
         }
 
-        /// <summary>
-        /// Ensures just one thread can access a resource, or section of code at a time
-        /// A Mutex is like a C# lock, but it can work across multiple processes. In other words, Mutex can be computer-wide as well as application-wide.
-        /// A common use for a cross-process Mutex is to ensure that only one instance of a program can run at a time. 
-        /// </summary>
+        ///Ensures just one thread can access a resource, or section of code at a time
+        // A Mutex is like a C# lock, but it can work across multiple processes opf same operating system. In other words, 
+        //Mutex can be computer-wide as well as application-wide.
+        // A common use for a cross-process Mutex is to ensure that only one instance of a program can access at a time. 
+        //
+        //a mutex is locking mechanism used to synchronize access to a resource. Only one task (can be a thread or process based on OS abstraction) 
+        //can acquire the mutex. It means there is ownership associated with mutex, and only the owner can release the lock (mutex).
         private void SimpleMutexExample()
         {
             // Naming a Mutex makes it available computer-wide. Use a name that's
@@ -167,23 +180,65 @@ namespace DotNetDemos.CSharpExamples
             }
         }
 
-        /// <summary>
-        /// A semaphore is like a nightclub: it has a certain capacity, enforced by a bouncer. 
-        /// Once it’s full, no more people can enter, and a queue builds up outside. 
-        /// Then, for each person that leaves, one person enters from the head of the queue. 
-        /// The constructor requires a minimum of two arguments: the number of places currently available 
-        /// in the nightclub and the club’s total capacity.
-        /// </summary>
+        //Use the Semaphore class to control access to a pool of resources.
+        //Threads enter the semaphore by calling the WaitOne method, which is inherited from the WaitHandle class, and 
+        //release the semaphore by calling the Release method.
+        //
+        //The count on a semaphore is decremented each time a thread enters the semaphore, and incremented when a thread releases the semaphore.
+        //When the count is zero, subsequent requests block until other threads release the semaphore.When all threads have released the semaphore, 
+        //the count is at the maximum value specified when the semaphore was created.
+        //
+        //There is no guaranteed order, such as FIFO or LIFO, in which blocked threads enter the semaphore.
+        //A thread can enter the semaphore multiple times, by calling the WaitOne method repeatedly. To release some or all of these entries, the thread can 
+        //call the parameterless Release() method overload multiple times, or it can call the Release(Int32) method overload that specifies the number of entries 
+        //to be released.
+        //
+        //It's often described as a nightclub (the semaphore) where the visitors (threads) stands in a queue outside the nightclub waiting 
+        //for someone to leave in order to gain entrance.
+        //
+        //Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal). 
+        //For example, if you are listening songs (assume it as one task) on your mobile and at the same time your friend calls you, an interrupt is 
+        //triggered upon which an interrupt service routine (ISR) signals the call processing task to wakeup.
         private void SimpleSemaphoreExample()
         {
             Console.WriteLine("{0} wants to enter", Thread.CurrentThread.Name);
-            _sem.Wait();
+            _sem.WaitOne();
             Console.WriteLine("{0} has entered Critical section.", Thread.CurrentThread.Name);
             Thread.Sleep(TimeSpan.FromSeconds(4));
             _sem.Release();
             Console.WriteLine("{0} left", Thread.CurrentThread.Name);
         }
 
+        ///A thread pool is a collection of threads that can be used to perform several tasks in the background. 
+        ///This leaves the primary thread free to perform other tasks asynchronously.
+        ///
+        ///Each incoming request is assigned to a thread from the thread pool, 
+        ///so that the request can be processed asynchronously, without tying up the primary thread or delaying the processing of subsequent requests.
+        ///
+        ///Once a thread in the pool completes its task, it is returned to a queue of waiting threads, 
+        ///where it can be reused.This reuse enables applications to avoid the cost of creating a new thread for each task.
+        /// 
+        /// Thread pools typically have a maximum number of threads. If all the threads are busy, additional tasks are put in queue until 
+        /// they can be serviced as threads become available.
+        public void ThreadPoolExample()
+        {
+            // Queue a task.  
+            ThreadPool.QueueUserWorkItem(new WaitCallback(SomeLongTask));
+            // Queue another task.  
+            ThreadPool.QueueUserWorkItem(new WaitCallback(AnotherLongTask));
+        }
+
+        private void SomeLongTask(Object state)
+        {
+            // Insert code to perform a long task.  
+            Thread.Sleep(10000);
+        }
+
+        private void AnotherLongTask(Object state)
+        {
+            // Insert code to perform a long task.  
+            Thread.Sleep(1000);
+        }
 
         private void Read()
         {
