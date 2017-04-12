@@ -61,7 +61,7 @@ namespace DotNetDemos.CSharpExamples
 
             #region Parallel Programming Test
             var obj = new AsyncAndParallel();
-            obj.BasicPlay();
+            obj.Play();
             //obj.Play();
             #endregion
 
