@@ -55,13 +55,13 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region MultiThreading
-            //var obj = new MultiThreading();
-            //obj.DoAction();
+            var obj = new MultiThreading();
+            obj.DoAction();
             #endregion
 
             #region Parallel Programming Test
-            var obj = new AsyncAndParallel();
-            obj.BasicPlay();
+            //var obj = new AsyncAndParallel();
+            //obj.BasicPlay();
             //obj.Play();
             #endregion
 
