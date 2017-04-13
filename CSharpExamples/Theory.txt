@@ -1,0 +1,55 @@
+﻿
+-------------------------------------------------------------------------------------------------------------------------------------
+------ SOAP ------
+SOAP defines a standard communication protocol (set of rules) specification for XML-based message exchange. 
+
+SOAP uses different transport protocols, such as HTTP and SMTP. 
+
+The standard protocol HTTP makes it easier for SOAP model to tunnel across firewalls and proxies without any modifications to the SOAP protocol. 
+
+SOAP can sometimes be slower than middleware technologies like CORBA or ICE due to its verbose XML format.
+
+
+------ REST ------
+REST Describes a set of architectural principles by which data can be transmitted over a standardized interface (such as HTTP). 
+
+REST does not contain an additional messaging layer and focuses on design rules for creating stateless services. A client can access the resource using the unique URI and a representation of the resource is returned. With each new resource representation, the client is said to transfer state. 
+
+While accessing RESTful resources with HTTP protocol, the URL of the resource serves as the resource identifier and GET, PUT, DELETE, POST and HEAD are the standard HTTP operations to be performed on that resource.
+
+------
+ 
+WCF	Vs ASP.NET Web API
+
+WCF	: Enables building services that support multiple transport protocols (HTTP, TCP, UDP, and custom transports) and allows switching between them.	
+Web API : HTTP only. First-class programming model for HTTP. More suitable for access from various browsers, mobile devices etc enabling wide reach.
+
+WCF	: Enables building services that support multiple encodings (Text, MTOM, and Binary) of the same message type and allows switching between them.	
+Web API : Enables building Web APIs that support wide variety of media types including XML, JSON etc.
+
+WCF	: Supports building services with WS-* standards like Reliable Messaging, Transactions, Message Security.
+Web API: Uses basic protocol and formats such as HTTP, WebSockets, SSL, JQuery, JSON, and XML. There is no support for higher level protocols such as Reliable Messaging or Transactions.
+
+WCF	: Supports Request-Reply, One Way, and Duplex message exchange patterns.
+Web API: HTTP is request/response but additional patterns can be supported through SignalRand WebSockets integration.
+
+
+WCF	: WCF SOAP services can be described in WSDL allowing automated tools to generate client proxies even for services with complex schemas.	
+Web API: There is a variety of ways to describe a Web API ranging from auto-generated HTML help page describing snippets to structured metadata for OData integrated APIs.
+
+
+WCF	: Ships with the .NET framework.	
+Web API: Ships with .NET framework but is open-source and is also available out-of-band as independent download.
+
+------
+
+To whom choose between WCF or WEB API
+
+1. Choose WCF when you want to create a service that should support special scenarios such as one way messaging, message queues, duplex communication etc.
+
+2. Choose WCF when you want to create a service that can use fast transport channels when available, such as TCP, Named Pipes, or maybe even UDP (in WCF 4.5), and you also want to support HTTP when all other transport channels are unavailable.
+
+3. Choose Web API when you want to create a resource-oriented services over HTTP that can use the full features of HTTP (like URIs, request/response headers, caching, versioning, various content formats).
+
+4. Choose Web API when you want to expose your service to a broad range of clients including browsers, mobiles, iphone and tablets.
+-------------------------------------------------------------------------------------------------------------------------------------

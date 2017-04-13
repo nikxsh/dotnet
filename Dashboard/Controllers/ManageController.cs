@@ -7,10 +7,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Dashboard.Models;
+using System.Web.SessionState;
 
 namespace Dashboard.Controllers
 {
     [Authorize]
+    [SessionState(SessionStateBehavior.Disabled)]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

@@ -162,7 +162,8 @@ namespace DotNetDemos.CSharpExamples
             var shapes = new List<Shape>
             {
                 new Rectangle { Height =12, Width =4 },
-                new Square { Side =8 }
+                new Square { Side =8 },
+                new Parabola { }
             };
 
             shapes.ForEach(x => Console.WriteLine(x.Area()));
@@ -189,6 +190,15 @@ namespace DotNetDemos.CSharpExamples
             public override int Area()
             {
                 return Side * Side;
+            }
+        }
+
+        class Parabola : Shape
+        {
+            //this is LSP violation
+            public override int Area()
+            {
+                throw new NotImplementedException();
             }
         }
     }

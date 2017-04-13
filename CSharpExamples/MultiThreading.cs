@@ -158,13 +158,17 @@ namespace DotNetDemos.CSharpExamples
             }
         }
 
-        ///Ensures just one thread can access a resource, or section of code at a time
-        // A Mutex is like a C# lock, but it can work across multiple processes opf same operating system. In other words, 
-        //Mutex can be computer-wide as well as application-wide.
-        // A common use for a cross-process Mutex is to ensure that only one instance of a program can access at a time. 
-        //
-        //a mutex is locking mechanism used to synchronize access to a resource. Only one task (can be a thread or process based on OS abstraction) 
-        //can acquire the mutex. It means there is ownership associated with mutex, and only the owner can release the lock (mutex).
+        /// <summary>
+        /// Ensures just one thread can access a resource, or section of code at a time
+        /// 
+        /// A Mutex is like a C# lock, but it can work across multiple processes opf same operating system. In other words, 
+        /// Mutex can be computer-wide as well as application-wide.
+        /// 
+        /// A common use for a cross-process Mutex is to ensure that only one instance of a program can access at a time. 
+        /// 
+        /// A mutex is locking mechanism used to synchronize access to a resource. Only one task (can be a thread or process based on OS abstraction) 
+        /// can acquire the mutex. It means there is ownership associated with mutex, and only the owner can release the lock (mutex).
+        /// </summary>
         private void SimpleMutexExample()
         {
             // Naming a Mutex makes it available computer-wide. Use a name that's
@@ -180,25 +184,27 @@ namespace DotNetDemos.CSharpExamples
             }
         }
 
-        //Use the Semaphore class to control access to a pool of resources.
-        //Threads enter the semaphore by calling the WaitOne method, which is inherited from the WaitHandle class, and 
-        //release the semaphore by calling the Release method.
-        //
-        //The count on a semaphore is decremented each time a thread enters the semaphore, and incremented when a thread releases the semaphore.
-        //When the count is zero, subsequent requests block until other threads release the semaphore.When all threads have released the semaphore, 
-        //the count is at the maximum value specified when the semaphore was created.
-        //
-        //There is no guaranteed order, such as FIFO or LIFO, in which blocked threads enter the semaphore.
-        //A thread can enter the semaphore multiple times, by calling the WaitOne method repeatedly. To release some or all of these entries, the thread can 
-        //call the parameterless Release() method overload multiple times, or it can call the Release(Int32) method overload that specifies the number of entries 
-        //to be released.
-        //
-        //It's often described as a nightclub (the semaphore) where the visitors (threads) stands in a queue outside the nightclub waiting 
-        //for someone to leave in order to gain entrance.
-        //
-        //Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal). 
-        //For example, if you are listening songs (assume it as one task) on your mobile and at the same time your friend calls you, an interrupt is 
-        //triggered upon which an interrupt service routine (ISR) signals the call processing task to wakeup.
+        /// <summary>
+        /// Use the Semaphore class to control access to a pool of resources.
+        /// Threads enter the semaphore by calling the WaitOne method, which is inherited from the WaitHandle class, and 
+        /// release the semaphore by calling the Release method.
+        /// 
+        /// The count on a semaphore is decremented each time a thread enters the semaphore, and incremented when a thread releases the semaphore.
+        /// When the count is zero, subsequent requests block until other threads release the semaphore.When all threads have released the semaphore, 
+        /// the count is at the maximum value specified when the semaphore was created.
+        /// 
+        /// There is no guaranteed order, such as FIFO or LIFO, in which blocked threads enter the semaphore.
+        /// A thread can enter the semaphore multiple times, by calling the WaitOne method repeatedly. To release some or all of these entries, the thread can 
+        /// call the parameterless Release() method overload multiple times, or it can call the Release(Int32) method overload that specifies the number of entries 
+        /// to be released.
+        /// 
+        /// It's often described as a nightclub (the semaphore) where the visitors (threads) stands in a queue outside the nightclub waiting 
+        /// for someone to leave in order to gain entrance.
+        /// 
+        /// Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal). 
+        /// For example, if you are listening songs (assume it as one task) on your mobile and at the same time your friend calls you, an interrupt is 
+        /// triggered upon which an interrupt service routine (ISR) signals the call processing task to wakeup.
+        /// </summary>
         private void SimpleSemaphoreExample()
         {
             Console.WriteLine("{0} wants to enter", Thread.CurrentThread.Name);
@@ -209,17 +215,18 @@ namespace DotNetDemos.CSharpExamples
             Console.WriteLine("{0} left", Thread.CurrentThread.Name);
         }
 
-        ///A thread pool is a collection of threads that can be used to perform several tasks in the background. 
-        ///This leaves the primary thread free to perform other tasks asynchronously.
+        /// <summary>
+        /// A thread pool is a collection of threads that can be used to perform several tasks in the background. 
+        /// This leaves the primary thread free to perform other tasks asynchronously.
         ///
-        ///Each incoming request is assigned to a thread from the thread pool, 
-        ///so that the request can be processed asynchronously, without tying up the primary thread or delaying the processing of subsequent requests.
+        /// Each incoming request is assigned to a thread from the thread pool, 
+        /// so that the request can be processed asynchronously, without tying up the primary thread or delaying the processing of subsequent requests.
         ///
-        ///Once a thread in the pool completes its task, it is returned to a queue of waiting threads, 
-        ///where it can be reused.This reuse enables applications to avoid the cost of creating a new thread for each task.
+        /// Once a thread in the pool completes its task, it is returned to a queue of waiting threads, 
         /// 
         /// Thread pools typically have a maximum number of threads. If all the threads are busy, additional tasks are put in queue until 
         /// they can be serviced as threads become available.
+        /// </summary>
         public void ThreadPoolExample()
         {
             // Queue a task.  
@@ -240,6 +247,16 @@ namespace DotNetDemos.CSharpExamples
             Thread.Sleep(1000);
         }
 
+        /// <summary>
+        /// Quite often, instances of a type are thread-safe for concurrent read operations, but not for concurrent updates (nor for a concurrent read and update).
+        /// This can also be true with resources such as a file. 
+        /// 
+        /// Although protecting instances of such types with a simple exclusive lock for all modes of access usually does the trick, 
+        /// it can unreasonably restrict concurrency if there are many readers and just occasional updates. 
+        /// 
+        /// An example of where this could occur is in a business application server, where commonly used data is cached for fast retrieval 
+        /// in static fields.The ReaderWriterLockSlim class is designed to provide maximum-availability locking in just this scenario.
+        /// </summary>
         private void Read()
         {
             if (_items.Count > 0)
@@ -273,6 +290,9 @@ namespace DotNetDemos.CSharpExamples
         }
     }
 
+    /// <summary>
+    /// Event wait handles are used for signaling. Signaling is when one thread waits until it receives notification from another.
+    /// </summary>
     public class SignalingwithEvent
     {
         static EventWaitHandle _ready = new AutoResetEvent(false);
