@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="INotes.cs" />
     <Compile Include="Parallelism.cs" />
     <Compile Include="DesignPatternExamples.cs" />
     <Compile Include="DynamicLinq.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="SendAnSMS.cs" />
     <Compile Include="SortExamples.cs" />
     <Compile Include="DataStructureExamples.cs" />
+    <Compile Include="Tricky.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
