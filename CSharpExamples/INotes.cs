@@ -28,11 +28,17 @@
     /// the future.Going with the singleton gives you this flexibility for the future.  
     /// (Note:  You can make the constructor private or internal--not public--to tightly control the creation of instances to what you support.)
     /// 
-    /// Another advantage of a singleton is that you can implement interfaces or derive from other classes.This is essential for some scenarios.
+    /// Another advantage of a singleton is that you can implement interfaces or derive from other classes (while the static class cannot).This is essential 
+    /// for some scenarios.
+    /// 
     /// As you can see, you can usually reduce your program so that the only public static properties are the properties that return singleton instances.I think 
     /// this is a very robust way of structuring the program.
     /// 
     /// A shared public method is okay for an operation such as an mathematical function where there is only one definition.
+    /// 
+    ///     - Singleton object stores in Heap but, static object stores in stack.
+    ///     - We can clone the object of Singleton but, we can not clone the static class object.
+    ///     - Singleton can use the Object Oriented feature of polymorphism but static class cannot.
     /// 
     /// * A matter of definition.Even if you take the definition as meaning a class that only has one instance, you still should be familiar with the 
     /// various possibilities described here.
