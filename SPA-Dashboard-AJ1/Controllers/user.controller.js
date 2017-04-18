@@ -1,99 +1,105 @@
 ﻿
 module.registerCtrl('UserController', ["$scope", "$rootScope", "$http", "$window", "UserDataService", "Constants", function ($scope, $rootScope, $http, $window, UserDataService, Constants) {
     $scope.Name = "Users";
-    $scope.pagingRequest = { PageNumber: 1, PageSize: Constants.itemsPerPage, SearchString: '' };
+    $scope.PagingRequest = { PageNumber: 1, PageSize: Constants.PageTabelRowsSize, SearchString: '' };
     $scope.maxSize = 10;
-    $scope.bigTotalItems = 0;
-    $scope.bigCurrentPage = 1;
-    $scope.itemsPerPage = Constants.itemsPerPage;
-    $scope.pageSize = [{ id: 1, name: "5" }, { id: 2, name: "10" }, { id: 3, name: "50" }];
-    $scope.selected = undefined;
-    $scope.searchResult = [];
+    $scope.BigTotalItems = 0;
+    $scope.BigCurrentPage = 1;
+    $scope.ItemsPerPage = Constants.PageTabelRowsSize;
+    $scope.PagedList = [{ id: 1, name: "5" }, { id: 2, name: "10" }, { id: 3, name: "50" }];
+    $scope.FirstTimeLoad = true;
+    $scope.UserData = [];
 
-    UserDataService.GetUsers($scope.pagingRequest)
-    .then(function (result) {
-        //Succes
-        $scope.data = result;
-    },
-    function () {
-        //error
-    });
-
-    $scope.$on("updateList", function (e, result) {
-        $scope.data = result.data;
+    if ($scope.FirstTimeLoad) {
 
         UserDataService.UserCount()
         .then(function (data) {
             //success
-            $scope.bigTotalItems = data;
+            $scope.BigTotalItems = data;
         },
         function () {
             //error
         });
 
-        $scope.bigCurrentPage = 1;
-    });
-
-    UserDataService.UserCount()
-    .then(function (data) {
-        //success
-        $scope.bigTotalItems = data;
-    },
-    function () {
-        //error
-    });
-
-    $scope.pageChanged = function () {
-        //what to do on page change
-        $scope.pagingRequest.PageNumber = $scope.bigCurrentPage;
-
-        UserDataService.GetUsers($scope.pagingRequest)
+        UserDataService.GetUsers($scope.PagingRequest)
         .then(function (result) {
             //Succes
-            $scope.data = result;
+            $scope.UserData = result;
+        },
+        function () {
+            //error
+        });
+
+        $scope.FirstTimeLoad = false;
+    }
+
+    $scope.$on("updateList", function (e, result) {
+        $scope.UserData = result;
+
+        UserDataService.UserCount()
+        .then(function (data) {
+            //success
+            $scope.BigTotalItems = data;
+        },
+        function () {
+            //error
+        });
+
+        $scope.BigCurrentPage = 1;
+    });
+
+    $scope.PageChanged = function () {
+        //what to do on page change
+        $scope.PagingRequest.PageNumber = $scope.BigCurrentPage;
+
+        UserDataService.GetUsers($scope.PagingRequest)
+        .then(function (result) {
+            //Succes
+            $scope.UserData = result;
         },
         function () {
             //error
         });
     };
 
-    $scope.customRowsSelected = function () {
+    $scope.CustomRowsSelected = function () {
+        
+        $scope.PagingRequest.PageSize = $scope.PagedList.name.name;
+        $scope.ItemsPerPage = $scope.PagingRequest.PageSize;
+        $scope.PagingRequest.PageNumber = 1;
 
-        $scope.pagingRequest.pageSize = $scope.pageSize.name.name;
-        $scope.itemsPerPage = $scope.pagingRequest.pageSize;
-        UserDataService.GetUsers($scope.pagingRequest)
-            .then(function (result) {
+        UserDataService.GetUsers($scope.PagingRequest)
+            .then(function (result) {   
                 //Succes
-                $scope.data = result;
-                $scope.bigTotalItems = data.length;
+                $scope.UserData = result;
             },
             function () {
                 //error
             });
     };
 
-    $scope.search = function () {
+    $scope.Search = function () {
         if ($scope.keyword != '' && $scope.keyword != undefined) {
 
-            $scope.pagingRequest.SearchString = $scope.keyword;
-            UserDataService.GetUsers($scope.pagingRequest)
+            $scope.PagingRequest.SearchString = $scope.keyword;
+            UserDataService.GetUsers($scope.PagingRequest)
                     .then(function (result) {
                         //Succes
                         if (result.length > 0) {
-                            $scope.bigTotalItems = result.length;
-                            $scope.data = result;
+                            $scope.BigTotalItems = result.length;
+                            $scope.UserData = result;
                         }
                         else {
                             UserDataService.UserCount()
                                     .then(function (data) {
                                         //success
-                                        $scope.bigTotalItems = data;
+                                        $scope.BigTotalItems = data;
                                     },
                                     function () {
                                         //error
                                     });
 
-                            $scope.data = {};
+                            $scope.UserData = {};
                         }
                     },
                     function () {
@@ -102,12 +108,12 @@ module.registerCtrl('UserController', ["$scope", "$rootScope", "$http", "$window
         }
         else {
 
-            $scope.pagingRequest.SearchString = '';
+            $scope.PagingRequest.SearchString = '';
 
-            UserDataService.GetUsers($scope.pagingRequest)
+            UserDataService.GetUsers($scope.PagingRequest)
            .then(function (result) {
                //Succes
-               $scope.data = result;
+               $scope.UserData = result;
            },
            function () {
                //error
@@ -116,7 +122,7 @@ module.registerCtrl('UserController', ["$scope", "$rootScope", "$http", "$window
             UserDataService.UserCount()
             .then(function (data) {
                 //success
-                $scope.bigTotalItems = data;
+                $scope.BigTotalItems = data;
             },
             function () {
                 //error

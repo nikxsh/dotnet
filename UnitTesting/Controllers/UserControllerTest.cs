@@ -1,5 +1,4 @@
-﻿using EFDataStorage.Contracts;
-using Moq;
+﻿using Moq;
 using System.Linq;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -7,6 +6,9 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using UnitTesting.Fakes;
 using WebApiServices.Controllers;
+using WebApiServices.Adapter;
+using WebApiServices.Helper;
+using WebApiServices.Models;
 
 namespace UnitTesting.Controllers
 {
@@ -14,22 +16,24 @@ namespace UnitTesting.Controllers
     public class UserControllerTest
     {
         private FakeUsersRepository _fakeUserData;
-        private Mock<IUserRepository> _userRepository;
+        private Mock<IUserAdapter> _userRepository;
 
         [SetUp]
         public void SetUp()
         {
             _fakeUserData = new FakeUsersRepository();
-            _userRepository = new Mock<IUserRepository>();
+            _userRepository = new Mock<IUserAdapter>();
         }
 
         [Test]
         public void Get_Users_API_Is_Called()
         {
             //Arrange
-            var pagingReqeust = new WebApiServices.Models.PagingRequest { PageNumber = 0, PageSize = 5, SearchString = string.Empty };
-            var fakeUsers = _fakeUserData.GetUsers(pagingReqeust.PageSize, pagingReqeust.PageNumber, string.Empty);
-            _userRepository.Setup(x => x.GetUsers(pagingReqeust.PageSize, pagingReqeust.PageNumber, string.Empty)).Returns(fakeUsers);
+            var pagingReqeust = new PagingRequest { PageNumber = 0, PageSize = 5, SearchString = string.Empty };
+
+            var request = UserManager.PrepareRequest(new RequestBase<PagingRequest>(pagingReqeust));
+            var fakeUsers = _fakeUserData.GetUsers(request);
+            _userRepository.Setup(x => x.GetUsers(request)).Returns(fakeUsers);
             var controller = new UsersController(_userRepository.Object);
 
 
@@ -46,9 +50,12 @@ namespace UnitTesting.Controllers
         public void Get_Filtered_Users()
         {
             //Arrange
-            var pagingReqeust = new WebApiServices.Models.PagingRequest { PageNumber = 0, PageSize = 5, SearchString = string.Empty };
-            var fakeUsers = _fakeUserData.GetUsers(pagingReqeust.PageSize, pagingReqeust.PageNumber, string.Empty);
-            _userRepository.Setup(x => x.GetUsers(pagingReqeust.PageSize, pagingReqeust.PageNumber, string.Empty)).Returns(fakeUsers);
+            var pagingReqeust = new PagingRequest { PageNumber = 0, PageSize = 5, SearchString = string.Empty };
+
+            var request = UserManager.PrepareRequest(new RequestBase<PagingRequest>(pagingReqeust));
+            var fakeUsers = _fakeUserData.GetUsers(request);
+            _userRepository.Setup(x => x.GetUsers(request)).Returns(fakeUsers);
+
             var controller = new UsersController(_userRepository.Object);
 
 
@@ -57,23 +64,25 @@ namespace UnitTesting.Controllers
 
             //Assert
 
-            var result = actionResult as OkNegotiatedContentResult<IEnumerable<EFDataStorage.Entities.User>>;
-            Assert.IsNotEmpty(result.Content);
-            Assert.IsTrue(result.Content.Count() > 0);
+            var result = actionResult as OkNegotiatedContentResult<ResponseBase<IEnumerable<EFDataStorage.Entities.User>>>;
+            Assert.IsNotEmpty(result.Content.Data);
+            Assert.IsTrue(result.Content.Data.Count() > 0);
 
         }
 
         [Test]
         public void Get_Users_Count()
         {
-            _userRepository.Setup(x => x.GetUserCount()).Returns(_fakeUserData.FakeUsers.Count());
+
+            var request = UserManager.PrepareRequest(new RequestBase());
+            _userRepository.Setup(x => x.GetUserCount(request)).Returns(new ResponseBase<int>() { Data = _fakeUserData.FakeUsers.Count(), Status = true });
             var controller = new UsersController(_userRepository.Object);
 
 
             IHttpActionResult actionResult = controller.GetUserCount();
 
 
-            var result = actionResult as OkNegotiatedContentResult<int>;
+            var result = actionResult as OkNegotiatedContentResult<ResponseBase<int>>;
             Assert.AreEqual(result.Content, 6);
         }
     }

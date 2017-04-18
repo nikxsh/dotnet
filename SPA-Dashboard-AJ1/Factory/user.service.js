@@ -8,7 +8,7 @@
         var promise = $http.post("http://localhost:5658/api/users", pagingRequest)
                 .then(function (result) {
                     //Succes
-                    return result.data;
+                    return result.data.responseData;
                 },
                 function () {
                     //Error
@@ -20,7 +20,7 @@
         var promise = $http.get("http://localhost:5658/api/users/count")
                         .then(function (result) {
                             //Succes
-                            return result.data;
+                            return result.data.responseData;
                         },
                         function () {
                             //Error
@@ -32,7 +32,7 @@
         var promise = $http.get("http://localhost:5658/api/users/" + keyword + "/search")
                         .then(function (result) {
                             //Succes
-                            return result.data;
+                            return result.data.responseData;
                         },
                         function () {
                             //Error

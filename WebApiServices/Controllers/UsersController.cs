@@ -26,7 +26,7 @@ namespace WebApiServices.Controllers
             {
                 var request = UserManager.PrepareRequest(new RequestBase<PagingRequest>(pagingRequest));
                 var response = _userAdapter.GetUsers(request);
-                return Ok(response.Data);
+                return Ok(response);
             }
             catch(Exception ex)
             {
@@ -58,7 +58,7 @@ namespace WebApiServices.Controllers
             {
                 var request = UserManager.PrepareRequest(new RequestBase());
                 var userCount = _userAdapter.GetUserCount(request);
-                return Ok(userCount.Data);
+                return Ok(userCount);
             }
             catch (Exception ex)
             {
@@ -74,7 +74,7 @@ namespace WebApiServices.Controllers
             {
                 var request = UserManager.PrepareRequest(new RequestBase<Guid>(userId));
                 var result = _userAdapter.GetUserById(request);
-                return Ok(result.Data);
+                return Ok(result);
             }
             catch (Exception ex)
             {

@@ -4,7 +4,7 @@
     $ctrl.animationsEnabled = true;
     $scope.user = UserDataService;
 
-    $ctrl.openAddUserModal = function () {
+    $ctrl.OpenAddUserModal = function () {
 
         $scope.isNew = true;
         $scope.title = 'Add';
@@ -31,15 +31,15 @@
         });
     }
 
-    $ctrl.openEditUserModal = function (userId) {
+    $ctrl.OpenEditUserModal = function (userId) {
 
         UserDataService.UserById(userId)
         .then(function (result) {
             //Succes
-            $scope.user = result.data;
+            $scope.user = result.data.responseData;
             $scope.user.dob = new Date($scope.user.dob);
 
-            $scope.master = result.data;
+            $scope.master = result.data.responseData;
             $scope.master.dob = new Date($scope.user.dob);
 
             $scope.isNew = false;
@@ -72,7 +72,7 @@
     }
 
 
-    $ctrl.openDeleteUserModal = function (userId, userName) {
+    $ctrl.OpenDeleteUserModal = function (userId, userName) {
 
         $scope.UserIdToDelete = userId;
         $scope.UserName = userName;
@@ -110,7 +110,7 @@ module.registerCtrl('ModalInstanceController', function ($uibModalInstance, $sco
                     UserDataService.GetUsers(pagingRequest)
                         .then(function (result) {
                             //Succes
-                            $rootScope.$broadcast('updateList', { data: result });
+                            $rootScope.$broadcast('updateList', { data: result.responseData });
                         },
                         function () {
                             //error

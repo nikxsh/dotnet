@@ -1,5 +1,4 @@
-﻿
-<script src="../../Controllers/user.controller.js"></script>
+﻿<script src="../../Controllers/user.controller.js"></script>
 <script src="../../Controllers/modal.controller.js"></script>
 <link href="../../Content/css/dataTables.bootstrap.css" rel="stylesheet" />
 <link href="../../Content/css/dataTables.bootstrap.css" rel="stylesheet" />
@@ -21,10 +20,10 @@
                             <label>
                                 Show
                                 <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"
-                                        ng-options="pageSize.name for pageSize in pageSize track by pageSize.id"
-                                        ng-model="pageSize.name"
-                                        ng-change="customRowsSelected()"
-                                        ng-init="pageSize.name = pageSize[0]"></select>
+                                        ng-options="PagedList.name for PagedList in PagedList track by PagedList.id"
+                                        ng-model="PagedList.name"
+                                        ng-change="CustomRowsSelected()"
+                                        ng-init="PagedList.name = PagedList[0]"></select>
                                 entries
                             </label>
                         </div>
@@ -33,7 +32,7 @@
                         <div id="dataTables-example_filter" class="dataTables_filter col-lg-11">
                             <label>
                                 Search:
-                                <input type="search" class="form-control input-sm" placeholder="Table Search" aria-controls="dataTables-example" ng-model="keyword" ng-change="search()">
+                                <input type="search" class="form-control input-sm" placeholder="Table Search" aria-controls="dataTables-example" ng-model="keyword" ng-change="Search()">
                                 <span class="input-group-sm">
                                     <button class="btn btn-sm" type="button" ng-click="search()">
                                         <i class="fa fa-search"></i>
@@ -57,7 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in data">
+                                <tr ng-repeat="item in UserData">
                                     <td>{{ item.userName }}</td>
                                     <td>{{ item.firstName }}</td>
                                     <td>{{ item.lastName }}</td>
@@ -69,8 +68,8 @@
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu pull-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to">
-                                                <li role="menuitem"><a ng-click="$ctrl.openEditUserModal(item.id)">Edit</a></li>
-                                                <li role="menuitem"><a ng-click="$ctrl.openDeleteUserModal(item.id,item.userName)">Remove</a></li>
+                                                <li role="menuitem"><a ng-click="$ctrl.OpenEditUserModal(item.id)">Edit</a></li>
+                                                <li role="menuitem"><a ng-click="$ctrl.OpenDeleteUserModal(item.id,item.userName)">Remove</a></li>
                                                 <li class="divider"></li>
                                                 <li role="menuitem"><a href="#">Separated link</a></li>
                                             </ul>
@@ -89,7 +88,7 @@
                     </div>
                     <div class="dataTables_paginate paging_simple_numbers col-lg-11" id="dataTables-example_paginate">
                         <div>
-                            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()" items-per-page="itemsPerPage"></ul>
+                            <ul uib-pagination total-items="BigTotalItems" ng-model="BigCurrentPage" max-size="maxSize" class="pagination" boundary-link-numbers="true" rotate="false" ng-change="PageChanged()" items-per-page="ItemsPerPage"></ul>
                         </div>
                     </div>
                 </div>

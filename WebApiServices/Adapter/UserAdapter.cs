@@ -24,7 +24,7 @@ namespace WebApiServices.Adapter
             {
                 var result = _userRepository.GetUsers(request.Data.PageSize, request.Data.PageNumber, request.Data.SearchString);
                 var responseData = result.ToAPIUsers();
-                return new ResponseBase<IEnumerable<User>> { Status = true, Data = responseData };
+                return new ResponseBase<IEnumerable<User>> { Status = true, ResponseData = responseData };
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace WebApiServices.Adapter
             {
                 var result = _userRepository.GetUserById(request.Data);
                 var responseData = result.ToAPIUser();
-                return new ResponseBase<User> { Status = true, Data = responseData };
+                return new ResponseBase<User> { Status = true, ResponseData = responseData };
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace WebApiServices.Adapter
             try
             {
                 var result = _userRepository.GetUserCount();
-                return new ResponseBase<int> { Status = true, Data = result };
+                return new ResponseBase<int> { Status = true, ResponseData = result };
             }
             catch (Exception ex)
             {
@@ -82,7 +82,7 @@ namespace WebApiServices.Adapter
             try
             {
                 var result = _userRepository.GlobalSearch(request.Data);
-                return new ResponseBase<IEnumerable<KeyValuePair<Guid, string>>> { Status = true, Data = result };
+                return new ResponseBase<IEnumerable<KeyValuePair<Guid, string>>> { Status = true, ResponseData = result };
             }
             catch (Exception ex)
             {

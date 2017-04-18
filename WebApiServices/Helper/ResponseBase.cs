@@ -20,6 +20,6 @@ namespace WebApiServices.Helper
 
     public class ResponseBase<T> : ResponseBase
     {
-        public T Data { get; set; }
+        public T ResponseData { get; set; }
     }
 }

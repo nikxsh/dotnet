@@ -1,12 +1,13 @@
-﻿using EFDataStorage.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using EFDataStorage.Entities;
+using WebApiServices.Adapter;
+using WebApiServices.Helper;
+using WebApiServices.Models;
 
 namespace UnitTesting.Fakes
 {
-    public class FakeUsersRepository : IUserRepository
+    public class FakeUsersRepository : IUserAdapter
     {
         public List<User> FakeUsers = new List<User>
             {
@@ -17,7 +18,7 @@ namespace UnitTesting.Fakes
                         FirstName = "Nikhilesh",
                         LastName = "Shinde",
                         Email = "shinde.nikhilesh@gmail.com",
-                        Dob =  DateTime.ParseExact("14/03/1990","dd/MM/yyyy", null)
+                        Dob =  DateTime.ParseExact("14/03/1990","dd/MM/yyyy", null).ToString()
                     },
                     new User
                     {
@@ -26,7 +27,7 @@ namespace UnitTesting.Fakes
                         FirstName = "Ravi",
                         LastName = "Singh",
                         Email = "ravi.singh@gmail.com",
-                        Dob = DateTime.ParseExact("07/07/1988", "dd/MM/yyyy", null)
+                        Dob = DateTime.ParseExact("07/07/1988", "dd/MM/yyyy", null).ToString()
                     },
                     new User
                     {
@@ -35,7 +36,7 @@ namespace UnitTesting.Fakes
                         FirstName = "Neha",
                         LastName = "Jain",
                         Email = "neha.jain@gmail.com",
-                        Dob = DateTime.ParseExact("11/08/1990", "dd/MM/yyyy", null)
+                        Dob = DateTime.ParseExact("11/08/1990", "dd/MM/yyyy", null).ToString()
                     },
                     new User
                     {
@@ -44,7 +45,7 @@ namespace UnitTesting.Fakes
                         FirstName = "Nikita",
                         LastName = "khatri",
                         Email = "nikita.khatri@gmail.com",
-                        Dob = DateTime.ParseExact("04/01/1990", "dd/MM/yyyy", null)
+                        Dob = DateTime.ParseExact("04/01/1990", "dd/MM/yyyy", null).ToString()
                     },
                     new User
                     {
@@ -53,7 +54,7 @@ namespace UnitTesting.Fakes
                         FirstName = "Lagertha",
                         LastName = "Lodbrok",
                         Email = "Lagertha @vikings.com",
-                        Dob = DateTime.ParseExact("24/01/1990", "dd/MM/yyyy", null)
+                        Dob = DateTime.ParseExact("24/01/1990", "dd/MM/yyyy", null).ToString()
                     },
                     new User
                     {
@@ -62,45 +63,46 @@ namespace UnitTesting.Fakes
                         FirstName = "Iron",
                         LastName = "Side",
                         Email = "Iron.side@vikings.com",
-                        Dob = DateTime.ParseExact("04/09/1990", "dd/MM/yyyy", null)
+                        Dob = DateTime.ParseExact("04/09/1990", "dd/MM/yyyy", null).ToString()
                     }
             };
 
-        public string Response { get; set; }
-
-        public void DeleteUser(Guid UserId)
+        public ResponseBase DeleteUser(RequestBase<Guid> request)
         {
             throw new NotImplementedException();
         }
 
-        public void EditUser(User User)
+        public ResponseBase EditUser(RequestBase<WebApiServices.Models.User> request)
         {
             throw new NotImplementedException();
         }
 
-        public User GetUserById(Guid Id)
+        public ResponseBase<WebApiServices.Models.User> GetUserById(RequestBase<Guid> request)
         {
             throw new NotImplementedException();
         }
 
-        public int GetUserCount()
+        public ResponseBase<int> GetUserCount(RequestBase request)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<User> GetUsers(int PageSize, int PageNumber, string keyword)
+        public ResponseBase<IEnumerable<User>> GetUsers(RequestBase<PagingRequest> request)
         {
-            return FakeUsers.Skip(PageNumber * PageSize).Take(PageSize);
+            var response = new ResponseBase<IEnumerable<User>>();
+            response.Data = FakeUsers.Skip(request.Data.PageNumber * request.Data.PageSize).Take(request.Data.PageSize);
+            response.Status = true;
+            return response;
         }
 
-        public IEnumerable<KeyValuePair<Guid, string>> GlobalSearch(string keyword)
+        public ResponseBase<IEnumerable<KeyValuePair<Guid, string>>> GlobalSearch(RequestBase<string> request)
         {
             throw new NotImplementedException();
         }
 
-        public void SaveUser(User User)
+        public ResponseBase SaveUser(RequestBase<WebApiServices.Models.User> request)
         {
-            Response = "Success";
+            throw new NotImplementedException();
         }
     }
 }

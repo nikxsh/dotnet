@@ -1,7 +1,7 @@
 ﻿var module = angular.module('SPADashBoardAJ1', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
 module.constant('Constants', {
-    itemsPerPage: 5
+    PageTabelRowsSize: 5
 });
 
 module.config(['$routeProvider', '$controllerProvider', function ($routeProvider, $controllerProvider) {
