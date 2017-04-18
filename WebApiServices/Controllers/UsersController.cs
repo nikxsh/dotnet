@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using WebApiServices.Adapter;
+using WebApiServices.Helper;
 using WebApiServices.Models;
 
 namespace WebApiServices.Controllers
@@ -9,91 +11,123 @@ namespace WebApiServices.Controllers
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
-        private EFDataStorage.Contracts.IUserRepository _userRepository;
-        public UsersController(EFDataStorage.Contracts.IUserRepository userRepository)
+        private readonly IUserAdapter _userAdapter;
+
+        public UsersController(IUserAdapter UserAdapter)
         {
-            _userRepository = userRepository;
+            _userAdapter = UserAdapter;
         }
 
         [Route("")]
         [HttpPost]
         public IHttpActionResult GetUsers([FromBody]PagingRequest pagingRequest)
         {
-            var result = _userRepository.GetUsers(pagingRequest.PageSize, pagingRequest.PageNumber, pagingRequest.SearchString);
-            return Ok(result);
+            try
+            {
+                var request = UserManager.PrepareRequest(new RequestBase<PagingRequest>(pagingRequest));
+                var response = _userAdapter.GetUsers(request);
+                return Ok(response.Data);
+            }
+            catch(Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
         }
 
         [Route("{keyword}/search")]
         [HttpGet]
         public IHttpActionResult GetUserMetaData(string keyword)
         {
-            var result = _userRepository.GlobalSearch(keyword);
-            return Ok(result);
+            try
+            {
+                var request = UserManager.PrepareRequest(new RequestBase<string>(keyword));
+                var result = _userAdapter.GlobalSearch(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
         }
 
         [Route("count")]
         [HttpGet]
         public IHttpActionResult GetUserCount()
         {
-            var userCount = _userRepository.GetUserCount();
-            return Ok(userCount);
+            try
+            {
+                var request = UserManager.PrepareRequest(new RequestBase());
+                var userCount = _userAdapter.GetUserCount(request);
+                return Ok(userCount.Data);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
         }
 
         [Route("{userId:Guid}")]
         [HttpGet]
         public IHttpActionResult GetUserById(Guid userId)
         {
-            var user = _userRepository.GetUserById(userId);
-            var result = new User
+            try
             {
-                Id = user.Id,
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                Dob = user.Dob.ToString("MM/dd/yyyy")
-            };
-            return Ok(result);
+                var request = UserManager.PrepareRequest(new RequestBase<Guid>(userId));
+                var result = _userAdapter.GetUserById(request);
+                return Ok(result.Data);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
         }
 
         [Route("add")]
         [HttpPost]
         public IHttpActionResult Save([FromBody]User user)
         {
-            _userRepository.SaveUser(new EFDataStorage.Entities.User
+            try
             {
-                Id = Guid.NewGuid(),
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                Dob = DateTime.Parse(user.Dob)
-            });
-            return Ok("Success");
+                var request = UserManager.PrepareRequest(new RequestBase<User>(user));
+                var result = _userAdapter.SaveUser(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
         }
 
         [Route("edit")]
         [HttpPost]
         public IHttpActionResult Edit([FromBody]User user)
         {
-            _userRepository.EditUser(new EFDataStorage.Entities.User
+            try
             {
-                Id = user.Id,
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                Dob = DateTime.Parse(user.Dob)
-            });
-            return Ok("Success");
+                var request = UserManager.PrepareRequest(new RequestBase<User>(user));
+                var result = _userAdapter.EditUser(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
         }
 
         [Route("{userId:Guid}/delete")]
         [HttpPost]
         public IHttpActionResult Delete(Guid userId)
         {
-            _userRepository.DeleteUser(userId);
-            return Ok("Success");
+            try
+            {
+                var request = UserManager.PrepareRequest(new RequestBase<Guid>(userId));
+                var result = _userAdapter.DeleteUser(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
         }
     }
 }

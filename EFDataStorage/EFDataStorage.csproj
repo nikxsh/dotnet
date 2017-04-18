@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="EFDemoMigrations\Configuration.cs" />
     <Compile Include="ForumContext.cs" />
+    <Compile Include="Helper\ExecuteNonQueryResults.cs" />
     <Compile Include="Repositories\ForumRepository.cs" />
     <Compile Include="Contracts\IForumRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

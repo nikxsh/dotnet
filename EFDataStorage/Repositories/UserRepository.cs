@@ -4,6 +4,7 @@ using System.Linq;
 using EFDataStorage.Contracts;
 using System.Data.Entity.Migrations;
 using EFDataStorage.Entities;
+using EFDataStorage.Helper;
 
 namespace EFDataStorage.Repositories
 {
@@ -73,22 +74,6 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public void SaveUser(User User)
-        {
-            try
-            {
-                using (var context = new ForumContext())
-                {
-                    context.Users.Add(User);
-                    context.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public User GetUserById(Guid Id)
         {
             try
@@ -104,14 +89,14 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public void EditUser(User User)
+        public ExecuteNonQueryResults SaveUser(User User)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
-                    context.Users.AddOrUpdate(User);
-                    context.SaveChanges();
+                    context.Users.Add(User);
+                    return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
                 }
             }
             catch (Exception ex)
@@ -120,14 +105,30 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public void DeleteUser(Guid UserId)
+        public ExecuteNonQueryResults EditUser(User User)
+        {
+            try
+            {
+                using (var context = new ForumContext())
+                {
+                    context.Users.AddOrUpdate(User);
+                    return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ExecuteNonQueryResults DeleteUser(Guid UserId)
         {
             try
             {
                 using (var context = new ForumContext())
                 {
                     context.Users.Remove(context.Users.Where(x => x.Id == UserId).FirstOrDefault());
-                    context.SaveChanges();
+                    return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
                 }
             }
             catch (Exception ex)

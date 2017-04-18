@@ -1,4 +1,5 @@
 ﻿using EFDataStorage.Entities;
+using EFDataStorage.Helper;
 using System;
 using System.Collections.Generic;
 
@@ -10,8 +11,8 @@ namespace EFDataStorage.Contracts
         IEnumerable<KeyValuePair<Guid, string>> GlobalSearch(string keyword);
         int GetUserCount();
         User GetUserById(Guid Id);
-        void SaveUser(User User);
-        void EditUser(User User);
-        void DeleteUser(Guid UserId);
+        ExecuteNonQueryResults SaveUser(User User);
+        ExecuteNonQueryResults EditUser(User User);
+        ExecuteNonQueryResults DeleteUser(Guid UserId);
     }
 }
