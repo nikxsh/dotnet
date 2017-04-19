@@ -26,24 +26,44 @@ namespace UnitTesting.Controllers
         }
 
         [Test]
-        public void Get_Users_API_Is_Called()
+        public void Get_users_api_should_be_called()
         {
-            //Arrange
-            var pagingReqeust = new PagingRequest { PageNumber = 0, PageSize = 5, SearchString = string.Empty };
+            /// Arrange
+            /// Create your mock object and pass that to System Under Test (SUT)
+            _userRepository.Setup(x => x.GetUsers(It.IsAny<RequestBase<PagingRequest>>()));
+            var controller = new UsersController(_userRepository.Object);
+            
+            /// Act
+            /// Execute SUT
+            IHttpActionResult actionResult = controller.GetUsers(new PagingRequest { });
 
-            var request = UserManager.PrepareRequest(new RequestBase<PagingRequest>(pagingReqeust));
-            var fakeUsers = _fakeUserData.GetUsers(request);
-            _userRepository.Setup(x => x.GetUsers(request)).Returns(fakeUsers);
+            /// Assert
+            /// Verify SUT's interaction with the mock object
+            _userRepository.VerifyAll();
+        }
+
+        [Test]
+        public void Save_should_be_called_per_user()
+        {
+            /// Arrange
+            /// Create your mock object and pass that to System Under Test (SUT)
+            var users = new List<User>()
+            {
+                new User { FirstName = "test1" },
+                new User { FirstName = "test2" },
+                new User { FirstName = "test3" },
+                new User { FirstName = "test4" },
+            };
             var controller = new UsersController(_userRepository.Object);
 
+            /// Act
+            /// Execute SUT
+            IHttpActionResult actionResult = controller.BulkSave(users);
 
-            //Act
-            IHttpActionResult actionResult = controller.GetUsers(pagingReqeust);
+            /// Assert
+            /// Verify SUT's interaction with the mock object
+            _userRepository.Verify(x => x.SaveUser(It.IsAny<RequestBase<User>>()), Times.Exactly(users.Count));
 
-            //Assert
-
-            //Ok()
-            Assert.IsInstanceOf(typeof(OkNegotiatedContentResult<IEnumerable<EFDataStorage.Entities.User>>), actionResult);
         }
 
         [Test]
@@ -64,9 +84,9 @@ namespace UnitTesting.Controllers
 
             //Assert
 
-            var result = actionResult as OkNegotiatedContentResult<ResponseBase<IEnumerable<EFDataStorage.Entities.User>>>;
-            Assert.IsNotEmpty(result.Content.Data);
-            Assert.IsTrue(result.Content.Data.Count() > 0);
+            var result = actionResult as OkNegotiatedContentResult<ResponseBase<IEnumerable<User>>>;
+            Assert.IsNotEmpty(result.Content.ResponseData);
+            Assert.IsTrue(result.Content.ResponseData.Count() > 0);
 
         }
 
@@ -75,7 +95,8 @@ namespace UnitTesting.Controllers
         {
 
             var request = UserManager.PrepareRequest(new RequestBase());
-            _userRepository.Setup(x => x.GetUserCount(request)).Returns(new ResponseBase<int>() { Data = _fakeUserData.FakeUsers.Count(), Status = true });
+            var fakeResponse = new ResponseBase<int>() { ResponseData = _fakeUserData.FakeUsers.Count(), Status = true };
+            _userRepository.Setup(x => x.GetUserCount(request)).Returns(fakeResponse);
             var controller = new UsersController(_userRepository.Object);
 
 
@@ -83,7 +104,7 @@ namespace UnitTesting.Controllers
 
 
             var result = actionResult as OkNegotiatedContentResult<ResponseBase<int>>;
-            Assert.AreEqual(result.Content, 6);
+            Assert.AreEqual(result.Content.ResponseData, 6);
         }
     }
 }

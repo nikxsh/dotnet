@@ -23,7 +23,7 @@ namespace WebApiServices.Adapter
             try
             {
                 var result = _userRepository.GetUsers(request.Data.PageSize, request.Data.PageNumber, request.Data.SearchString);
-                var responseData = result.ToAPIUsers();
+                var responseData = result.BuildAPIUserList();
                 return new ResponseBase<IEnumerable<User>> { Status = true, ResponseData = responseData };
             }
             catch (Exception ex)
@@ -43,7 +43,7 @@ namespace WebApiServices.Adapter
             try
             {
                 var result = _userRepository.GetUserById(request.Data);
-                var responseData = result.ToAPIUser();
+                var responseData = result.BuildAPIUser();
                 return new ResponseBase<User> { Status = true, ResponseData = responseData };
             }
             catch (Exception ex)
@@ -99,17 +99,9 @@ namespace WebApiServices.Adapter
             var response = new ResponseBase();
             try
             {
-                var userData = new EFDataStorage.Entities.User
-                {
-                    Id = Guid.NewGuid(),
-                    UserName = request.Data.UserName,
-                    FirstName = request.Data.FirstName,
-                    LastName = request.Data.LastName,
-                    Email = request.Data.Email,
-                    Dob = DateTime.Parse(request.Data.Dob)
-                };
-
-                var result = _userRepository.SaveUser(userData);
+                request.Data.Id = Guid.NewGuid();
+                var user = request.Data.BuildRepositoryUser(); 
+                var result = _userRepository.SaveUser(user);
                 if (result.AffectedRecords > 0)
                     return new ResponseBase { Status = true, Message = "User added" };
                 else
@@ -127,20 +119,10 @@ namespace WebApiServices.Adapter
 
         public ResponseBase EditUser(RequestBase<User> request)
         {
-            var response = new ResponseBase();
             try
             {
-                var userData = new EFDataStorage.Entities.User
-                {
-                    Id = request.Data.Id,
-                    UserName = request.Data.UserName,
-                    FirstName = request.Data.FirstName,
-                    LastName = request.Data.LastName,
-                    Email = request.Data.Email,
-                    Dob = DateTime.Parse(request.Data.Dob)
-                };
-
-                var result = _userRepository.EditUser(userData);
+                var user = request.Data.BuildRepositoryUser();
+                var result = _userRepository.EditUser(user);
                 if (result.AffectedRecords > 0)
                     return new ResponseBase { Status = true, Message = "User updated" };
                 else
@@ -148,11 +130,11 @@ namespace WebApiServices.Adapter
             }
             catch (Exception ex)
             {
-                response = ex.ToAdapterResponseBase<IEnumerable<User>>();
+                var response = ex.ToAdapterResponseBase<IEnumerable<User>>();
                 response.Errors = new List<Error> { new Error { ErrorCode = 520, ErrorMessage = ex.Message } };
                 response.Status = false;
+                return response;
             }
-            return response;
         }
 
         public ResponseBase DeleteUser(RequestBase<Guid> request)

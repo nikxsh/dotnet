@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebApiServices.Adapter;
@@ -91,6 +92,27 @@ namespace WebApiServices.Controllers
                 var request = UserManager.PrepareRequest(new RequestBase<User>(user));
                 var result = _userAdapter.SaveUser(request);
                 return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.ToErrorResponse());
+            }
+        }
+
+        [Route("bulk")]
+        [HttpPost]
+        public IHttpActionResult BulkSave([FromBody]IEnumerable<User> users)
+        {
+            try
+            {
+                List<ResponseBase> responses = new List<ResponseBase>();
+                foreach (var user in users)
+                {
+                    var request = UserManager.PrepareRequest(new RequestBase<User>(user));
+                    var result = _userAdapter.SaveUser(request);
+                    responses.Add(result);
+                }
+                return Ok(responses);
             }
             catch (Exception ex)
             {

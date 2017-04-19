@@ -90,7 +90,7 @@ namespace UnitTesting.Fakes
         public ResponseBase<IEnumerable<User>> GetUsers(RequestBase<PagingRequest> request)
         {
             var response = new ResponseBase<IEnumerable<User>>();
-            response.Data = FakeUsers.Skip(request.Data.PageNumber * request.Data.PageSize).Take(request.Data.PageSize);
+            response.ResponseData = FakeUsers.Skip(request.Data.PageNumber * request.Data.PageSize).Take(request.Data.PageSize);
             response.Status = true;
             return response;
         }
