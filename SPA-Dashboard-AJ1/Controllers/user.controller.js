@@ -34,7 +34,7 @@ module.registerCtrl('UserController', ["$scope", "$rootScope", "$http", "$window
     }
 
     $scope.$on("updateList", function (e, result) {
-        $scope.UserData = result;
+        $scope.UserData = result.data;
 
         UserDataService.UserCount()
         .then(function (data) {
@@ -64,9 +64,10 @@ module.registerCtrl('UserController', ["$scope", "$rootScope", "$http", "$window
 
     $scope.CustomRowsSelected = function () {
         
-        $scope.PagingRequest.PageSize = $scope.PagedList.name.name;
-        $scope.ItemsPerPage = $scope.PagingRequest.PageSize;
+        $scope.PagingRequest.PageSize = parseInt($scope.PagedList.name.name);
         $scope.PagingRequest.PageNumber = 1;
+
+        $scope.ItemsPerPage = $scope.PagingRequest.PageSize;
 
         UserDataService.GetUsers($scope.PagingRequest)
             .then(function (result) {   

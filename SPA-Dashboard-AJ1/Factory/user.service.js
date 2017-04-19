@@ -32,7 +32,7 @@
         var promise = $http.get("http://localhost:5658/api/users/" + keyword + "/search")
                         .then(function (result) {
                             //Succes
-                            return result.data.responseData;
+                            return result.data;
                         },
                         function () {
                             //Error

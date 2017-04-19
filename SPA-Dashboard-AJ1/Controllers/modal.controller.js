@@ -96,7 +96,7 @@
 
 module.registerCtrl('ModalInstanceController', function ($uibModalInstance, $scope, $rootScope, UserDataService, Constants) {
     var $ctrl = this;
-    var pagingRequest = { PageNumber: 1, PageSize: Constants.itemsPerPage };
+    var pagingRequest = { PageNumber: 1, PageSize: Constants.PageTabelRowsSize };
 
     $ctrl.ok = function (isNewUser) {
 
@@ -110,7 +110,7 @@ module.registerCtrl('ModalInstanceController', function ($uibModalInstance, $sco
                     UserDataService.GetUsers(pagingRequest)
                         .then(function (result) {
                             //Succes
-                            $rootScope.$broadcast('updateList', { data: result.responseData });
+                            $rootScope.$broadcast('updateList', { data: result });
                         },
                         function () {
                             //error
