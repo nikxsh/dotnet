@@ -95,7 +95,7 @@ namespace DotNetDemos.CSharpExamples
     #region SOLID
 
     //1. “S”- SRP (Single responsibility principle) 
-    //    So SRP says that a class should have only one responsibility and not multiple.
+    //    So SRP says that a class should have only one responsibility and that resposibility should be encapsulated by the class.
     //    So if we apply SRP we can move that logging activity to some other class who will only look after logging activities.
     class SRP
     {
