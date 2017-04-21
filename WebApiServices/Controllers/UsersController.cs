@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebApiServices.Adapter;
@@ -89,13 +90,17 @@ namespace WebApiServices.Controllers
         {
             try
             {
+                if (user == null)
+                    throw new NullReferenceException("User Object can not be Null");
+
                 var request = UserManager.PrepareRequest(new RequestBase<User>(user));
                 var result = _userAdapter.SaveUser(request);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return Ok(ex.ToErrorResponse());
+                throw ex;
+                //return Ok(ex.ToErrorResponse());
             }
         }
 
@@ -105,14 +110,17 @@ namespace WebApiServices.Controllers
         {
             try
             {
-                List<ResponseBase> responses = new List<ResponseBase>();
+                var response = new ResponseBase();
                 foreach (var user in users)
                 {
                     var request = UserManager.PrepareRequest(new RequestBase<User>(user));
                     var result = _userAdapter.SaveUser(request);
-                    responses.Add(result);
-                }
-                return Ok(responses);
+                    if (result != null && result.Status)
+                    {
+                        var data = _userAdapter.GetUsers(new RequestBase<PagingRequest> { });
+                    }
+                } 
+                return Ok(response);
             }
             catch (Exception ex)
             {
