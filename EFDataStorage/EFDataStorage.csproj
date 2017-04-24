@@ -50,13 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexts\UserContext.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
-    <Compile Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.cs" />
-    <Compile Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.Designer.cs">
-      <DependentUpon>201703301011225_EFDemoIntialMigrations.cs</DependentUpon>
+    <Compile Include="Contexts\ForumContext.cs" />
+    <Compile Include="ForumMigrations\201704240612454_ForumMigrations.cs" />
+    <Compile Include="ForumMigrations\201704240612454_ForumMigrations.Designer.cs">
+      <DependentUpon>201704240612454_ForumMigrations.cs</DependentUpon>
     </Compile>
-    <Compile Include="EFDemoMigrations\Configuration.cs" />
-    <Compile Include="ForumContext.cs" />
+    <Compile Include="ForumMigrations\Configuration.cs" />
     <Compile Include="Helper\ExecuteNonQueryResults.cs" />
     <Compile Include="Repositories\ForumRepository.cs" />
     <Compile Include="Contracts\IForumRepository.cs" />
@@ -65,6 +66,11 @@
     <Compile Include="Entities\Topic.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="UserMigrations\201704240621559_UserMigrations.cs" />
+    <Compile Include="UserMigrations\201704240621559_UserMigrations.Designer.cs">
+      <DependentUpon>201704240621559_UserMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserMigrations\Configuration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -74,8 +80,11 @@
     <Content Include="Commonds.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EFDemoMigrations\201703301011225_EFDemoIntialMigrations.resx">
-      <DependentUpon>201703301011225_EFDemoIntialMigrations.cs</DependentUpon>
+    <EmbeddedResource Include="ForumMigrations\201704240612454_ForumMigrations.resx">
+      <DependentUpon>201704240612454_ForumMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMigrations\201704240621559_UserMigrations.resx">
+      <DependentUpon>201704240621559_UserMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,15 +4,11 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace EFDataStorage
 {
-    class ForumContext : DbContext
+    public class UserContext : DbContext
     {
-        public ForumContext() : base("ForumContextConnection")
+        public UserContext() : base("DBContextConnection")
         {
         }
-
-        public DbSet<Topic> Topics { get; set; }
-        public DbSet<Reply> Reply { get; set; }
-
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

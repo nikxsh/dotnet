@@ -1,9 +1,9 @@
-namespace EFDataStorage.EFDemoMigrations
+namespace EFDataStorage.ForumMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class EFDemoIntialMigrations : DbMigration
+    public partial class ForumMigrations : DbMigration
     {
         public override void Up()
         {
@@ -31,26 +31,12 @@ namespace EFDataStorage.EFDemoMigrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            CreateTable(
-                "dbo.User",
-                c => new
-                    {
-                        Id = c.Guid(nullable: false),
-                        UserName = c.String(),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Email = c.String(),
-                        Dob = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Reply", "TopicId", "dbo.Topic");
             DropIndex("dbo.Reply", new[] { "TopicId" });
-            DropTable("dbo.User");
             DropTable("dbo.Topic");
             DropTable("dbo.Reply");
         }

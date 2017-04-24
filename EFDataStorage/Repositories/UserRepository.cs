@@ -14,7 +14,7 @@ namespace EFDataStorage.Repositories
         {
             try
             {
-                using (var context = new ForumContext())
+                using (var context = new UserContext())
                 {
                     var records = from user in context.Users
                                   select user;
@@ -39,7 +39,7 @@ namespace EFDataStorage.Repositories
         {
             try
             {
-                using (var context = new ForumContext())
+                using (var context = new UserContext())
                 {
                     var usersearch = context.Users.Where(x => x.UserName.Contains(keyword) ||
                                                    x.FirstName.Contains(keyword) ||
@@ -63,7 +63,7 @@ namespace EFDataStorage.Repositories
         {
             try
             {
-                using (var context = new ForumContext())
+                using (var context = new UserContext())
                 {
                     return context.Users.Count();
                 }
@@ -78,7 +78,7 @@ namespace EFDataStorage.Repositories
         {
             try
             {
-                using (var context = new ForumContext())
+                using (var context = new UserContext())
                 {
                     return context.Users.Where(x => x.Id == Id).FirstOrDefault();
                 }
@@ -93,7 +93,7 @@ namespace EFDataStorage.Repositories
         {
             try
             {
-                using (var context = new ForumContext())
+                using (var context = new UserContext())
                 {
                     context.Users.Add(User);
                     return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
@@ -109,7 +109,7 @@ namespace EFDataStorage.Repositories
         {
             try
             {
-                using (var context = new ForumContext())
+                using (var context = new UserContext())
                 {
                     context.Users.AddOrUpdate(User);
                     return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
@@ -125,7 +125,7 @@ namespace EFDataStorage.Repositories
         {
             try
             {
-                using (var context = new ForumContext())
+                using (var context = new UserContext())
                 {
                     context.Users.Remove(context.Users.Where(x => x.Id == UserId).FirstOrDefault());
                     return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };

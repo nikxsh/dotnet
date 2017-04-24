@@ -1,5 +1,5 @@
 ﻿Install-Package EntityFramework 
 
 Enable-Migrations -ContextTypeName ForumContext -MigrationsDirectory EFDemoMigrations
-Add-Migration EFDemoMigrations
-Update-Database -TargetMigration:EFDemoMigrations
+Add-Migration -Name UserMigrations -ConfigurationTypeName EFDataStorage.UserMigrations.Configuration
+Update-Database -TargetMigration:UserMigrations -ConfigurationTypeName EFDataStorage.UserMigrations.Configuration
