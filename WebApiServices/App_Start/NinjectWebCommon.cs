@@ -68,8 +68,8 @@ namespace WebApiServices.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<EFDataStorage.Contracts.IForumRepository>().To<EFDataStorage.Repositories.ForumRepository>();
-            kernel.Bind<Adapter.IUserAdapter>().To<Adapter.UserAdapter>();
             kernel.Bind<EFDataStorage.Contracts.IUserRepository>().To<EFDataStorage.Repositories.UserRepository>();
+            kernel.Bind<Contracts.IUserAdapter>().To<Adapter.UserAdapter>();
         }        
     }
 }

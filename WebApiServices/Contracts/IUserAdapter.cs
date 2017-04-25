@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using WebApiServices.Helper;
 using WebApiServices.Models;
 
-namespace WebApiServices.Adapter
+namespace WebApiServices.Contracts
 {
     public interface IUserAdapter
     {

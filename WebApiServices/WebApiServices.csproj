@@ -120,10 +120,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapter\IUserAdapter.cs" />
+    <Compile Include="Adapter\SecurityAdapter.cs" />
+    <Compile Include="Contracts\ISecurityAdapter.cs" />
+    <Compile Include="Contracts\IUserAdapter.cs" />
     <Compile Include="Adapter\UserAdapter.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -136,6 +139,7 @@
     <Compile Include="Mapper\Common.cs" />
     <Compile Include="Mapper\UserMappers.cs" />
     <Compile Include="Models\Helper.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\UserContext.cs" />
+    <Compile Include="Contracts\ISecurityRepository.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="Contexts\ForumContext.cs" />
     <Compile Include="ForumMigrations\201704240612454_ForumMigrations.cs" />
@@ -59,12 +60,17 @@
     </Compile>
     <Compile Include="ForumMigrations\Configuration.cs" />
     <Compile Include="Helper\ExecuteNonQueryResults.cs" />
+    <Compile Include="Helper\LoginHelper.cs" />
+    <Compile Include="Helper\SessionBase.cs" />
+    <Compile Include="Patterns\IExecute.cs" />
+    <Compile Include="Patterns\ISelect.cs" />
     <Compile Include="Repositories\ForumRepository.cs" />
     <Compile Include="Contracts\IForumRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Reply.cs" />
     <Compile Include="Entities\Topic.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Repositories\SecurityRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="UserMigrations\201704240621559_UserMigrations.cs" />
     <Compile Include="UserMigrations\201704240621559_UserMigrations.Designer.cs">
@@ -87,6 +93,7 @@
       <DependentUpon>201704240621559_UserMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
