@@ -30,14 +30,15 @@
     <script src="Content/scripts/angular-ui/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
     <script src="Controllers/login.controller.js"></script>
+    <script src="Controllers/home.controller.js"></script>
     <script src="Factory/svcAuthentication.factory.js"></script>
     <script src="Factory/user.service.js"></script>
     <!-- Angular Scripts : End -->
 </head>
 <body ng-app="SPADashBoardAJ1">
-    <div id="wrapper" ng-controller="LoginController">
+    <div id="wrapper" ng-controller="LoginController" >
         <!-- Navigation -->
-        <div ng-show="IsValidSession">
+        <div ng-show="ShowDiv">
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-brand" ng-href="#!/home">Dashboard - AJ 1.0</a>

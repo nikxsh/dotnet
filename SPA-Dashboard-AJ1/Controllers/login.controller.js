@@ -1,39 +1,32 @@
 ﻿
-module.controller('LoginController', ['$scope', '$window', 'svcAuthentication', function ($scope, $window, svcAuthentication) {
+module.controller('LoginController', ['$scope', '$rootScope', '$window', 'svcAuthentication', function ($scope, $rootScope, $window, svcAuthentication) {
 
     $scope.title = 'Success';
-    $scope.IsValidSession = false;
     $scope.credentials = {};
-
-    $scope.$on("setUserSession", function (e, result) {
-        alert(result.Data)
-        $scope.IsValidSession = result.Data;
-    });
-
-    $scope.SetDefault = function () {
-        $scope.IsValidSession = false;
-    };
+    $scope.ShowDiv = false;
 
     $scope.login = function () {
 
         //Check if already authenticated
-        if ($scope.IsValidSession)
-            $window.location.href = "#!/index";
-
-        //If not do it
-        if (svcAuthentication) {
-            $scope.IsValidSession = true;
+        if ($rootScope.IsValidSession !== undefined && $rootScope.IsValidSession) {
             $window.location.href = "#!/index";
         }
-        else
-            $window.location.href = "#!/login";
+        else {
+            //If not do it
+            if (svcAuthentication) {
+                $rootScope.IsValidSession = true;
+                $scope.ShowDiv = true;
+                $window.location.href = "#!/index";
+            }
+            else
+                $window.location.href = "#!/login";
+        }
+
     };
 
     $scope.logout = function () {
-
-        if ($scope.IsValidSession)
-            $scope.IsValidSession = false;
-
+        $rootScope.IsValidSession = false;
+        $scope.ShowDiv = false;
         $window.location.href = "#!/login";
     };
 

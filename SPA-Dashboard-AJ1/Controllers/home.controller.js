@@ -1,5 +1,6 @@
 ﻿
-module.registerCtrl('HomeController', ['$scope', '$window', function ($scope, $window) {
+module.controller('HomeController', ['$scope', '$window', function ($scope, $window) {
+
     $scope.title = 'I am Blank';
 
     $scope.messages = [

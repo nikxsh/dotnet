@@ -64,6 +64,12 @@ module.config(['$routeProvider', '$controllerProvider', function ($routeProvider
 
 module.run(['$rootScope', '$window', '$state', 'svcAuthentication', function ($rootScope, $window, $state, svcAuthentication) {
 
+    $rootScope.$watch(function () {
+        if ($rootScope.IsValidSession !== undefined && !$rootScope.IsValidSession)
+            $window.location.href = "#!/login";
+        return;
+    });
+
     //NOT authenticated 
     if (!svcAuthentication.isLoggedIn) {
         $window.location.href = "#!/login";
@@ -72,13 +78,8 @@ module.run(['$rootScope', '$window', '$state', 'svcAuthentication', function ($r
 
     //authenticated already
     if (svcAuthentication.isLoggedIn) {
-        var shouldGoToMain = fromState.name === "" && toState.name !== "index";
-
-        if (shouldGoToMain) {
-            $window.location.href = "#!/index";
-        }
+        $window.location.href = "#!/index";
         return;
-
     }
 
     // UNauthenticated (previously) comming not to root public 
