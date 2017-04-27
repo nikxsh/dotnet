@@ -10,7 +10,7 @@ namespace EFDataStorage.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public IEnumerable<User> GetUsers(int PageSize, int PageNumber, string keyword)
+        public IEnumerable<User> Select(PagingRequest query)
         {
             try
             {
@@ -19,37 +19,14 @@ namespace EFDataStorage.Repositories
                     var records = from user in context.Users
                                   select user;
 
-                    if (!string.IsNullOrEmpty(keyword))
-                        records = records.Where(x => x.UserName.Contains(keyword) ||
-                                                   x.FirstName.Contains(keyword) ||
-                                                   x.LastName.Contains(keyword) ||
-                                                   x.Email.Contains(keyword) ||
-                                                   x.Dob.ToString().Contains(keyword));
+                    if (!string.IsNullOrEmpty(query.SearchString))
+                        records = records.Where(x => x.UserName.Contains(query.SearchString) ||
+                                                   x.FirstName.Contains(query.SearchString) ||
+                                                   x.LastName.Contains(query.SearchString) ||
+                                                   x.Email.Contains(query.SearchString) ||
+                                                   x.Dob.ToString().Contains(query.SearchString));
 
-                    return records.OrderBy(x => x.UserName).Take(PageSize * PageNumber).Skip(PageSize * (PageNumber - 1)).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public IEnumerable<KeyValuePair<Guid, string>> GlobalSearch(string keyword)
-        {
-            try
-            {
-                using (var context = new UserContext())
-                {
-                    var usersearch = context.Users.Where(x => x.UserName.Contains(keyword) ||
-                                                   x.FirstName.Contains(keyword) ||
-                                                   x.LastName.Contains(keyword) ||
-                                                   x.Email.Contains(keyword) ||
-                                                   x.Dob.ToString().Contains(keyword))
-                                             .ToList();
-
-                    var result = usersearch.Select(y => new KeyValuePair<Guid, string>(y.Id, y.UserName));
-
+                    var result = records.OrderBy(x => x.UserName).Skip(query.Skip).Take(query.Take).ToList();
                     return result;
                 }
             }
@@ -59,7 +36,7 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public int GetUserCount()
+        public int Select()
         {
             try
             {
@@ -74,13 +51,13 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public User GetUserById(Guid Id)
+        public User Select(GetUserById query)
         {
             try
             {
                 using (var context = new UserContext())
                 {
-                    return context.Users.Where(x => x.Id == Id).FirstOrDefault();
+                    return context.Users.Where(x => x.Id == query.UserId).FirstOrDefault();
                 }
             }
             catch (Exception ex)
@@ -89,13 +66,13 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public ExecuteNonQueryResults SaveUser(User User)
+        public ExecuteNonQueryResults Execute(SaveUser queryParams)
         {
             try
             {
                 using (var context = new UserContext())
                 {
-                    context.Users.Add(User);
+                    context.Users.Add(queryParams.NewUser);
                     return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
                 }
             }
@@ -105,13 +82,14 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public ExecuteNonQueryResults EditUser(User User)
+        public ExecuteNonQueryResults Execute(EditUser queryParams)
         {
+
             try
             {
                 using (var context = new UserContext())
                 {
-                    context.Users.AddOrUpdate(User);
+                    context.Users.AddOrUpdate(queryParams.EditedUser);
                     return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
                 }
             }
@@ -121,13 +99,13 @@ namespace EFDataStorage.Repositories
             }
         }
 
-        public ExecuteNonQueryResults DeleteUser(Guid UserId)
+        public ExecuteNonQueryResults Execute(DeleteUser queryParams)
         {
             try
             {
                 using (var context = new UserContext())
                 {
-                    context.Users.Remove(context.Users.Where(x => x.Id == UserId).FirstOrDefault());
+                    context.Users.Remove(context.Users.Where(x => x.Id == queryParams.UserId).FirstOrDefault());
                     return new ExecuteNonQueryResults { AffectedRecords = context.SaveChanges() };
                 }
             }

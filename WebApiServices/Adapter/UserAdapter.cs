@@ -23,7 +23,7 @@ namespace WebApiServices.Adapter
 
             try
             {
-                var result = _userRepository.GetUsers(request.Data.PageSize, request.Data.PageNumber, request.Data.SearchString);
+                var result = _userRepository.Select(request.Data.ToRepositoryPagingRequest());
                 var responseData = result.BuildAPIUserList();
                 return new ResponseBase<IEnumerable<User>> { Status = true, ResponseData = responseData };
             }
@@ -43,7 +43,7 @@ namespace WebApiServices.Adapter
 
             try
             {
-                var result = _userRepository.GetUserById(request.Data);
+                var result = _userRepository.Select(new EFDataStorage.Helper.GetUserById { UserId = request.Data });
                 var responseData = result.BuildAPIUser();
                 return new ResponseBase<User> { Status = true, ResponseData = responseData };
             }
@@ -63,31 +63,12 @@ namespace WebApiServices.Adapter
 
             try
             {
-                var result = _userRepository.GetUserCount();
+                var result = _userRepository.Select();
                 return new ResponseBase<int> { Status = true, ResponseData = result };
             }
             catch (Exception ex)
             {
                 response = ex.ToAdapterResponseBase<int>();
-                response.Errors = new List<Error> { new Error { ErrorCode = 520, ErrorMessage = ex.Message } };
-                response.Status = false;
-            }
-
-            return response;
-        }
-
-        public ResponseBase<IEnumerable<KeyValuePair<Guid, string>>> GlobalSearch(RequestBase<string> request)
-        {
-            var response = new ResponseBase<IEnumerable<KeyValuePair<Guid, string>>>();
-
-            try
-            {
-                var result = _userRepository.GlobalSearch(request.Data);
-                return new ResponseBase<IEnumerable<KeyValuePair<Guid, string>>> { Status = true, ResponseData = result };
-            }
-            catch (Exception ex)
-            {
-                response = ex.ToAdapterResponseBase<IEnumerable<KeyValuePair<Guid, string>>>();
                 response.Errors = new List<Error> { new Error { ErrorCode = 520, ErrorMessage = ex.Message } };
                 response.Status = false;
             }
@@ -101,8 +82,8 @@ namespace WebApiServices.Adapter
             try
             {
                 request.Data.Id = Guid.NewGuid();
-                var user = request.Data.BuildRepositoryUser(); 
-                var result = _userRepository.SaveUser(user);
+                var user = request.Data.BuildAddUserCommand(); 
+                var result = _userRepository.Execute(user);
                 if (result.AffectedRecords > 0)
                     return new ResponseBase { Status = true, Message = "User added" };
                 else
@@ -122,8 +103,8 @@ namespace WebApiServices.Adapter
         {
             try
             {
-                var user = request.Data.BuildRepositoryUser();
-                var result = _userRepository.EditUser(user);
+                var user = request.Data.BuildEditUserCommand();
+                var result = _userRepository.Execute(user);
                 if (result.AffectedRecords > 0)
                     return new ResponseBase { Status = true, Message = "User updated" };
                 else
@@ -144,7 +125,7 @@ namespace WebApiServices.Adapter
 
             try
             {
-                var result = _userRepository.DeleteUser(request.Data);
+                var result = _userRepository.Execute(new EFDataStorage.Helper.DeleteUser { UserId = request.Data });
                 if (result.AffectedRecords > 0)
                     return new ResponseBase { Status = true, Message = "User Deleted" };
                 else

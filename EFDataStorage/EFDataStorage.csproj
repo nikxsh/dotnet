@@ -61,7 +61,10 @@
     <Compile Include="ForumMigrations\Configuration.cs" />
     <Compile Include="Helper\ExecuteNonQueryResults.cs" />
     <Compile Include="Helper\LoginHelper.cs" />
+    <Compile Include="Helper\PagingRequest.cs" />
     <Compile Include="Helper\SessionBase.cs" />
+    <Compile Include="Helper\UserCommands.cs" />
+    <Compile Include="Helper\UserQueries.cs" />
     <Compile Include="Patterns\IExecute.cs" />
     <Compile Include="Patterns\ISelect.cs" />
     <Compile Include="Repositories\ForumRepository.cs" />

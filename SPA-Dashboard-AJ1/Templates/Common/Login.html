@@ -1,30 +1,30 @@
-﻿<script type="text/javascript">
-    if (typeof module === 'undefined') {
-        document.location.href = "../NotFound.html";
-    }
-</script>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please Sign In</h3>
-                </div>
-                <div class="panel-body">
-                    <fieldset>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Usename" />
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" />
-                        </div>
-                        <!-- Change this to a button or input when using this as a form -->
-                        <input type="submit" name="Login" class="btn btn-lg btn-success btn-block" ng-click="login()" />
-                    </fieldset>
+﻿
+<div id="wrapper" ng-init="SetDefault()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <fieldset>
+                            <form role="form" data-toggle="validator" ng-submit="login()">
+                                <div class="form-group has-feedback">
+                                    <input type="text" class="form-control" placeholder="Username" ng-model="credentials.username" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" ng-model="credentials.password" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <input type="submit" name="Login" class="btn btn-lg btn-success btn-block" />
+                            </form>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
+</div> 

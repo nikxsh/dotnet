@@ -1,4 +1,4 @@
-﻿var module = angular.module('SPADashBoardAJ1', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
+﻿var module = angular.module('SPADashBoardAJ1', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ui.router']);
 
 module.constant('Constants', {
     PageTabelRowsSize: 5
@@ -12,14 +12,14 @@ module.config(['$routeProvider', '$controllerProvider', function ($routeProvider
         .when('/', {
             templateUrl: '/Templates/Common/Blank.html'
         })
+        .when('/login', {
+            templateUrl: '/Templates/Common/Login.html'
+        })
+        .when('/logout', {
+            templateUrl: '/Templates/Common/Logout.html'
+        })
         .when('/index', {
             templateUrl: '/Templates/Common/Blank.html'
-        })
-        .when('/home', {
-            templateUrl: '/Templates/Common/Blank.html'
-        })
-        .when('/login', {
-            templateUrl: '/Templates/Login.html'
         })
         .when('/users', {
             templateUrl: '/Templates/User/Users.html'
@@ -62,4 +62,30 @@ module.config(['$routeProvider', '$controllerProvider', function ($routeProvider
         });
 }]);
 
-module.controller('MainAppController', function () { });
+module.run(['$rootScope', '$window', '$state', 'svcAuthentication', function ($rootScope, $window, $state, svcAuthentication) {
+
+    //NOT authenticated 
+    if (!svcAuthentication.isLoggedIn) {
+        $window.location.href = "#!/login";
+        return;
+    }
+
+    //authenticated already
+    if (svcAuthentication.isLoggedIn) {
+        var shouldGoToMain = fromState.name === "" && toState.name !== "index";
+
+        if (shouldGoToMain) {
+            $window.location.href = "#!/index";
+        }
+        return;
+
+    }
+
+    // UNauthenticated (previously) comming not to root public 
+    var shouldGoToPublic = fromState.name === ""
+                      && toState.name !== "public"
+                      && toState.name !== "login";
+
+    if (shouldGoToPublic) {
+    }
+}]);

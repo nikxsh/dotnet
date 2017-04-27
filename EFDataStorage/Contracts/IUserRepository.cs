@@ -1,18 +1,17 @@
 ﻿using EFDataStorage.Entities;
 using EFDataStorage.Helper;
+using EFDataStorage.Patterns;
 using System;
 using System.Collections.Generic;
 
 namespace EFDataStorage.Contracts
 {
-    public interface IUserRepository
-    {
-        IEnumerable<User> GetUsers(int PageSize, int PageNumber, string keyword);
-        IEnumerable<KeyValuePair<Guid, string>> GlobalSearch(string keyword);
-        int GetUserCount();
-        User GetUserById(Guid Id);
-        ExecuteNonQueryResults SaveUser(User User);
-        ExecuteNonQueryResults EditUser(User User);
-        ExecuteNonQueryResults DeleteUser(Guid UserId);
-    }
+    public interface IUserRepository :
+        ISelect<PagingRequest, IEnumerable<User>>,
+        ISelect<int>,
+        ISelect<GetUserById, User>,
+        IExecute<SaveUser, ExecuteNonQueryResults>,
+        IExecute<EditUser, ExecuteNonQueryResults>,
+        IExecute<DeleteUser, ExecuteNonQueryResults>
+    {}
 }

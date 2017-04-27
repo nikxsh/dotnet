@@ -35,22 +35,6 @@ namespace WebApiServices.Controllers
             }
         }
 
-        [Route("{keyword}/search")]
-        [HttpGet]
-        public IHttpActionResult GetUserMetaData(string keyword)
-        {
-            try
-            {
-                var request = UserManager.PrepareRequest(new RequestBase<string>(keyword));
-                var result = _userAdapter.GlobalSearch(request);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return Ok(ex.ToErrorResponse());
-            }
-        }
-
         [Route("count")]
         [HttpGet]
         public IHttpActionResult GetUserCount()
@@ -98,12 +82,12 @@ namespace WebApiServices.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
-                //return Ok(ex.ToErrorResponse());
+                //throw ex;
+                return Ok(ex.ToErrorResponse());
             }
         }
 
-        [Route("bulk")]
+        [Route("bulksave")]
         [HttpPost]
         public IHttpActionResult BulkSave([FromBody]IEnumerable<User> users)
         {

@@ -19,49 +19,54 @@
 
     <script src="Content/scripts/jquery-3.1.1.min.js"></script>
     <script src="Content/scripts/bootstrap.min.js"></script>
+    <script src="Content/scripts/bootstrap.validator.js"></script>
     <script src="Content/scripts/dashboard/metisMenu.js"></script>
+
+    <!-- Angular Scripts : Start -->
     <script src="Content/scripts/angular/angular.min.js"></script>
     <script src="Content/scripts/angular/angular-animate.min.js"></script>
     <script src="Content/scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="Content/scripts/angular/angular-route.min.js"></script>
+    <script src="Content/scripts/angular-ui/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
-    <script src="Components/index.component.js"></script>
+    <script src="Controllers/login.controller.js"></script>
+    <script src="Factory/svcAuthentication.factory.js"></script>
+    <script src="Factory/user.service.js"></script>
+    <!-- Angular Scripts : End -->
 </head>
 <body ng-app="SPADashBoardAJ1">
-    <div id="wrapper">
+    <div id="wrapper" ng-controller="LoginController">
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a class="navbar-brand" ng-href="#!/home">Dashboard - AJ 1.0</a>
-            </div>
-            <!-- /.navbar-header -->
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown" ng-include="'Templates/Navigation/Messages.html'"></li>
-                <!-- /.dropdown -->
-                <li class="dropdown" ng-include="'Templates/Navigation/Tasks.html'"></li>
-                <!-- /.dropdown -->
-                <li class="dropdown" ng-include="'Templates/Navigation/Alerts.html'"></li>
-                <!-- /.dropdown -->
-                <li class="dropdown" ng-include="'Templates/Navigation/Account.html'"></li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-            <div id="navigation"></div>
-            <script>
-                $('#navigation').load('Templates/Navigation/Sidebar.html');
-            </script>
-            <!-- /.navbar-static-side -->
-        </nav>
+        <div ng-show="IsValidSession">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-brand" ng-href="#!/home">Dashboard - AJ 1.0</a>
+                </div>
+                <!-- /.navbar-header -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown" ng-include="'Templates/Navigation/Messages.html'"></li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown" ng-include="'Templates/Navigation/Tasks.html'"></li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown" ng-include="'Templates/Navigation/Alerts.html'"></li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown" ng-include="'Templates/Navigation/Account.html'"></li>
+                    <!-- /.dropdown -->
+                </ul>
+                <!-- /.navbar-top-links -->
+                <div id="navigation"></div>
+                <script>
+                    $('#navigation').load('Templates/Navigation/Sidebar.html');
+                </script>
+                <!-- /.navbar-static-side -->
+            </nav>
+        </div>
         <!-- Navigation -->
         <!-- Render Body -->
         <div ng-view></div>
-
-        <!-- Scripts : Start -->
-        <script src="Content/scripts/dashboard/dashboard.js"></script>
-        <!-- Scripts : End -->
-        <!-- Angular Scripts : Start -->
-        <script src="Factory/user.service.js"></script>
-        <!-- Angular Scripts : End -->
     </div>
+    <!-- Scripts : Start -->
+    <script src="Content/scripts/dashboard/dashboard.js"></script>
+    <!-- Scripts : End -->
 </body>
 </html>

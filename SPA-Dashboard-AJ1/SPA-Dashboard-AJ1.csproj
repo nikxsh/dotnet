@@ -47,6 +47,7 @@
   <ItemGroup>
     <Content Include="Components\index.component.js" />
     <Content Include="Content\css\morris.css" />
+    <Content Include="Content\scripts\bootstrap.validator.js" />
     <Content Include="Content\scripts\dashboard\jquery.dataTables.js" />
     <Content Include="Content\scripts\dashboard\jquery.flot.js" />
     <Content Include="Content\scripts\dashboard\jquery.flot.pie.js" />
@@ -55,9 +56,13 @@
     <Content Include="Content\scripts\dashboard\jquery.flot.tooltip.js" />
     <Content Include="Controllers\modal.controller.js" />
     <Content Include="Controllers\user.controller.js" />
+    <Content Include="Factory\svcAuthentication.factory.js" />
     <Content Include="packages.config" />
     <Content Include="Content\scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Content\scripts\jquery-3.1.1.min.map" />
+    <Content Include="Content\scripts\angular-ui\angular-ui-router.min.js" />
+    <Content Include="Templates\Common\Logout.html" />
+    <Content Include="Templates\Common\Main.html" />
     <Content Include="Templates\Dashboard\Buttons.html" />
     <Content Include="Templates\Dashboard\Flot.html" />
     <Content Include="Templates\Dashboard\Forms.html" />
@@ -908,6 +913,7 @@
     <Content Include="Content\scripts\angular\i18n\angular-locale_zh.js" />
     <Content Include="Content\scripts\angular\i18n\angular-locale_zu-za.js" />
     <Content Include="Content\scripts\angular\i18n\angular-locale_zu.js" />
+    <Content Include="Templates\Common\login.html" />
     <Content Include="Templates\Navigation\Account.html" />
     <Content Include="Templates\Navigation\Alerts.html" />
     <Content Include="Templates\Navigation\Messages.html" />
@@ -916,7 +922,7 @@
     <Content Include="Templates\User\AddEditUser.html" />
     <Content Include="Templates\Common\Blank.html" />
     <Content Include="Templates\User\Confirmation.html" />
-    <Content Include="Templates\Common\Login.html" />
+    <Content Include="Login.html" />
     <Content Include="Templates\NotFound.html" />
     <Content Include="Templates\User\Users.html" />
     <Content Include="Web.config" />
