@@ -54,6 +54,7 @@
     <Compile Include="Contracts\ISecurityRepository.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="Contexts\ForumContext.cs" />
+    <Compile Include="Entities\Membership.cs" />
     <Compile Include="ForumMigrations\201704240612454_ForumMigrations.cs" />
     <Compile Include="ForumMigrations\201704240612454_ForumMigrations.Designer.cs">
       <DependentUpon>201704240612454_ForumMigrations.cs</DependentUpon>

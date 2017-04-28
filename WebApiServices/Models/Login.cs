@@ -11,7 +11,7 @@ namespace WebApiServices.Models
 
     public class LoginResponse
     {
-        public bool IsSuccessfull { get; set; }
+        public bool IsAuthenticated { get; set; }
 
         public int? RemainingLoginAttempts { get; set; }
 

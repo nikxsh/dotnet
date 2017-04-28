@@ -14,7 +14,7 @@ namespace EFDataStorage.Helper
     {
         public Guid UserId { get; set; }
 
-        public bool IsSuccessfull { get; set; }
+        public bool IsAuthenticated { get; set; }
 
         public int? RemainingLoginAttempts { get; set; }
 

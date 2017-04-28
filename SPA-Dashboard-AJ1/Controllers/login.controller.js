@@ -1,9 +1,9 @@
 ﻿
-module.controller('LoginController', ['$scope', '$rootScope', '$window', 'svcAuthentication', function ($scope, $rootScope, $window, svcAuthentication) {
+module.controller('LoginController', ['$scope', '$rootScope', '$window', '$routeParams', 'svcAuthentication', 'localStorage', function ($scope, $rootScope, $window, $routeParams, svcAuthentication, localStorage) {
 
-    $scope.title = 'Success';
-    $scope.credentials = {};
-    $scope.ShowDiv = false;
+    $scope.Credentials = {};
+    $scope.ShowDiv = localStorage.getData();
+    $scope.Message = "";
 
     $scope.login = function () {
 
@@ -13,13 +13,18 @@ module.controller('LoginController', ['$scope', '$rootScope', '$window', 'svcAut
         }
         else {
             //If not do it
-            if (svcAuthentication) {
+            if (svcAuthentication.validateUser($scope.Credentials)) {
                 $rootScope.IsValidSession = true;
                 $scope.ShowDiv = true;
+                localStorage.setData(true);
+                $scope.Credentials = {};
                 $window.location.href = "#!/index";
             }
-            else
-                $window.location.href = "#!/login";
+            else {
+                localStorage.setData(false);
+                $scope.Credentials = {};
+                $scope.Message = "Invalid Credentials!"
+            }
         }
 
     };
@@ -27,6 +32,7 @@ module.controller('LoginController', ['$scope', '$rootScope', '$window', 'svcAut
     $scope.logout = function () {
         $rootScope.IsValidSession = false;
         $scope.ShowDiv = false;
+        localStorage.setData(false);
         $window.location.href = "#!/login";
     };
 

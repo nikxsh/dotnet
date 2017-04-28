@@ -69,7 +69,9 @@ namespace WebApiServices.App_Start
         {
             kernel.Bind<EFDataStorage.Contracts.IForumRepository>().To<EFDataStorage.Repositories.ForumRepository>();
             kernel.Bind<EFDataStorage.Contracts.IUserRepository>().To<EFDataStorage.Repositories.UserRepository>();
+            kernel.Bind<EFDataStorage.Contracts.ISecurityRepository>().To<EFDataStorage.Repositories.SecurityRepository>();
             kernel.Bind<Contracts.IUserAdapter>().To<Adapter.UserAdapter>();
+            kernel.Bind<Contracts.ISecurityAdapter>().To<Adapter.SecurityAdapter>();
         }        
     }
 }

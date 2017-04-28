@@ -6,16 +6,6 @@ namespace WebApiServices.Mapper
 {
     public static class UserMappers
     {
-        public static EFDataStorage.Helper.PagingRequest ToRepositoryPagingRequest(this Models.PagingRequest request)
-        {
-            return new EFDataStorage.Helper.PagingRequest
-            {
-                Skip = request.PageSize * (request.PageNumber - 1),
-                Take = request.PageSize,
-                SearchString = request.SearchString
-            };
-        }
-
         public static IEnumerable<Models.User> BuildAPIUserList(this IEnumerable<EFDataStorage.Entities.User> Users)
         {
             return Users.Select(x => x.BuildAPIUser());
@@ -63,6 +53,15 @@ namespace WebApiServices.Mapper
                     Email = User.Email,
                     Dob = DateTime.Parse(User.Dob)
                 }
+            };
+        }
+        public static EFDataStorage.Helper.PagingRequest ToRepositoryPagingRequest(this Models.PagingRequest request)
+        {
+            return new EFDataStorage.Helper.PagingRequest
+            {
+                Skip = request.PageSize * (request.PageNumber - 1),
+                Take = request.PageSize,
+                SearchString = request.SearchString
             };
         }
     }

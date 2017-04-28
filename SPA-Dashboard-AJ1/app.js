@@ -62,31 +62,48 @@ module.config(['$routeProvider', '$controllerProvider', function ($routeProvider
         });
 }]);
 
-module.run(['$rootScope', '$window', '$state', 'svcAuthentication', function ($rootScope, $window, $state, svcAuthentication) {
+module.run(['$rootScope', '$window', '$location', 'localStorage', function ($rootScope, $window, $location, localStorage) {
 
     $rootScope.$watch(function () {
-        if ($rootScope.IsValidSession !== undefined && !$rootScope.IsValidSession)
+
+        var currentPath = $location.path().split("/")[1] || "Unknown";    
+
+        var isLoggedIn = localStorage.getData();
+
+        if (!isLoggedIn && !$rootScope.IsValidSession)
             $window.location.href = "#!/login";
+
+        if (isLoggedIn && currentPath === 'login')
+            $location.path('index');
+
         return;
     });
 
-    //NOT authenticated 
-    if (!svcAuthentication.isLoggedIn) {
+    var isLoggedIn = localStorage.getData();
+
+    if (isLoggedIn !== undefined || isLoggedIn !== null) {
+
+        //NOT authenticated 
+        if (!isLoggedIn) {
+
+            $rootScope.IsValidSession = false;
+            $window.location.href = "#!/login";
+            return;
+        }
+
+        //authenticated already
+        if (isLoggedIn) {
+
+            $rootScope.IsValidSession = true;
+            $window.location.href = "#!/index";
+            return;
+        }
+    }
+    else {
+
+        $rootScope.IsValidSession = false;
         $window.location.href = "#!/login";
         return;
     }
 
-    //authenticated already
-    if (svcAuthentication.isLoggedIn) {
-        $window.location.href = "#!/index";
-        return;
-    }
-
-    // UNauthenticated (previously) comming not to root public 
-    var shouldGoToPublic = fromState.name === ""
-                      && toState.name !== "public"
-                      && toState.name !== "login";
-
-    if (shouldGoToPublic) {
-    }
 }]);

@@ -137,6 +137,7 @@
     <Compile Include="Helper\ResponseBase.cs" />
     <Compile Include="Helper\UserManager.cs" />
     <Compile Include="Mapper\Common.cs" />
+    <Compile Include="Mapper\LoginMapper.cs" />
     <Compile Include="Mapper\UserMappers.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\Login.cs" />
