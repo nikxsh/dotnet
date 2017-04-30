@@ -14,7 +14,7 @@ namespace EFDataStorage.Repositories
             {
                 using (var context = new UserContext())
                 {
-                    var userDetails = context.Users.Where(x => x.UserName.Equals(query.Username, StringComparison.InvariantCultureIgnoreCase) && query.Password.Equals("123", StringComparison.InvariantCultureIgnoreCase));
+                    var userDetails = context.Users.Where(x => x.UserName.Equals(query.Username, StringComparison.InvariantCultureIgnoreCase) && query.Password.Equals("123", StringComparison.InvariantCultureIgnoreCase)).SingleOrDefault();
                     if (userDetails != null)
                         response.IsAuthenticated = true;
                 }

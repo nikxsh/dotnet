@@ -66,43 +66,34 @@ module.run(['$rootScope', '$window', '$location', 'localStorage', function ($roo
 
     $rootScope.$watch(function () {
 
-        var currentPath = $location.path().split("/")[1] || "Unknown";    
+        var isLoggedIn = localStorage.GetAuthData();
 
-        var isLoggedIn = localStorage.getData();
-
-        if (!isLoggedIn && !$rootScope.IsValidSession)
+        //if not logged in
+        if (!isLoggedIn)
             $window.location.href = "#!/login";
 
+        var currentPath = $location.path().split("/")[1] || "Unknown";
+
+        //If state is login page but you're logged in already
         if (isLoggedIn && currentPath === 'login')
             $location.path('index');
 
         return;
     });
 
-    var isLoggedIn = localStorage.getData();
+    var isLoggedIn = localStorage.GetAuthData();
 
-    if (isLoggedIn !== undefined || isLoggedIn !== null) {
+    //NOT authenticated 
+    if (!isLoggedIn) {
 
-        //NOT authenticated 
-        if (!isLoggedIn) {
-
-            $rootScope.IsValidSession = false;
-            $window.location.href = "#!/login";
-            return;
-        }
-
-        //authenticated already
-        if (isLoggedIn) {
-
-            $rootScope.IsValidSession = true;
-            $window.location.href = "#!/index";
-            return;
-        }
-    }
-    else {
-
-        $rootScope.IsValidSession = false;
         $window.location.href = "#!/login";
+        return;
+    }
+
+    //authenticated already
+    if (isLoggedIn) {
+
+        $window.location.href = "#!/index";
         return;
     }
 

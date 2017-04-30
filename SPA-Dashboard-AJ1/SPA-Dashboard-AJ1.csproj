@@ -47,6 +47,7 @@
   <ItemGroup>
     <Content Include="Components\index.component.js" />
     <Content Include="Content\css\morris.css" />
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\scripts\bootstrap.validator.js" />
     <Content Include="Content\scripts\dashboard\jquery.dataTables.js" />
     <Content Include="Content\scripts\dashboard\jquery.flot.js" />
@@ -56,8 +57,8 @@
     <Content Include="Content\scripts\dashboard\jquery.flot.tooltip.js" />
     <Content Include="Controllers\modal.controller.js" />
     <Content Include="Controllers\user.controller.js" />
-    <Content Include="Factory\localStorage.factory.js" />
-    <Content Include="Factory\svcAuthentication.factory.js" />
+    <Content Include="Factory\storage.factory.js" />
+    <Content Include="Factory\authentication.factory.js" />
     <Content Include="packages.config" />
     <Content Include="Content\scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Content\scripts\jquery-3.1.1.min.map" />
@@ -923,7 +924,6 @@
     <Content Include="Templates\User\AddEditUser.html" />
     <Content Include="Templates\Common\Blank.html" />
     <Content Include="Templates\User\Confirmation.html" />
-    <Content Include="Login.html" />
     <Content Include="Templates\NotFound.html" />
     <Content Include="Templates\User\Users.html" />
     <Content Include="Web.config" />
