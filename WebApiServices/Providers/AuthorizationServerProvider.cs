@@ -32,8 +32,8 @@ namespace WebApiServices.Providers
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            identity.AddClaim(new Claim("sub", context.UserName));
-            identity.AddClaim(new Claim("role", "user"));
+            identity.AddClaim(new Claim("userid", response.ResponseData.UserId.ToString()));
+            identity.AddClaim(new Claim("username", context.UserName));
 
             context.Validated(identity);
         }

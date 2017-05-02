@@ -167,6 +167,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Filters\CustomAuthorization.cs" />
     <Compile Include="Helper\Error.cs" />
     <Compile Include="Helper\Global.cs" />
     <Compile Include="Helper\RequestBase.cs" />

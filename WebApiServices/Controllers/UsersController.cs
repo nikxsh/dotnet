@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebApiServices.Contracts;
+using WebApiServices.Filters;
 using WebApiServices.Helper;
 using WebApiServices.Models;
 
@@ -10,7 +11,7 @@ namespace WebApiServices.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/users")]
-    [Authorize]
+    [CustomAuthorize]
     public class UsersController : ApiController
     {
         private readonly IUserAdapter _userAdapter;

@@ -19,7 +19,7 @@ namespace WebApiServices
 
             HttpConfiguration config = new HttpConfiguration();
             WebApiConfig.Register(config);
-
+            
             app.UseNinjectMiddleware(NinjectWebCommon.CreateKernel);
             app.UseNinjectWebApi(config);
 

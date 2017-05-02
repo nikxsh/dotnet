@@ -1,8 +1,8 @@
 ﻿
-module.controller('LoginController', ['$scope', '$rootScope', '$window', '$routeParams', 'authentication', 'localStorage', function ($scope, $rootScope, $window, $routeParams, authentication, localStorage) {
+module.controller('LoginController', ['$scope', '$rootScope', '$window', '$routeParams', 'authentication', 'sessionStorage', function ($scope, $rootScope, $window, $routeParams, authentication, sessionStorage) {
 
     $scope.Credentials = {};
-    $scope.ShowDiv = localStorage.AuthDataStatus();
+    $scope.ShowDiv = sessionStorage.AuthDataStatus();
     $scope.Message = "";
     $scope.IsProgressing = false;
 
@@ -11,7 +11,7 @@ module.controller('LoginController', ['$scope', '$rootScope', '$window', '$route
         $scope.IsProgressing = true;
         $scope.Message = "Authenticating Credentials....";
 
-        var isLoggedIn = localStorage.AuthDataStatus();
+        var isLoggedIn = sessionStorage.AuthDataStatus();
 
         //Check if already authenticated
         if (isLoggedIn) {
@@ -24,7 +24,7 @@ module.controller('LoginController', ['$scope', '$rootScope', '$window', '$route
             //If not do it
             authPromise.then(function (result) {
 
-                localStorage.SetAuthData({
+                sessionStorage.SetAuthData({
                     token: result.access_token
                 });
 
@@ -46,7 +46,7 @@ module.controller('LoginController', ['$scope', '$rootScope', '$window', '$route
         $scope.IsProgressing = false;
         $scope.ShowDiv = false;
         $scope.Message = "";
-        localStorage.RemoveAuthData();
+        sessionStorage.RemoveAuthData();
         $window.location.href = "#!/login";
 
     };

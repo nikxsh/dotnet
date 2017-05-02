@@ -1,12 +1,12 @@
 ﻿
 'use strict';
-module.factory('authInterceptor', ['$location', '$q', 'localStorage', function ($location, $q, localStorage) {
+module.factory('authInterceptor', ['$location', '$q', 'sessionStorage', function ($location, $q, sessionStorage) {
 
     var _request = function (config) {
 
         config.headers = config.headers || {};
 
-        var authData = localStorage.GetAuthData();
+        var authData = sessionStorage.GetAuthData();
         if (authData) {
             config.headers.Authorization = 'Bearer ' + authData.token;
         }

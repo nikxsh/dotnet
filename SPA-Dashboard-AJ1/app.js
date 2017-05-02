@@ -64,11 +64,11 @@ module.config(['$routeProvider', '$controllerProvider', '$httpProvider', functio
         });
 }]);
 
-module.run(['$rootScope', '$window', '$location', 'localStorage', function ($rootScope, $window, $location, localStorage) {
+module.run(['$rootScope', '$window', '$location', 'sessionStorage', function ($rootScope, $window, $location, sessionStorage) {
 
     $rootScope.$watch(function () {
 
-        var isLoggedIn = localStorage.AuthDataStatus();
+        var isLoggedIn = sessionStorage.AuthDataStatus();
 
         //if not logged in
         if (!isLoggedIn)
@@ -83,7 +83,7 @@ module.run(['$rootScope', '$window', '$location', 'localStorage', function ($roo
         return;
     });
 
-    var isLoggedIn = localStorage.AuthDataStatus();
+    var isLoggedIn = sessionStorage.AuthDataStatus();
 
     //NOT authenticated 
     if (!isLoggedIn) {
