@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WebApiServices.Adapter;
+using WebApiServices.Contracts;
 using WebApiServices.Helper;
 using WebApiServices.Models;
 

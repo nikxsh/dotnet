@@ -8,9 +8,11 @@ using WebApiServices.Models;
 namespace WebApiServices.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [Authorize]
     public class AccountController : ApiController
     {
         private readonly ISecurityAdapter _securityAdapter;
+        
         public AccountController(ISecurityAdapter securityAdapter)
         {
             _securityAdapter = securityAdapter;

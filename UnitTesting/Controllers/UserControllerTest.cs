@@ -11,6 +11,7 @@ using WebApiServices.Helper;
 using WebApiServices.Models;
 using System;
 using NUnit.Framework.Constraints;
+using WebApiServices.Contracts;
 
 namespace UnitTesting.Controllers
 {

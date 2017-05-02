@@ -13,20 +13,20 @@ namespace WebApiServices.App_Start
     using System.Web.Http;
     using Ninject.Web.WebApi;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -34,12 +34,12 @@ namespace WebApiServices.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
         /// <returns>The created kernel.</returns>
-        private static IKernel CreateKernel()
+        public static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
             try
@@ -72,6 +72,6 @@ namespace WebApiServices.App_Start
             kernel.Bind<EFDataStorage.Contracts.ISecurityRepository>().To<EFDataStorage.Repositories.SecurityRepository>();
             kernel.Bind<Contracts.IUserAdapter>().To<Adapter.UserAdapter>();
             kernel.Bind<Contracts.ISecurityAdapter>().To<Adapter.SecurityAdapter>();
-        }        
+        }
     }
 }

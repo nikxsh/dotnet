@@ -29,12 +29,6 @@
     <script src="Content/scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="Content/scripts/angular/angular-route.min.js"></script>
     <script src="Content/scripts/angular-ui/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
-    <script src="Controllers/login.controller.js"></script>
-    <script src="Controllers/home.controller.js"></script>
-    <script src="Factory/authentication.factory.js"></script>
-    <script src="Factory/storage.factory.js"></script>
-    <script src="Factory/user.service.js"></script>
     <!-- Angular Scripts : End -->
 </head>
 <body ng-app="SPADashBoardAJ1">
@@ -45,5 +39,15 @@
         <!-- Render Body -->
         <div ng-view></div>
     </div>
+
+    <!-- Custom Scripts -->
+    <script src="app.js"></script>
+    <script src="Controllers/login.controller.js"></script>
+    <script src="Controllers/home.controller.js"></script>
+    <script src="Factory/authentication.factory.js"></script>
+    <script src="Factory/storage.factory.js"></script>
+    <script src="Factory/user.service.js"></script>
+    <script src="Factory/interceptor.factory.js"></script>    
+    <!-- Custom Scripts -->
 </body>
 </html>

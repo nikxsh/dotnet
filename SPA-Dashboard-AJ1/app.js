@@ -4,9 +4,11 @@ module.constant('Constants', {
     PageTabelRowsSize: 5
 });
 
-module.config(['$routeProvider', '$controllerProvider', function ($routeProvider, $controllerProvider) {
+module.config(['$routeProvider', '$controllerProvider', '$httpProvider', function ($routeProvider, $controllerProvider, $httpProvider) {
 
     module.registerCtrl = $controllerProvider.register;
+
+    $httpProvider.interceptors.push('authInterceptor');
 
     $routeProvider
         .when('/', {
@@ -66,7 +68,7 @@ module.run(['$rootScope', '$window', '$location', 'localStorage', function ($roo
 
     $rootScope.$watch(function () {
 
-        var isLoggedIn = localStorage.GetAuthData();
+        var isLoggedIn = localStorage.AuthDataStatus();
 
         //if not logged in
         if (!isLoggedIn)
@@ -81,7 +83,7 @@ module.run(['$rootScope', '$window', '$location', 'localStorage', function ($roo
         return;
     });
 
-    var isLoggedIn = localStorage.GetAuthData();
+    var isLoggedIn = localStorage.AuthDataStatus();
 
     //NOT authenticated 
     if (!isLoggedIn) {

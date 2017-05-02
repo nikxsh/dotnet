@@ -76,6 +76,7 @@
     <Content Include="Templates\Dashboard\Table.html" />
     <Content Include="Templates\Dashboard\Typography.html" />
     <Content Include="Templates\Dashboard\DashBoard.html" />
+    <Content Include="Factory\interceptor.factory.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

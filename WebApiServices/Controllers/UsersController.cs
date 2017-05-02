@@ -10,6 +10,7 @@ namespace WebApiServices.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/users")]
+    [Authorize]
     public class UsersController : ApiController
     {
         private readonly IUserAdapter _userAdapter;
