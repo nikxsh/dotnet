@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="App\config.app.js" />
+    <Content Include="App\constants.app.js" />
+    <Content Include="App\run.app.js" />
     <Content Include="Components\index.component.js" />
     <Content Include="Content\css\morris.css" />
     <Content Include="Content\images\ajax-loader.gif" />
@@ -56,6 +59,7 @@
     <Content Include="Content\scripts\dashboard\jquery.flot.time.js" />
     <Content Include="Content\scripts\dashboard\jquery.flot.tooltip.js" />
     <Content Include="Controllers\modal.controller.js" />
+    <Content Include="Controllers\modalInstance.controller.js" />
     <Content Include="Controllers\user.controller.js" />
     <Content Include="Factory\storage.factory.js" />
     <Content Include="Factory\authentication.factory.js" />

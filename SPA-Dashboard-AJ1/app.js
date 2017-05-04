@@ -1,102 +1,71 @@
-﻿var module = angular.module('SPADashBoardAJ1', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ui.router']);
+﻿//-------------------------------------------------------------------------------------------------------------------------------------|
+//  - The angular.module is a global place for creating, registering and retrieving AngularJS modules. 
+//  - All modules (AngularJS core or 3rd party) that should be available to an application must be registered using this mechanism
+//  - Passing one argument retrieves an existing angular.Module, whereas passing more than one argument creates a new angular.Module
+//  - angular.module is used to configure the $injector. 
+//-------------------------------------------------------------------------------------------------------------------------------------|
+var module = angular.module('SPADashBoardAJ1', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ui.router']);
 
-module.constant('Constants', {
-    PageTabelRowsSize: 5
-});
 
-module.config(['$routeProvider', '$controllerProvider', '$httpProvider', function ($routeProvider, $controllerProvider, $httpProvider) {
+//-------------------------------------------------------------------------------------------------------------------------------------|
+//  - A module is a collection of services, directives, controllers, filters, and configuration information. 
+//  - All modules (AngularJS core or 3rd party) that should be available to an application must be registered using this mechanism
+//  - Usage:  angular.module(name, [requires], [configFn]);
+//      name => string (The name of the module to create or retrieve)
+//
+//      requires  (optional) => !Array.<string>= (If specified then new module is being created. If unspecified then the module is being 
+//                                                retrieved for further configuration)
+//
+//      configFn  (optional) => Function= (Optional configuration function for the module. Same as Module#config())
+//-------------------------------------------------------------------------------------------------------------------------------------|
 
-    module.registerCtrl = $controllerProvider.register;
+module.constant('Constants', constantsArray);
 
-    $httpProvider.interceptors.push('authInterceptor');
+//-------------------------------------------------------------------------------------------------------------------------------------|
+// - Provider-injector
+// - Get executed during the provider registrations and configuration phase. 
+// - Only providers and constants can be injected into configuration blocks. This is to prevent accidental instantiation of services 
+//   before they have been fully configured.
+//-------------------------------------------------------------------------------------------------------------------------------------|
+fnConfig.$inject = ['$routeProvider', '$controllerProvider', '$httpProvider'];
+module.config(fnConfig);
 
-    $routeProvider
-        .when('/', {
-            templateUrl: '/Templates/Common/Blank.html'
-        })
-        .when('/login', {
-            templateUrl: '/Templates/Common/Login.html'
-        })
-        .when('/logout', {
-            templateUrl: '/Templates/Common/Logout.html'
-        })
-        .when('/index', {
-            templateUrl: '/Templates/Common/Blank.html'
-        })
-        .when('/users', {
-            templateUrl: '/Templates/User/Users.html'
-        })
-        .when('/dashboard', {
-            templateUrl: '/Templates/Dashboard/Dashboard.html'
-        })
-        .when('/flotchart', {
-            templateUrl: '/Templates/Dashboard/Flot.html'
-        })
-        .when('/morrischart', {
-            templateUrl: '/Templates/Dashboard/Morris.html'
-        })
-        .when('/tables', {
-            templateUrl: '/Templates/Dashboard/Table.html'
-        })
-        .when('/forms', {
-            templateUrl: '/Templates/Dashboard/Forms.html'
-        })
-        .when('/panels', {
-            templateUrl: '/Templates/Dashboard/Panels.html'
-        })
-        .when('/buttons', {
-            templateUrl: '/Templates/Dashboard/Buttons.html'
-        })
-        .when('/notifications', {
-            templateUrl: '/Templates/Dashboard/Notifications.html'
-        })
-        .when('/typography', {
-            templateUrl: '/Templates/Dashboard/Typography.html'
-        })
-        .when('/icons', {
-            templateUrl: '/Templates/Dashboard/Icons.html'
-        })
-        .when('/grid', {
-            templateUrl: '/Templates/Dashboard/Grid.html'
-        })
-        .otherwise({
-            redirectTo: '/'
-        });
-}]);
 
-module.run(['$rootScope', '$window', '$location', 'sessionStorage', function ($rootScope, $window, $location, sessionStorage) {
+//-------------------------------------------------------------------------------------------------------------------------------------|
+//  - Instance-injector
+//  - Get executed after the injector is created and are used to kickstart the application. 
+//  - Only instances and constants can be injected into run blocks. This is to prevent further system configuration during application 
+//    run time.
+//  - It is executed after all of the services have been configured and the injector has been created
+//-------------------------------------------------------------------------------------------------------------------------------------|
+fnAppRun.$inject = ['$rootScope', '$window', '$location', 'sessionStorage']
+module.run(fnAppRun);
 
-    $rootScope.$watch(function () {
 
-        var isLoggedIn = sessionStorage.AuthDataStatus();
 
-        //if not logged in
-        if (!isLoggedIn)
-            $window.location.href = "#!/login";
 
-        var currentPath = $location.path().split("/")[1] || "Unknown";
+//------------------------- Service, factory, controller and filter injection ---------------------------------------|
+fnUserCtlr.$inject = ["$scope", "UserDataService", "Constants"];
+fnLoginCtrl.$inject = ['$scope', '$window', 'authentication', 'sessionStorage'];
+fnModalCtrl.$inject = ["$scope", "$uibModal", "$document", "UserDataService"];
+fnModalInstanceCtlr.$inject = ['$uibModalInstance', '$scope', '$rootScope', 'UserDataService', 'Constants'];
 
-        //If state is login page but you're logged in already
-        if (isLoggedIn && currentPath === 'login')
-            $location.path('index');
+fnLocalStorage.$inject = ['$window'];
+fnSessionStorage.$inject = ['$window'];
 
-        return;
-    });
+fnAuthSvc.$inject = ['$http', '$q'];
+fnUserDataSvc.$inject = ["$http", "$q"];
+fnAuthInterceptorSvc.$inject = ['$location', '$q', 'sessionStorage'];
 
-    var isLoggedIn = sessionStorage.AuthDataStatus();
+//------------------------- Service, factory, controller and filter intialisation -----------------------------------|
+module.controller('UserController', fnUserCtlr);
+module.controller('ModalController', fnModalCtrl);
+module.controller('ModalInstanceController', fnModalInstanceCtlr);
+module.controller('LoginController', fnLoginCtrl);
 
-    //NOT authenticated 
-    if (!isLoggedIn) {
+module.factory('localStorage', fnLocalStorage);
+module.factory('sessionStorage', fnSessionStorage);
 
-        $window.location.href = "#!/login";
-        return;
-    }
-
-    //authenticated already
-    if (isLoggedIn) {
-
-        $window.location.href = "#!/index";
-        return;
-    }
-
-}]);
+module.factory('authentication', fnAuthSvc);
+module.service("UserDataService", fnUserDataSvc);
+module.factory('authInterceptor', fnAuthInterceptorSvc);

@@ -1,5 +1,4 @@
-﻿
-module.factory('authentication', ['$http', '$q', function ($http, $q) {
+﻿var fnAuthSvc = function (http, q) {
 
     var _servicebase = 'http://localhost:5658/';
 
@@ -7,9 +6,9 @@ module.factory('authentication', ['$http', '$q', function ($http, $q) {
 
         var data = "grant_type=password&username=" + credentials.username + "&password=" + credentials.password;
 
-        var deferred = $q.defer();
+        var deferred = q.defer();
 
-        $http.post(_servicebase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+        http.post(_servicebase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
         .then(function (result) {
             //success
             deferred.resolve(result.data);
@@ -23,6 +22,6 @@ module.factory('authentication', ['$http', '$q', function ($http, $q) {
     };
 
     return {
-        login : _validateUser
+        login: _validateUser
     };
-}]);
+};

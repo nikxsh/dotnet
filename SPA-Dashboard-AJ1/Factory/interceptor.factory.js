@@ -1,6 +1,5 @@
-﻿
-'use strict';
-module.factory('authInterceptor', ['$location', '$q', 'sessionStorage', function ($location, $q, sessionStorage) {
+﻿'use strict';
+var fnAuthInterceptorSvc = function (location, q, sessionStorage) {
 
     var _request = function (config) {
 
@@ -16,9 +15,9 @@ module.factory('authInterceptor', ['$location', '$q', 'sessionStorage', function
 
     var _responseError = function (rejection) {
         if (rejection.status === 401) {
-            $location.path('/login');
+            location.path('/login');
         }
-        return $q.reject(rejection);
+        return q.reject(rejection);
     }
 
     return {
@@ -26,4 +25,4 @@ module.factory('authInterceptor', ['$location', '$q', 'sessionStorage', function
         responseError: _responseError
     };
 
-}]);
+};
