@@ -55,7 +55,7 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in UserData">
-                                    <td>{{ item.userName }}</td>
+                                    <td>{{ item.userName | ToUpperCase }}</td>
                                     <td>{{ item.firstName }}</td>
                                     <td>{{ item.lastName }}</td>
                                     <td>{{ item.email }}</td>

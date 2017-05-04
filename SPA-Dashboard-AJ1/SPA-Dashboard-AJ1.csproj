@@ -63,6 +63,7 @@
     <Content Include="Controllers\user.controller.js" />
     <Content Include="Factory\storage.factory.js" />
     <Content Include="Factory\authentication.factory.js" />
+    <Content Include="Filters\uppercase.filter.js" />
     <Content Include="packages.config" />
     <Content Include="Content\scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Content\scripts\jquery-3.1.1.min.map" />

@@ -45,16 +45,16 @@ module.run(fnAppRun);
 
 
 //------------------------- Service, factory, controller and filter injection ---------------------------------------|
-fnUserCtlr.$inject = ["$scope", "UserDataService", "Constants"];
+fnUserCtlr.$inject = ['$scope', 'UserDataService', 'Constants'];
 fnLoginCtrl.$inject = ['$scope', '$window', 'authentication', 'sessionStorage'];
-fnModalCtrl.$inject = ["$scope", "$uibModal", "$document", "UserDataService"];
+fnModalCtrl.$inject = ['$scope', '$uibModal', '$document', 'UserDataService'];
 fnModalInstanceCtlr.$inject = ['$uibModalInstance', '$scope', '$rootScope', 'UserDataService', 'Constants'];
 
 fnLocalStorage.$inject = ['$window'];
 fnSessionStorage.$inject = ['$window'];
 
 fnAuthSvc.$inject = ['$http', '$q'];
-fnUserDataSvc.$inject = ["$http", "$q"];
+fnUserDataSvc.$inject = ['$http', '$q'];
 fnAuthInterceptorSvc.$inject = ['$location', '$q', 'sessionStorage'];
 
 //------------------------- Service, factory, controller and filter intialisation -----------------------------------|
@@ -63,9 +63,11 @@ module.controller('ModalController', fnModalCtrl);
 module.controller('ModalInstanceController', fnModalInstanceCtlr);
 module.controller('LoginController', fnLoginCtrl);
 
+module.filter('ToUpperCase', fnUpperFltr);
+
 module.factory('localStorage', fnLocalStorage);
 module.factory('sessionStorage', fnSessionStorage);
 
 module.factory('authentication', fnAuthSvc);
-module.service("UserDataService", fnUserDataSvc);
+module.service('UserDataService', fnUserDataSvc);
 module.factory('authInterceptor', fnAuthInterceptorSvc);
