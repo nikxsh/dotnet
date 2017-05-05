@@ -68,7 +68,6 @@ module.controller('LoginController', fnLoginCtrl);
 module.filter('ToUpperCase', fnUpperFltr);
 
 module.directive('currentTime', fnTimeDir);
-module.directive('pagination', fnPaginationDir);
 
 module.factory('localStorage', fnLocalStorage);
 module.factory('sessionStorage', fnSessionStorage);
