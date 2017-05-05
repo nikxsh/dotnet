@@ -48,7 +48,6 @@
     <Content Include="App\config.app.js" />
     <Content Include="App\constants.app.js" />
     <Content Include="App\run.app.js" />
-    <Content Include="Components\index.component.js" />
     <Content Include="Content\css\morris.css" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\scripts\bootstrap.validator.js" />
@@ -61,6 +60,7 @@
     <Content Include="Controllers\modal.controller.js" />
     <Content Include="Controllers\modalInstance.controller.js" />
     <Content Include="Controllers\user.controller.js" />
+    <Content Include="Directives\time.directive.js" />
     <Content Include="Factory\storage.factory.js" />
     <Content Include="Factory\authentication.factory.js" />
     <Content Include="Filters\uppercase.filter.js" />
@@ -69,7 +69,6 @@
     <Content Include="Content\scripts\jquery-3.1.1.min.map" />
     <Content Include="Content\scripts\angular-ui\angular-ui-router.min.js" />
     <Content Include="Templates\Common\Logout.html" />
-    <Content Include="Templates\Common\Main.html" />
     <Content Include="Templates\Dashboard\Buttons.html" />
     <Content Include="Templates\Dashboard\Flot.html" />
     <Content Include="Templates\Dashboard\Forms.html" />
@@ -924,6 +923,7 @@
     <Content Include="Templates\Common\login.html" />
     <Content Include="Templates\Navigation\Account.html" />
     <Content Include="Templates\Navigation\Alerts.html" />
+    <Content Include="Templates\Navigation\Header.html" />
     <Content Include="Templates\Navigation\Messages.html" />
     <Content Include="Templates\Navigation\Sidebar.html" />
     <Content Include="Templates\Navigation\Tasks.html" />
@@ -973,6 +973,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

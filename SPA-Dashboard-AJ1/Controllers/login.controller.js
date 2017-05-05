@@ -1,12 +1,11 @@
 ﻿var fnLoginCtrl = function (scope, window, authentication, sessionStorage) {
 
     scope.Credentials = {};
-    scope.ShowDiv = sessionStorage.AuthDataStatus();
     scope.Message = "";
     scope.IsProgressing = false;
 
     scope.login = function () {
-        
+
         scope.IsProgressing = true;
         scope.Message = "Authenticating Credentials....";
 
@@ -50,4 +49,30 @@
 
     };
 
+    scope.getTemplateUrl = function (type) {
+
+        var isLoggedIn = sessionStorage.AuthDataStatus();
+
+        if (isLoggedIn) {
+
+            switch (type) {
+                case 'H':
+                    return 'Templates/Navigation/Header.html';
+                case 'M':
+                    return 'Templates/Navigation/Messages.html';
+                case 'T':
+                    return 'Templates/Navigation/Tasks.html';
+                case 'AL':
+                    return 'Templates/Navigation/Alerts.html';
+                case 'ACT':
+                    return 'Templates/Navigation/Account.html';
+                case 'SB':
+                    return 'Templates/Navigation/Sidebar.html';
+                default:
+                    return '';
+            }
+        }
+        else
+            return '';
+    };
 };

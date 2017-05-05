@@ -53,6 +53,8 @@ fnModalInstanceCtlr.$inject = ['$uibModalInstance', '$scope', '$rootScope', 'Use
 fnLocalStorage.$inject = ['$window'];
 fnSessionStorage.$inject = ['$window'];
 
+fnTimeDir.$inject = ['$interval', 'dateFilter'];
+
 fnAuthSvc.$inject = ['$http', '$q'];
 fnUserDataSvc.$inject = ['$http', '$q'];
 fnAuthInterceptorSvc.$inject = ['$location', '$q', 'sessionStorage'];
@@ -64,6 +66,9 @@ module.controller('ModalInstanceController', fnModalInstanceCtlr);
 module.controller('LoginController', fnLoginCtrl);
 
 module.filter('ToUpperCase', fnUpperFltr);
+
+module.directive('currentTime', fnTimeDir);
+module.directive('pagination', fnPaginationDir);
 
 module.factory('localStorage', fnLocalStorage);
 module.factory('sessionStorage', fnSessionStorage);

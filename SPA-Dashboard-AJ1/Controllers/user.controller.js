@@ -37,6 +37,7 @@ var fnUserCtlr = function (scope, UserDataService, Constants) {
 
         scope.PagingRequest.PageSize = parseInt(scope.PagedList.name.name);
         scope.PagingRequest.PageNumber = 1;
+        scope.BigCurrentPage = 1;
         scope.ItemsPerPage = scope.PagingRequest.PageSize;
         _setUserData(scope.PagingRequest);
     };

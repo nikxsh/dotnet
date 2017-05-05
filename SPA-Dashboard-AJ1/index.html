@@ -32,18 +32,52 @@
     <!-- Angular Scripts : End -->
 </head>
 <body ng-app="SPADashBoardAJ1">
+
     <div id="wrapper" ng-controller="LoginController">
+
         <!-- Navigation -->
-        <div id="navigation" ng-if="ShowDiv" ng-include="'Templates/Navigation/Sidebar.html'"></div>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div id="navigation">
+                <!-- /.navbar-header -->
+                <div class="navbar-header" ng-include="getTemplateUrl('H')">
+                </div>
+                <!-- /.navbar-header -->
+                <!-- /.navbar-top-links -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a class="dropdown" target="_self">
+                            <span current-time="'MMM dd, yyyy h:mm:ss a'"></span>
+                        </a>
+                    </li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown" ng-include="getTemplateUrl('M')"></li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown" ng-include="getTemplateUrl('T')"></li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown" ng-include="getTemplateUrl('AL')"></li>
+                    <!-- /.dropdown -->
+                    <li class="dropdown" ng-include="getTemplateUrl('ACT')"></li>
+                    <!-- /.dropdown -->
+                </ul>
+                <!-- /.navbar-top-links -->
+                <!-- /.sidebar-collapse -->
+                <div ng-include="getTemplateUrl('SB')"></div>
+                <!-- /.sidebar-collapse -->
+            </div>
+        </nav>
         <!-- Navigation -->
         <!-- Render Body -->
         <div ng-view></div>
+        <!-- Render Body -->
+
     </div>
 
     <!-- Custom Scripts -->
     <script src="App/config.app.js"></script>
     <script src="App/constants.app.js"></script>
     <script src="App/run.app.js"></script>
+    <script src="Directives/pagination.directive.js"></script>
+    <script src="Directives/time.directive.js"></script>
     <script src="Controllers/login.controller.js"></script>
     <script src="Controllers/user.controller.js"></script>
     <script src="Controllers/modal.controller.js"></script>
@@ -51,10 +85,11 @@
     <script src="Factory/user.service.js"></script>
     <script src="Factory/authentication.factory.js"></script>
     <script src="Factory/storage.factory.js"></script>
-    <script src="Factory/interceptor.factory.js"></script> 
-    <script src="Filters/uppercase.filter.js"></script> 
-    <script src="app.js"></script>    
+    <script src="Factory/interceptor.factory.js"></script>
+    <script src="Filters/uppercase.filter.js"></script>
+    <script src="app.js"></script>
     <script src="Controllers/home.controller.js"></script>
     <!-- Custom Scripts -->
+
 </body>
 </html>
