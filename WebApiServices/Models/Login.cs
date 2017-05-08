@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace WebApiServices.Models
 {
@@ -12,11 +13,8 @@ namespace WebApiServices.Models
     public class LoginResponse
     {
         public bool IsAuthenticated { get; set; }
-
-        public int? RemainingLoginAttempts { get; set; }
-
-        public string Token { get; set; }
-
+        
+        [JsonProperty(PropertyName = "access_token")]
         public string JWToken { get; set; }
 
         public bool IsFirstLogin { get; set; }

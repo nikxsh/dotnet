@@ -17,13 +17,13 @@
         }
         else {
 
-            var authPromise = authentication.login(scope.Credentials);
+            var authPromise = authentication.Login(scope.Credentials);
 
             //If not do it
             authPromise.then(function (result) {
 
                 sessionStorage.SetAuthData({
-                    token: result.access_token
+                    token: result.responseData.access_token
                 });
 
                 scope.ShowDiv = true;
