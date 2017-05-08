@@ -183,6 +183,7 @@
     <Compile Include="Filters\CustomAuthorization.cs" />
     <Compile Include="Helper\Error.cs" />
     <Compile Include="Helper\Global.cs" />
+    <Compile Include="Helper\GlobalHelper.cs" />
     <Compile Include="Helper\RequestBase.cs" />
     <Compile Include="Helper\ResponseBase.cs" />
     <Compile Include="Helper\UserManager.cs" />

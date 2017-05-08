@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin.Security;
 using System;
 using System.Configuration;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -16,7 +17,7 @@ namespace WebApiServices.Controllers
     public class AccountController : ApiController
     {
         private readonly ISecurityAdapter _securityAdapter;
-        
+
         public AccountController(ISecurityAdapter securityAdapter)
         {
             _securityAdapter = securityAdapter;
@@ -32,23 +33,29 @@ namespace WebApiServices.Controllers
             {
                 var request = UserManager.PrepareRequest(new RequestBase<LoginRequest>(loginRequest));
                 response = _securityAdapter.Authenticate(request);
-                if(response.Status && response.ResponseData.IsAuthenticated)
+                if (response.Status && response.ResponseData.IsAuthenticated)
                 {
-                    var tokenProvider = new JWTokenProvider(ConfigurationManager.AppSettings["Issuer"]);
+                    //response.ResponseData.JWToken = GlobalHelper.GetMappedToken(response.ResponseData.UserId, loginRequest.Username);
 
-                    var identity = new ClaimsIdentity("Password");
-                    identity.AddClaim(new Claim("userid", response.ResponseData.UserId.ToString()));
-                    identity.AddClaim(new Claim("username", loginRequest.Username));
+                    var client = new HttpClient();
+                    client.BaseAddress = new Uri(GlobalHelper.Issuer);
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
 
-                    var authProp = new AuthenticationProperties()
+                    var postParams = new { grant_type = "password", username = loginRequest.Username, password = loginRequest.Password };
+
+                    var authServerResponse = client.PostAsJsonAsync("oauth/token", postParams);
+
+                    if (authServerResponse.Result.IsSuccessStatusCode)
                     {
-                         IssuedUtc = DateTime.UtcNow,
-                         ExpiresUtc = DateTime.UtcNow.AddDays(1)
-                    };
+                        response.ResponseData.JWToken = authServerResponse.Result.ToString();
+                    }
+                    else
+                        response.ResponseData.IsAuthenticated = false;
 
-                    var ticket = new AuthenticationTicket(identity, authProp);
-                    response.ResponseData.JWToken = tokenProvider.Protect(ticket);
                 }
+                else
+                    response.ResponseData.IsAuthenticated = false;
+
                 return Ok(response);
             }
             catch (Exception ex)
