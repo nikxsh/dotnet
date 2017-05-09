@@ -31,7 +31,7 @@ module.controller('HomeController', ['$scope', '$window', function ($scope, $win
     // - Both controllers and directives have reference to the scope, but not to each other. This arrangement isolates the controller from
     //   the directive as well as from the DOM
     //-------------------------------------------------------------------------------------------------------------------------------------|
-    $scope.title = 'I am Blank';
+    $scope.title = 'Hello from Nikhilesh!';
 
     $scope.messages = [
                        { id: 1, name: 'Nikhilesh Shinde', date: 'Today', message: 'Hello there!!!' },

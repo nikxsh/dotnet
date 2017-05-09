@@ -1,6 +1,5 @@
 ﻿using EFDataStorage.Repositories;
 using Microsoft.Owin.Security.OAuth;
-using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using WebApiServices.Adapter;
@@ -42,11 +41,31 @@ namespace WebApiServices.Providers
             ISecurityAdapter _securityAdapter = new SecurityAdapter(new SecurityRepository());
             var response = _securityAdapter.Authenticate(request);
 
-            if(!response.ResponseData.IsAuthenticated)
+            if (!response.ResponseData.IsAuthenticated)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
                 return;
             }
+
+            /// Claim : A statement that one subject makes about itself or another subject. For example, the statement can be about a name, identity, 
+            ///        key, group, privilege, or capability. Claims are issued by a provider, and they are given one or more values and then packaged 
+            ///        in security tokens that are issued by a security token service (STS). They are also defined by a claim value type and, possibly,
+            ///        associated metadata. 
+            ///        
+            /// Claim is piece of information that describes given identity on some aspect. Take claim as name-value pair. 
+            /// Claims are held in authentication token that may have also signature so you can be sure that token is not tampered on its way from 
+            /// remote machine to your system. You can think of token as envelop that contains claims about user.
+            /// 
+            /// Token may contain different claims:
+            /// 
+            ///     full name of user,
+            ///     e - mail address,
+            ///     membership in security groups,
+            ///     phone number,
+            ///     color of eyes.
+            ///     
+            /// System can use claims to identify and describe given user from more than one aspect.This is something you don’t achieve easily 
+            /// with regular username-password based authentication mechanisms.
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim("userId", response.ResponseData.UserId.ToString()));
