@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace WebApiServices.Models
 {
@@ -24,6 +25,15 @@ namespace WebApiServices.Models
         public bool PasswordExpired { get; set; }
 
         public UserStatus UserCurrentStatus { get; set; }
+
+        public List<string> UserRoles { get; set; }
+    }
+
+    public class OAuthResponse
+    {
+        public string access_token { get; set; }
+        public string token_type { get; set; }
+        public string expires_in { get; set; }
     }
 
     public enum UserStatus

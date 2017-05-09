@@ -1,14 +1,12 @@
-﻿using Microsoft.Owin.Security;
-using System;
-using System.Configuration;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
-using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Script.Serialization;
 using WebApiServices.Contracts;
 using WebApiServices.Helper;
 using WebApiServices.Models;
-using WebApiServices.Providers;
 
 namespace WebApiServices.Controllers
 {
@@ -37,24 +35,38 @@ namespace WebApiServices.Controllers
                 {
                     //response.ResponseData.JWToken = GlobalHelper.GetMappedToken(response.ResponseData.UserId, loginRequest.Username);
 
+                    var formData = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string, string> ("grant_type","password"),
+                        new KeyValuePair<string, string> ("username",request.Data.Username),
+                        new KeyValuePair<string, string> ("password",request.Data.Password)
+                    };
+
                     var client = new HttpClient();
                     client.BaseAddress = new Uri(GlobalHelper.Issuer);
-                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
 
-                    var postParams = new { grant_type = "password", username = loginRequest.Username, password = loginRequest.Password };
+                    var postParams = new HttpRequestMessage(HttpMethod.Post, "oauth/token");
+                    postParams.Content = new FormUrlEncodedContent(formData);
 
-                    var authServerResponse = client.PostAsJsonAsync("oauth/token", postParams);
+                    var authServerResponse = client.SendAsync(postParams).Result;
 
-                    if (authServerResponse.Result.IsSuccessStatusCode)
+                    if (authServerResponse.IsSuccessStatusCode)
                     {
-                        response.ResponseData.JWToken = authServerResponse.Result.ToString();
+                        var jsonObject = authServerResponse.Content.ReadAsStringAsync().Result;
+                        var oauthResult = new JavaScriptSerializer().Deserialize<OAuthResponse>(jsonObject);
+                        response.ResponseData.JWToken = oauthResult.access_token;
                     }
                     else
+                    {
                         response.ResponseData.IsAuthenticated = false;
-
+                        response.Message = "Token Authentication failed.";
+                    }
                 }
                 else
+                {
                     response.ResponseData.IsAuthenticated = false;
+                    response.Message = "Username or Password is incorrect.";
+                }
 
                 return Ok(response);
             }

@@ -1,5 +1,6 @@
 ﻿using EFDataStorage.Repositories;
 using Microsoft.Owin.Security.OAuth;
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using WebApiServices.Adapter;
@@ -48,10 +49,16 @@ namespace WebApiServices.Providers
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            identity.AddClaim(new Claim("userid", response.ResponseData.UserId.ToString()));
-            identity.AddClaim(new Claim("username", context.UserName));
+            identity.AddClaim(new Claim("userId", response.ResponseData.UserId.ToString()));
+            identity.AddClaim(new Claim("userName", context.UserName));
+            identity.AddClaim(new Claim("userRoles", string.Join(",", response.ResponseData.UserRoles.ToArray())));
 
             context.Validated(identity);
+        }
+
+        public override Task ValidateAuthorizeRequest(OAuthValidateAuthorizeRequestContext context)
+        {
+            return base.ValidateAuthorizeRequest(context);
         }
     }
 }

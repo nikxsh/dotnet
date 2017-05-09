@@ -39,7 +39,7 @@ namespace WebApiServices
                 AllowInsecureHttp = true,
                 //The path for generating tokens will be as :”http://localhost:port/token”.
                 TokenEndpointPath = new PathString("/oauth/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(1),
                 //We’ve specified the implementation on how to validate the credentials for users asking for tokens in custom class named 
                 //“SimpleAuthorizationServerProvider”
                 Provider = new AuthorizationServerProvider(),

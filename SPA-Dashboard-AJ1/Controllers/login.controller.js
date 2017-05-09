@@ -22,13 +22,21 @@
             //If not do it
             authPromise.then(function (result) {
 
-                sessionStorage.SetAuthData({
-                    token: result.responseData.access_token
-                });
+                if (result.responseData.isAuthenticated) {
 
-                scope.ShowDiv = true;
-                scope.Credentials = {};
-                window.location.href = "#!/index";
+                    sessionStorage.SetAuthData({
+                        token: result.responseData.access_token
+                    });
+
+                    scope.ShowDiv = true;
+                    scope.Credentials = {};
+                    window.location.href = "#!/index";
+                }
+                else
+                {
+                    scope.IsProgressing = false;
+                    scope.Message = result.message;
+                }
 
             }, function (reject) {
 

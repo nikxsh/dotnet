@@ -16,7 +16,11 @@ namespace EFDataStorage.Repositories
                 {
                     var userDetails = context.Users.Where(x => x.UserName.Equals(query.Username, StringComparison.InvariantCultureIgnoreCase) && query.Password.Equals("123", StringComparison.InvariantCultureIgnoreCase)).SingleOrDefault();
                     if (userDetails != null)
+                    {
+                        response.UserId = userDetails.Id;
+                        response.UserRoles = new System.Collections.Generic.List<string> { "Admin", "Developer" };
                         response.IsAuthenticated = true;
+                    }
                 }
             }
             catch (Exception ex)

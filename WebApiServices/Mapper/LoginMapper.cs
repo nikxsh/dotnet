@@ -8,7 +8,8 @@
             {
                 IsAuthenticated = response.IsAuthenticated,
                 UserCurrentStatus = (Models.UserStatus)response.UserCurrentStatus,
-                UserId = response.UserId
+                UserId = response.UserId,
+                UserRoles = response.UserRoles
             };
         }
     }

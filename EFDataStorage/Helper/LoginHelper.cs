@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EFDataStorage.Helper
 {
@@ -27,6 +28,8 @@ namespace EFDataStorage.Helper
         public bool PasswordExpired { get; set; }
 
         public bool IsUnlockedByLogin { get; set; }
+
+        public List<string> UserRoles { get; set; }
     }
 
     public enum UserStatus
