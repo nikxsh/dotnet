@@ -1,0 +1,48 @@
+﻿
+<div id="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <fieldset>
+                            <form role="form" data-toggle="validator" ng-submit="login()">
+                                <div class="form-group has-feedback">
+                                    <input type="text" class="form-control" placeholder="Username" ng-model="Credentials.username" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" ng-model="Credentials.password" required />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div ng-hide="IsProgressing" style="color:red;"><center>{{ Message }}</center></div>
+                                    <div ng-show="IsProgressing" style="color:green;">
+                                        <center>
+                                            {{ Message }}
+                                            <br />
+                                            <img src="../../Content/images/ajax-loader.gif" />
+                                        </center>
+                                    </div>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <input type="submit" name="Login" class="btn btn-lg btn-success btn-block" />
+                            </form>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h3 class="panel-title">Social Logins</h3>
+                <p>You can also login using one of the social logins below.</p>
+                <button class="btn btn-large btn-facebook btn-block" type="button" ng-click=""><i class="fa fa-facebook"></i> | Connect with Facebook</button>
+                <button class="btn btn-large btn-google-plus btn-block" type="button" ng-click=""><i class="fa fa-google-plus"></i> | Connect with Google+</button>
+            </div>
+        </div>-->
+    </div>
+</div>
