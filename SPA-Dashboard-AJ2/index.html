@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dashboard 2.0</title>
+    <base href="/">
+
+    <!-- Style : Start-->
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/css/Site.css" rel="stylesheet" />
+    <link href="Content/css/font-awesome.css" rel="stylesheet" />
+    <!-- Style : End-->
+
+    <script src="Content/scripts/jquery-3.1.1.min.js"></script>
+    <script src="Content/scripts/bootstrap.min.js"></script>
+    <script src="Content/scripts/bootstrap.validator.js"></script>
+    <script src="Content/scripts/dashboard/metisMenu.js"></script>
+
+    <!-- Angular 2.0  -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <!-- Angular 2.0  -->
+
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</head>
+<body>
+    <dashboard-app>
+    </dashboard-app>
+</body>
+</html>
