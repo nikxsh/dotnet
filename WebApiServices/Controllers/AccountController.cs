@@ -8,16 +8,6 @@ using WebApiServices.Contracts;
 using WebApiServices.Helper;
 using WebApiServices.Models;
 
-/// <summary>
-///  What is Rest?
-///  - RPC : Rest is not the way to call methods over a network without overhead of SOAP & WSDL
-///  - HTTP: Rest is not a HTTP. HTTP is protocal where most restful interactions are happen. While most
-///          RESTful services are built on using HTTP, an architecture implemented on the top of HTTP is not
-///          inherently RESTful
-///  - URI : REST are not URIs.
-///  - It stands for Representational state transfer (Architectural Style), intended for long lived network application
-///  - 
-/// </summary>
 namespace WebApiServices.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
@@ -45,9 +35,6 @@ namespace WebApiServices.Controllers
                 {
                     //response.ResponseData.JWToken = GlobalHelper.GetMappedToken(response.ResponseData.UserId, loginRequest.Username);
 
-                    /// Get token form autherization server. In our case Auth and Resource sever are same. 
-                    /// As we configured our auth server in Owin Middleware to perform Auth server operation, 
-                    /// hence we will perform authentication first and then fetch token from auth server
                     var formData = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string> ("grant_type","password"),
