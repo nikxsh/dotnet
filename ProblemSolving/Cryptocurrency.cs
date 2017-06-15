@@ -11,8 +11,8 @@ namespace ProblemSolving
 {
     public class Cryptocurrency
     {
-        private string _inputURL = @"D:\input.txt";
-        private string _outputURL = @"D:\output.txt";
+        private string _inputURL = @"P:\Coding Projects\DOT NET\Self-Learning\ProblemSolving\input2.txt";
+        private string _outputURL = @"P:\Coding Projects\DOT NET\Self-Learning\ProblemSolving\output.txt";
         private List<TransactionInfo> _transactions;
 
         public Cryptocurrency()
@@ -37,24 +37,35 @@ namespace ProblemSolving
 
         private void ProcessTransactions()
         {
-            var criminals = new List<ToyBlock>();
+            var coinCreators = _transactions.Where(x => x.IsCoinCreation);
 
-            foreach (var transaction in _transactions.Where(x => x.IsCoinCreation))
+            foreach (var transaction in coinCreators)
                 foreach (var item in transaction.ToyChain)
-                    MoneyTrace(item);
+                    MoneyTrace(item, transaction.AccountNumber, transaction.Id);
+
+            var criminalAccounts = _transactions
+                .Where(x => x.IsCoinCreation)
+                .SelectMany(y => y.TrailedDeposits)
+                .GroupBy(p => p)
+                .Where(n => n.Count() == coinCreators.Count())
+                .Select(z => z.Key);
+
+            foreach (var item in criminalAccounts)
+                Console.WriteLine("{0}", item);
         }
 
-        private void MoneyTrace(ToyBlock block)
+        private void MoneyTrace(ToyBlock block, uint accountNumber, uint transactionId)
         {
-            var tranferredTo = _transactions.Where(n => n.Digest.Equals(block.Hexdigest, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+            var tranferredTo = _transactions.Where(n => !n.IsCoinCreation && n.Digest.Equals(block.Hexdigest, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
 
             if (tranferredTo == null)
+            {
+                _transactions.Where(n => n.Id == transactionId).FirstOrDefault().TrailedDeposits.Add(accountNumber);
                 return;
-            else
-                _transactions.Where(n => n.Digest.Equals(block.Hexdigest, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault().TransactionCount++;
+            }                                       
 
             foreach (var item in tranferredTo.ToyChain)
-                MoneyTrace(item);
+                MoneyTrace(item, tranferredTo.AccountNumber,transactionId);
         }
     }
 
@@ -70,10 +81,10 @@ namespace ProblemSolving
         public uint AccountNumber { get; set; }
         public string PassKey { get; set; }
         public string Digest { get; set; }
-        public int TransactionCount { get; set; }
+        public List<uint> TrailedDeposits { get; set; }
 
         public TransactionInfo(string input, string baseId)
-        {
+        {         
             Id = uint.Parse(baseId);
             Digest = MD5HASH.GetMD5Hash(input);
             IsCoinCreation = false;
@@ -82,6 +93,8 @@ namespace ProblemSolving
             AccountNumber = uint.Parse(data[0]);
             if (data.Length > 2)
             {
+                TrailedDeposits = new List<uint>();
+
                 if (uint.Parse(data[1]) != base.Id || !Digest.Substring(Digest.Length - 2, 2).Equals("00"))
                     throw new Exception("Invalid Transaction!");
 
