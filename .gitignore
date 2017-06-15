@@ -50,3 +50,5 @@ bin/
 packages/
 obj/
 node_modules/
+
+*.suo

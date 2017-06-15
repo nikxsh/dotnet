@@ -46,6 +46,10 @@ namespace WebApiServices.Providers
 
             var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
 
+
+            //var securityKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.Default.GetBytes(symmetricKeyAsBase64));
+            //var signingKey = new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+
             var signingKey = new HmacSigningCredentials(keyByteArray);
 
             var issued = data.Properties.IssuedUtc;

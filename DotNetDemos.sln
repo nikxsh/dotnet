@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA-Dashboard-AJ2", "SPA-Dashboard-AJ2\SPA-Dashboard-AJ2.csproj", "{9AE48CA2-54FB-434E-BE5C-37B59569A751}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemSolving", "ProblemSolving\ProblemSolving.csproj", "{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,12 @@ Global
 		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Test|Any CPU.Build.0 = Release|Any CPU
+		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

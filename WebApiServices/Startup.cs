@@ -32,16 +32,25 @@ namespace WebApiServices
             //app.UseWebApi(config);
         }
 
+        /// <summary>
+        /// Here is the basic flow when the app wants to get a token:
+        ///     - To get an access token, the app sends a request to ~/Token.
+        ///     - The OAuth middleware calls GrantResourceOwnerCredentials on the provider.
+        ///     - The provider calls the ApplicationUserManager to validate the credentials and create a claims identity.
+        ///     - If that succeeds, the provider creates an authentication ticket, which is used to generate the token.
+        /// </summary>
+        /// <param name="app">IAppBuilder</param>
         public void ConfigureOAuthTokenGeneration(IAppBuilder app)
         {
             var oAuthServer = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                //The path for generating tokens will be as :”http://localhost:port/token”.
+                //The TokenEndpointPath property is the URL path to the authorization server endpoint. That's the URL that app uses to get the bearer tokens.
                 TokenEndpointPath = new PathString("/oauth/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 //We’ve specified the implementation on how to validate the credentials for users asking for tokens in custom class named 
                 //“SimpleAuthorizationServerProvider”
+                //The Provider property specifies a provider that plugs into the OWIN middleware, and processes events raised by the middleware.
                 Provider = new AuthorizationServerProvider(),
                 AccessTokenFormat = new JWTokenProvider(ConfigurationManager.AppSettings["Issuer"])
             };
