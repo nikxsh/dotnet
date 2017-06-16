@@ -1,0 +1,118 @@
+﻿Xoriant Contest 2017 #3: Cryptocurrency
+
+You are at question 1 of 1.
+
+Analyzing ToyChain: Identifying Accounts with Criminal Connections
+
+Your solution has been submitted, but not yet evaluated. You may submit a new/improved solution if you wish by using the "Re-Submit" button at the end of this page. Or, Click on the refresh button to check if your answer has been evaluated (this can take a day or two): Refresh
+
+This problem uses an over-simplified blockchain based crypto-currency, and you will be required to analyze the transactions and identify all account numbers that appear to have some criminal connections.
+
+The toy blockchain in this problem is intended give you an overall feel for how a crypto-currency works, and some of the algorithms/issues involved. Various aspects of blockchains have been significantly simplified here, however, it should still be helpful in getting an understanding of some aspects of blockchains.
+
+As you read the description below, you'll notice that the problem seems quite complex, but once you understand it, the actual programming required is relatively simple. This is also intended to give you a feel for how for some domains, getting the background knowledge and understanding the basics takes effort, but doing actual work in that area is relatively simpler.
+
+In the next few sections, we first explain the format of the ToyChain, and then later there is a detailed description of the specific problem to be solved
+
+Format of the ToyChain
+
+ToyChain is essentially a list containing a sequence of transactions. Each entry of the list represents one transaction.
+
+Here is what a simplified transaction looks like in ToyChain:
+
+84, 142857:myinitialcoins, 2000=bc2d9517e8e3c957d06057637a6a18e2, 1000=161352018a95bdf68ce45eb3cd80fab7
+Each transaction is a CSV line containing 3 or more comma-separated fields. First field is an integer representing the transaction ID. The second field is a "passkey" representing the source of the toy-coins being transferred. The format of the passkey is :. All the remaining fields represent the recipients of the coins. Each recipient field is of the form amount=hexdigest. Amount represents the number of coins being transferred, and the hexdigest is a MD5 hexdigest of a passkey that would be needed to unlock these coins and use them in the future.
+
+In the above line, 84 is the transaction ID of this transaction, 142857:myinitialcoins is the passkey that represents the source of the coins, and proves ownership of those coins. The next two fields indicate that 2000 coins are to be transferred to whoever can provide a passkey whose MD5 hexdigest is bc2d9517e8e3c957d06057637a6a18e2, and 3000 coins are to be transferred to whoever can provide a passkey whose MD5 hexdigest is 161352018a95bdf68ce45eb3cd80fab7
+
+Finding the Source of Coins in a Transaction
+
+The "source" of coins in any transaction must be one of the recipients of one of the earlier transactions. The source is represented by the passkey (2nd field). If you create a MD5 hexdigest of the passkey (in hexdigest format), it should match exactly the hexdigest part of one of the recipients in one of the previous transactions.
+
+For example, consider the following 2 transactions
+
+42, 142857:42:44, 3000=d66ec8085f15f68ee364d51b62705de3, 2000=4fb50ff3eaa5a5b1b669b14f9e2c4cd5
+84, 142857:myinitialcoins, 2000=bc2d9517e8e3c957d06057637a6a18e2, 1000=161352018a95bdf68ce45eb3cd80fab7
+In this, the source of the 2nd transaction (TID 84) is indicated by the passkey 142857:myinitialcoins. If you take the MD5 hexdigest of 142857:myinitialcoins, it is exactly d66ec8085f15f68ee364d51b62705de3. You will notice that this hexdigest matches the hexdigest in the 1st recipient of transaction number 42 whose amount is 3000 coins. Thus, the 3000 coins that were transferred as one part of transaction 42 are now being spent in transaction 84. You will notice that the sum of coins across all the recipients in transaction 84 adds up to exactly 3000.
+
+There is one exception to this rule about source of coins of a transaction (otherwise, how would the chain start?). If the MD5 hexdigest of a passkey in a transaction ends with 00 (two zeroes), then this is a coin-creation transaction. This means that the transaction has no source, and all the coins listed in the recipients
+
+Formatting and Data-Types in the ToyChain
+
+A transaction ID is always a positive integer less than 2^31.
+
+A passkey for a regular transaction must always consist of an account number (which is a positive integer less than 2^31) followed by a ':' followed by an arbitrary alphanumeric password of any length.
+
+A passkey for a coin-creation transaction must consist of an account number, followed by a colon ':', followed by the transaction ID of the same transaction, followed by another colon ':', followed by an arbitrary alphanumeric password of any length. The MD5 hexdigest of this passkey must end with 00 (two zeroes).
+
+Each recipient field in a transaction must consist of a number of coins, followed by the equal to sign '=' followed by a 32-character MD5 hexdigest. The number of coins is always a positive integer less than 2^31.
+
+Validating transactions
+
+Ignore invalid transactions: All invalid transactions must be ignored. All analysis must be carried out using only the valid transactions, as if the invalid transactions did not exist in the input at all.
+Bad Format: Any transaction line that is not in the correct format is invalid.
+Source must exist: The MD5 hexdigest of the source of any regular transaction must match the MD5 hexdigest in exactly one of the recipients of exactly one previous transaction. Coin-creating transactions are an exception to this rule.
+Match Number of Coins: The number of coins in the source of a transaction (i.e. the number of coins listed in the relevant recipient field of the source transaction) must be equal to the sum of the number of coins in all the recipient fields of this transaction. If these numbers don't match exactly, the transaction is invalid and should be ignored.
+Double-spending: If 2 or more otherwise valid transactions have the same source, then out of these, only the lowest ID transaction is valid, and all other transactions are invalid.
+Computing MD5 Hexdigest
+
+For this problem, you're required to compute the MD5 hexdigest of passkeys. This is a standard algorithm, and most modern programming languages have in-built methods to compute the MD5 hexdigest of any string.
+
+You must use a standard MD5 library to get a the MD5 digest (128-bits), and then convert it to a hexadecimal format (which will give a string/bytearray of exactly 32 characters/bytes). Whatever programming language you use will probably have a library that provides MD5 digests. It might or might have give the hexdigest directly, in which case you'll need to Google for solutions to convert from digest to hexdigest.
+
+In Python, you can use md5.new("your-string-here").hexdigest(), for Java see this, and in C# see this. For C or C++ you can take the code from this file and copy-paste it at the top of your program, and use the hexdigest function.
+
+If you're unable to find code or a library for MD5 digests in your language, please get in touch with us (info@rsphinx.com) and we can help out.
+
+Criminal Connections
+
+An anonymous criminal extorted money from a prominent businessman and asked him to pay money in the form of ToyChain coins using two transactions.The businessman then approached the police and gave details of the transactions to the police. For the purposes of this problem, assume that these will be transaction ID 100, and transaction ID 101. (You may hardcode these values in your program.)
+
+Unfortunately, these are anonymous accounts and police don't know who operates them. However, money from these accounts is being spent - i.e. transferred to other accounts in the ToyChain. Police are watching any account that has received coins that can be traced back to one of these transactions. Now some of these transactions might be legal transactions where the recipient isn't aware of the sender's criminality. However, they want to create a list of account numbers that have received coins that can be traced back to both these transactions (ID 100 and 101).
+
+Specifically, you have to help the police by making a list of all the account numbers that have received coins from both these transactions (directly or indirectly).
+
+Consider this example:
+
+100, 22:100:95, 100=57bd03f0aa42b8b4a249e38b39e9db08
+101, 22:101:134, 200=938ec1f72acb6feac5b7b8023e57fbc3
+102, 30:xx, 50=26d0d2802e12a7b69cd7d9244c5322b1, 50=b665d56f7df9dd0665df829e0831e193
+103, 31:p1, 197=08d63823ac690fdbd1b08ec1f4bad9c0, 2=d0800a9ee4f1ee97984e1af929f4c8b7, 1=d65f5fc2a94640e1e3c2085fd315aae6
+104, 33:key33, 50=c4ab9241fa29141309606231c901139a
+105, 34:mypwd34, 50=409d3490837f0972861f2c49437c017e
+106, 35:anypassx, 197=dfa8a55c9dbbb98a9cc181d8a6d06350
+107, 33:anotherkey, 1=1f03baa993293b701cd585378062467f
+In this, after you find the MD5 hexdigests of all the passkeys in all the transactions, and connect up the transactions with their sources, you will see the following:
+
+The businessman (account 22) has used transaction 100 and 101 to pay out 100 and 200 coins respectively to the criminal
+Transaction 102 transfers 50 coins to account 33, and 50 coins to account 34
+Transaction 103 transfers 197 coins to account 35, 2 coins to an unknown account, and 1 coin to account 33
+The remaining transactions are transferring coins to unknown accounts
+Based on this information, account 33 is the only account who has received coins from both transaction 100 and transaction 101.
+
+Hence, the above data was provided as input to your program, then the output of your program should be:
+
+33
+To ensure that you've understood what you're supposed to do, here is a more complex example:
+
+20, 12:20:261, 5000=f3fb0a4b63a274abe177723aec93c54b
+57, 12:57:160, 10000=3d03e424b12f070b0ba5a14457ce7d59
+100, 12:mypwd734, 5000=b77f41da935224e67499152e2c9d93ae
+101, 12:mypwd88622, 10000=f17aece4ad61026a96698043b24e8a9b
+251, 98:extortion1, 3000=2c2646586531159c7d2df8cd327c8009, 2000=41c7d86b8c906334e0e9c35f863c76fa
+381, 666:blackmail, 5000=cd3093df8d090d51188c03639f86e331, 5000=0d116fcfd53402f8551a7998938d5b63
+532, 201:svcs3222, 2000=295bd347977387f4d7df54ad03207285
+617, 202:svcs7323, 1000=8ebe5c3be3d911b7c205d394741daa5d, 2000=41d4b29045f511405edf9b9bea849b03
+618, 203:pymntxyz, 5000=429d8fc7897831b0984ee36b66a14f34
+619, 203:pymntxyz, 5000=86a8280b5e3106e3cc87b16183ef4e90
+629, 204:pymntpqr, 5000=41eeb2464a550a03aba0faf2eda9881e
+632, 300:intermediate, 4000=ac76dabc2d2600bae85043e3f5c3eb61
+633, 300:intermediate, 5000=49d737a07a6d77c5a2afdfe82c4d292f
+701, 201:pymnt32g7, 5000=8a328276cdb5251f5858ee5ab2ed887b
+801, 300:1, 5000=77eaef078f3f94e813e18208757c6b72
+802, 300:2, 2000=8bb4a0d74575c0a69a188a1c418814e3
+If this input is provided to your program, the output of your program should be:
+
+201
+300
+In this example, transaction 619 should be ignored because it is invalid - those coins have already been spent in transaction 618. Transaction 632 is invalid and should be ignored because the total amount given to recipients (4000) does not match the amount in the source (5000). Hence, transaction 633 is valid.

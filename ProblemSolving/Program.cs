@@ -11,7 +11,7 @@ namespace ProblemSolving
         static void Main(string[] args)
         {
             var obj = new Cryptocurrency();
-            Console.ReadKey();
+            obj.Start();
         }
     }
 }

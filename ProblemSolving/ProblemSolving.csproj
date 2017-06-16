@@ -50,9 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="input2.txt" />
-    <Content Include="input1.txt" />
-    <Content Include="output.txt" />
+    <Content Include="Cryptocurrency-Description.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
