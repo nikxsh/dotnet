@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="INotes.cs" />
     <Compile Include="Parallelism.cs" />
     <Compile Include="DesignPatternExamples.cs" />
     <Compile Include="DynamicLinq.cs" />
@@ -93,7 +92,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Theory.txt" />
+    <Content Include="Theory-Wcf.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,17 +10,53 @@ namespace DotNetDemos.CSharpExamples
     {
         public void DoAction()
         {
-            var obj = new MultiThreadingAndSynchronization();
-            obj.DoSynchronization();
+            //var obj = new MultiThreadingAndSynchronization();
+            //obj.DoSynchronization();
 
             //var obj = new SignalingwithEvent();
             //obj.DoSignalingwithEvent();
 
             //var obj = new AsynchronousEvents();
             //obj.DoAsynchronousEvents();
+
+
+            var obj = new Problems();
+            obj.Problem1();
         }
 
     }
+
+    public class Problems
+    {
+        private int msum = 0;
+        public void Problem1()
+        {
+            Thread t1 = new Thread(() => Loop());
+            Thread t2 = new Thread(() => Loop());
+            t1.Start();
+            t2.Start();
+          
+            Console.WriteLine("Sum : {0}", msum);
+        }
+
+        public void Loop(int length = 5)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                msum++;
+                Console.WriteLine("{0}", i);
+            }
+        }
+
+        public void Problem2()
+        {
+            Thread t1 = new Thread(() => Loop());
+            Thread t2 = new Thread(() => Loop());
+            t1.Start();
+            t2.Start();
+        }        
+    }
+
 
     public class MultiThreadingAndSynchronization
     {
@@ -142,6 +178,7 @@ namespace DotNetDemos.CSharpExamples
         /// Like the lock keyword, monitors prevent blocks of code from simultaneous execution by multiple threads. 
         /// The Enter method allows one and only one thread to proceed into the following statements; 
         /// all other threads are blocked until the executing thread calls Exit. This is just like using the lock keyword.
+        /// Monitors are higher level abstraction of Locks. Internally is uses locks.
         /// </summary>
         private void SimpleMonitorExample()
         {
@@ -161,7 +198,7 @@ namespace DotNetDemos.CSharpExamples
         /// <summary>
         /// Ensures just one thread can access a resource, or section of code at a time
         /// 
-        /// A Mutex is like a C# lock, but it can work across multiple processes opf same operating system. In other words, 
+        /// A Mutex is like a C# lock, but it can work across multiple processes of same operating system. In other words, 
         /// Mutex can be computer-wide as well as application-wide.
         /// 
         /// A common use for a cross-process Mutex is to ensure that only one instance of a program can access at a time. 

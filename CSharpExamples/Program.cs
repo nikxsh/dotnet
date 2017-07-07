@@ -97,8 +97,8 @@ namespace DotNetDemos.CSharpExamples
 
             #endregion
 
-            var obj = new Tricky();
-            obj.Play();
+            //var obj = new Tricky();
+            //obj.Play();
 
             //Console.Write(typeof(string).Assembly.ImageRuntimeVersion);
             Console.ReadKey();

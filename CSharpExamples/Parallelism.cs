@@ -81,7 +81,7 @@ namespace DotNetDemos.CSharpExamples
 
 
             //Tells the .net that task *can* be started
-            //program now forks and 2 code streams are executing concurrently - Current method play() as main thread and T as worker thread. Both thread share cores in the processor
+            //program now forks and 2 code streams are executing concurrently - Current method TaskFactory() as main thread and T as worker thread. Both thread share cores in the processor
             task1.Start();
 
             //You can also use the TaskFactory.StartNew method to create and start a task in one operation. 
@@ -100,8 +100,8 @@ namespace DotNetDemos.CSharpExamples
             //Result will be
             //Task 2 : I'm Second!!
             //Task 1 : I'm First!!
-            //Task 3 : I'm Third!!
-            
+            //Main Thread
+
             var Parent = Task.Factory.StartNew(() =>
             {
                 Console.WriteLine("Outer task beginning.");
@@ -116,7 +116,9 @@ namespace DotNetDemos.CSharpExamples
 
             });
 
+            //Waits for the Parent Task to complete execution
             Parent.Wait();
+
             Console.WriteLine("Parent task completed.");
             // The example displays the following output:
             //    Outer task beginning.
@@ -127,7 +129,8 @@ namespace DotNetDemos.CSharpExamples
 
         public void Continuations()
         {
-            var task1 = Task.Factory.StartNew<string>(() => {
+            var task1 = Task.Factory.StartNew<string>(() =>
+            {
                 var message = "Task 1 - I'm First!! | Worker Thread " + Thread.CurrentThread.ManagedThreadId;
                 return message;
             });
@@ -144,7 +147,7 @@ namespace DotNetDemos.CSharpExamples
             var task4 = Task.Factory.StartNew(() => { Console.WriteLine("Task 4| Worker Thread Id: " + Thread.CurrentThread.ManagedThreadId); return 22; });
             var task5 = Task.Factory.StartNew(() => { Console.WriteLine("Task 5| Worker Thread Id: " + Thread.CurrentThread.ManagedThreadId); return 22; });
 
-            Task all = Task.Factory.ContinueWhenAll(new[] { task2, task3, task4, task5 }, tasks => Console.WriteLine("All task returned : {0}", tasks.Sum(t => t.Result)) );
+            Task all = Task.Factory.ContinueWhenAll(new[] { task2, task3, task4, task5 }, tasks => Console.WriteLine("All task returned : {0}", tasks.Sum(t => t.Result)));
 
             //Call to the Task.Wait method to ensure that the task completes execution before the console mode application or current application ends.
             task1.Wait();
@@ -162,14 +165,14 @@ namespace DotNetDemos.CSharpExamples
             var OkayTask = normalTask.ContinueWith((antecedent) => Console.WriteLine(antecedent.Result), TaskContinuationOptions.NotOnFaulted);
         }
 
-        public async void AsyncAndAwait()
+        public void AsyncAndAwait()
         {
             for (int i = 0; i < 4; i++)
             {
                 //int result = await AccessTheWebAsync();
                 Task<int> result = AccessTheWebAsync();
                 //Do your work
-                Console.WriteLine(await result);
+                Console.WriteLine(result);
             }
         }
 
@@ -178,6 +181,16 @@ namespace DotNetDemos.CSharpExamples
         //  - The return type is Task or Task<T>. (See "Return Types" section.)  
         //    Here, it is Task<int> because the return statement returns an integer.  
         //  - The method name ends in "Async."  
+        //
+        // - The Async modifier indicates that the method or lambda expression that it modifies is asynchronous.
+        //  Such methods are referred to as async methods.
+        // - An async method provides a convenient way to do potentially long-running work without blocking the 
+        //  caller's thread. The caller of an async method can resume its work without waiting for the async method to finish.
+        // - The marked async method can use Await or await to designate suspension points.The await operator tells the compiler that 
+        //   the async method can't continue past that point until the awaited asynchronous process is complete. In the meantime, control 
+        //   returns to the caller of the async method.
+        // - The suspension of an async method at an await expression doesn't constitute an exit from the method, and finally blocks don’t run.
+        // - The marked async method can itself be awaited by methods that call it.
         async Task<int> AccessTheWebAsync()
         {
             // You need to add a reference to System.Net.Http to declare client.  
@@ -239,7 +252,7 @@ namespace DotNetDemos.CSharpExamples
 
 
             //Parallel.Invoke executes an array of Action delegates in parallel, and then waits for them to complete
-            Parallel.Invoke(() => {  Thread.Sleep(2000); Console.WriteLine("Invoke 1"); } ,
+            Parallel.Invoke(() => { Thread.Sleep(2000); Console.WriteLine("Invoke 1"); },
                              () => { Thread.Sleep(1000); Console.WriteLine("Invoke 2"); });
 
             //Parallel.For and Parallel.ForEach perform the equivalent of a C# for and foreach loop, 
