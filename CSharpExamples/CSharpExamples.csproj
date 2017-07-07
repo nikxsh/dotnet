@@ -72,7 +72,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SendAMail.cs" />
     <Compile Include="SendAnSMS.cs" />
-    <Compile Include="SortExamples.cs" />
     <Compile Include="DataStructureExamples.cs" />
     <Compile Include="Tricky.cs" />
   </ItemGroup>

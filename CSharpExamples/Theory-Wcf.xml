@@ -2,14 +2,387 @@
   <Header>
     - WCF is Microsoft's next-generation programming platform and runtime system for building, configuring and deploying network-distributed services
   </Header>
-  <ABC>
+  <Endpoint>
+    <Info>
+      - All communication with a Windows Communication Foundation (WCF) service occurs through the endpoints of the service. Endpoints provide clients access to the functionality offered by a WCF service. Each endpoint consists of below properties.
+    </Info>
     <Address Motto="Where is the service?">
+      - An address that indicates where the endpoint can be found.
+      - In WCF, an EndpointAddress models an endpoint reference (EPR) as defined in the WS-Addressing standard.
+      - The address URI for most transports has four parts. For example, this URI, "http://www.fabrikam.com:322/mathservice.svc/secureEndpoint" has the following four parts:
+      > Scheme: http:
+      > Machine: www.fabrikam.com
+      > (Optional) Port: 322
+      > Path: /mathservice.svc/secureEndpoint
 
+      - The endpoint address for a service can be specified either imperatively by using code or declaratively through configuration. Defining endpoints in code is usually not practical because the bindings and addresses for a deployed service are typically different from those used while the service is being developed. Generally, it is more practical to define service endpoints using configuration rather than code.
+      - Keeping the binding and addressing information out of the code allows them to change without having to recompile and redeploy the application. If no endpoints are specified in code or in configuration, then the runtime adds one default endpoint on each base address for each contract implemented by the service.
     </Address>
     <Binding Motto="How do I talk to the service?">
+      - A binding that specifies how a client can communicate with the endpoint. This includes:
+      > The transport protocol to use, which determine the underlying transport protocol to use when sending messages to the endpoint, for example, TCP or HTTP.
+      > The encoding to use for the message, which determine the wire encoding to use for messages that are sent to the endpoint, for example, text/XML, binary, or Message Transmission Optimization Mechanism (MTOM).
+      > The necessary security requirements (for example, SSL or SOAP message security), which determine the security, reliability, context flow settings, or user-defined protocols to use with messages that are sent to the endpoint.
 
+      <basicHttpBinding>
+        > It is suitable for communicating with ASP.NET Web services (ASMX)-based services that comfort with WS-Basic Profile conformant Web services.
+        > This binding uses HTTP as the transport and text/XML as the default message encoding.
+        >  Security is disabled by default, but can be added setting the mode attribute of the <security></security> child element to a value other than None
+        > This binding does not support WS-* functionalities like WS- Addressing, WS-Security, WS-ReliableMessaging
+        > It is fairly weak on interoperability
+        <example>
+          - Example starts here
+          <system.serviceModel>
+            <services>
+              <service
+                  type="Microsoft.ServiceModel.Samples.CalculatorService"
+                  behaviorConfiguration="CalculatorServiceBehavior">
+                <endpoint address=""
+                      binding="basicHttpBinding"
+                      bindingConfiguration="Binding1"
+                      contract="Microsoft.ServiceModel.Samples.ICalculator" />
+              </service>
+            </services>
+            <bindings>
+              <basicHttpBinding>
+                <binding name="Binding1"
+                       hostNameComparisonMode="StrongWildcard"
+                       receiveTimeout="00:10:00"
+                       sendTimeout="00:10:00"
+                       openTimeout="00:10:00"
+                       closeTimeout="00:10:00"
+                       maxReceivedMessageSize="65536"
+                       maxBufferSize="65536"
+                       maxBufferPoolSize="524288"
+                       transferMode="Buffered"
+                       messageEncoding="Text"
+                       textEncoding="utf-8"
+                       bypassProxyOnLocal="false"
+                       useDefaultWebProxy="true" >
+                  <security mode="None" />
+                </binding>
+              </basicHttpBinding>
+            </bindings>
+          </system.serviceModel>
+        </example>
+      </basicHttpBinding>
+
+      <WsHttpBinding>
+        - Defines a secure, reliable, interoperable binding suitable for non-duplex service contracts. The binding implements the following specifications: WS-Reliable Messaging for reliability, and WS-Security for message security and authentication. The transport is HTTP, and message encoding is Text/XML encoding.
+        - The WSHttpBinding is similar to the BasicHttpBinding but provides more Web service features. It uses the HTTP transport and provides message security, as does BasicHttpBinding, but it also provides transactions, reliable messaging, and WS-Addressing, either enabled by default or available through a single control setting.
+        <example>
+          <configuration>
+            <system.ServiceModel>
+              <bindings>
+                <wsHttpBinding>
+                  <binding
+                      closeTimeout="00:00:10"
+                      openTimeout="00:00:20"
+                      receiveTimeout="00:00:30"
+                      sendTimeout="00:00:40"
+                      bypassProxyOnLocal="false"
+                      transactionFlow="false"
+                      hostNameComparisonMode="WeakWildcard"
+                      maxReceivedMessageSize="1000"
+                      messageEncoding="Mtom"
+                      proxyAddress="http://foo/bar"
+                      textEncoding="utf-16"
+                      useDefaultWebProxy="false">
+                    <reliableSession ordered="false"
+                         inactivityTimeout="00:02:00"
+                         enabled="true" />
+                    <security mode="Transport">
+                      <transport clientCredentialType="Digest"
+                         proxyCredentialType="None"
+                         realm="someRealm" />
+                      <message clientCredentialType="Windows"
+                         negotiateServiceCredential="false"
+                         algorithmSuite="Aes128"
+                         defaultProtectionLevel="None" />
+                    </security>
+                  </binding>
+                </wsHttpBinding>
+              </bindings>
+            </system.ServiceModel>
+          </configuration>
+        </example>
+      </WsHttpBinding>
+
+      <WsDualHttpBinding>
+        - Defines a secure, reliable and interoperable binding that is suitable for duplex service contracts or communication through SOAP intermediaries.
+        - The WSDualHttpBinding provides the same support for Web Service protocols as the WSHttpBinding, but for use with duplex contracts. WSDualHttpBinding only supports SOAP security and requires reliable messaging. This binding requires that the client has a public URI that provides a callback endpoint for the service. This is provided by the clientBaseAddress attribute. A dual binding exposes the IP address of the client to the service. The client should use security to ensure that it only connects to services it trusts.
+
+        <example>
+          <configuration>
+            <system.ServiceModel>
+              <bindings>
+                <wsDualHttpBinding>
+                  <binding
+                      closeTimeout="00:00:10"
+                      openTimeout="00:00:20"
+                      receiveTimeout="00:00:30"
+                      sendTimeout="00:00:40"
+                      bypassProxyOnLocal="false"
+                      clientBaseAddress="http://localhost:8001/client/"
+                      transactionFlow="true"
+                      hostNameComparisonMode="WeakWildcard"
+                      maxReceivedMessageSize="1000"
+                      messageEncoding="Mtom"
+                      proxyAddress="http://foo/bar"
+                      textEncoding="utf-16"
+                      useDefaultWebProxy="false">
+                    <reliableSession ordered="false"
+                        inactivityTimeout="00:02:00" />
+                    <security mode="None">
+                      <message clientCredentialType="None"
+                          negotiateServiceCredential="false"
+                          algorithmSuite="Aes128" />
+                    </security>
+                  </binding>
+                </wsDualHttpBinding>
+              </bindings>
+            </system.ServiceModel>
+          </configuration>
+        </example>
+      </WsDualHttpBinding>
+
+      <WsFederationHttpBinding>
+        - A secure and interoperable binding that supports the WS-Federation protocol, enabling organizations that are in a federation to efficiently authenticate and authorize users.
+        - Federation is the ability to share identities across multiple systems for authentication and authorization. These identities can refer to users or to machines. Federated HTTP supports SOAP security as well as mixed-mode security, but it does not support exclusively using transport security.
+        - This binding provides Windows Communication Foundation (WCF) support for the WS-Federation protocol. Services configured with this binding must use the HTTP transport.
+
+        <example>
+          <configuration>
+            <system.ServiceModel>
+              <bindings>
+                <wsFederationHttpBinding>
+                  <binding
+                      bypassProxyOnLocal="false"
+                      transactionFlow="false"
+                      hostNameComparisonMode="WeakWildcard"
+                      maxReceivedMessageSize="1000"
+                      messageEncoding="Mtom"
+                      proxyAddress="http://foo/bar"
+                      textEncoding="Utf16TextEncoding"
+                      useDefaultWebProxy="false">
+                    <reliableSession ordered="false"
+                        inactivityTimeout="00:02:00" enabled="true" />
+                    <security mode="None">
+                      <message negotiateServiceCredential="false"
+                           algorithmSuite="Aes128"
+                           issuedTokenType="saml"
+                           issuedKeyType="PublicKey">
+                        <issuer address="http://localhost/Sts" />
+                      </message>
+                    </security>
+                  </binding>
+                </wsFederationHttpBinding>
+              </bindings>
+            </system.ServiceModel>
+          </configuration>
+        </example>
+      </WsFederationHttpBinding>
+
+      <NetTcpBinding>
+        - Specifies a secure, reliable, optimized binding suitable for cross-machine communication. By default, it generates a runtime communication stack with Windows Security for message security and authentication, TCP for message delivery, and binary message encoding.
+        - The default configuration for the netTcpBinding is faster than the configuration provided by the wsHttpBinding, but it is intended only for WCF-to-WCF communication.
+        - More generally, the HTTP system-provided bindings such as wsHttpBinding and basicHttpBinding are configured to turn things on by default, whereas the netTcpBinding binding turns things off by default so that you have to opt-in to get support, for example, for one of the WS-* specifications. This means that the default configuration for TCP is faster at exchanging messages between endpoints than those configured for the HTTP bindings by default.
+
+        <example>
+          <services>
+            <service name="Microsoft.ServiceModel.Samples.CalculatorService"
+                     behaviorConfiguration="CalculatorServiceBehavior">
+              ...
+              <endpoint address=""
+                        binding="netTcpBinding"
+                        contract="Microsoft.ServiceModel.Samples.ICalculator" />
+              ...
+            </service>
+          </services>
+
+          <bindings>
+            <netTcpBinding>
+              <binding
+                       closeTimeout="00:01:00"
+                       openTimeout="00:01:00"
+                       receiveTimeout="00:10:00"
+                       sendTimeout="00:01:00"
+                       transactionFlow="false"
+                       transferMode="Buffered"
+                       transactionProtocol="OleTransactions"
+                       hostNameComparisonMode="StrongWildcard"
+                       listenBacklog="10"
+                       maxBufferPoolSize="524288"
+                       maxBufferSize="65536"
+                       maxConnections="10"
+                       maxReceivedMessageSize="65536">
+                <readerQuotas maxDepth="32"
+                              maxStringContentLength="8192"
+                              maxArrayLength="16384"
+                              maxBytesPerRead="4096"
+                              maxNameTableCharCount="16384" />
+                <reliableSession ordered="true"
+                                 inactivityTimeout="00:10:00"
+                                 enabled="false" />
+                <security mode="Transport">
+                  <transport clientCredentialType="Windows" protectionLevel="EncryptAndSign" />
+                </security>
+              </binding>
+            </netTcpBinding>
+          </bindings>
+        </example>
+      </NetTcpBinding>
+
+      <NetNamedPipeBinding>
+        - Defines a binding that is secure, reliable, optimized for on-machine cross process communication (IPC)
+        - The default configuration for the NetNamedPipeBinding is similar to the configuration provided by the NetTcpBinding, but it is simpler because the WCF implementation is only meant for on-machine use and consequently there are fewer exposed features. The most notable difference is that the securityMode setting only offers the None and Transport options. SOAP security support is not an included option. The security behavior is configurable using the optional securityMode attribute.
+
+        <example>
+          <configuration>
+            <system.serviceModel>
+              <services>
+                <service name="Microsoft.ServiceModel.Samples.CalculatorService"
+                         behaviorConfiguration="CalculatorServiceBehavior">
+                  <host>
+                    <baseAddresses>
+                      <add baseAddress="http://localhost:8000/ServiceModelSamples/service"/>
+                    </baseAddresses>
+                  </host>
+                  <!-- this endpoint is exposed at the base address provided by host: net.pipe://localhost/ServiceModelSamples/service  -->
+                  <endpoint address="net.pipe://localhost/ServiceModelSamples/service"
+                            binding="netNamedPipeBinding"
+                            contract="Microsoft.ServiceModel.Samples.ICalculator" />
+                  <!-- the mex endpoint is exposed at http://localhost:8000/ServiceModelSamples/service/mex -->
+                  <endpoint address="mex"
+                            binding="mexHttpBinding"
+                            contract="IMetadataExchange" />
+                </service>
+              </services>
+
+              <bindings>
+                <netNamedPipeBinding>
+                  <binding
+                           closeTimeout="00:01:00"
+                           openTimeout="00:01:00"
+                           receiveTimeout="00:10:00"
+                           sendTimeout="00:01:00"
+                           transactionFlow="false"
+                           transferMode="Buffered"
+                           transactionProtocol="OleTransactions"
+                           hostNameComparisonMode="StrongWildcard"
+                           maxBufferPoolSize="524288"
+                           maxBufferSize="65536"
+                           maxConnections="10"
+                           maxReceivedMessageSize="65536">
+                    <security mode="Transport">
+                      <transport protectionLevel="EncryptAndSign" />
+                    </security>
+                  </binding>
+                </netNamedPipeBinding>
+              </bindings>
+
+              <!--For debugging purposes set the includeExceptionDetailInFaults attribute to true-->
+              <behaviors>
+                <serviceBehaviors>
+                  <behavior name="CalculatorServiceBehavior">
+                    <serviceMetadata httpGetEnabled="True"/>
+                    <serviceDebug includeExceptionDetailInFaults="False" />
+                  </behavior>
+                </serviceBehaviors>
+              </behaviors>
+            </system.serviceModel>
+          </configuration>
+        </example>
+      </NetNamedPipeBinding>
+
+      <NetMsmqBinding>
+        - Defines a queued binding suitable for cross-machine communication.
+        - The netMsmqBinding binding provides support for queuing by leveraging Microsoft Message Queuing (MSMQ) as a transport and enables support for loosely coupled applications, failure isolation, load leveling and disconnected operations.
+
+        <example>
+          <configuration>
+            <system.ServiceModel>
+              <bindings>
+                <netMsmqBinding>
+                  <binding
+                           closeTimeout="00:00:10"
+                           openTimeout="00:00:20"
+                           receiveTimeout="00:00:30"
+                           sendTimeout="00:00:40"
+                           deadLetterQueue="net.msmq://localhost/blah"
+                           durable="true"
+                           exactlyOnce="true"
+                           maxReceivedMessageSize="1000"
+                           maxRetries="11"
+                           maxRetryCycles="12"
+                           poisonMessageHandling="Disabled"
+                           rejectAfterLastRetry="false"
+                           retryCycleDelay="00:05:55"
+                           timeToLive="00:11:11"
+                           sourceJournal="true"
+                           useMsmqTracing="true"
+                           useActiveDirectory="true">
+                    <security>
+                      <message clientCredentialType="Windows" />
+                    </security>
+                  </binding>
+                </netMsmqBinding>
+              </bindings>
+            </system.ServiceModel>
+          </configuration>
+        </example>
+      </NetMsmqBinding>
+
+      <WebHttpBinding>
+        - Defines a binding element that is used to configure endpoints for Windows Communication Foundation (WCF) Web services that respond to HTTP requests instead of SOAP messages.
+        - REST-style binding, where you basically just hit a URL and get back a truckload of XML or JSON from the web service
+        <example>
+          [ServiceContract()]
+          public class CalculatorService
+          {
+          [WebGet(ResponseFormat = WebMessageFormat.Xml)]
+          [OperationContract()]
+          public long Add(int a, int b)
+          {
+          return (a + b);
+          }
+          }
+        </example>
+        <example>
+          <webHttpBinding>
+            <binding
+              allowCookies="Boolean"
+              bypassProxyOnLocal="Boolean"
+              closeTimeout="TimeSpan"
+              hostNameComparisonMode="StrongWildCard/Exact/WeakWildcard"
+              maxBufferPoolSize="integer"
+              maxBufferSize="integer"
+              maxReceivedMessageSize="Integer"
+              name="string"
+              openTimeout="TimeSpan"
+              proxyAddress="URI"
+              receiveTimeout="TimeSpan"
+              sendTimeout="TimeSpan"
+              transferMode="Buffered/Streamed/StreamedRequest/StreamedResponse"
+              useDefaultWebProxy="Boolean"
+              writeEncoding="UnicodeFffeTextEncoding/Utf16TextEncoding/Utf8TextEncoding">
+              <security mode="None/Transport/TransportCredentialOnly">
+                <transport clientCredentialType="Basic/Certificate/Digest/None/Ntlm/Windows"
+                           proxyCredentialType="Basic/Digest/None/Ntlm/Windows"
+                           realm="string" />
+              </security>
+              <readerQuotas maxArrayLength="Integer"
+                            maxBytesPerRead="Integer"
+                            maxDepth="Integer"
+                            maxNameTableCharCount="Integer"
+                            maxStringContentLength="Integer" />
+            </binding>
+          </webHttpBinding>
+        </example>
+      </WebHttpBinding>
     </Binding>
     <Contract Motto="What can the service do for me?">
+      - A contract that identifies the operations available
       <Service-Contract>
         - WCF contracts are defined in one of two ways. You can design or otherwise acquire a WSDL contract description and turn it into an WCF contract description using the svcutil.exe tool is included with the WCF runtime binaries. "WCF contract description" means that the tool will generate code that's marked up with metadata attributes telling the WCF runtime about the specifics of the contract definition.
 
@@ -179,7 +552,77 @@
         - The Divide method throws a FaultException of Type TDetails exception when a divide by zero exception occurs as shown in the following sample code. This exception results in a fault being sent to the client
       </Fault-Contract>
     </Contract>
-  </ABC>
+  </Endpoint>
+  <SIC>
+    <Session>
+      - When a service contract sets the System.ServiceModel.ServiceContractAttribute.SessionMode property to System.ServiceModel.SessionMode.Required, that contract is saying that all calls (that is, the underlying message exchanges that support the calls) must be part of the same conversation. If a contract specifies that it allows sessions but does not require one, clients can connect and either establish a session or not. If the session ends and a message is sent over the same session-based channel an exception is thrown.
+      -WCF sessions have the following main conceptual features:
+      > They are explicitly initiated and terminated by the calling application.
+      > Messages delivered during a session are processed in the order in which they are received.
+      > Sessions correlate a group of messages into a conversation. The meaning of that correlation is an abstraction. For instance, one session-based channel may correlate messages based on a shared network connection while another session-based channel may correlate messages based on a shared tag in the message body. The features that can be derived from the session depend on the nature of the correlation.
+      > There is no general data store associated with a WCF session.
+      <SessionMode>
+        <Required>
+          Specifies that the contract requires a sessionful binding. An exception is thrown if the binding is not configured to support session.
+        </Required>
+        <Allowed>
+          Specifies that the contract supports sessions if the incoming binding supports them.
+        </Allowed>
+        <NotAllowed>
+          Specifies that the contract never supports bindings that initiate sessions.
+        </NotAllowed>
+      </SessionMode>
+
+      <example>
+        [ServiceContract(CallbackContract = typeof(IHelloCallbackContract), SessionMode = SessionMode.Required)]
+        public interface IDuplexHello
+        {
+        [OperationContract(IsOneWay = true)]
+        void Hello(string greeting);
+        }
+
+        [ServiceBehaviorAttribute(InstanceContextMode=InstanceContextMode.PerSession)]
+        public class DuplexHello : IDuplexHello
+        {
+        public DuplexHello()
+        {
+        Console.WriteLine("Service object created: " + this.GetHashCode().ToString());
+        }
+        }
+      </example>
+      - if the SessionMode property is set to System.ServiceModel.SessionMode and the InstanceContextMode property is set to PerSession, clients can use the same connection to make repeated calls to the same service object.
+    </Session>
+    <Instancing>
+      -The instancing behavior (set by using the System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode property) controls how the InstanceContext is created in response to incoming messages. By default, each InstanceContext is associated with one user-defined service object, so (in the default case) setting the InstanceContextMode property also controls the instancing of user-defined service objects.
+      - The following instancing modes are available: +
+      > PerCall: A new InstanceContext (and therefore service object) is created for each client request.
+      > PerSession: A new InstanceContext (and therefore service object) is created for each new client session and maintained for the lifetime of that session (this requires a binding that supports sessions).
+      > Single: A single InstanceContext (and therefore service object) handles all client requests for the lifetime of the application.
+
+      <example>
+        [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession)]
+        public class CalculatorService : ICalculatorInstance
+        {
+        ...
+        }
+      </example>
+
+      - Sessions and InstanceContext interact depending upon the combination of the value of the SessionMode enumeration in a contract and the System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode property on the service implementation, which controls the association between channels and specific service objects.
+    </Instancing>
+    <Concurrency>
+      - Concurrency is the control of the number of threads active in an InstanceContext at any one time. This is controlled by using the System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode with the ConcurrencyMode enumeration.
+      - The following three concurrency modes are available:
+      <Single>
+        Each instance context is allowed to have a maximum of one thread processing messages in the instance context at a time. Other threads wishing to use the same instance context must block until the original thread exits the instance context.
+      </Single>
+      <Multiple>
+        Each service instance can have multiple threads processing messages concurrently. The service implementation must be thread-safe to use this concurrency mode.        
+      </Multiple>
+      <Reentrant>
+        Each service instance processes one message at a time, but accepts re-entrant operation calls. The service only accepts these calls when it is calling out through a WCF client object. The service instance is single-threaded and accepts reentrant calls. The reentrant service accepts calls when you call another service; it is therefore your responsibility to leave your object state consistent before callouts and you must confirm that operation-local data is valid after callouts. Note that the service instance is unlocked only by calling another service over a WCF channel. In this case, the called service can reenter the first service via a callback. If the first service is not reentrant, the sequence of calls results in a deadlock.
+      </Reentrant>
+    </Concurrency>
+  </SIC>
   <SOAP>
     - SOAP defines a standard communication protocol (set of rules) specification for XML-based message exchange.
 
