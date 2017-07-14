@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OOPBasics.cs" />
     <Compile Include="Parallelism.cs" />
     <Compile Include="DesignPatternExamples.cs" />
     <Compile Include="DynamicLinq.cs" />
@@ -65,7 +66,6 @@
     <Compile Include="LinqExamples.cs" />
     <Compile Include="ExpressionExamples.cs" />
     <Compile Include="MultiThreading.cs" />
-    <Compile Include="Oops.cs" />
     <Compile Include="ActionAndFucntion.cs" />
     <Compile Include="Performance.cs" />
     <Compile Include="Program.cs" />
@@ -91,7 +91,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Theory-Wcf.xml" />
+    <Content Include="Theory-Wcf.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

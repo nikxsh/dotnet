@@ -11,10 +11,12 @@ namespace DotNetDemos.CSharpExamples
     /// <summary>
     /// There are two strategies for partitioning work among threads: data parallelism and task parallelism.
     /// 
-    /// When a set of tasks must be performed on many data values, we can parallelize by having each thread perform the(same) set of tasks on a subset of values.
-    /// This is called data parallelism because we are partitioning the data between threads.
+    /// When a set of tasks must be performed on many data values, we can parallelize by having each thread perform 
+    /// the(same) set of tasks on a subset of values. This is called data parallelism because we are partitioning the 
+    /// data between threads.
     /// 
-    /// In contrast, with task parallelism we partition the tasks; in other words, we have each thread perform a different task.
+    /// In contrast, with task parallelism we partition the tasks; in other words, we have each thread perform a 
+    /// different task.
     /// </summary>
     public class Parallelism
     {
@@ -23,8 +25,8 @@ namespace DotNetDemos.CSharpExamples
             var obj = new TaskParallelism();
             //obj.TaskBasics();
             //obj.TaskFactory();
-            //obj.AsyncAndAwait();
-            obj.Continuations();
+            obj.AsyncAndAwait();
+            //obj.Continuations();
         }
 
         public void DataParallelism()
@@ -72,7 +74,7 @@ namespace DotNetDemos.CSharpExamples
         public void TaskFactory()
         {
             //prepare the task
-            var task1 = new Task<string>(() =>
+            var task1 = new Task<string>(delegate ()
             {
                 Thread.Sleep(3000);
                 var message = "Task 1 - I'm First!! | Worker Thread " + Thread.CurrentThread.ManagedThreadId;
@@ -165,53 +167,30 @@ namespace DotNetDemos.CSharpExamples
             var OkayTask = normalTask.ContinueWith((antecedent) => Console.WriteLine(antecedent.Result), TaskContinuationOptions.NotOnFaulted);
         }
 
-        public void AsyncAndAwait()
+
+        public async Task AsyncAndAwait()
         {
             for (int i = 0; i < 4; i++)
             {
-                //int result = await AccessTheWebAsync();
-                Task<int> result = AccessTheWebAsync();
-                //Do your work
+                int result = await AccessTheWebAsync();
                 Console.WriteLine(result);
             }
         }
 
-        // Three things to note in the signature:  
-        //  - The method has an async modifier.   
-        //  - The return type is Task or Task<T>. (See "Return Types" section.)  
-        //    Here, it is Task<int> because the return statement returns an integer.  
-        //  - The method name ends in "Async."  
-        //
-        // - The Async modifier indicates that the method or lambda expression that it modifies is asynchronous.
-        //  Such methods are referred to as async methods.
-        // - An async method provides a convenient way to do potentially long-running work without blocking the 
-        //  caller's thread. The caller of an async method can resume its work without waiting for the async method to finish.
-        // - The marked async method can use Await or await to designate suspension points.The await operator tells the compiler that 
-        //   the async method can't continue past that point until the awaited asynchronous process is complete. In the meantime, control 
-        //   returns to the caller of the async method.
-        // - The suspension of an async method at an await expression doesn't constitute an exit from the method, and finally blocks don’t run.
-        // - The marked async method can itself be awaited by methods that call it.
         async Task<int> AccessTheWebAsync()
         {
             // You need to add a reference to System.Net.Http to declare client.  
             HttpClient client = new HttpClient();
 
             // GetStringAsync returns a Task<string>. That means that when you await the  
-            // task you'll get a string (urlContents).  
-            Task<string> getStringTask = client.GetStringAsync("http://msdn.microsoft.com");
-
-            // You can do work here that doesn't rely on the string from GetStringAsync.  
-            for (int i = 1; i < 10; i++)
-            {
-                //Do Something
-            }
-
+            // task you'll get a string (urlContents).              
             // The await operator suspends AccessTheWebAsync.  
             //  - AccessTheWebAsync can't continue until getStringTask is complete.  
             //  - Meanwhile, control returns to the caller of AccessTheWebAsync.  
             //  - Control resumes here when getStringTask is complete.   
             //  - The await operator then retrieves the string result from getStringTask.  
-            string urlContents = await getStringTask;
+            string urlContents = await client.GetStringAsync("http://msdn.microsoft.com");
+
 
             // The return statement specifies an integer result.  
             // Any methods that are awaiting AccessTheWebAsync retrieve the length value.  

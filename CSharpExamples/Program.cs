@@ -45,8 +45,8 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region OOPS Test
-            //var test = new Oops();
-            //test.OOPSTest();
+            //var test = new OOPBasic.OOPBasics();
+            //test.Play();
             #endregion
 
             #region Linq Test
@@ -60,9 +60,9 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region Parallel Programming Test
-            //var obj = new Parallelism();
-            ////obj.DataParallelism();
-            //obj.TaskParallelism();
+            var obj = new Parallelism();
+            //obj.DataParallelism();
+            obj.TaskParallelism();
             #endregion
 
             #region Sorting Algo
@@ -97,7 +97,7 @@ namespace DotNetDemos.CSharpExamples
 
             #endregion
 
-            //var obj = new Tricky();
+            //var obj = new Puzzles.Tricky();
             //obj.Play();
 
             //Console.Write(typeof(string).Assembly.ImageRuntimeVersion);

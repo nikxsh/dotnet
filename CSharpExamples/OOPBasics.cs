@@ -1,73 +1,209 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DotNetDemos.CSharpExamples
+namespace DotNetDemos.CSharpExamples.OOPBasic
 {
-    public class Oops
+    class OOPBasics
     {
-        public void OOPSTest()
+        public void Play()
         {
-            #region Test1
-            //ITestClass obj = new ChildTest();
-            //obj.Method1();
-            //obj.Method2();
-            //obj.Method3();
-            //obj.Method4();
+            //Construtor
+            //Child obj = new Child();
+            //Child obj = new Child(23);
 
-            //var anonymousObject = new { Name = "Ram" };
-            //Console.WriteLine("Hello " + anonymousObject.Name); 
-            #endregion
+            //Method Hiding
+            Baap obj1 = new Baap();
+            obj1.Display();
+            Beta obj2 = new Beta();
+            obj2.Display();
+            Baap obj3 = new Beta();
+            obj3.Display();
+        }
+    }
+
+    #region Abstraction and Encapsulation
+    /// ------------------------------  Abstraction ------------------------------------------------------------------
+    ///- Means that you only incorporate those features of an entity which are required in your design. 
+    ///- So, if every bank account has an opening date but your application doesn't need to know an account's opening 
+    ///  date, then you simply don't add the OpeningDate field in your Object-Oriented Design of the BankAccount class.
+    ///- Abstraction in OOAD has nothing to do with abstract classes in programming. By this principle, your entities 
+    ///  are an abstraction of what they actually are. You design an abstraction of Bank Account down to only that level 
+    ///  of detail that your application's needs
+    ///- Abstraction defines way to abstract or hide your data and members from outside world.Classes use the concept 
+    ///  of abstraction and are defined as a list of abstract attributes.
 
 
-            //It will call Base() first
-            //Child objChild1 = new Child();
-            //It will call Base() first
-            //Child objChild2 = new Child(10);
+    ///------------------------------  Encapsulation ------------------------------------------------------------------
+    /// - Means bundling the related functionality together and giving access to only the needful. 
+    /// - This principle is the basis of designing classes in Object Oriented Design where: you put related data and 
+    ///   methods together; and,not all the pieces of data and methods may be public.
+    /// - Encapsulation is defined 'as the process of enclosing one or more items within a physical or logical package'
+    /// - Encapsulation, in object oriented programming methodology, prevents access to implementation details  
+    /// - Abstraction and encapsulation are related features in object oriented programming. Abstraction allows 
+    ///   making relevant information visible and encapsulation enables a programmer to implement the desired level 
+    ///   of abstraction.
+    /// - Encapsulation is implemented by using access specifiers. An access specifier defines the scope and visibility 
+    ///   of a class member. C# supports the following access specifiers:
+    ///
+    ///   Public, Private, Protected, Internal, Protected internal
 
-            //It will call Base() first
-            //Base objChild3 = new Child();
-            //It will call Base() first
-            //Base objChild4 = new Child(10);
+    ///Exposed Methods to End user
+    interface Icar
+    {
+        string CarName { get; set; }
+        void Steering();
+        void Break();
+    }
 
-            //It will call Base() only
-            //Base objChild5 = new Base();
-            //It will call Base(int a) Only
-            //Base objChild6 = new Base(10);
+    class Car : Icar
+    {
+        public string CarName { get; set; }
 
-            //Call Base(int a) first then Child(string x, string y)
-            //Child objChild7 = new Child("hello", "world");
-
-            //Call Base() then Child(string xy) then Child(int x, int y)
-            //Child objChild8 = new Child(11,21);
-
-            //Child objChild9 = new Child();
-            //objChild9.SayHello();
-
-            //GrandChild objChild10 = new SuperGrandChild();
-            //objChild10.SayHello();
-
-            //AccountBase objAccount = new SavingAccount(20000,2);
-            //objAccount.DisplayAmount();
-            //objAccount.ApprovedLoan();
-
-            //var obj = new StaticTest();
-            //var val = new ChildOfStaticTest();
-
-            //PrivateConstructorExample.staticValue = "Private";
-            //var exp = new PrivateConstructorExample();
-            //DerivedAbstract.staticValue = "LOL";
-            //var obj  = new DerivedAbstract();
-
-            Beta objBeta = new Beta();
-            objBeta.BaseMethod();
-            objBeta.Display();
-
-            Baap objBaapWithBeta = new Beta();
-            objBaapWithBeta.BaseMethod();
-            objBaapWithBeta.Display();
+        public void Break()
+        {
+            //Break
         }
 
+        public void Steering()
+        {
+            //Steer
+        }
+
+        public void Engine()
+        {
+            //Engine
+        }
+
+        private void Oil()
+        {
+            //Oil capacity
+        }
     }
+
+    class EndUser
+    {
+        public void Play()
+        {
+            //Only Methods and properties declared in Interface will be accessible to end user
+            Icar abstraction = new Car();
+            abstraction.CarName = "Hello";
+            abstraction.Steering();
+            abstraction.Break();
+        }
+    }
+
+    #endregion
+
+    #region Inheritance
+
+    /// - Inheritance enables you to create new classes that reuse, extend, and modify the behavior that
+    ///  is defined in other classes.
+    /// - Conceptually, a derived class is a specialization of the base class.  
+    /// - A Mammal is an Animal, and a Reptile is an Animal, but each derived class represents different 
+    ///   specializations of the base class.
+    class Animal
+    {
+        public void Name()
+        {
+            Console.WriteLine("Common Name");
+        }
+    }
+
+    class Mammal : Animal
+    {
+        public void Mammal_has()
+        {
+            Console.WriteLine("Additional Method for Mammal");
+        }
+    }
+
+    class Reptile : Animal
+    {
+        public void Reptile_has()
+        {
+            Console.WriteLine("Additional Method for Reptile");
+        }
+    }
+
+    #endregion
+
+    #region Polymorphism 
+    /// - Polymorphism is a consequence of inheritance. Inheriting a method from parent is useful, but being able to 
+    ///   modify a method if the situation demands, is polymorphism. 
+    /// - You may implement a method in the subclass with exactly the same signature as in parent class so that when
+    ///   called, the method from child class is executed. This is polymorphism.
+    /// - The word polymorphism means having many forms. In object-oriented programming paradigm, polymorphism is 
+    ///   often expressed as 'one interface, multiple functions'. 
+    /// - Static Polymorphism: 
+    ///    The mechanism of linking a function with an object during compile time is called early
+    ///    binding. It is also called static binding. C# provides two techniques to implement static polymorphism. 
+    ///    They are: 
+    ///     1. Function overloading
+    ///     2. Operator overloading
+    /// - Dynamic  Polymorphism:  
+    ///    C# allows you to create abstract classes that are used to provide partial class implementation of an interface.
+    ///    Implementation is completed when a derived class inherits from it. Abstract classes contain abstract methods,
+    ///    which are implemented by the derived class. The derived classes have more specialized functionality.
+    ///    Here are the rules about abstract classes:
+    ///     1. You cannot create an instance of an abstract class
+    ///     2. You cannot declare an abstract method outside an abstract class
+    ///     3. When a class is declared sealed, it cannot be inherited, abstract classes cannot be declared sealed.
+
+    class StaticPolymorphism
+    {
+        public StaticPolymorphism()
+        {
+
+        }
+
+        public int Calculate(int x, int y)
+        {
+            return x + y;
+        }
+
+        //Wont work as overloading does not diffentiate based on return type
+        //public double Calculate(int x, int y)
+        //{
+        //    return x + y;
+        //}
+
+        //Will work as it having different params
+        public double Calculate(int x, double y)
+        {
+            return x + y;
+        }
+    }
+
+    abstract class DynamicPolymorphism
+    {
+        public virtual double calculate(int x, int y)
+        {
+            return x + y;
+        }
+        public abstract void print();
+    }
+
+    class DynamicPolymorphismTest1 : DynamicPolymorphism
+    {
+        public override double calculate(int x, int y)
+        {
+            return x + y * 10;
+        }
+
+        public override void print()
+        {
+            //Sent to Printer
+        }
+    }
+
+    class DynamicPolymorphismTest2 : DynamicPolymorphism
+    {
+        public override void print()
+        {
+            //Print to Console
+        }
+    }
+    #endregion
 
     #region MethodHiding
     class Baap
@@ -87,16 +223,20 @@ namespace DotNetDemos.CSharpExamples
     {
         public new void Display()
         {
-            Console.WriteLine("Display Baap");
+            Console.WriteLine("Display Beta");
         }
     }
     #endregion
 
     #region SOLID
 
-    //1. “S”- SRP (Single responsibility principle) 
-    //    So SRP says that a class should have only one responsibility and that resposibility should be encapsulated by the class.
-    //    So if we apply SRP we can move that logging activity to some other class who will only look after logging activities.
+    /// <summary>
+    ///  “S”- SRP(Single responsibility principle)
+    /// - So SRP says that a class should have only one responsibility and that resposibility should be encapsulated 
+    ///   by the class.
+    /// - So if we apply SRP we can move that logging activity to some other class who will only look after logging 
+    ///   activities.
+    /// </summary>
     class SRP
     {
         internal class Logger
@@ -114,6 +254,8 @@ namespace DotNetDemos.CSharpExamples
             {
                 try
                 {
+                    //DB class
+
                 }
                 catch (Exception ex)
                 {
@@ -123,8 +265,10 @@ namespace DotNetDemos.CSharpExamples
         }
     }
 
-    //2. “O” - Open closed principle
+    /// <summary>
+    /// “O” - Open closed principle
     //    States that software application source codes should be open for extension but should be closed for modification
+    /// </summary>
     class OCP
     {
         class Customer
@@ -151,30 +295,45 @@ namespace DotNetDemos.CSharpExamples
         }
     }
 
-    //3. “L” - Liskov Substitution Principle
-    //   Likov's Substitution Principle states that if a program module is using a Base class, then the reference to the Base class can be replaced with a Derived class 
-    //   without affecting the functionality of the program module.
-    //   This principle is just an extension of the Open Close Principle and it means that we must make sure that new derived classes are extending the base classes without changing their behavior.
+    /// <summary>
+    /// “L” - Liskov Substitution Principle
+    ///  -  This principle is just an extension of the Open Close Principle.It means that we must make sure that new
+    ///    derived classes are extending the base classes without changing their behavior.
+    ///  - The Liskov Substitution Principle says that the object of a derived class should be able to replace an object
+    ///    of the base class without bringing any errors in the system or modifying the behavior of the base class. In
+    ///    short: if S is subset of T, an object of T could be replaced by object of S without impacting the program and
+    ///     bringing any error in the system.
+    /// </summary>
     class LSP
     {
-        public void CaluculateArea()
+        public void Play()
         {
-            var shapes = new List<Shape>
-            {
-                new Rectangle { Height =12, Width =4 },
-                new Square { Side =8 },
-                new Parabola { }
+            var shapes = new List<Shape>{
+                new Rectangle{ Height=4, Width=6 },
+                new Square{ Side=3 }
             };
+            var areas = new List<int>();
 
-            shapes.ForEach(x => Console.WriteLine(x.Area()));
+            foreach (Shape shape in shapes)
+            {
+                areas.Add(shape.Area());
+            }
         }
 
-        abstract class Shape
+
+        /// <summary>
+        /// - In this way we can create relationship between the sub class and the base class by adhering to the 
+        ///   Liskov Substitution principle. 
+        /// - Common ways to identify violations of LS principles are as follows:
+        ///   1. Not implemented method in the sub class.
+        ///   2. Sub class function overrides the base class method to give it new meaning.
+        /// </summary>
+        public abstract class Shape
         {
             public abstract int Area();
         }
 
-        class Rectangle : Shape
+        public class Rectangle : Shape
         {
             public int Height { get; set; }
             public int Width { get; set; }
@@ -184,27 +343,22 @@ namespace DotNetDemos.CSharpExamples
             }
         }
 
-        class Square : Shape
+        public class Square : Shape
         {
             public int Side { get; set; }
+
             public override int Area()
             {
                 return Side * Side;
             }
         }
-
-        class Parabola : Shape
-        {
-            //this is LSP violation
-            public override int Area()
-            {
-                throw new NotImplementedException();
-            }
-        }
     }
 
-    //4. “I” - ISP (Interface Segregation principle)
-    //   ISP states that no clients should be forced to implement methods which it does not use and the contracts should be broken down to thin ones.
+    /// <summary>
+    /// “I” - ISP (Interface Segregation principle)
+    ///  ISP states that no clients should be forced to implement methods which it does not want to use and the contracts 
+    ///  should be broken down to thin ones.
+    /// </summary>
     class ISP
     {
         interface IDiscount
@@ -221,12 +375,13 @@ namespace DotNetDemos.CSharpExamples
         {
             public void Add()
             {
-                throw new NotImplementedException();
+                //ADD
             }
 
             public double getDiscount(double TotalSales)
             {
-                throw new NotImplementedException();
+                //Discount
+                return TotalSales - 2;
             }
         }
 
@@ -239,8 +394,11 @@ namespace DotNetDemos.CSharpExamples
         }
     }
 
-    //5. “D” - DIP (Dependency Inversion Principle)
-    //   DIP states that the higher level modules should be coupled with the lower level modules with complete abstraction
+    /// <summary>
+    /// “D” - DIP (Dependency Inversion Principle)
+    ///  DIP states that the higher level modules should be coupled with the lower level modules with complete 
+    ///  abstraction
+    /// </summary>
     class DIP
     {
         interface ILogger
@@ -277,7 +435,7 @@ namespace DotNetDemos.CSharpExamples
         }
 
         public void Action()
-        {   
+        {
             //If you watch closely the biggest problem is the “NEW” keyword.He is taking extra responsibilities of which object needs to be created.
             //So if we INVERT / DELEGATE this responsibility to someone else rather the customer class doing it that would really solve the problem to a certain extent.
 
@@ -439,7 +597,7 @@ namespace DotNetDemos.CSharpExamples
     #region Constructor examples
     public class PrivateConstructorExample
     {
-        private PrivateConstructorExample(string value)
+        private PrivateConstructorExample(string value) 
         {
             Console.WriteLine("This is {0} Constructor", value);
         }
@@ -450,6 +608,11 @@ namespace DotNetDemos.CSharpExamples
             : this(staticValue)
         {
             Console.WriteLine("This is Public Constructor");
+        }
+
+        public PrivateConstructorExample(string s1, string s2): this(s1 + s2)
+        {
+
         }
     }
 
@@ -542,7 +705,7 @@ namespace DotNetDemos.CSharpExamples
         {
             Console.WriteLine("Grand Child's EmptyConstructor");
         }
-        
+
         public sealed override void SayHello()
         {
             base.SayHello(); //Call Base method
@@ -557,7 +720,7 @@ namespace DotNetDemos.CSharpExamples
         {
             Console.WriteLine("Super Grand Child's EmptyConstructor");
         }
-        
+
         //can not override SayHello() as it is sealed
         //public override void SayHello()
         //{
