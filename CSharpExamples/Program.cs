@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DotNetDemos.CSharpExamples
 {
@@ -60,9 +61,9 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region Parallel Programming Test
-            var obj = new Parallelism();
+            //var obj = new Parallelism();
             //obj.DataParallelism();
-            obj.TaskParallelism();
+            //obj.TaskParallelism();
             #endregion
 
             #region Sorting Algo
@@ -99,6 +100,19 @@ namespace DotNetDemos.CSharpExamples
 
             //var obj = new Puzzles.Tricky();
             //obj.Play();
+
+            string s = Console.ReadLine();
+            int i = 0, last = 1;
+            foreach (int c in s)
+            {
+                if (i > 0 && c >= 65 && c <= 90)
+                {
+                    last++;
+                }
+                i++;
+            }
+
+            Console.WriteLine("{0}", last);
 
             //Console.Write(typeof(string).Assembly.ImageRuntimeVersion);
             Console.ReadKey();
