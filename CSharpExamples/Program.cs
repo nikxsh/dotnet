@@ -60,9 +60,9 @@ namespace DotNetDemos.CSharpExamples
             #endregion
 
             #region Parallel Programming Test
-            var obj = new Parallelism();
+            //var obj = new Parallelism();
             //obj.DataParallelism();
-            obj.TaskParallelism();
+            //obj.TaskParallelism();
             #endregion
 
             #region Sorting Algo
@@ -97,8 +97,8 @@ namespace DotNetDemos.CSharpExamples
 
             #endregion
 
-            //var obj = new Puzzles.Tricky();
-            //obj.Play();
+            var obj = new Puzzles.Tricky();
+            obj.Play();
 
             //Console.Write(typeof(string).Assembly.ImageRuntimeVersion);
             Console.ReadKey();

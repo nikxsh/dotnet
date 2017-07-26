@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelegateAndEvent.cs" />
     <Compile Include="OOPBasics.cs" />
     <Compile Include="Parallelism.cs" />
     <Compile Include="DesignPatternExamples.cs" />
