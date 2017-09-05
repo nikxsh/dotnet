@@ -9,15 +9,36 @@ namespace ProblemSolving
     {
         static void Main(string[] args)
         {
-            var input = int.Parse(Console.ReadLine());
-            for (int i = 0; i < input; i++)
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] grades = new int[n];
+            for (int grades_i = 0; grades_i < n; grades_i++)
             {
-                
-
-                if (i > 0)
-                    Console.WriteLine("");
+                grades[grades_i] = Convert.ToInt32(Console.ReadLine());
             }
+            int[] result = solve(grades);
+            Console.WriteLine(String.Join("\n", result));
             Console.ReadKey();
+        }
+
+        private static int[] solve(int[] grades)
+        {
+            var result = new List<int>();
+
+            for (int i = 0; i < grades.Length; i++)
+            {
+                var roundTo = 5 - (grades[i] % 5);
+                var rounded = grades[i] + roundTo;
+                if (roundTo > 0 && rounded >= 40)
+                {
+                    if (roundTo < 3)
+                        result.Add(rounded);
+                    else if (roundTo >= 3)
+                        result.Add(grades[i]);
+                }
+                else if(rounded < 40)
+                    result.Add(grades[i]);
+            }
+            return result.ToArray();
         }
 
         /// <summary>

@@ -9,21 +9,21 @@ namespace DotNetDemos.CSharpExamples
         static void Main(string[] args)
         {
             #region Design Pattern Example
-            Console.WriteLine("---- Design Patterns ---- ");
-            Console.WriteLine(" 1. Facade ");
-            Console.WriteLine(" 2. Observer ");
-            Console.WriteLine(" 3. Singleton ");
-            Console.WriteLine(" 4. Adapter");
-            Console.WriteLine(" 5. Abstract Factory");
-            Console.WriteLine(" 6. Builder");
-            Console.WriteLine(" 7. Factory");
-            Console.WriteLine(" 8. Command");
-            Console.WriteLine(" 9. Composite");
-            Console.WriteLine(" 10. Decorator");
-            Console.Write("Enter your Choice: ");
-            var choice = Console.ReadLine();
-            var example = new DesignPatternExamples();
-            example.DoAction(int.Parse(choice));
+            //Console.WriteLine("---- Design Patterns ---- ");
+            //Console.WriteLine(" 1. Facade ");
+            //Console.WriteLine(" 2. Observer ");
+            //Console.WriteLine(" 3. Singleton ");
+            //Console.WriteLine(" 4. Adapter");
+            //Console.WriteLine(" 5. Abstract Factory");
+            //Console.WriteLine(" 6. Builder");
+            //Console.WriteLine(" 7. Factory");
+            //Console.WriteLine(" 8. Command");
+            //Console.WriteLine(" 9. Composite");
+            //Console.WriteLine(" 10. Decorator");
+            //Console.Write("Enter your Choice: ");
+            //var choice = Console.ReadLine();
+            //var example = new DesignPatternExamples();
+            //example.DoAction(int.Parse(choice));
             #endregion
 
             #region Action And Func Method
@@ -104,6 +104,7 @@ namespace DotNetDemos.CSharpExamples
 
             //Console.Write(typeof(string).Assembly.ImageRuntimeVersion);
             Console.ReadKey();
+
         }
 
     }
