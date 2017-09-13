@@ -22,6 +22,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA-Dashboard-AJ2", "SPA-Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemSolving", "ProblemSolving\ProblemSolving.csproj", "{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Angular-CLI", "Angular-CLI\", "{4760CF2D-8F78-480A-9A62-4779954FED89}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_28803"
+		Debug.AspNetCompiler.PhysicalPath = "Angular-CLI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28803\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_28803"
+		Release.AspNetCompiler.PhysicalPath = "Angular-CLI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28803\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "28803"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +99,12 @@ Global
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.Build.0 = Release|Any CPU
+		{4760CF2D-8F78-480A-9A62-4779954FED89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4760CF2D-8F78-480A-9A62-4779954FED89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4760CF2D-8F78-480A-9A62-4779954FED89}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4760CF2D-8F78-480A-9A62-4779954FED89}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4760CF2D-8F78-480A-9A62-4779954FED89}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{4760CF2D-8F78-480A-9A62-4779954FED89}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
