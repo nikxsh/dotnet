@@ -1,0 +1,21 @@
+https://github.com/angular/angular-cli
+
+
+---------------------------------------------------------
+
+ng build compiles the application into an output directory
+
+https://github.com/angular/angular-cli/wiki/build
+
+---------------------------------------------------------
+
+ng build --prod --env=prod
+or
+ng serve --prod
+Will minify and add a file hash for you.
+
+the --prod tells it to minify hash, and gzip.
+the --env=prod tells it to use your prod environment constants file.
+
+---------------------------------------------------------
+
