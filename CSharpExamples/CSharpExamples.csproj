@@ -92,6 +92,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DbScripts\XML Queries.sql" />
     <Content Include="Theory-Wcf.xml">
       <SubType>Designer</SubType>
     </Content>
