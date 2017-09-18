@@ -1,6 +1,6 @@
 https://github.com/angular/angular-cli
 
-
+http://localhost:4200/
 ---------------------------------------------------------
 
 ng build compiles the application into an output directory
@@ -16,6 +16,12 @@ Will minify and add a file hash for you.
 
 the --prod tells it to minify hash, and gzip.
 the --env=prod tells it to use your prod environment constants file.
+
+ng g m route --routing
+
+g-> generate
+m-> module
+route-> Your route Module Name(You can use any name).
 
 ---------------------------------------------------------
 

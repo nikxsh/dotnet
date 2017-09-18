@@ -5,16 +5,22 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
+import { UserComponent } from './components/user/user.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RouteRoutingModule } from './route/route-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,    
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    RouteRoutingModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
