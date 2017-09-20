@@ -1,12 +1,18 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand">
-            <img src="assets/img/ngx-bootstrap.svg" class="logo">
-          </a>
+            <img src="assets/img/ngx-bootstrap.svg" width="25" height="25" class="logo">
+      </a>
       <span class="navbar-brand">Angular + Bootstrap</span>
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="#">
             Link <span class="sr-only">(current)</span>
           </a></li>
@@ -18,7 +24,7 @@
           Dropdown <span class="caret"></span></a>
         <ul *dropdownMenu class="dropdown-menu">
           <!-- {3} -->
-          <li><a href="javascript:void(0);" [routerLink]="['users']" routerLinkActive="active">Users</a></li>          
+          <li><a href="javascript:void(0);" [routerLink]="['users']" routerLinkActive="active">Users</a></li>
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
           <li role="separator" class="divider"></li>
@@ -30,7 +36,107 @@
     </ul>
   </div>
 </nav>
-<div class="col-lg-12">
-  <h4>This is fucking home Page!  </h4>
-  <router-outlet></router-outlet>
+<div id="wrapper" class="active">
+  <div id="sidebar-wrapper">
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav">
+        <ul class="nav" id="menu">
+          <li>
+            <a routerLink="dashboard" routerLinkActive="active"><i class="fa fa-archive fa-fw"></i> Dashboard</a>
+          </li>
+          <li>
+            <a routerLink="oprofile" routerLinkActive="active"><i class="fa fa-user-md fa-fw"></i> Organisation Profile</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-address-book fa-fw"></i> Contacts <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a [routerLink]="['contact', 0]" routerLinkActive="active"><i class="fa fa-address-card"></i> Customer</a>
+              </li>
+              <li>
+                <a [routerLink]="['contact', 1]" routerLinkActive="active"><i class="fa fa-address-card-o"></i> Vendor</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-user fa-fw"></i> Users <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a routerLink="users" routerLinkActive="active"><i class="fa fa-users fa-fw"></i> Users</a>
+              </li>
+              <li>
+                <a routerLink="roles" routerLinkActive="active"><i class="fa fa-ticket fa-fw"></i> Roles</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa  fa-tags fa-fw"></i> Products <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a routerLink="pcategories" routerLinkActive="active"><i class="fa fa-sitemap fa-fw"></i> Categories</a>
+              </li>
+              <li>
+                <a routerLink="products" routerLinkActive="active"><i class="fa fa-product-hunt fa-fw"></i> View Products</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-clipboard"></i> Invoice <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a routerLink="addinvoice" routerLinkActive="active"><i class="fa fa-plus"></i> Create Invoice</a>
+              </li>
+              <li>
+                <a routerLink="invoices" routerLinkActive="active"><i class="fa fa-list"></i> View Invoices</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-shopping-bag"></i> Sales<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a routerLink="generatesalesorder" routerLinkActive="active"><i class="fa fa-plus"></i> Create Order</a>
+              </li>
+              <li>
+                <a routerLink="salesorders" routerLinkActive="active"><i class="fa fa-list"></i> View Orders</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-money"></i> Bills <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a routerLink="addbill" routerLinkActive="active"><i class="fa fa-plus"></i> Create Bill</a>
+              </li>
+              <li>
+                <a routerLink="bills" routerLinkActive="active"><i class="fa fa-list"></i> View Bills</a>
+              </li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-barcode"></i> Purchase<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a routerLink="addpurchaseorders" routerLinkActive="active"><i class="fa fa-plus"></i> Create Order</a>
+              </li>
+              <li>
+                <a routerLink="purchaseorders" routerLinkActive="active"><i class="fa fa-list"></i> View Orders</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="page-wrapper">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+<nav class="navbar-footer navbar-default navbar-fixed-bottom" role="navigation">
+</nav>
