@@ -18,32 +18,40 @@ span.tab {
 #wrapper {
     transition: all .4s ease 0s;
     height: 100%;
+    transition: all .4s ease 0s;
 }
 
-.page-wrapper {
+#page-wrapper {
     margin-top: 8vh;
     height: 92vh;
     padding-right: 2px;
+    padding-left: 30px;
     background-color: white;
     border-left-style: ridge;
     border-left-width: 1px;
     width: 100%;
+    transition: all .4s ease 0s;
 }
 
 #sidebar-wrapper {
     margin-left: -130px;
-    left: -120px;
+    left: -60px;
     position: fixed;
     transition: all .4s ease 0s;
 }
 
 #wrapper.active {
     padding-left: 230px;
+    transition: all .4s ease 0s;
 }
-
-
     #wrapper.active #sidebar-wrapper {
         left: 130px;
+        transition: all .4s ease 0s;
+    }
+
+    #wrapper.active #page-wrapper {
+        padding-left: 0px;
+        transition: all .4s ease 0s;
     }
 
 @media screen and (max-width:767px) {
