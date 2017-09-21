@@ -19,18 +19,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
         "assets/css/site.css",
-        "assets/css/metis-menu.css",
         "assets/css/font-awesome.css",
         "assets/css/material-icons.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [      
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "assets/scripts/metis-menu.js",
-        "assets/scripts/site.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
