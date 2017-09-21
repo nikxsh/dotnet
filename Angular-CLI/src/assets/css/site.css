@@ -16,7 +16,6 @@ span.tab {
 }
 
 #wrapper {
-    transition: all .4s ease 0s;
     height: 100%;
     transition: all .4s ease 0s;
 }
@@ -24,8 +23,8 @@ span.tab {
 #page-wrapper {
     margin-top: 8vh;
     height: 92vh;
-    padding-right: 2px;
-    padding-left: 30px;
+    padding-right: 0px;
+    padding-left: 40px;
     background-color: white;
     border-left-style: ridge;
     border-left-width: 1px;
@@ -34,18 +33,18 @@ span.tab {
 }
 
 #sidebar-wrapper {
-    margin-left: -130px;
-    left: -60px;
+    margin-left: -100px;
+    left: -50px;
     position: fixed;
     transition: all .4s ease 0s;
 }
 
 #wrapper.active {
-    padding-left: 230px;
+    padding-left: 200px;
     transition: all .4s ease 0s;
 }
     #wrapper.active #sidebar-wrapper {
-        left: 130px;
+        left: 100px;
         transition: all .4s ease 0s;
     }
 
@@ -265,7 +264,7 @@ tbody.Custom-tbody-invoice > tr > td {
     .sidebar {
         z-index: 100000;
         position: absolute;
-        width: 230px;
+        width: 200px;
     }
 
     .navbar-top-links .dropdown-messages,
