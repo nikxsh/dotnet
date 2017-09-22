@@ -37,9 +37,16 @@
 +function ($) {
     $("#menu").metisMenu();
 
-    $("#menu-toggle").click(function (e) {
+    $("#sidebar-menu").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("active");
+    });
+
+    $("i").click(function (e) {
+        e.preventDefault();
+        var current = $(this);        
+        current.find("i").toggleClass("fa-angle-down", "fa-angle-up");        
+        current.find("i").toggleClass("fa-angle-up", "fa-angle-down");
     });
 }(jQuery);
 
