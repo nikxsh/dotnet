@@ -40,13 +40,15 @@
     $("#sidebar-menu").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("active");
-    });
+    });   
 
-    $("i").click(function (e) {
+    $("#menu li a").click(function (e) {
         e.preventDefault();
-        var current = $(this);        
-        current.find("i").toggleClass("fa-angle-down", "fa-angle-up");        
-        current.find("i").toggleClass("fa-angle-up", "fa-angle-down");
+        var current = $(this); 
+        current.parent().siblings().find("i").find("i").removeClass("fa-angle-up");  
+        current.parent().siblings().find("i").find("i").addClass("fa-angle-down");                      
+        current.find("i").find("i").toggleClass("fa-angle-down", "fa-angle-up");        
+        current.find("i").find("i").toggleClass("fa-angle-up", "fa-angle-down");  
     });
 }(jQuery);
 
