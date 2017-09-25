@@ -5,15 +5,13 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './components/user/user.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RouteRoutingModule } from './route/route-routing.module';
+import { RouteRoutingModule } from './route-routing.module';
+import { PageNotFoundComponent } from './page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    DashboardComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,    
