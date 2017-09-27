@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngAfterViewInit() {
     this.addScript("assets/scripts/site.js");
-    this.addCss("assets/css/metis-menu.css");
+    //this.addCss("assets/css/metis-menu.css");
   }
 
   addScript(link) {

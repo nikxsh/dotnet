@@ -1,4 +1,4 @@
-! function (a, b, c) {
+!function (a, b, c) {
     function d(b, c) {
         this.element = a(b), this.settings = a.extend({}, f, c), this._defaults = f, this._name = e, this.init()
     }
