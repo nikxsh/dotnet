@@ -1,17 +1,17 @@
-﻿import { Catalogue } from "./contact.m";
-import { Product } from "./product.m";
-import { Tenant } from "./profile.m";
+﻿import { Catalogue } from "./contact.model";
+import { Product } from "./product.model";
+import { Tenant } from "./profile.model";
 
 export class BasePurchaseOrder {
     constructor(
-        public id?: string,
-        public purchaseOrderNumber?: string,
-        public purchaseOrderSeries?: string,
-        public vendorName?: string,
-        public vendorInfo?: Catalogue,
-        public status?: PurchaseOrderStatus,
+        public id: string = undefined,
+        public purchaseOrderNumber: string = undefined,
+        public purchaseOrderSeries: string = undefined,
+        public vendorName: string = undefined,
+        public vendorInfo: Catalogue = undefined,
+        public status: PurchaseOrderStatus = PurchaseOrderStatus.Open,
         public purchaseReceive: PurchaseReceive[] = [],
-        public purchaseOrderDate?: string,
+        public purchaseOrderDate: string = undefined,
         public totalAmount: number = 0) {
     }
 }
@@ -19,9 +19,9 @@ export class BasePurchaseOrder {
 export class PurchaseOrder extends BasePurchaseOrder {
 
     constructor(
-        public referenceNumber?: number,
-        public tenantInfo?: Tenant,
-        public purchaseOrderHtml?: string,
+        public referenceNumber: number = undefined,
+        public tenantInfo: Tenant = undefined,
+        public purchaseOrderHtml: string = undefined,
         public products: PurchaseOrderProduct[] = [],
         public totalCGST: number = 0,
         public totalSGST: number = 0,

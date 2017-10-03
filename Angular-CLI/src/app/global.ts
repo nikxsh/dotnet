@@ -7,8 +7,7 @@ export const Product_Types = [
 ];
 
 //Select Base URL
-//export const Domain = window.location.hostname == 'localhost' ? 'http://localhost:5757/' : 'http://www.brewbuck.com/domain/';
-export const Domain = 'http://www.brewbuck.com/domain/';
+export const Domain = window.location.hostname == 'localhost' ? 'http://localhost:5757/' : 'http://www.brewbuck.com/domain/';
 
 //API Prefix added
 const ServiceDomain = Domain + 'api/';

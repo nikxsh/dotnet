@@ -1,17 +1,17 @@
-﻿import { Address, InvoiceStatus } from "./common.m";
-import { Product } from "./product.m";
-import { Catalogue } from "./contact.m";
-import { Tenant } from "./profile.m";
+﻿import { Address, InvoiceStatus } from "./common.model";
+import { Product } from "./product.model";
+import { Catalogue } from "./contact.model";
+import { Tenant } from "./profile.model";
 
 export class BaseSalesOrder {
     constructor(
-        public id?: string,
-        public salesOrderNumber?: string,
-        public salesOrderSeries?: string,
-        public customerName?: string,
-        public customerInfo?: Catalogue,
-        public salesOrderStatus?: SalesOrderStatus,
-        public salesOrderDate?: string,
+        public id: string = undefined,
+        public salesOrderNumber: string = undefined,
+        public salesOrderSeries: string = undefined,
+        public customerName: string = undefined,
+        public customerInfo: Catalogue = undefined,
+        public salesOrderStatus: SalesOrderStatus = SalesOrderStatus.Open,
+        public salesOrderDate: string = undefined,
         public invoices: SalesOrderInvoice[] = [],
         public totalAmount: number = 0) {
     }
@@ -20,8 +20,8 @@ export class BaseSalesOrder {
 export class SalesOrder extends BaseSalesOrder {
 
     constructor(
-        public tenantInfo?: Tenant,
-        public salesOrderHtml?: string,
+        public tenantInfo: Tenant = undefined,
+        public salesOrderHtml: string = undefined,
         public products: SalesOrderProduct[] = [],
         public totalCGST: number = 0,
         public totalSGST: number = 0,

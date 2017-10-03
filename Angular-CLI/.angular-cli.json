@@ -23,6 +23,7 @@
         "assets/css/font-awesome.css",
         "assets/css/material-icons.css",
         "assets/css/metis-menu.css",
+        "assets/css/forms.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [  

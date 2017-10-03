@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { Tenant } from '../Models/profile.m';
+import { Tenant } from '../Models/profile.model';
 
 @Injectable()
 export class LocalStorageService {

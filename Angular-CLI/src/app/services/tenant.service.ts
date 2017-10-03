@@ -4,13 +4,14 @@ import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/operator/toPromise';
 
 
+import { RegisterRequest } from '../Models/login.model';
+import { Tenant } from '../Models/profile.model';
+import { PagingRequest } from '../Models/common.model';
+import { Catalogue } from '../Models/contact.model';
+
+import { ResponseBase } from '../helpers/adapter.utility';
+import { HandleError } from '../helpers/error.utility';
 import * as Global from '../global'
-import { RegisterRequest } from '../Models/login.m';
-import { ResponseBase } from '../helpers/adapter.h';
-import { Tenant } from '../Models/profile.m';
-import { HandleError } from '../helpers/error.h';
-import { PagingRequest } from '../Models/common.m';
-import { Catalogue } from '../Models/contact.m';
 
 @Injectable()
 export class TenantService {

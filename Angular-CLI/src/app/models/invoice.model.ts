@@ -1,8 +1,8 @@
 ﻿
-import { Address, InvoiceStatus, Payment } from "./common.m";
-import { Product } from "./product.m";
-import { Catalogue } from "./contact.m";
-import { Tenant } from "./profile.m";
+import { Address, InvoiceStatus, Payment } from "./common.model";
+import { Product } from "./product.model";
+import { Catalogue } from "./contact.model";
+import { Tenant } from "./profile.model";
 
 export class BaseInvoice {
     constructor(
@@ -11,7 +11,7 @@ export class BaseInvoice {
         public invoiceNumber: string = undefined,
         public invoiceSeries: string = undefined,
         public customerName: string = undefined,
-        public customerInfo?: Catalogue,
+        public customerInfo: Catalogue = undefined,
         public status: InvoiceStatus = InvoiceStatus.Open,
         public invoiceDate: string = undefined,
         public payments: Payment[] = [],

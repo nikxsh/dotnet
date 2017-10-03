@@ -21,8 +21,7 @@ span.tab {
 }
 
 #page-wrapper {
-    margin-top: 8vh;
-    height: 92vh;
+    height: 100vh;
     padding-right: 0px;
     padding-left: 40px;
     background-color: white;
@@ -53,6 +52,14 @@ span.tab {
         transition: all .4s ease 0s;
     }
 
+.min-height-footer{
+    min-height: 8vh;
+}
+
+.panel-body-no-padding {
+    height: 78vh;
+}
+
 @media screen and (max-width:767px) {
 
     #wrapper.active {
@@ -73,13 +80,13 @@ a.disabled {
 
 .Custom-tbody-left-sidebar {
     display: block;
-    height: 74vh;
+    height: 75vh;
     overflow-y: scroll;
 }
 
 .Custom-tbody {
     display: block;
-    height: 68vh;
+    height: 70vh;
     overflow-y: scroll;
 }   
 
@@ -111,20 +118,20 @@ thead tr, tbody tr {
 
 .Custom-tbody-invoice {
     display: block;
-    height: 28vh;
+    height: 32vh;
     width: 1600px;
     border: none;
 }
 
 .Custom-tbody-invoice-payments {
     display: block;
-    height: 29vh;
+    height: 32vh;
     overflow-y: scroll;
 }
 
 .Custom-tbody-sales-invoices {
     display: block;
-    height: 51vh;
+    height: 53vh;
     overflow-y: scroll;
 }
 
@@ -132,6 +139,18 @@ thead tr, tbody tr {
     display: block;
     height: 35vh;
     border: none;
+    overflow-y: scroll;
+}
+
+.Custom-tbody-inventory {
+    display: block;
+    height: 58vh;
+    overflow-y: scroll;
+}
+
+.Custom-tbody-add-workflow {
+    display: block;
+    height: 45vh;
     overflow-y: scroll;
 }
 
@@ -148,7 +167,19 @@ tbody.Custom-tbody-purchase-receive > tr > td {
 
 .Custom-tbody-roles {
     display: block;
-    height: 68vh;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.Custom-tbody-workflow {
+    display: block;
+    height: 65vh;
+    overflow-y: scroll;
+}
+
+.Custom-tbody-manage-workflow {
+    display: block;
+    height: 55vh;
     overflow-y: scroll;
 }
 
@@ -157,6 +188,20 @@ tbody.Custom-tbody-invoice > tr > td {
     padding: 0;
 }
 
+.custom-input {
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
 .adjustSidebar {
     margin-top: 50px;
 }

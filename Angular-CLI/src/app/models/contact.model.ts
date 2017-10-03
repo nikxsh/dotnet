@@ -1,4 +1,4 @@
-﻿import { Address } from "./common.m";
+﻿import { Address } from "./common.model";
 
 export class Catalogue {
 

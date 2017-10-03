@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/operator/toPromise';
 
 import * as Global from '../global'
-import { ModulePermission, Role } from "../Models/user.m";
-import { ResponseBase } from '../helpers/adapter.h';
-import { HandleError } from '../helpers/error.h';
+import { ModulePermission, Role } from "../Models/user.model";
+import { ResponseBase } from '../helpers/adapter.utility';
+import { HandleError } from '../helpers/error.utility';
 
 @Injectable()
 export class RoleAndPermissionService {

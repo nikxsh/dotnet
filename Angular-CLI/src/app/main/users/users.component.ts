@@ -4,20 +4,20 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 
 //Models
-import { Role, User, UserResponse } from '../../Models/user.m';
-import { MessageHandler } from '../../Models/common.m';
-import { Tenant } from '../../Models/profile.m';
+import { Role, User, UserResponse } from '../../Models/user.model';
+import { MessageHandler } from '../../Models/common.model';
+import { Tenant } from '../../Models/profile.model';
 
 //Services
-import { UserService } from '../../services/user.s';
-import { LocalStorageService } from '../../services/storage.s';
-import { TenantService } from '../../services/tenant.s';
-import { RoleAndPermissionService } from '../../services/rolepermissions.s';
+import { UserService } from '../../services/user.service';
+import { LocalStorageService } from '../../services/storage.service';
+import { TenantService } from '../../services/tenant.service';
+import { RoleAndPermissionService } from '../../services/rolepermissions.service';
 
 //Helpers
 import * as Global from '../../global'
-import { matchingPasswords } from '../../helpers/validators.h';
-import { HandleError } from '../../helpers/error.h';
+import { matchingPasswords } from '../../helpers/validators.utility';
+import { HandleError } from '../../helpers/error.utility';
 
 @Component({
   selector: 'app-user',
@@ -85,8 +85,7 @@ export class UserComponent implements OnInit {
       this.addEditUserForm.get('name').setValidators(Validators.compose([Validators.required, Validators.minLength(4)]));
     }
     catch (e) {
-      this.message.text = Global.UI_ERROR;
-      this.message.type = 2;
+      HandleError.handle(e);
     }
   }
 
@@ -103,7 +102,7 @@ export class UserComponent implements OnInit {
             this.progressing = false;
 
             if (result.status == 1) {
-              this.lstUsers.push(result.data);
+              this.lstUsers.push(new UserResponse(result.data.id,result.data));
               this.addEditUserModalRef.hide();
               this.message.isGlobal = true;
               this.message.text = Global.UI_ADD_SUCCESS.replace('{0}', 'User');

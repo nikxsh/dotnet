@@ -4,10 +4,10 @@ import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/operator/toPromise';
                                                                  
 import * as Global from '../global';
-import { ResponseBase } from '../helpers/adapter.h';
-import { UserResponse, User } from '../Models/user.m';
-import { PagingRequest } from '../Models/common.m';
-import { HandleError } from '../helpers/error.h';
+import { ResponseBase } from '../helpers/adapter.utility';
+import { UserResponse, User } from '../Models/user.model';
+import { PagingRequest } from '../Models/common.model';
+import { HandleError } from '../helpers/error.utility';
 
 @Injectable()
 export class UserService {

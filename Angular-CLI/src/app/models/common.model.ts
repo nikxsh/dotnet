@@ -1,19 +1,19 @@
 ﻿export class Address {
     constructor(
-        public addressLine?: string,
-        public city?: string,
-        public state?: string,
-        public postalCode?: string,
-        public phoneNumber?: string,
-        public country?: string) {
+        public addressLine: string = undefined,
+        public city: string = undefined,
+        public state: string = undefined,
+        public postalCode: string = undefined,
+        public phoneNumber: string = undefined,
+        public country: string = undefined) {
     }
 }
 
 export class PagingRequest {
 
     constructor(
-        public take?: number,
-        public skip?: number,
+        public take: number = undefined,
+        public skip: number = undefined,
         public filter: Filter[] = [],
         public isEnable: boolean = false,) {
     }
@@ -49,17 +49,17 @@ export class Filter {
 
 export class GetInfo<T>{
     constructor(
-        public id?: string,
-        public user?: T,
-        public count?: number) {
+        public id: string = undefined,
+        public user: T = undefined,
+        public count: number = undefined) {
     }
 }
 
 export class ValueObjectPair {    
 
     constructor(
-        public code?: string,
-        public name?: string) {
+        public code: string = undefined,
+        public name: string = undefined) {
     }
 }
 
@@ -67,15 +67,15 @@ export class ValueObjectPair {
 export class KeyValuePair {
 
     constructor(
-        public key?: number,
-        public value?: string) {
+        public key: number = undefined,
+        public value: string = undefined) {
     }
 }
 
 
 export class MessageHandler {
     constructor(
-        public text: string = '',
+        public text: string = undefined,
         public type: MessageType = MessageType.Success,
         public isGlobal: boolean = true
     )

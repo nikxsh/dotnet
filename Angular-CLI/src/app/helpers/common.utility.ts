@@ -1,6 +1,6 @@
 ﻿import * as Global from '../global'   
 import { DatePipe } from '@angular/common';
-import { KeyValuePair } from "../Models/common.m";
+import { KeyValuePair } from "../Models/common.model";
 
 export function getPager(totalItems: number, currentPage: number = 1, pageSize: number = Global.PAGE_SIZE) {
     let totalPages = Math.ceil(totalItems / pageSize);

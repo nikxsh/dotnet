@@ -2,8 +2,8 @@
 import { Http, Headers, ConnectionBackend, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { LoginResponse } from './Models/login.m';
-import { LocalStorageService } from './services/storage.s';
+import { LoginResponse } from './Models/login.model';
+import { LocalStorageService } from './services/storage.service';
 
 
 @Injectable()

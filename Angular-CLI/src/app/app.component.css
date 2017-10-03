@@ -1,3 +1,16 @@
 thead > tr >th {
     background-color: cornflowerblue;
 }
+
+.modal-sm {
+    width: 300px;
+}
+
+.modal-avg {
+    width: 600px;
+}
+
+
+.modal-avg-x1 {
+    width: 800px;
+}

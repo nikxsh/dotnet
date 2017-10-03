@@ -55,7 +55,7 @@
         </table>
       </div>
     </div>
-    <div class="panel-footer">
+    <div class="panel-footer min-height-footer">
       <div class="col-lg-4">
         <div class="input-group custom-search-form">
           <span class="input-group-addon">
@@ -74,14 +74,13 @@
   </div>
 </div>
 
-
 <form [formGroup]="addEditUserForm" novalidate>
   <ng-template #AddEditUserModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Modal</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="addEditUserModalRef.hide()">
-    <span aria-hidden="true">&times;</span>
-  </button>
+        <span aria-hidden="true">&times;</span>
+       </button>
     </div>
     <div class="modal-body">
       <div class="row">
