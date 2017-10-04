@@ -17,7 +17,7 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './productcategories.component.html',
   styleUrls: ['./productcategories.component.css']
 })
-export class ProductcategoriesComponent implements OnInit {
+export class ProductCategoriesComponent implements OnInit {
   private productCategoryModalRef: BsModalRef;
   private title: string = "Product Categories";
   private lstProductCategories: ProductCategory[] = [];

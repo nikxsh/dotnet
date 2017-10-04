@@ -36,8 +36,8 @@ export class TenantComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private commonService: CommonService,
     private modalServiceRef: BsModalService) {
-      this.profileModel = this.mapTenantResult(new Tenant());
-      this.viewModel = this.mapTenantResult(new Tenant());
+    this.profileModel = this.mapTenantResult(new Tenant());
+    this.viewModel = this.mapTenantResult(new Tenant());
   }
 
   ngOnInit() {
@@ -220,7 +220,12 @@ export class TenantComponent implements OnInit {
   }
 
   public openModal(template: TemplateRef<any>) {
-    this.profileModalRef = this.modalServiceRef.show(template, { windowClass: 'modal-avg' });
+    try {
+      this.profileModalRef = this.modalServiceRef.show(template, { class: 'modal-avg' });
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
   }
 
   // TODO: Remove this when we're done

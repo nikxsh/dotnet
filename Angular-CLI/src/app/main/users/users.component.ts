@@ -248,6 +248,6 @@ export class UserComponent implements OnInit {
   }
 
   public openModal(template: TemplateRef<any>) {
-    this.addEditUserModalRef = this.modalServiceRef.show(template);
+    this.addEditUserModalRef = this.modalServiceRef.show(template, { class : 'modal-md'});
   }
 }

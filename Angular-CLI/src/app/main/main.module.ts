@@ -5,6 +5,7 @@ import { Http, XHRBackend, RequestOptions, HttpModule } from '@angular/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 
 import { MainRoutingModule } from './main-routing.module';
 
@@ -24,9 +25,14 @@ import { HttpInterceptor } from '../interceptor';
 import { IndexComponent } from './index/index.component';
 import { RoleComponent } from './role/role.component';
 import { ProductComponent } from './product/product.component';
-import { ProducttableComponent } from './product/producttable.component';
+import { ProductTableComponent } from './product/producttable.component';
 import { ProductService } from '../services/product.service';
-import { ProductcategoriesComponent } from './product/productcategories.component';
+import { ProductCategoriesComponent } from './product/productcategories.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { InvoiceService } from '../services/invoice.service';
+import { InvoiceTableComponent } from './invoice/invoicetable.component';
+import { SalesOrderComponent } from './salesorder/salesorder.component';
+import { SalesOrderService } from '../services/salesorder.service';
 
 @NgModule({
   imports: [
@@ -38,6 +44,7 @@ import { ProductcategoriesComponent } from './product/productcategories.componen
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    NgbModule.forRoot()
   ],
   declarations: [
     ContactComponent, 
@@ -48,8 +55,11 @@ import { ProductcategoriesComponent } from './product/productcategories.componen
     IndexComponent,
     RoleComponent,
     ProductComponent,
-    ProducttableComponent,
-    ProductcategoriesComponent
+    ProductTableComponent,
+    ProductCategoriesComponent,
+    InvoiceComponent,
+    InvoiceTableComponent,
+    SalesOrderComponent
   ],
   providers:[
     UserService,
@@ -57,6 +67,8 @@ import { ProductcategoriesComponent } from './product/productcategories.componen
     TenantService,
     RoleAndPermissionService,
     ProductService,
+    InvoiceService,
+    SalesOrderService,
     CommonService,
     {
         provide: Http,

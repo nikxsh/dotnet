@@ -1,0 +1,211 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{ title }}
+    </div>
+    <div class="panel-body-no-padding">
+      <table>
+        <tr>
+          <td width="20%" valign="top">
+            <table class="table table-hover">
+              <tbody class="Custom-tbody-left-sidebar">
+                <tr *ngFor="let item of lstInvoices;let i = index" [attr.data-index]="i" [ngClass]="{active: selectedInvoiceIndex === i }">
+                  <td>
+                    <a href="javascript:void(0);" (click)="getInvoiceById(item.id, i);"><b>#{{ item.invoiceNumber }}</b><br />{{ item.customerName }}</a>
+                    <div class="pull-right" *ngIf="item.status == 0">
+                      <div class="btn-group">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                    <i class="fa fa-gear fa-fw"></i>
+                                                </a>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                          <li *ngIf="item.salesId != null || item.salesId != undefined">
+                            <a [routerLink]="['../editinvoice', item.id, item.salesId]" routerLinkActive="active"> Edit</a>
+                          </li>
+                          <li *ngIf="item.salesId == null || item.salesId == undefined">
+                            <a [routerLink]="['../editinvoice', item.id]" routerLinkActive="active"> Edit</a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0);" (click)="openModal(RemoveInvoiceModal);removeInvoice(item.id);">Remove</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td valign="top">
+            <div class="panel panel-default">
+              <div class="panel-body-no-padding">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#invoice" data-toggle="tab">Invoice</a>
+                  </li>
+                  <li>
+                    <a href="#payments" data-toggle="tab">Payments</a>
+                  </li>
+                </ul>
+                <div class="tab-content" *ngIf="lstInvoices.length > 0">
+                  <div class="tab-pane fade in active" id="invoice">
+                    <div #InvoiceContainer id="print-invoice"></div>
+                  </div>
+                  <div class="tab-pane fade" id="payments">
+                    <br />
+                    <form #InvoicePaymentForm="ngForm" role="form" data-toggle="validator">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td valign="top">
+                              <div class="col-lg-12">
+                                <label>Reference Number</label>
+                                <div class="form-group">
+                                  <input type="text" class="form-control" [(ngModel)]="paymentModel.referenceNumber" name="referenceNumber" #referenceNumber="ngModel"
+                                    pattern="[a-zA-Z0-9\s\-]{3,20}">
+                                  <span class='form-text error' *ngIf="referenceNumber.dirty && referenceNumber.hasError('pattern')">Use only letters (a-z) & dash. Use atleast 3 letters.</span>
+                                </div>
+                              </div>
+                            </td>
+                            <td valign="top">
+                              <div class="col-lg-12">
+                                <label>Payment Mode</label>
+                                <div class="form-group">
+                                  <select class="form-control" [(ngModel)]="paymentModel.paymentMode" name="paymentMode" required>
+                                                                        <option *ngFor="let item of lstPaymentModes" [ngValue]="item.key">{{item.value}}</option>
+                                                                    </select>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <div class="col-lg-12">
+                                <label>Amount</label> (Unpaid Amount: &#8377;{{ unpaidAmount }})
+                                <div class="form-group">
+                                  <input type="number" class="form-control" [(ngModel)]="paymentModel.amount" name="amount" required min="0" max="{{ unpaidAmount * 1000 }}"
+                                    #amount="ngModel" pattern="[0-9.\-]*">
+                                  <span class='form-text error' *ngIf="amount.dirty && amount.hasError('pattern')">Use only numbers (0-9).</span>
+                                  <span class='form-text error' *ngIf="paymentModel.amount > unpaidAmount">Payment amount must be less or equal to unpaid amount.</span>
+                                </div>
+                              </div>
+                            </td>
+                            <td valign="top">
+                              <div class="col-lg-12">
+                                <label>Payment Date</label>
+                                <div class="form-group">
+                                  <input type="date" class="form-control" [(ngModel)]="paymentModel.paymentDate" name="paymentDate" required>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <div class="col-lg-6">
+                                <button class="btn btn-default" (click)="payInvoiceAmount()" [disabled]="!(InvoicePaymentForm.form.valid && paymentModel.amount <= unpaidAmount && paymentModel.amount > 0)">
+                                                                    <span *ngIf="!progressing">Pay</span>
+                                                                    <span *ngIf="progressing">
+                                                                        <img src="../../Content/images/ajax-loader.gif" />
+                                                                    </span>
+                                                                </button>
+                                <button class="btn btn-default btn-warning" (click)="ResetInvoiceAmount()">Reset</button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <br />
+                              <table class="table table-bordered">
+                                <thead class="Custom-thead">
+                                  <tr>
+                                    <th width="5%">#</th>
+                                    <th>PaymentMode</th>
+                                    <th>Amount</th>
+                                    <th>Payment Date</th>
+                                    <th width="5%"></th>
+                                  </tr>
+                                </thead>
+                                <tbody class="Custom-tbody-invoice-payments">
+                                  <tr *ngFor="let item of invoiceModel.payments; let i = index" [attr.data-index]="i">
+                                    <td width="5%">{{i + 1}}</td>
+                                    <td>{{ lstPaymentModes[item.paymentMode].value }}</td>
+                                    <td>&#8377; {{ item.amount }}</td>
+                                    <td>{{ item.paymentDate | date : 'yyyy-MM-dd' }}</td>
+                                    <td width="5%" align="center">
+                                      <div class="btn-group">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                    <i class="fa fa-gear fa-fw"></i>
+                                                                                </a>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                          <li>
+                                            <a href="javascript:void(0);" (click)="removeAmount(i)">Remove</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="panel-footer">
+      <div class="col-lg-4">
+        <div class="input-group custom-search-form">
+          <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+                    </span>
+          <input type="text" class="form-control" placeholder="Search...">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+      </div>
+      <div class="col-lg-2">
+        <button class="btn btn-primary" (click)="print()" [disabled]="lstInvoices.length <= 0">Print</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #RemoveInvoiceModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Remove Invoice</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="removeItemModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+       </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-12">
+        <input type="hidden" [(ngModel)]="paymentModel.id" name="id" /> Are you sure you want to permanently remove this
+        invoice?
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="col-lg-6">
+      <button class="btn btn-primary pull-right" (click)="deleteInvoice();removeItemModalRef.hide()">
+                <span *ngIf="!progressing">Remove</span>
+                <span *ngIf="progressing">
+                    <img src="../../Content/images/ajax-loader.gif" />
+                </span>
+      </button>
+    </div>
+    <div class="col-lg-6">
+      <button class="btn btn-primary pull-left" (click)="removeItemModalRef.hide()">Close</button>
+    </div>
+    <div class="col-lg-12">
+      <p *ngIf="message.text != '' && !message.isGlobal" [ngClass]="{'alert alert-danger': message.type == 2 }" style="justify-content:center;">{{message.text }}</p>
+    </div>
+  </div>
+</ng-template>

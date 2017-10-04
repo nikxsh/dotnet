@@ -8,47 +8,74 @@ import { IndexComponent } from './index/index.component';
 import { ContactComponent } from './contact/contact.component';
 import { RoleComponent } from './role/role.component';
 import { ProductComponent } from './product/product.component';
-import { ProductcategoriesComponent } from './product/productcategories.component';
+import { ProductCategoriesComponent } from './product/productcategories.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { InvoiceTableComponent } from './invoice/invoicetable.component';
+import { SalesOrderComponent } from './salesorder/salesorder.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo:'main',
+    redirectTo: 'main',
     pathMatch: 'full'
   },
   {
-    path:'main',
-    component:DashboardComponent,
-    children:[ 
+    path: 'main',
+    component: DashboardComponent,
+    children: [
       {
-        path:'dashboard',
-        component: IndexComponent 
+        path: 'dashboard',
+        component: IndexComponent
       },
       {
-        path:'users',
-        component:UserComponent 
+        path: 'users',
+        component: UserComponent
       },
       {
-        path:'oprofile',
-        component:TenantComponent 
+        path: 'oprofile',
+        component: TenantComponent
       },
       {
-        path:'contacts/:type',
-        component:ContactComponent 
+        path: 'contacts/:type',
+        component: ContactComponent
       },
       {
-        path:'roles',
-        component:RoleComponent 
+        path: 'roles',
+        component: RoleComponent
       },
       {
-        path:'products',
-        component:ProductComponent 
+        path: 'products',
+        component: ProductComponent
       },
       {
-        path:'pcategories',
-        component:ProductcategoriesComponent 
-      }
-    ] 
+        path: 'pcategories',
+        component: ProductCategoriesComponent
+      },
+      {
+        path: 'addinvoice',
+        component: InvoiceComponent
+      },
+      {
+        path: 'addinvoice/sale/:saleId',
+        component: InvoiceComponent
+      },
+      {
+        path: 'editinvoice/:id',
+        component: InvoiceComponent
+      },
+      {
+        path: 'editinvoice/:id/:saleId',
+        component: InvoiceComponent
+      },
+      {
+          path: 'invoices',
+          component: InvoiceTableComponent
+      },
+      {
+          path: 'addsalesorder',
+          component: SalesOrderComponent
+      },
+    ]
   }
 ];
 

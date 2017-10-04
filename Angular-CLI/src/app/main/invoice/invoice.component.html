@@ -1,0 +1,399 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{ title }}
+    </div>
+    <div class="panel-body-no-padding-no-footer">
+      <div class="table-responsive">
+        <table class="table">
+          <tr>
+            <td>
+              <form role="form" #InvoiceDetailsForm="ngForm" data-toggle="validator">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td width="40%">
+                        <div class="col-lg-6">
+                          <label>Invoice Id</label>
+                          <div class="form-group">
+                            <input type="hidden" [(ngModel)]="invoiceModel.id" name="id">
+                            <input type="text" class="form-control" placeholder="INV-00000000" [(ngModel)]="invoiceModel.invoiceNumber" name="invoiceNumber"
+                              maxlength="12" required>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <label>Invoice Date</label>
+                          <div class="form-group">
+                            <input type="date" class="form-control" [(ngModel)]="invoiceModel.invoiceDate" name="invoiceDate" required>
+                          </div>
+                        </div>
+                      </td>
+                      <td width="10%"></td>
+                      <td>
+                        <div class="col-lg-6">
+                          <label>Reference Number</label>
+                          <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="invoiceModel.referenceNumber" name="referenceNumber">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top" width="40%">
+                        <div class="col-lg-12">
+                          <label>Customer Name</label>
+                          <div class="form-group">
+                            <input type="text" class="form-control" (selectItem)="onCustomerSelection($event)" [ngbTypeahead]="searchCustomers" [resultFormatter]="customerResultFormatter"
+                              [inputFormatter]="customerInputFormatter" value="{{invoiceModel.customerInfo.companyName}}" required
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <label>GST IN</label>
+                          <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="invoiceModel.customerInfo.gstin" name="customerInfo.gstin" disabled>
+                          </div>
+                        </div>
+                      </td>
+                      <td width="10%"></td>
+                      <td>
+                        <div class="col-lg-12">
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>
+                                  Billing Address
+                                  <a href="javascript:void(0);" class="pull-right" (click)="EditBillingAddressModal.open()">Edit</a>
+                                </th>
+                                <th>
+                                  Shipping Address
+                                  <a href="javascript:void(0);" class="pull-right" (click)="EditShippingAddressModal.open()">Edit</a>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td height="100">
+                                  <p>
+                                    {{ invoiceModel.customerInfo.billingAddress.addressLine}}
+                                    <br /> {{ invoiceModel.customerInfo.billingAddress.city }}
+                                    <br /> {{ invoiceModel.customerInfo.billingAddress.state }} - {{ invoiceModel.customerInfo.billingAddress.postalCode
+                                    }}
+                                    <br /> {{ invoiceModel.customerInfo.billingAddress.country }}
+                                  </p>
+                                </td>
+                                <td>
+                                  <p>
+                                    {{ invoiceModel.customerInfo.shippingAddress.addressLine }}
+                                    <br /> {{ invoiceModel.customerInfo.shippingAddress.city }}
+                                    <br /> {{ invoiceModel.customerInfo.shippingAddress.state }} - {{ invoiceModel.customerInfo.shippingAddress.postalCode
+                                    }}
+                                    <br /> {{ invoiceModel.customerInfo.shippingAddress.country }}
+                                  </p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td style="margin:0;padding:0;overflow:scroll;">
+              <div class="table-responsive">
+                <form role="form" #InvoiceItemsForm="ngForm" data-toggle="validator">
+                  <table class="table table-bordered">
+                    <thead class="Custom-thead-invoice">
+                      <tr>
+                        <th class="table-invoice-menu">
+                          <a href="javascript:void(0);" (click)="addItem(true)">
+                                                        <i class="fa fa-plus"></i>
+                                                    </a>
+                        </th>
+                        <th class="table-invoice-name">Name</th>
+                        <th class="table-invoice-type">Type</th>
+                        <th class="table-invoice-code">Code</th>
+                        <th class="table-invoice-uom">UOM</th>
+                        <th class="table-invoice-qty" *ngIf="invoiceModel.salesId != undefined">Ordered</th>
+                        <th class="table-invoice-qty" *ngIf="invoiceModel.salesId != undefined">Invoiced</th>
+                        <th class="table-invoice-qty">QTY</th>
+                        <th class="table-invoice-rate">Rate</th>
+                        <th class="table-invoice-taxable">Taxable</th>
+                        <th colspan="2" class="table-invoice-taxwindow" *ngIf="!showIGST">CGST</th>
+                        <th colspan="2" class="table-invoice-taxwindow" *ngIf="!showIGST">SGST</th>
+                        <th colspan="2" class="table-invoice-taxwindow" *ngIf="showIGST">IGST</th>
+                        <th class="table-invoice-total">Total</th>
+                        <th width="3%"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="Custom-tbody-invoice">
+                      <tr *ngFor="let item of invoiceModel.products; let i = index" [attr.data-index]="i">
+                        <td class="table-invoice-menu" align="center">{{i + 1}}</td>
+                        <td class="table-invoice-name">
+                          <input type="text" class="form-control input-sm" 
+                             (selectItem)="onProductSelection($event,i)" 
+                             [ngbTypeahead]="searchProducts"
+                             [resultFormatter]="productResultFormatter" 
+                             [inputFormatter]="productInputFormatter" 
+                             required 
+                             [disabled]="!isCustomerSelected ? true : null"
+                            value="{{item.productName}}" />
+                        </td>
+                        <td class="table-invoice-type">
+                          <select class="form-control input-sm" [(ngModel)]="item.productType" name="productType_{{i}}" required [disabled]="!isCustomerSelected ? true : null">
+                            <option *ngFor="let item of productTypes" [ngValue]="item.key">{{item.value}}</option>
+                          </select>
+                        </td>
+                        <td class="table-invoice-code">
+                          <input type="text" class="form-control input-sm" [(ngModel)]="item.productCode" name="productCode_{{i}}" required [disabled]="!isCustomerSelected ? true : null">
+                        </td>
+                        <td class="table-invoice-uom">
+                          <input type="text" class="form-control input-sm" [(ngModel)]="item.uom" name="uom_{{i}}" required [disabled]="!isCustomerSelected ? true : null">
+                        </td>
+                        <td class="table-invoice-qty" *ngIf="invoiceModel.salesId != undefined">
+                          <input type="text" class="form-control input-sm" [value]="item.ordered" required disabled>
+                        </td>
+                        <td class="table-invoice-qty" *ngIf="invoiceModel.salesId != undefined">
+                          <input type="text" class="form-control input-sm" [value]="item.invoiced" required disabled>
+                        </td>
+                        <td class="table-invoice-qty">
+                          <input type="number" class="form-control input-sm" [(ngModel)]="item.quantity" name="quantity_{{i}}" (ngModelChange)="onQuantityChange(i)"
+                            required pattern="[1-9][0-9]*" [disabled]="!isCustomerSelected ? true : null">
+                        </td>
+                        <td class="table-invoice-rate">
+                          <input type="text" class="form-control input-sm" [(ngModel)]="item.rate" name="rate_{{i}}" (ngModelChange)="onRateChange(i); addCgst(i); addSgst(i); addIgst(i);"
+                            required maxlength="15" [disabled]="!isCustomerSelected ? true : null">
+                        </td>
+                        <td class="table-invoice-taxable">
+                          <input type="text" class="form-control input-sm" [(ngModel)]="item.taxable" name="taxable_{{i}}" required disabled>
+                        </td>
+                        <td class="table-invoice-taxwindow" *ngIf="!showIGST">
+                          <div class="input-group">
+                            <input type="text" class="form-control input-sm" [(ngModel)]="item.cgstSlab" name="cgstPercent_{{i}}" (ngModelChange)="addCgst(i)"
+                              required maxlength="6" [disabled]="!isCustomerSelected ? true : null">
+                            <span class="input-group-addon" style="max-width:24px;padding-left:5px;">
+                                                            &#37;
+                                                        </span>
+                            <input type="text" class="form-control input-sm" [(ngModel)]="item.cgstAmount" name="cgstAmount_{{i}}" style="min-width:60px;"
+                              disabled>
+                          </div>
+                        </td>
+                        <td class="table-invoice-taxwindow" *ngIf="!showIGST">
+                          <div class="input-group">
+                            <input type="text" class="form-control input-sm" [(ngModel)]="item.sgstSlab" name="sgstPercent_{{i}}" (ngModelChange)="addSgst(i)"
+                              required maxlength="6" (keydown.Tab)="addItem(!showIGST)" [disabled]="!isCustomerSelected ? true : null">
+                            <span class="input-group-addon" style="max-width:24px;padding-left:5px;">
+                                                            &#37;
+                                                        </span>
+                            <input type="text" class="form-control input-sm" [(ngModel)]="item.sgstAmount" name="sgstAmount_{{i}}" style="min-width:60px;"
+                              disabled>
+                          </div>
+                        </td>
+                        <td class="table-invoice-taxwindow" *ngIf="showIGST">
+                          <div class="input-group">
+                            <input type="text" class="form-control input-sm" [(ngModel)]="item.igstSlab" name="igstPercent_{{i}}" (ngModelChange)="addIgst(i)"
+                              required maxlength="6" (keydown.Tab)="addItem(showIGST)" [disabled]="!isCustomerSelected ? true : null">
+                            <span class="input-group-addon" style="max-width:24px;padding-left:5px;">
+                                                            &#37;
+                                                        </span>
+                            <input type="text" class="form-control input-sm" [(ngModel)]="item.igstAmount" name="igstAmount_{{i}}" style="min-width:60px;"
+                              disabled>
+                          </div>
+                        </td>
+                        <td class="table-invoice-total">
+                          <input type="text" class="form-control input-sm" [(ngModel)]="item.productTotal" name="productTotal_{{i}}" disabled>
+                        </td>
+                        <td class="table-invoice-menu">
+                          <a href="javascript:void(0);" (click)="removeItem(i)">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle">
+              <div>
+                <div class="col-lg-2">
+                  <button class="btn btn-default" (click)="saveInvoice()" [disabled]="!(InvoiceDetailsForm.form.valid && InvoiceItemsForm.form.valid && invoiceModel.totalAmount > 0)">Save</button>
+                </div>
+                <div class="col-lg-6">
+                  <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group input-group pull-right">
+                    <span class="input-group-addon">
+                                            Total
+                                        </span>
+                    <input type="text" class="form-control" placeholder="" [(ngModel)]="invoiceModel.totalAmount" name="totalAmount" disabled>
+                    <span class="input-group-addon">
+                                            <i class="fa fa-inr"></i>
+                                        </span>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #EditBillingAddressModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit Billing Address</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="billingAddressModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+       </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <form role="form" #EditBillingAddressForm="ngForm" data-toggle="validator">
+        <div class="col-lg-12">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-home"></i>
+                        </span>
+            <textarea class="form-control" rows="2" placeholder="Address" [(ngModel)]="billingAddressModel.addressLine" name="addressLine"
+              required maxlength="100"></textarea>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                            <i class="material-icons">location_city</i>
+                        </span>
+            <input type="text" class="form-control" placeholder="City" [(ngModel)]="billingAddressModel.city" name="city" required maxlength="30">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-stats"></i>
+                        </span>
+            <select class="form-control" [(ngModel)]="billingAddressModel.state" name="state" required>
+                            <option *ngFor="let item of lstStates" [ngValue]="item.name">{{item.name}}</option>
+                        </select>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                            <i class="material-icons">fiber_pin</i>
+                        </span>
+            <input type="text" class="form-control" placeholder="Pin Code" [(ngModel)]="billingAddressModel.postalCode" name="postalCode"
+              required maxlength="6" pattern="^\d{6}$">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-map-marker"></i>
+                        </span>
+            <select class="form-control" [(ngModel)]="billingAddressModel.country" name="country" required>
+                            <option *ngFor="let item of lstCountries" [ngValue]="item.name">{{item.name}}</option>
+                        </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="col-lg-5">
+      <p style="text-align:center">{{apiMessage}}</p>
+    </div>
+    <div class="col-lg-7">
+      <button type="button" class="btn btn-primary" [disabled]="!EditBillingAddressForm.form.valid" (click)="updateBillingAddress()">
+                <span *ngIf="!progressing">Save</span>
+                <span *ngIf="progressing">
+                    <img src="../../Content/images/ajax-loader.gif" />
+                </span>
+            </button>
+      <button class="btn btn-primary" (click)="billingAddressModalRef.hide()">Close</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #EditShippingAddressModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit Shipping Address</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="shippingAddressModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+       </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <form role="form" #EditShippingAddressForm="ngForm" data-toggle="validator">
+        <div class="col-lg-12">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </span>
+            <textarea class="form-control" rows="2" placeholder="Address" [(ngModel)]="shippingAddressModel.addressLine" name="addressLine"
+              required maxlength="100"></textarea>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                                <i class="material-icons">location_city</i>
+                            </span>
+            <input type="text" class="form-control" placeholder="City" [(ngModel)]="shippingAddressModel.city" name="city" required maxlength="30">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-stats"></i>
+                            </span>
+            <select class="form-control" [(ngModel)]="shippingAddressModel.state" name="state" required>
+                                <option *ngFor="let item of lstStates" [ngValue]="item.name">{{item.name}}</option>
+                            </select>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                                <i class="material-icons">fiber_pin</i>
+                            </span>
+            <input type="text" class="form-control" placeholder="Pin Code" [(ngModel)]="shippingAddressModel.postalCode" name="postalCode"
+              required maxlength="6" pattern="^\d{6}$">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                            </span>
+            <select class="form-control" [(ngModel)]="shippingAddressModel.country" name="country" required>
+                                <option *ngFor="let item of lstCountries" [ngValue]="item.name">{{item.name}}</option>
+                            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="col-lg-5">
+      <p style="text-align:center">{{apiMessage}}</p>
+    </div>
+    <div class="col-lg-7">
+      <button type="button" class="btn btn-primary" [disabled]="!EditShippingAddressForm.form.valid" (click)="updateShippingAddress()">
+                    <span *ngIf="!progressing">Save</span>
+                    <span *ngIf="progressing">
+                        <img src="../../Content/images/ajax-loader.gif" />
+                    </span>
+                </button>
+      <button class="btn btn-primary" (click)="shippingAddressModalRef.hide()">Close</button>
+    </div>
+  </div>
+</ng-template>

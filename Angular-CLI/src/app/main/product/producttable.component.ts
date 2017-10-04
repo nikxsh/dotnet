@@ -6,7 +6,7 @@ import { Product } from '../../models/product.model';
   templateUrl: './producttable.component.html',
   styleUrls: ['./producttable.component.css']
 })
-export class ProducttableComponent implements OnInit {
+export class ProductTableComponent implements OnInit {
 
   @Input() products: Product[];
   @Input() modal: TemplateRef<any>;
