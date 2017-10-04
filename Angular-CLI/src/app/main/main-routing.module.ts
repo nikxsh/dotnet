@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { DashboardComponent } from './dashboard.component';
 import { UserComponent } from './users/users.component';
 import { TenantComponent } from './tenant/tenant.component';
 import { IndexComponent } from './index/index.component';
+import { ContactComponent } from './contact/contact.component';
+import { RoleComponent } from './role/role.component';
+import { ProductComponent } from './product/product.component';
+import { ProductcategoriesComponent } from './product/productcategories.component';
 
 const routes: Routes = [
   {
@@ -26,6 +31,22 @@ const routes: Routes = [
       {
         path:'oprofile',
         component:TenantComponent 
+      },
+      {
+        path:'contacts/:type',
+        component:ContactComponent 
+      },
+      {
+        path:'roles',
+        component:RoleComponent 
+      },
+      {
+        path:'products',
+        component:ProductComponent 
+      },
+      {
+        path:'pcategories',
+        component:ProductcategoriesComponent 
       }
     ] 
   }

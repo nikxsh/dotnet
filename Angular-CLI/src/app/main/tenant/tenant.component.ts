@@ -220,8 +220,7 @@ export class TenantComponent implements OnInit {
   }
 
   public openModal(template: TemplateRef<any>) {
-    this.modalServiceRef.config.class = 'modal-avg';
-    this.profileModalRef = this.modalServiceRef.show(template);
+    this.profileModalRef = this.modalServiceRef.show(template, { windowClass: 'modal-avg' });
   }
 
   // TODO: Remove this when we're done

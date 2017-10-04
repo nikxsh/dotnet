@@ -1,0 +1,49 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="Custom-thead">
+            <tr>
+                <th width="4%"></th>
+                <th>NAME</th>
+                <th>DESCRIPTION</th>
+                <th>TYPE</th>
+                <th>GST SLAB</th>
+                <th>HSN / SAC</th>
+                <th>SKU</th>                                    
+                <th>UOM</th>
+                <th>Opening Stock</th>
+                <th *ngIf="flag" width="5%"></th>
+            </tr>
+        </thead>
+        <tbody class="Custom-tbody">
+            <tr *ngFor="let item of products">
+                <td width="4%"><i [ngClass]="{'fa fa-ban':!item.isEnable}"></i></td>
+                <td>{{ item.productName }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.productType == 0? 'Goods' : 'Services' }}</td>
+                <td>{{ item.taxSlab }} %</td>
+                <td>{{ item.productCode }}</td>
+                <td>{{ item.skuCode }}</td>
+                <td>{{ item.uom }}</td>
+                <td>{{ item.openingStock }}</td>
+                <td *ngIf="flag" width="5%">
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-gear fa-fw"></i>
+                            </a>
+
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li *ngIf="item.isEnable">
+                                    <a href="javascript:void(0);" (click)="edit(item.id);openModal(modal);">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" (click)="enableDisable(item.id)">Mark as {{ item.isEnable ? 'Inactive' : 'Active' }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

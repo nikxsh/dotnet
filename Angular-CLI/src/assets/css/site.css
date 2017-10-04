@@ -60,6 +60,9 @@ span.tab {
     height: 78vh;
 }
 
+.modal-avg{
+    width: 800px;
+}
 @media screen and (max-width:767px) {
 
     #wrapper.active {

@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{ title }}
+    </div>
+    <div class="panel-body-no-padding">
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <td width="20%" valign="top">
+              <table class="table table-hover">
+                <tbody class="Custom-tbody-left-sidebar">
+                  <tr *ngFor="let category of lstProductCategories;let i = index" [attr.data-index]="i" [ngClass]="{active: selectedProductCategoryIndex === i }">
+                    <td>
+                      <span> <i [ngClass]="{'fa fa-ban':!category.isEnable}"></i></span>
+                      <a href="javascript:void(0);" (click)="onProductCategoryClick(category.id, i);">
+                                                {{ category.name }}
+                                            </a>
+                      <div class="pull-right">
+                        <div class="btn-group">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                        <i class="fa fa-gear fa-fw"></i>
+                                                    </a>
+                          <ul class="dropdown-menu pull-right" role="menu">
+                            <li *ngIf="category.isEnable">
+                              <a href="javascript:void(0);" (click)="renameCategory(category.id);AddProductCategoryModal.open();">Rename</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);" (click)="enableDisableProductCategory(category.id)">Mark as {{ category.isEnable ? 'Inactive' : 'Active' }}</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td valign="middle">
+              <app-producttable [products]="lstProducts" [flag]="false">
+              </app-producttable>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="col-lg-4">
+        <div class="input-group custom-search-form">
+          <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+                    </span>
+          <input type="text" class="form-control ale" placeholder="Search...">
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+      </div>
+      <div class="col-lg-4">
+        <button class="btn btn-primary pull-right" (click)="openModal(AddProductCategoryModal);addCategory();">Add Product Category</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #AddProductCategoryModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ isNewCategory ? 'Add' : 'Edit'}} Product Category</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="productCategoryModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+       </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-12">
+        <form #AddProductCategoryForm="ngForm">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+                            <i class="fa fa-product-hunt"></i>
+                        </span>
+              <input type="text" class="form-control" placeholder="Category name" [(ngModel)]="productCategoryModel.name" #name="ngModel"
+                name="name" required minlength="3" maxlength="30">
+            </div>
+            <!--pattern="[a-zA-Z0-9\-_\s]{3,30}"
+                    <span class='form-text error' *ngIf="name.dirty && name.hasError('pattern')">Use only letters (a-z), numbers(0-9), dash, underscore & spaces. Use atleast 3 letters.</span>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="col-lg-5">
+      <p *ngIf="message.text != '' && !message.isGlobal" [ngClass]="{'alert alert-danger': message.type == 2 }" style="justify-content:center;">{{message.text }}</p>
+    </div>
+    <div class="col-lg-7">
+      <button type="button" class="btn btn-primary" [disabled]="!AddProductCategoryForm.form.valid" (click)="saveProductCategory()">
+            <span *ngIf="!progressing">Save</span>
+            <span *ngIf="progressing">
+                <img src="../../Content/images/ajax-loader.gif" />
+            </span>
+        </button>
+      <button type="button" class="btn btn-warning" (click)="onReset(productCategoryModel.id);">Reset</button>
+      <button class="btn btn-primary" (click)="productCategoryModalRef.hide()">Close</button>
+    </div>
+  </div>
+</ng-template>

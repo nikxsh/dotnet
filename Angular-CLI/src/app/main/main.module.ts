@@ -22,6 +22,11 @@ import { CommonService } from '../services/common.service';
 import { TitleCasePipe } from '../Pipes/titlecase.pipe';
 import { HttpInterceptor } from '../interceptor';
 import { IndexComponent } from './index/index.component';
+import { RoleComponent } from './role/role.component';
+import { ProductComponent } from './product/product.component';
+import { ProducttableComponent } from './product/producttable.component';
+import { ProductService } from '../services/product.service';
+import { ProductcategoriesComponent } from './product/productcategories.component';
 
 @NgModule({
   imports: [
@@ -40,13 +45,18 @@ import { IndexComponent } from './index/index.component';
     UserComponent, 
     TenantComponent,
     TitleCasePipe,
-    IndexComponent
+    IndexComponent,
+    RoleComponent,
+    ProductComponent,
+    ProducttableComponent,
+    ProductcategoriesComponent
   ],
   providers:[
     UserService,
     LocalStorageService,
     TenantService,
     RoleAndPermissionService,
+    ProductService,
     CommonService,
     {
         provide: Http,
