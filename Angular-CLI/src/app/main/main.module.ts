@@ -45,7 +45,6 @@ import { ManageInventoryComponent } from './inventory/manageinventory.component'
 import { InventoryWorkflowComponent } from './inventory/inventoryworkflow.component';
 import { InventoryWipComponent } from './inventory/inventorywip.component';
 import { InventoryService } from '../services/inventory.service';
-import { PasswordChangeComponent } from './users/passwordchange.component';
 import { AuthGuard } from '../auth.guard';
 
 @NgModule({
@@ -82,8 +81,7 @@ import { AuthGuard } from '../auth.guard';
     InventoryComponent, 
     ManageInventoryComponent, 
     InventoryWorkflowComponent, 
-    InventoryWipComponent, 
-    PasswordChangeComponent
+    InventoryWipComponent
   ],
   providers:[
     UserService,
@@ -99,15 +97,15 @@ import { AuthGuard } from '../auth.guard';
     AuthGuard,
     CommonService,
     {
-        provide: Http,
-        useFactory: HttpInterceptorLoader,
-        deps: [XHRBackend, RequestOptions, LocalStorageService]
-    }
+      provide: Http,
+      useFactory: HttpInterceptorLoader,
+      deps: [XHRBackend, RequestOptions, LocalStorageService]
+  }
   ]
 })
 
 export class MainModule { }
 
 export function HttpInterceptorLoader(xhrBackend :XHRBackend, requestOptions : RequestOptions, localServiceRef : LocalStorageService) {
-    return new HttpInterceptor(xhrBackend, requestOptions, localServiceRef);
+  return new HttpInterceptor(xhrBackend, requestOptions, localServiceRef);
 }

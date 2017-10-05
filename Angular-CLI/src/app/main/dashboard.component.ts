@@ -1,4 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { TenantService } from '../services/tenant.service';
+import { Tenant, Profile } from '../Models/profile.model';
+import { HandleError } from '../helpers/error.utility';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,13 +9,17 @@ import { Component, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  tenantInfo: Tenant = new Tenant();
   currentDateTime: Date;
 
-  constructor(private elementRef: ElementRef) { 
+  constructor(private elementRef: ElementRef,
+    private tenantService: TenantService) {
     this.utcTime();
+    this.tenantInfo.orgProfile = new Profile();
   };
 
   ngOnInit() {
+    this.getTenantInfo();
   }
 
   ngAfterViewInit() {
@@ -34,9 +41,26 @@ export class DashboardComponent implements OnInit {
     this.elementRef.nativeElement.appendChild(s);
   }
 
+  private getTenantInfo() {
+    try {
+      this.tenantService._getTenantProfile()
+        .then(result => {
+          if (result.status == 1)
+            this.tenantInfo = result.data;
+        },
+        error => {
+          HandleError.handle(error);
+        });
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
+  }
+
+
   private utcTime() {
     setInterval(() => {
-        this.currentDateTime = new Date();
+      this.currentDateTime = new Date();
     }, 1000);
-}
+  }
 }

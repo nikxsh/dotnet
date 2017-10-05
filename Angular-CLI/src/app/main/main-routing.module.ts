@@ -22,7 +22,6 @@ import { InventoryWipComponent } from './inventory/inventorywip.component';
 import { InventoryWorkflowComponent } from './inventory/inventoryworkflow.component';
 import { ManageInventoryComponent } from './inventory/manageinventory.component';
 import { AuthGuard } from '../auth.guard';
-import { PasswordChangeComponent } from './users/passwordchange.component';
 
 const routes: Routes = [
   {
@@ -33,12 +32,7 @@ const routes: Routes = [
   {
     path: 'main',
     component: DashboardComponent,
-    children: [
-      {
-          path: 'changePassword',
-          component: PasswordChangeComponent,
-          canActivate: [AuthGuard]
-      },
+    children: [      
       {
         path: 'dashboard',
         component: IndexComponent,

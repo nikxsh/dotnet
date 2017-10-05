@@ -47,18 +47,17 @@ export class LoginComponent implements OnInit {
       this.loginLoader = true;
       this.authenticationService._login(this.loginRequest)
         .then(data => {
-
-          this.loginLoader = false;
           if (data.isAuthenticated && data.jwToken) {
 
             this.storageService._setAuthInfo(data);
 
             if (data.isFirstLogin)
-              this.router.navigate(['app/changePassword']);
+              this.router.navigate(['login/changePassword']);
             else
-              this.router.navigate(['app/main/index']);
+              this.router.navigate(['app/main/dashboard']);
           }
           else {
+            this.loginLoader = false;
             this.message.text = data.message;
             this.message.type = 2;
           }

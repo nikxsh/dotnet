@@ -35,7 +35,7 @@
                                         </a>
                     <ul class="dropdown-menu pull-right" role="menu">
                       <li *ngIf="item.isEnable">
-                        <a href="javascript:void(0);" (click)="editContact(item.id);AddEditContactModal.open();">Edit</a>
+                        <a href="javascript:void(0);" (click)="editContact(item.id);openModal(AddEditContactModal);">Edit</a>
                       </li>
                       <li>
                         <a href="javascript:void(0);" (click)="enableDisableContact(item.id)">Mark as {{ item.isEnable ? 'Inactive' : 'Active' }}</a>

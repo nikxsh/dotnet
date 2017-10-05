@@ -64,8 +64,21 @@ span.tab {
     line-height: 5px;
 }
 
+.no-padding{
+    padding: 0px;
+}
+
+.font-small
+{
+    font-size: small;
+}
+
+.panel-header-height{
+    min-height: 6vh;    
+}
+
 .panel-body-no-padding {
-    height: 78vh;
+    height: 79vh;
 }
 
 .panel-body-no-padding-no-header {
@@ -80,22 +93,13 @@ span.tab {
     height: 75vh;
 }
 
-.no-padding{
-    padding: 0px;
-}
-
-.font-small
-{
-    font-size: small;
-}
-
 .panel-footer-custom{
     padding: 5px 7px;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    min-height: 8vh;
+    min-height: 7vh;
 }
 
 @media screen and (max-width:767px) {
@@ -249,6 +253,10 @@ tbody.Custom-tbody-invoice > tr > td {
 }
 .adjustSidebar {
     margin-top: 50px;
+}
+
+.navbar-header-height{
+    height: 8vh;
 }
 
 .navbar-top-links {

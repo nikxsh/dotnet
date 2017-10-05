@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
-import { LoginRequest } from '../../Models/login.model';
-import { AuthenticationService } from '../../services/auth.service';
-import { LocalStorageService } from '../../services/storage.service';
-import { matchingPasswords } from '../../helpers/validators.utility';
+import { LoginRequest } from '../Models/login.model';
+import { AuthenticationService } from '../services/auth.service';
+import { LocalStorageService } from '../services/storage.service';
+import { matchingPasswords } from '../helpers/validators.utility';
 
 
 @Component({

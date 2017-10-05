@@ -48,7 +48,7 @@ export class PasswordResetComponent implements OnInit {
                     this.resetPasswordLoader = false;
                     if (data) {
                         this.storageService._removeAuthInfo();
-                        this.router.navigate(['app/login']);
+                        this.router.navigate(['login/init']);
                     }
                     else
                         this.resetPasswordMessage = 'Unable to process the request';
