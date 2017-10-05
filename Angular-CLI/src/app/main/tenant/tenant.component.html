@@ -69,13 +69,12 @@
       </div>
       <hr>
     </div>
-    <div class="panel-footer min-height-footer">
+    <div class="panel-footer-custom">
       <div class="col-lg-6">
         <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
       </div>
-      <div class="col-lg-6 pull-right"> 
-        <input type="submit" class="btn btn-sm btn-primary" value="Edit Profile" (click)="openModal(ProfileModal); editProfile();"
-        />
+      <div class="col-lg-6"> 
+        <input type="submit" class="btn btn btn-primary  pull-right" value="Edit Profile" (click)="openModal(ProfileModal); editProfile();"/>
       </div>
     </div>
   </div>

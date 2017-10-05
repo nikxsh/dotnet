@@ -75,7 +75,7 @@ export class KeyValuePair {
 
 export class MessageHandler {
     constructor(
-        public text: string = undefined,
+        public text: string = '',
         public type: MessageType = MessageType.Success,
         public isGlobal: boolean = true
     )

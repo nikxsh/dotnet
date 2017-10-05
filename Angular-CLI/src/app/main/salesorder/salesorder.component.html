@@ -3,7 +3,7 @@
     <div class="panel-heading">
       {{ title }}
     </div>
-    <div class="panel-body-no-padding-no-footer">
+    <div class="panel-body-no-padding">
       <div class="table-responsive">
         <table class="table">
           <tr>
@@ -51,16 +51,16 @@
                       <td width="10%"></td>
                       <td>
                         <div class="col-lg-12">
-                          <table class="table table-bordered">
+                          <table class="table table-bordered font-small">
                             <thead>
                               <tr>
                                 <th>
                                   Billing Address
-                                  <a href="javascript:void(0);" class="pull-right" (click)="EditBillingAddressModal.open()">Edit</a>
+                                  <a href="javascript:void(0);" class="pull-right" (click)="openModal(EditBillingAddressModal,1)">Edit</a>
                                 </th>
                                 <th>
                                   Shipping Address
-                                  <a href="javascript:void(0);" class="pull-right" (click)="EditShippingAddressModal.open()">Edit</a>
+                                  <a href="javascript:void(0);" class="pull-right" (click)="openModal(EditShippingAddressModal,2)">Edit</a>
                                 </th>
                               </tr>
                             </thead>
@@ -96,9 +96,9 @@
             </td>
           </tr>
           <tr>
-            <td style="margin:0;padding:0;overflow:scroll;">
+            <td style="padding:0%;overflow:scroll;">
               <form role="form" #SalesOrderItemsForm="ngForm" data-toggle="validator">
-                <table class="table table-bordered">
+                <table class="table-bordered font-small">
                   <thead class="Custom-thead-invoice">
                     <tr>
                       <th class="table-invoice-menu">
@@ -198,13 +198,13 @@
             </td>
           </tr>
           <tr>
-            <td valign="middle">
+            <td valign="bottom">
               <div>
                 <div class="col-lg-2">
                   <button class="btn btn-default" (click)="saveSalesOrder()" [disabled]="!(SalesOrderDetailsForm.form.valid && SalesOrderItemsForm.form.valid && salesOrderModel.totalAmount > 0)">Save</button>
                 </div>
                 <div class="col-lg-6">
-                  <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+                  <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert alert-height':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group input-group pull-right">
@@ -219,9 +219,6 @@
                 </div>
               </div>
             </td>
-          </tr>
-          <tr>
-            <td></td>
           </tr>
         </table>
       </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './main/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren:'./login/login.module#LoginModule'
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
   

@@ -1,0 +1,255 @@
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{ title }}
+        </div>
+        <div class="panel-body-no-padding">
+            <table>
+                <tr>
+                    <td width="20%" valign="top">
+                        <table class="table table-hover">
+                            <tbody class="Custom-tbody-left-sidebar">
+                                <tr *ngFor="let item of lstPurchaseOrders;let i = index" [attr.data-index]="i" [ngClass]="{active: selectedPurchaseOrderIndex === i }">
+                                    <td>
+                                        <a href="javascript:void(0);" (click)="getPurchaseOrderById(item.id, i);"><b>#{{ item.purchaseOrderNumber }}</b><br />{{ item.vendorName }}</a>
+                                        <div class="pull-right" *ngIf="item.status == 0">
+                                            <div class="btn-group">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                    <i class="fa fa-gear fa-fw"></i>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li>
+                                                        <a [routerLink]="['../editpurchaseorder', item.id]" routerLinkActive="active"> Edit</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" (click)="openModal(RemovePurchaseOrderModal,2);removePurchaseOrder(item.id);">Remove</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td valign="top">
+                        <div class="panel panel-default">
+                            <div class="panel-body-no-padding">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#purchaseorder" data-toggle="tab">Purchase Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="#purchasereceive" data-toggle="tab">Purchase Receive</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" *ngIf="lstPurchaseOrders.length > 0">
+                                    <div class="tab-pane fade in active" id="purchaseorder">
+                                        <div #PurchaseOrderContainer id="print-purchaseorder"></div>
+                                    </div>
+                                    <div class="tab-pane fade" id="purchasereceive">
+                                        <br />
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div class="col-lg-6">
+                                                            <button class="btn btn-default" (click)="onAddPurchaseReceiveClick();openModal(AddViewPurchaseOrderModal,1);">Add Purchase Receive</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <br />
+                                                        <table class="table table-bordered font-small">
+                                                            <thead class="Custom-thead">
+                                                                <tr>
+                                                                    <th width="5%">#</th>
+                                                                    <th>Receive Number</th>
+                                                                    <th>Receive Date</th>
+                                                                    <th></th>
+                                                                    <th width="5%"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody class="Custom-tbody-sales-invoices">
+                                                                <tr *ngFor="let item of purchaseOrderModel.purchaseReceive; let i = index" [attr.data-index]="i">
+                                                                    <td width="5%">{{i + 1}}</td>
+                                                                    <td><a href="javascript:void(0);" (click)="viewPurchaseReceive(item.receiveNumber);AddViewPurchaseOrderModal.open();">{{  item.receiveNumber }}</a></td>
+                                                                    <td>{{  item.receivedOnDate | date : 'yyyy-MM-dd' }}</td>
+                                                                    <td>
+                                                                        <div *ngIf="item.billId == undefined">
+                                                                            <a [routerLink]="['../addbill',purchaseOrderModel.id, item.receiveNumber]" routerLinkActive="active"> Create Bill</a>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td width="5%" align="center">
+                                                                        <div class="btn-group" *ngIf="item.billId == undefined">
+                                                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                <i class="fa fa-gear fa-fw"></i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                                                <li>
+                                                                                    <a href="javascript:void(0);" (click)="removePurchaseReceive(item.receiveNumber)">Remove</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer-custom">
+            <div class="col-lg-4">
+                <div class="input-group custom-search-form">
+                    <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert alert-height':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-primary pull-right" (click)="print()" [disabled]="lstPurchaseOrders.length <= 0">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #AddViewPurchaseOrderModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Purchase Receive</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="addViewPurchaseOrderModalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+         </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <form role="form" #PurchaseOrderItemsForm="ngForm" data-toggle="validator">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td valign="top">
+                                    <div class="col-lg-12">
+                                        <label>Receive Number</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" [(ngModel)]="purchaseOrderReceiveModel.receiveNumber" name="referenceNumber" #referenceNumber="ngModel" required [disabled]="readOnlyRow">
+                                            <!--pattern="[a-zA-Z0-9\-]{0,20}"
+                                            <span class='form-text error' *ngIf="referenceNumber.dirty && referenceNumber.hasError('pattern')">Use only letters (a-z) & dash.</span>-->
+                                        </div>
+                                    </div>
+                                </td>
+                                <td valign="top">
+                                    <div class="col-lg-12">
+                                        <label>Receive Date</label>
+                                        <div class="form-group">
+                                            <input type="date" class="form-control" [(ngModel)]="purchaseOrderReceiveModel.receivedOnDate" name="purchaseOrderDate" required [disabled]="readOnlyRow">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="margin:0;padding:0;">
+                                    <table class="table table-bordered">
+                                        <thead class="Custom-thead">
+                                            <tr>
+                                                <th class="table-invoice-menu">
+                                                    #
+                                                </th>
+                                                <th class="table-invoice-name">Name</th>
+                                                <th class="table-invoice-qty">Quantity</th>
+                                                <th class="table-invoice-qty" *ngIf="!readOnlyRow">Received</th>
+                                                <th class="table-invoice-qty">Quantity {{ readOnlyRow ? 'Received' : 'To Receive' }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="Custom-tbody-purchase-receive">
+                                            <tr *ngFor="let item of purchaseOrderReceiveModel.receiveLineItem; let i = index" [attr.data-index]="i">
+                                                <td class="table-invoice-menu">
+                                                    {{i + 1}}
+                                                </td>
+                                                <td class="table-invoice-name">
+                                                    <input type="text" class="form-control input-sm" [(ngModel)]="item.productName" name="productName_{{i}}" disabled required>
+                                                </td>
+                                                <td class="table-invoice-qty">
+                                                    <input type="text" class="form-control input-sm" [(ngModel)]="item.quantity" name="quantity_{{i}}" disabled required>
+                                                </td>
+                                                <td class="table-invoice-qty" *ngIf="!readOnlyRow">
+                                                    <input type="text" class="form-control input-sm" [(ngModel)]="item.received" name="received_{{i}}" disabled required>
+                                                </td>
+                                                <td class="table-invoice-qty">
+                                                    <input type="number" class="form-control input-sm" [(ngModel)]="item.quantityToReceive" name="quantityToReceive{{i}}" required [disabled]="readOnlyRow || item.quantityToReceive == 0" (ngModelChange)="onQuantityChange(i)">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-lg-12">
+            <button *ngIf="!readOnlyRow" class="btn btn-primary" (click)="addPurchaseReceive()" [disabled]="PurchaseOrderItemsForm.form.invalid">
+                <span *ngIf="!progressing">Save</span>
+                <span *ngIf="progressing">
+                    <img src="../../Content/images/ajax-loader.gif" />
+                </span>
+            </button>
+            <button *ngIf="!readOnlyRow" class="btn btn-primary" (click)="onAddPurchaseReceiveClick()">Reset</button>
+            <button class="btn btn-primary" (click)="addViewPurchaseOrderModalRef.hide();">Close</button>
+        </div>
+        <div class="col-lg-12">
+            <br />
+            <p *ngIf="message.text != '' && !message.isGlobal" [ngClass]="{'alert alert-danger': message.type == 2 }" style="justify-content:center;">{{message.text }}</p>
+        </div>
+    </div>
+  </ng-template>
+
+<ng-template #RemovePurchaseOrderModal>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Remove Invoice</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="removePurchaseOrderModalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+         </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-12">
+          <input type="hidden" [(ngModel)]="paymentModel.id" name="id" />          
+          Are you sure you want to permanently remove this Purchase Order?
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="col-lg-6">
+        <button class="btn btn-primary pull-right" (click)="deleteInvoice();removePurchaseOrderModalRef.hide()">
+                  <span *ngIf="!progressing">Remove</span>
+                  <span *ngIf="progressing">
+                      <img src="../../Content/images/ajax-loader.gif" />
+                  </span>
+        </button>
+      </div>
+      <div class="col-lg-6">
+        <button class="btn btn-primary pull-left" (click)="removePurchaseOrderModalRef.hide()">Close</button>
+      </div>
+      <div class="col-lg-12">
+        <p *ngIf="message.text != '' && !message.isGlobal" [ngClass]="{'alert alert-danger': message.type == 2 }" style="justify-content:center;">{{message.text }}</p>
+      </div>
+    </div>
+  </ng-template>

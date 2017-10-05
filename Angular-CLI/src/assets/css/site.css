@@ -21,7 +21,8 @@ span.tab {
 }
 
 #page-wrapper {
-    height: 100vh;
+    margin-top: 8vh;
+    height: 92vh;
     padding-right: 0px;
     padding-left: 40px;
     background-color: white;
@@ -51,18 +52,52 @@ span.tab {
         padding-left: 0px;
         transition: all .4s ease 0s;
     }
+.modal-avg {
+    width: 600px;
+}
 
-.min-height-footer{
-    min-height: 8vh;
+.modal-avg-x1 {
+    width: 800px;
+}
+
+.alert-height{
+    line-height: 5px;
 }
 
 .panel-body-no-padding {
     height: 78vh;
 }
 
-.modal-avg{
-    width: 800px;
+.panel-body-no-padding-no-header {
+    height: 74vh;
 }
+
+.panel-body-no-padding-no-footer {
+    height: 80vh;
+}
+
+.panel-body-no-padding-inventory{
+    height: 75vh;
+}
+
+.no-padding{
+    padding: 0px;
+}
+
+.font-small
+{
+    font-size: small;
+}
+
+.panel-footer-custom{
+    padding: 5px 7px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    min-height: 8vh;
+}
+
 @media screen and (max-width:767px) {
 
     #wrapper.active {
@@ -83,13 +118,13 @@ a.disabled {
 
 .Custom-tbody-left-sidebar {
     display: block;
-    height: 75vh;
+    height: 78vh;
     overflow-y: scroll;
 }
 
 .Custom-tbody {
     display: block;
-    height: 70vh;
+    height: 72vh;
     overflow-y: scroll;
 }   
 
@@ -121,9 +156,10 @@ thead tr, tbody tr {
 
 .Custom-tbody-invoice {
     display: block;
-    height: 32vh;
+    height: 33vh;
     width: 1600px;
     border: none;
+    overflow: hidden;
 }
 
 .Custom-tbody-invoice-payments {
@@ -148,6 +184,12 @@ thead tr, tbody tr {
 .Custom-tbody-inventory {
     display: block;
     height: 58vh;
+    overflow-y: scroll;
+}
+
+.Custom-tbody-inventory-wip {
+    display: block;
+    height: 74vh;
     overflow-y: scroll;
 }
 
@@ -176,7 +218,7 @@ tbody.Custom-tbody-purchase-receive > tr > td {
 
 .Custom-tbody-workflow {
     display: block;
-    height: 65vh;
+    height: 66vh;
     overflow-y: scroll;
 }
 

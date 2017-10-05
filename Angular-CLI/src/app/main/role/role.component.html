@@ -8,7 +8,7 @@
         <table>
           <tr>
             <td width="25%" valign="top">
-              <table class="table">
+              <table class="table font-small">
                 <tbody class="Custom-tbody-left-sidebar">
                   <tr *ngFor="let role of roleList;let i = index" [attr.data-index]="i" [ngClass]="{active: selectedRoleIndex === i }">
                     <td valign="top" class="list-group-item">
@@ -72,7 +72,7 @@
         </table>
       </div>
     </div>
-    <div class="panel-footer">
+    <div class="panel-footer-custom">
       <div class="col-lg-4">
         <div class="input-group custom-search-form">
           <span class="input-group-addon">

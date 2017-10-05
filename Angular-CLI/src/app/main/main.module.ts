@@ -33,6 +33,20 @@ import { InvoiceService } from '../services/invoice.service';
 import { InvoiceTableComponent } from './invoice/invoicetable.component';
 import { SalesOrderComponent } from './salesorder/salesorder.component';
 import { SalesOrderService } from '../services/salesorder.service';
+import { PurchaseOrderService } from '../services/purchaseorder.service';
+import { BillService } from '../services/bill.service';
+import { BillComponent } from './bill/bill.component';
+import { BillTableComponent } from './bill/billtable.component';
+import { PurchaseOrderComponent } from './purchaseorder/purchaseorder.component';
+import { PurchaseOrderTableComponent } from './purchaseorder/purchaseordertable.component';
+import { SalesOrderTableComponent } from './salesorder/salesordertable.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { ManageInventoryComponent } from './inventory/manageinventory.component';
+import { InventoryWorkflowComponent } from './inventory/inventoryworkflow.component';
+import { InventoryWipComponent } from './inventory/inventorywip.component';
+import { InventoryService } from '../services/inventory.service';
+import { PasswordChangeComponent } from './users/passwordchange.component';
+import { AuthGuard } from '../auth.guard';
 
 @NgModule({
   imports: [
@@ -59,7 +73,17 @@ import { SalesOrderService } from '../services/salesorder.service';
     ProductCategoriesComponent,
     InvoiceComponent,
     InvoiceTableComponent,
-    SalesOrderComponent
+    SalesOrderComponent,
+    SalesOrderTableComponent,
+    BillComponent,
+    BillTableComponent,
+    PurchaseOrderComponent,    
+    PurchaseOrderTableComponent, 
+    InventoryComponent, 
+    ManageInventoryComponent, 
+    InventoryWorkflowComponent, 
+    InventoryWipComponent, 
+    PasswordChangeComponent
   ],
   providers:[
     UserService,
@@ -69,6 +93,10 @@ import { SalesOrderService } from '../services/salesorder.service';
     ProductService,
     InvoiceService,
     SalesOrderService,
+    BillService,
+    PurchaseOrderService,
+    InventoryService,
+    AuthGuard,
     CommonService,
     {
         provide: Http,

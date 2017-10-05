@@ -12,6 +12,17 @@ import { ProductCategoriesComponent } from './product/productcategories.componen
 import { InvoiceComponent } from './invoice/invoice.component';
 import { InvoiceTableComponent } from './invoice/invoicetable.component';
 import { SalesOrderComponent } from './salesorder/salesorder.component';
+import { BillComponent } from './bill/bill.component';
+import { BillTableComponent } from './bill/billtable.component';
+import { PurchaseOrderTableComponent } from './purchaseorder/purchaseordertable.component';
+import { PurchaseOrderComponent } from './purchaseorder/purchaseorder.component';
+import { SalesOrderTableComponent } from './salesorder/salesordertable.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { InventoryWipComponent } from './inventory/inventorywip.component';
+import { InventoryWorkflowComponent } from './inventory/inventoryworkflow.component';
+import { ManageInventoryComponent } from './inventory/manageinventory.component';
+import { AuthGuard } from '../auth.guard';
+import { PasswordChangeComponent } from './users/passwordchange.component';
 
 const routes: Routes = [
   {
@@ -24,57 +35,145 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
+          path: 'changePassword',
+          component: PasswordChangeComponent,
+          canActivate: [AuthGuard]
+      },
+      {
         path: 'dashboard',
-        component: IndexComponent
+        component: IndexComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'users',
-        component: UserComponent
+        component: UserComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'oprofile',
-        component: TenantComponent
+        component: TenantComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'contacts/:type',
-        component: ContactComponent
+        component: ContactComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'roles',
-        component: RoleComponent
+        component: RoleComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'products',
-        component: ProductComponent
+        component: ProductComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'pcategories',
-        component: ProductCategoriesComponent
+        component: ProductCategoriesComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'addinvoice',
-        component: InvoiceComponent
+        component: InvoiceComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'addinvoice/sale/:saleId',
-        component: InvoiceComponent
+        component: InvoiceComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'editinvoice/:id',
-        component: InvoiceComponent
+        component: InvoiceComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'editinvoice/:id/:saleId',
-        component: InvoiceComponent
+        component: InvoiceComponent,
+        canActivate: [AuthGuard]
       },
       {
           path: 'invoices',
-          component: InvoiceTableComponent
+          component: InvoiceTableComponent,
+          canActivate: [AuthGuard]
       },
       {
           path: 'addsalesorder',
-          component: SalesOrderComponent
+          component: SalesOrderComponent,
+          canActivate: [AuthGuard]
       },
+      {
+          path: 'editsalesorder/:id',
+          component: SalesOrderComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'salesorders',
+          component: SalesOrderTableComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'addbill',
+          component: BillComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'addbill/:purchaseId/:recieveNumber',
+          component: BillComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'editbill/:id',
+          component: BillComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'editbill/:id/:purchaseId/:recieveNumber',
+          component: BillComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'bills',
+          component: BillTableComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'addpurchaseorders',
+          component: PurchaseOrderComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'editpurchaseorder/:id',
+          component: PurchaseOrderComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'purchaseorders',
+          component: PurchaseOrderTableComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'invdashboard',
+          component: InventoryComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'wipinvdashboard',
+          component: InventoryWipComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'invworkflow',
+          component: InventoryWorkflowComponent,
+          canActivate: [AuthGuard]
+      },
+      {
+          path: 'invmanage',
+          component: ManageInventoryComponent,
+          canActivate: [AuthGuard]
+      }
     ]
   }
 ];

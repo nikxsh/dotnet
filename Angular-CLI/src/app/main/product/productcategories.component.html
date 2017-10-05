@@ -8,7 +8,7 @@
         <table>
           <tr>
             <td width="20%" valign="top">
-              <table class="table table-hover">
+              <table class="table table-hover font-small">
                 <tbody class="Custom-tbody-left-sidebar">
                   <tr *ngFor="let category of lstProductCategories;let i = index" [attr.data-index]="i" [ngClass]="{active: selectedProductCategoryIndex === i }">
                     <td>
@@ -44,7 +44,7 @@
         </table>
       </div>
     </div>
-    <div class="panel-footer">
+    <div class="panel-footer-custom">
       <div class="col-lg-4">
         <div class="input-group custom-search-form">
           <span class="input-group-addon">
