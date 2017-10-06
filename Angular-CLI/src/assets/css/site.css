@@ -52,12 +52,13 @@ span.tab {
         padding-left: 0px;
         transition: all .4s ease 0s;
     }
+
 .modal-avg {
     width: 600px;
 }
 
-.modal-avg-x1 {
-    width: 800px;
+.modal-XL {
+    width: 1200px;
 }
 
 .alert-height{

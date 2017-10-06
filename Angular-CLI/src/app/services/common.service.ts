@@ -23,7 +23,7 @@ export class CommonService {
 
     public _getCountries(): Observable<ValueObjectPair[]> {
 
-        let url = this.baseUrl + 'Selectedcountries.json';
+        let url = this.baseUrl + 'SelectedCountries.json';
 
         return this.httpRef.get(url)
             .map(response => response.json() as ValueObjectPair[]);

@@ -19,7 +19,9 @@ import { HandleError } from '../../helpers/error.utility';
   styleUrls: ['./tenant.component.css']
 })
 export class TenantComponent implements OnInit {
+
   private profileModalRef: BsModalRef;
+  private uploadLogoModalRef: BsModalRef;
   private Title = "Orgnisational Profile";
   private progressing: boolean = false;
   private file: File;
@@ -198,11 +200,11 @@ export class TenantComponent implements OnInit {
       .then(result => {
         if (result.status == 1) {
           this.logoURL = getLogoURL(result.data) + '?' + getFormattedDateTime(new Date().toString());
+          this.uploadLogoModalRef.hide();
         }
-        this.profileModalRef.hide();
       },
       error => {
-        this.profileModalRef.hide();
+        this.uploadLogoModalRef.hide();
         HandleError.handle(error);
       });
   }
@@ -222,6 +224,15 @@ export class TenantComponent implements OnInit {
   public openModal(template: TemplateRef<any>) {
     try {
       this.profileModalRef = this.modalServiceRef.show(template, { class: 'modal-avg' });
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
+  }
+
+  public openLogoModal(template: TemplateRef<any>) {
+    try {
+      this.uploadLogoModalRef = this.modalServiceRef.show(template, { class: 'modal-sm' });
     }
     catch (e) {
       HandleError.handle(e);

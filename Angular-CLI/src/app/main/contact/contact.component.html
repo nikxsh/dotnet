@@ -83,7 +83,6 @@
        </button>
   </div>
   <div class="modal-body">
-
     <div class="row">
       <form role="form" #AddEditContactForm="ngForm" data-toggle="validator">
         <div class="tab-content">
@@ -410,7 +409,7 @@
       <button type="button" class="btn btn-primary" [disabled]="!AddEditContactForm.form.valid || !AddEditContactForm.dirty" (click)="saveContact()">
             <span *ngIf="!progressing">Save</span>
             <span *ngIf="progressing">
-                <img src="../../Content/images/ajax-loader.gif" />
+                <img src="../../../assets/img/ajax-loader.gif" />
             </span>
         </button>
       <button type="button" class="btn btn-warning" (click)="onReset();">Reset</button>
