@@ -174,7 +174,7 @@
             <div class="col-lg-6">
                 <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert alert-height':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
             </div>
-            <div class="col-lg-1">
+            <div class="col-lg-2">
                 <button class="btn btn-primary pull-right" (click)="print()" [disabled]="lstBills.length <= 0">Print</button>
             </div>
         </div>
