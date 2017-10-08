@@ -136,9 +136,18 @@
                 <tr *ngFor="let item of inventoryWorkflowModel.inputProducts; let i = index" [attr.data-index]="i">
                   <td class="table-invoice-menu" align="center">{{i + 1}}</td>
                   <td class="table-invoice-name">
-                    <input type="text" class="form-control input-sm" (selectItem)="onProductSelection($event,i)" [ngbTypeahead]="searchInputProducts"
-                      [resultFormatter]="productResultFormatter" [inputFormatter]="productInputFormatter" required value="{{item.name}}"
-                    />
+                    <input [(ngModel)]="selectedProduct"
+                    name = "selectedProduct"
+                    [typeahead]="productDataSource" 
+                    (typeaheadLoading)="changeProuctTypeaheadLoading($event)" 
+                    (typeaheadNoResults)="changeProuctTypeaheadNoResults($event)"
+                    (typeaheadOnSelect)="productTypeheadOnSelect($event,i)" 
+                    typeaheadOptionsLimit="7" 
+                    typeaheadOptionField="productName"
+                    typeaheadMinLength="3" 
+                    class="form-control input-sm" 
+                    required
+                    minlength="3"/>
                   </td>
                   <td class="table-invoice-code">
                     <input type="text" class="form-control input-sm" [(ngModel)]="item.code" name="in_code_{{i}}" required disabled>
@@ -181,9 +190,18 @@
                 <tr *ngFor="let item of inventoryWorkflowModel.outputProducts; let i = index" [attr.data-index]="i">
                   <td class="table-invoice-menu" align="center">{{i + 1}}</td>
                   <td class="table-invoice-name">
-                    <input type="text" class="form-control input-sm" (selectItem)="onProductSelection($event,i, false)" [ngbTypeahead]="searchOutputProducts"
-                      [resultFormatter]="productResultFormatter" [inputFormatter]="productInputFormatter" required value="{{item.name}}"
-                    />
+                    <input [(ngModel)]="selectedProduct"
+                    name = "selectedProduct"
+                    [typeahead]="productDataSource" 
+                    (typeaheadLoading)="changeProuctTypeaheadLoading($event)" 
+                    (typeaheadNoResults)="changeProuctTypeaheadNoResults($event)"
+                    (typeaheadOnSelect)="productTypeheadOnSelect($event,i,false)" 
+                    typeaheadOptionsLimit="7" 
+                    typeaheadOptionField="productName"
+                    typeaheadMinLength="3" 
+                    class="form-control input-sm" 
+                    required
+                    minlength="3"/>
                   </td>
                   <td class="table-invoice-code">
                     <input type="text" class="form-control input-sm" [(ngModel)]="item.code" name="out_code_{{i}}" required disabled>
@@ -217,7 +235,7 @@
         (click)="saveWorkflow()">
             <span *ngIf="!progressing">Save</span>
             <span *ngIf="progressing">
-                <img src="../../Content/images/ajax-loader.gif" />
+                <img src="../../../assets/img/ajax-loader.gif" />
             </span>
         </button>
       <button class="btn btn-warning" (click)="onReset();">Reset</button>
@@ -245,7 +263,7 @@
       <button class="btn btn-primary pull-right" (click)="deleteWorkflow();removeWorkFlowModalRef.hide();">
                   <span *ngIf="!progressing">Remove</span>
                   <span *ngIf="progressing">
-                      <img src="../../Content/images/ajax-loader.gif" />
+                      <img src="../../../assets/img/ajax-loader.gif" />
                   </span>
               </button>
     </div>

@@ -19,6 +19,7 @@ import { ProductService } from '../../services/product.service';
 import * as Global from '../../global'
 import { getUoms } from '../../helpers/common.utility';
 import { HandleError } from '../../helpers/error.utility';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 @Component({
   selector: 'app-manageinventory',
@@ -34,6 +35,16 @@ export class ManageInventoryComponent implements OnInit {
   addEditOutputForm: FormControl
 
   private addEditWIPWorkflowModalRef: BsModalRef;
+
+  private productDataSource: any;
+  private productTypeaheadNoResults: boolean;
+  private productTypeaheadLoading: boolean;
+  private selectedProduct: string;
+
+  private workflowDataSource: any;
+  private workflowTypeaheadNoResults: boolean;
+  private workflowTypeaheadLoading: boolean;
+  
   private title: string = "Manage Inventory";
   private progressing: boolean = false;
   private message: MessageHandler = new MessageHandler();
@@ -53,6 +64,21 @@ export class ManageInventoryComponent implements OnInit {
     private modalServiceRef: BsModalService) {
     this.lstInventoryWorkflows = [];
     this.inventoryWorkflowModel = new InventoryWorkflow();
+
+    this.productDataSource = Observable
+    .create((observer: any) => {
+      // Runs on every search
+      observer.next(this.selectedProduct);
+    })
+    .mergeMap((token: string) => this.getProductInfo(token));
+
+    
+    this.workflowDataSource = Observable
+    .create((observer: any) => {
+      // Runs on every search
+      observer.next(this.inventoryWorkflowModel.name);
+    })
+    .mergeMap((token: string) => this.getWorkflows(token));
   }
 
   ngOnInit() {
@@ -139,25 +165,12 @@ export class ManageInventoryComponent implements OnInit {
     }
   }
 
-  private productResultFormatter = (result: Product) => result.productName + " (" + result.description + ")";
-  private productInputFormatter = (result: Product) => result.productName;
-
-  private searchInputProducts = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getProductInfo(term).slice(0, 10));
-
-  private searchOutputProducts = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getProductInfo(term, false).slice(0, 10));
-
-  private getProductInfo(input, isInputProduct = true) {
+  private getProductInfo(token): Observable<any> {
+    let query = new RegExp(token, 'ig');
     try {
       var request = new ProductPagingRequest();
-      request.filter.push(new Filter("name", input));
+      request.filter.push(new Filter("name", token));
       request.isEnable = true;
-
-      if (isInputProduct)
-        request.existingProductIds = this.inventoryWorkflowModel.inputProducts.filter(n => n.id != null || n.id != undefined).map(x => x.id);
 
       this.productService._getProducts(request)
         .then(result => {
@@ -175,30 +188,87 @@ export class ManageInventoryComponent implements OnInit {
     catch (e) {
       HandleError.handle(e);
     }
-    return this.lstProductHeads.filter(x => !this.inventoryWorkflowModel.inputProducts.some(p => p.id == x.id));
+
+    return Observable.of(this.lstProductHeads.filter((product: Product) => {
+      return query.test(product.productName);
+    }));
+  }
+  
+  public changeProuctTypeaheadLoading(e: boolean): void {
+    this.productTypeaheadLoading = e;
   }
 
-  private onProductSelection(selectedProduct, index, isInputProduct = true) {
+  public changeProuctTypeaheadNoResults(e: boolean): void {
+    this.productTypeaheadNoResults = e;
+  }
+
+  public productTypeheadOnSelect(e: TypeaheadMatch, index, isInputProduct = true): void {
     try {
       if (isInputProduct) {
         let product = this.inventoryWorkflowModel.inputProducts[index];
-        product.id = selectedProduct.item.id;
-        product.name = selectedProduct.item.productName;
-        product.code = selectedProduct.item.productCode;
-        product.uom = selectedProduct.item.uom;
+        product.id = e.item.id;
+        product.name = e.item.productName;
+        product.code = e.item.skuCode;
+        product.uom = e.item.uom;
       }
       else {
         let product = this.inventoryWorkflowModel.outputProducts[index];
-        product.id = selectedProduct.item.id;
-        product.name = selectedProduct.item.productName;
-        product.code = selectedProduct.item.productCode;
-        product.uom = selectedProduct.item.uom;
+        product.id = e.item.id;
+        product.name = e.item.productName;
+        product.code = e.item.skuCode;
+        product.uom = e.item.uom;
       }
     }
     catch (e) {
       HandleError.handle(e);
     }
   }
+  
+  private getWorkflows(token) : Observable<any> {
+    let query = new RegExp(token, 'ig');
+    try {
+      var request = new PagingRequest();
+      request.filter.push(new Filter("name", token));
+      request.isEnable = true;
+
+      this.inventoryService._getInventoryWorkflowsTypeHeads(request)
+        .then(result => {
+          if (result.status == 1)
+            this.lstWorkflowHeads = result.data;
+          else {
+            this.message.text = result.message;
+            this.message.type = 2;
+          }
+        },
+        error => {
+          HandleError.handle(error);
+        });
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
+    return Observable.of(this.lstWorkflowHeads.filter((workflow: InventoryWorkflow) => {
+      return query.test(workflow.name);
+    }));
+  }
+
+  public changeworkflowTypeaheadLoading(e: boolean): void {
+    this.workflowTypeaheadLoading = e;
+  }
+
+  public changeworkflowTypeaheadNoResults(e: boolean): void {
+    this.workflowTypeaheadNoResults = e;
+  }
+
+  public workflowTypeheadOnSelect(e: TypeaheadMatch): void {
+    try {
+      this.issueWorkflowWIP = false;
+      this.getWorkflowById(e.item.id);
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
+  } 
 
   private addItem(isInputProduct = true) {
     try {
@@ -220,48 +290,6 @@ export class ManageInventoryComponent implements OnInit {
       else
         this.inventoryWorkflowModel.outputProducts.splice(index, 1);
 
-    }
-    catch (e) {
-      HandleError.handle(e);
-    }
-  }
-
-  private workflowResultFormatter = (result: InventoryWorkflow) => result.name;
-  private workflowInputFormatter = (result: InventoryWorkflow) => result.name;
-
-  private searchWorkflows = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getWorkflows(term).slice(0, 10));
-
-  private getWorkflows(input) {
-    try {
-      var request = new PagingRequest();
-      request.filter.push(new Filter("name", input));
-      request.isEnable = true;
-
-      this.inventoryService._getInventoryWorkflowsTypeHeads(request)
-        .then(result => {
-          if (result.status == 1)
-            this.lstWorkflowHeads = result.data;
-          else {
-            this.message.text = result.message;
-            this.message.type = 2;
-          }
-        },
-        error => {
-          HandleError.handle(error);
-        });
-    }
-    catch (e) {
-      HandleError.handle(e);
-    }
-    return this.lstWorkflowHeads;
-  }
-
-  private onWorkflowSelection(selectedWorkflow) {
-    try {
-      this.issueWorkflowWIP = false;
-      this.getWorkflowById(selectedWorkflow.item.id);
     }
     catch (e) {
       HandleError.handle(e);

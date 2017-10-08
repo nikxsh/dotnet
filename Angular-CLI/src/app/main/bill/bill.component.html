@@ -43,9 +43,25 @@
                         <div class="col-lg-12">
                           <label>Vendor Name</label>
                           <div class="form-group">
-                            <input type="text" class="form-control" (selectItem)="onCustomerSelection($event)" [ngbTypeahead]="searchCustomers" [resultFormatter]="customerResultFormatter"
-                              [inputFormatter]="customerInputFormatter" value="{{billModel.vendorInfo.companyName}}" required
-                            />
+                              <input [(ngModel)]="billModel.vendorName" 
+                              [typeahead]="vendorDataSource" 
+                              (typeaheadLoading)="changeVendorTypeaheadLoading($event)" 
+                              (typeaheadNoResults)="changeVendorTypeaheadNoResults($event)"
+                              (typeaheadOnSelect)="vendorTypeheadOnSelect($event)" 
+                              typeaheadOptionsLimit="7" 
+                              typeaheadOptionField="companyName"
+                              typeaheadMinLength="3" 
+                              placeholder="Select customer name" 
+                              class="form-control" 
+                              name="customerName" 
+                              required
+                              minlength="3"/>
+                            <div *ngIf="vendorTypeaheadLoading===true">
+                              <i class="glyphicon glyphicon-refresh ng-hide"></i>
+                            </div>
+                            <div *ngIf="vendorTypeaheadNoResults===true">
+                              <i class="glyphicon glyphicon-remove"></i> No Results Found
+                            </div>
                           </div>
                         </div>
                         <div class="col-lg-6">
@@ -117,9 +133,19 @@
                     <tr *ngFor="let item of billModel.products; let i = index" [attr.data-index]="i">
                       <td class="table-invoice-menu">{{i + 1}}</td>
                       <td class="table-invoice-name">
-                        <input type="text" class="form-control input-sm" (selectItem)="onProductSelection($event,i)" [ngbTypeahead]="searchProducts"
-                          [resultFormatter]="productResultFormatter" [inputFormatter]="productInputFormatter" [disabled]="isDisabled"
-                          name="productName_{{i}}" value="{{item.productName}}" required />
+                          <input [(ngModel)]="selectedProduct"
+                          name = "selectedProduct"
+                          [typeahead]="productDataSource" 
+                          (typeaheadLoading)="changeProuctTypeaheadLoading($event)" 
+                          (typeaheadNoResults)="changeProuctTypeaheadNoResults($event)"
+                          (typeaheadOnSelect)="productTypeheadOnSelect($event,i)" 
+                          typeaheadOptionsLimit="7" 
+                          typeaheadOptionField="productName"
+                          typeaheadMinLength="3" 
+                          class="form-control input-sm" 
+                          required
+                          minlength="3"
+                          [disabled]="isDisabled"/>
                       </td>
                       <td class="table-invoice-type">
                         <select class="form-control input-sm" [(ngModel)]="item.productType" name="productType_{{i}}" required [disabled]="isDisabled">

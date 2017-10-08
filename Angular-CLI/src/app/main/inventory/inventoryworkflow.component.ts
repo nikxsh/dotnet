@@ -19,6 +19,7 @@ import { ProductService } from '../../services/product.service';
 import * as Global from '../../global'
 import { getUoms } from '../../helpers/common.utility';
 import { HandleError } from '../../helpers/error.utility';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 @Component({
   selector: 'app-inventoryworkflow',
@@ -36,6 +37,12 @@ export class InventoryWorkflowComponent implements OnInit {
 
   private addWorkflowModalRef: BsModalRef;
   private removeWorkFlowModalRef: BsModalRef;
+
+  private productDataSource: any;
+  private productTypeaheadNoResults: boolean;
+  private productTypeaheadLoading: boolean;
+  private selectedProduct: string;
+
   private title: string = "Inventory Workflow";
   private progressing: boolean = false;
   private message: MessageHandler = new MessageHandler();
@@ -54,6 +61,14 @@ export class InventoryWorkflowComponent implements OnInit {
     private modalServiceRef: BsModalService) {
     this.lstInventoryWorkflows = [];
     this.inventoryWorkflowModel = new InventoryWorkflow();
+    
+    this.productDataSource = Observable
+    .create((observer: any) => {
+      // Runs on every search
+      observer.next(this.selectedProduct);
+    })
+    .mergeMap((token: string) => this.getProductInfo(token));
+    
   }
 
   ngOnInit() {
@@ -182,25 +197,12 @@ export class InventoryWorkflowComponent implements OnInit {
     }
   }
 
-  private productResultFormatter = (result: Product) => result.productName + " (" + result.description + ")";
-  private productInputFormatter = (result: Product) => result.productName;
-
-  private searchInputProducts = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getProductInfo(term).slice(0, 10));
-
-  private searchOutputProducts = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getProductInfo(term, false).slice(0, 10));
-
-  private getProductInfo(input, isInputProduct = true) {
+  private getProductInfo(token): Observable<any> {
+    let query = new RegExp(token, 'ig');
     try {
       var request = new ProductPagingRequest();
-      request.filter.push(new Filter("name", input));
+      request.filter.push(new Filter("name", token));
       request.isEnable = true;
-
-      if (isInputProduct)
-        request.existingProductIds = this.inventoryWorkflowModel.inputProducts.filter(n => n.id != null || n.id != undefined).map(x => x.id);
 
       this.productService._getProducts(request)
         .then(result => {
@@ -218,24 +220,35 @@ export class InventoryWorkflowComponent implements OnInit {
     catch (e) {
       HandleError.handle(e);
     }
-    return this.lstProductHeads.filter(x => !this.inventoryWorkflowModel.inputProducts.some(p => p.id == x.id));
+
+    return Observable.of(this.lstProductHeads.filter((product: Product) => {
+      return query.test(product.productName);
+    }));
+  }
+  
+  public changeProuctTypeaheadLoading(e: boolean): void {
+    this.productTypeaheadLoading = e;
   }
 
-  private onProductSelection(selectedProduct, index, isInputProduct = true) {
+  public changeProuctTypeaheadNoResults(e: boolean): void {
+    this.productTypeaheadNoResults = e;
+  }
+
+  public productTypeheadOnSelect(e: TypeaheadMatch, index, isInputProduct = true): void {
     try {
       if (isInputProduct) {
         let product = this.inventoryWorkflowModel.inputProducts[index];
-        product.id = selectedProduct.item.id;
-        product.name = selectedProduct.item.productName;
-        product.code = selectedProduct.item.skuCode;
-        product.uom = selectedProduct.item.uom;
+        product.id = e.item.id;
+        product.name = e.item.productName;
+        product.code = e.item.skuCode;
+        product.uom = e.item.uom;
       }
       else {
         let product = this.inventoryWorkflowModel.outputProducts[index];
-        product.id = selectedProduct.item.id;
-        product.name = selectedProduct.item.productName;
-        product.code = selectedProduct.item.skuCode;
-        product.uom = selectedProduct.item.uom;
+        product.id = e.item.id;
+        product.name = e.item.productName;
+        product.code = e.item.skuCode;
+        product.uom = e.item.uom;
       }
     }
     catch (e) {

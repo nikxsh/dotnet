@@ -24,6 +24,7 @@ import { LocalStorageService } from '../../services/storage.service';
 import * as Global from '../../global'
 import { getLogoURL, getFormattedDateTime, getFormattedDate } from '../../helpers/common.utility';
 import { HandleError } from '../../helpers/error.utility';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 @Component({
   selector: 'app-bill',
@@ -39,14 +40,24 @@ export class BillComponent implements OnInit {
   BillItemsForm: FormControl
 
   private billingAddressModalRef: BsModalRef;
+
+  private vendorDataSource: any;
+  private vendorTypeaheadNoResults: boolean;
+  private vendorTypeaheadLoading: boolean;
+
+  private productDataSource: any;
+  private productTypeaheadNoResults: boolean;
+  private productTypeaheadLoading: boolean;
+  private selectedProduct: string;
+
   private title: string = 'Create Bill';
   private lstStates: Array<ValueObjectPair> = [];
   private lstCountries: Array<ValueObjectPair> = [];
-  private lstCusomerHeads: Array<Catalogue> = [];
+  private lstVendorHeads: Array<Catalogue> = [];
   private lstProductHeads: Array<Product> = [];
   private billingAddressModel: Address = new Address();
   private showIGST: boolean = false;
-  private isCustomerSelected: boolean = false;
+  private isVendorSelected: boolean = false;
   private billModel: Bill;
   private apiMessage: string;
   private isNewBill: boolean = true;
@@ -65,6 +76,20 @@ export class BillComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private modalServiceRef: BsModalService) {
+
+    this.vendorDataSource = Observable
+      .create((observer: any) => {
+        // Runs on every search
+        observer.next(this.billModel.vendorName);
+      })
+      .mergeMap((token: string) => this.getVendorInfo(token));
+
+    this.productDataSource = Observable
+      .create((observer: any) => {
+        // Runs on every search
+        observer.next(this.selectedProduct);
+      })
+      .mergeMap((token: string) => this.getProductInfo(token));
   }
 
   ngOnInit(): void {
@@ -212,58 +237,6 @@ export class BillComponent implements OnInit {
     return Math.round(total);
   }
 
-  private customerResultFormatter = (result: Catalogue) => result.companyName;
-  private customerInputFormatter = (result: Catalogue) => result.companyName;
-
-  private searchCustomers = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getCustomerInfo(term).slice(0, 10));
-
-  private getCustomerInfo(input) {
-    try {
-      var request = new PagingRequest(0, 100);
-      request.isEnable = true;
-      request.filter.push(new Filter("companyname", input));
-
-      this.tenantService._getVendorContacts(request)
-        .then(result => {
-          if (result.status == 1) {
-            this.lstCusomerHeads = result.data;
-          }
-          else
-            this.apiMessage = result.message;
-        },
-        error => {
-          HandleError.handle(error);
-        });
-    }
-    catch (e) {
-      HandleError.handle(e);
-    }
-    return this.lstCusomerHeads;
-  }
-
-  private onCustomerSelection(data) {
-    try {
-      if (!this.isPurchaseRecieveBill)
-        this.isDisabled = false;
-      else
-        this.isDisabled = true;
-
-      var info = (data.item as Catalogue);
-      Object.assign(this.billModel.vendorInfo, info);
-      Object.assign(this.billingAddressModel, this.billModel.vendorInfo.billingAddress);
-      this.billModel.vendorInfo.gstin = info.gstin;
-      this.manipulateTaxWindow();
-
-
-    }
-    catch (e) {
-      HandleError.handle(e);
-    }
-  }
-
-
   private manipulateTaxWindow() {
     try {
       var tenantStateCode = this.billModel.tenantInfo.orgProfile.gstin.substr(0, 2).toUpperCase();
@@ -279,17 +252,65 @@ export class BillComponent implements OnInit {
     }
   }
 
-  private productResultFormatter = (result: Product) => result.productName + " (" + result.description + ")";
-  private productInputFormatter = (result: Product) => result.productName;
+  private getVendorInfo(token): Observable<any> {
+    let query = new RegExp(token, 'ig');
+    try {
+      var request = new PagingRequest(0, 100);
+      request.isEnable = true;
+      request.filter.push(new Filter("companyname", token));
 
-  private searchProducts = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getProductInfo(term).slice(0, 10));
+      this.tenantService._getVendorContacts(request)
+        .then(result => {
+          if (result.status == 1) {
+            this.lstVendorHeads = result.data;
+          }
+          else
+            this.apiMessage = result.message;
+        },
+        error => {
+          HandleError.handle(error);
+        });
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
 
-  private getProductInfo(input) {
+    return Observable.of(this.lstVendorHeads.filter((vendor: Catalogue) => {
+      return query.test(vendor.companyName);
+    }));
+  }
+
+  public changeVendorTypeaheadLoading(e: boolean): void {
+    this.vendorTypeaheadLoading = e;
+  }
+
+  public changeVendorTypeaheadNoResults(e: boolean): void {
+    this.vendorTypeaheadNoResults = e;
+  }
+
+  public vendorTypeheadOnSelect(e: TypeaheadMatch): void {
+    try {
+      if (!this.isPurchaseRecieveBill)
+        this.isDisabled = false;
+      else
+        this.isDisabled = true;
+
+      var info = (e.item as Catalogue);
+      Object.assign(this.billModel.vendorInfo, info);
+      Object.assign(this.billingAddressModel, this.billModel.vendorInfo.billingAddress);
+      this.billModel.vendorInfo.gstin = info.gstin;
+      this.manipulateTaxWindow();
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
+  }
+  
+  private getProductInfo(token): Observable<any> {
+    let query = new RegExp(token, 'ig');
     try {
       var request = new ProductPagingRequest(this.billModel.products.filter(n => n.id != null || n.id != undefined).map(x => x.id));
-      request.filter.push(new Filter("name", input));
+      request.filter.push(new Filter("name", token));
       request.isEnable = true;
 
       this.productService._getProducts(request)
@@ -308,24 +329,35 @@ export class BillComponent implements OnInit {
     catch (e) {
       HandleError.handle(e);
     }
-    return this.lstProductHeads.filter(x => !this.billModel.products.some(p => p.id == x.id));
+
+    return Observable.of(this.lstProductHeads.filter((product: Product) => {
+      return query.test(product.productName);
+    }));
+  }
+  
+  public changeProuctTypeaheadLoading(e: boolean): void {
+    this.productTypeaheadLoading = e;
   }
 
-  private onProductSelection(selectedProduct, index) {
+  public changeProuctTypeaheadNoResults(e: boolean): void {
+    this.productTypeaheadNoResults = e;
+  }
+
+  public productTypeheadOnSelect(e: TypeaheadMatch, index): void {
     try {
       let product = this.billModel.products[index];
-      product.id = selectedProduct.item.id;
-      product.productName = selectedProduct.item.productName;
-      product.productType = selectedProduct.item.productType;
-      product.productCode = selectedProduct.item.productCode;
-      product.uom = selectedProduct.item.uom;
-      product.skuCode = selectedProduct.item.skuCode;
+      product.id = e.item.id;
+      product.productName = e.item.productName;
+      product.productType = e.item.productType;
+      product.productCode = e.item.productCode;
+      product.uom = e.item.uom;
+      product.skuCode = e.item.skuCode;
       if (this.showIGST) {
-        product.igstSlab = selectedProduct.item.taxSlab;
+        product.igstSlab = e.item.taxSlab;
       }
       else {
-        product.cgstSlab = selectedProduct.item.taxSlab / 2;
-        product.sgstSlab = selectedProduct.item.taxSlab / 2;
+        product.cgstSlab = e.item.taxSlab / 2;
+        product.sgstSlab = e.item.taxSlab / 2;
       }
     }
     catch (e) {
@@ -386,7 +418,7 @@ export class BillComponent implements OnInit {
             this.manipulateTaxWindow();
 
             if (this.billModel.vendorInfo.companyName != undefined || this.billModel.vendorInfo.companyName != "")
-              this.isCustomerSelected = true;
+              this.isVendorSelected = true;
           }
           else {
             this.message.text = result.message;
