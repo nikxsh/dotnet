@@ -42,10 +42,24 @@
                       <td valign="top" width="40%">
                         <div class="col-lg-12">
                           <label>Customer Name</label>
-                          <div class="form-group">
-                            <input type="text" class="form-control" (selectItem)="onCustomerSelection($event)" [ngbTypeahead]="searchCustomers" [resultFormatter]="customerResultFormatter"
-                              [inputFormatter]="customerInputFormatter" value="{{invoiceModel.customerInfo.companyName}}" required
-                            />
+                           <div class="form-group">
+                            <input [(ngModel)]="invoiceModel.customerName" 
+                              [typeahead]="customerDataSource" 
+                              (typeaheadLoading)="changeCustomerTypeaheadLoading($event)" 
+                              (typeaheadNoResults)="changeCustomerTypeaheadNoResults($event)"
+                              (typeaheadOnSelect)="typeaheadOnSelect($event)" 
+                              typeaheadOptionsLimit="7" 
+                              typeaheadOptionField="companyName"
+                              typeaheadMinLength="3" 
+                              placeholder="Select customer name" 
+                              class="form-control" 
+                              name="customerName" />
+                            <div *ngIf="customerTypeaheadLoading===true">
+                              <i class="glyphicon glyphicon-refresh ng-hide"></i>
+                            </div>
+                            <div *ngIf="customerTypeaheadNoResults===true">
+                              <i class="glyphicon glyphicon-remove"></i> No Results Found
+                            </div>
                           </div>
                         </div>
                         <div class="col-lg-6">
@@ -103,7 +117,7 @@
             </td>
           </tr>
           <tr>
-            <td style="padding:0%;overflow:scroll;">
+            <td style="padding:0%;overflow:scroll;" valign="top">
               <form role="form" #InvoiceItemsForm="ngForm" data-toggle="validator">
                 <table class="table-bordered font-small">
                   <thead class="Custom-thead-invoice">
@@ -213,7 +227,7 @@
             </td>
           </tr>
           <tr>
-            <td valign="bottom">
+            <td valign="top">
               <div>
                 <div class="col-lg-2">
                   <button class="btn btn-default" (click)="saveInvoice()" [disabled]="!(InvoiceDetailsForm.form.valid && InvoiceItemsForm.form.valid && invoiceModel.totalAmount > 0)">Save</button>

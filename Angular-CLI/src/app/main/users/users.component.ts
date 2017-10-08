@@ -102,7 +102,7 @@ export class UserComponent implements OnInit {
             this.progressing = false;
 
             if (result.status == 1) {
-              this.lstUsers.push(new UserResponse(result.data.id,result.data));
+              this.lstUsers.push(result.data);
               this.addEditUserModalRef.hide();
               this.message.isGlobal = true;
               this.message.text = Global.UI_ADD_SUCCESS.replace('{0}', 'User');

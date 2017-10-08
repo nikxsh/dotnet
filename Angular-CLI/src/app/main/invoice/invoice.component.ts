@@ -23,6 +23,7 @@ import { InvoiceService } from '../../services/invoice.service';
 import * as Global from '../../global'
 import { getLogoURL, getFormattedDateTime, getFormattedDate } from '../../helpers/common.utility';
 import { HandleError } from '../../helpers/error.utility';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 @Component({
   selector: 'app-invoice',
@@ -30,6 +31,7 @@ import { HandleError } from '../../helpers/error.utility';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent implements OnInit {
+
   @ViewChild("InvoiceDetailsForm")
   invoiceDetailsForm: FormControl
 
@@ -38,6 +40,11 @@ export class InvoiceComponent implements OnInit {
 
   private billingAddressModalRef: BsModalRef;
   private shippingAddressModalRef: BsModalRef;
+
+  private customerDataSource: any;
+  private customerTypeaheadNoResults: boolean;
+  private customerTypeaheadLoading: boolean;
+
   private title: string = 'Create Invoice';
   private lstStates: Array<ValueObjectPair> = [];
   private lstCountries: Array<ValueObjectPair> = [];
@@ -64,6 +71,14 @@ export class InvoiceComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private modalServiceRef: BsModalService) {
+
+    this.customerDataSource = Observable
+      .create((observer: any) => {
+        // Runs on every search
+        observer.next(this.invoiceModel.customerName);
+      })
+      .mergeMap((token: string) => this.getCustomerInfo(token));
+      
   }
 
   ngOnInit(): void {
@@ -216,18 +231,12 @@ export class InvoiceComponent implements OnInit {
     return Math.round(total);
   }
 
-  private customerResultFormatter = (result: Catalogue) => result.companyName;
-  private customerInputFormatter = (result: Catalogue) => result.companyName;
-
-  private searchCustomers = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getCustomerInfo(term).slice(0, 10));
-
-  private getCustomerInfo(input) {
+  private getCustomerInfo(token): Observable<any> {
+    let query = new RegExp(token, 'ig');
     try {
       var request = new PagingRequest(0, 100);
       request.isEnable = true;
-      request.filter.push(new Filter("companyname", input));
+      request.filter.push(new Filter("companyname", token));
 
       this.tenantService._getCustomerContacts(request)
         .then(result => {
@@ -244,13 +253,24 @@ export class InvoiceComponent implements OnInit {
     catch (e) {
       HandleError.handle(e);
     }
-    return this.lstCusomerHeads;
+
+    return Observable.of(this.lstCusomerHeads.filter((customer: Catalogue) => {
+      return query.test(customer.companyName);
+    }));
   }
 
-  private onCustomerSelection(data) {
+  public changeCustomerTypeaheadLoading(e: boolean): void {
+    this.customerTypeaheadLoading = e;
+  }
+
+  public changeCustomerTypeaheadNoResults(e: boolean): void {
+    this.customerTypeaheadNoResults = e;
+  }
+
+  public typeaheadOnSelect(e: TypeaheadMatch): void {    
     try {
       this.isCustomerSelected = true;
-      var info = (data.item as Catalogue);
+      var info = (e.item as Catalogue);
       Object.assign(this.invoiceModel.customerInfo, info);
       Object.assign(this.billingAddressModel, this.invoiceModel.customerInfo.billingAddress);
       Object.assign(this.shippingAddressModel, this.invoiceModel.customerInfo.shippingAddress);

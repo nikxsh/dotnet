@@ -36,7 +36,7 @@
                 </tbody>
               </table>
             </td>
-            <td width="70%">
+            <td width="70%" valign="top">
               <form #AddEditPermissionForm="ngForm">
                 <table class="table table-bordered table-hover">
                   <thead class="Custom-thead">
@@ -82,11 +82,13 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+        <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert alert-height':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 btn-group">
         <button class="btn btn-primary" (click)="onRoleSelection(roleModel.id, selectedRoleIndex)">Cancel</button>
-        <button class="btn btn-primary" (click)="savePermissionForRole()" [disabled]="!AddEditPermissionForm.dirty">Update Permissions</button>
+        <button class="btn btn-primary" (click)="savePermissionForRole()" [disabled]="!AddEditPermissionForm.dirty">
+            Update Permissions
+        </button>
         <button class="btn btn-primary" (click)="openModal(AddEditRoleModal);addRole();">Add Role</button>
       </div>
     </div>
@@ -127,7 +129,7 @@
       <button class="btn btn-primary" [disabled]="!AddEditRoleForm.form.valid" (click)="saveRole()">
             <span *ngIf="!progressing">Save</span>
             <span *ngIf="progressing">
-                <img src="../../Content/images/ajax-loader.gif" />
+                <img src="../../../assets/img/ajax-loader.gif" />
             </span>
         </button>
       <button class="btn btn-warning" (click)="onReset();">Reset</button>

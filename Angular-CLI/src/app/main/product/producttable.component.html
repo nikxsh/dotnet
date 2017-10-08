@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table table-hover font-small">
         <thead class="Custom-thead">
             <tr>
                 <th width="4%"></th>
@@ -34,7 +34,7 @@
 
                             <ul class="dropdown-menu pull-right" role="menu">
                                 <li *ngIf="item.isEnable">
-                                    <a href="javascript:void(0);" (click)="edit(item.id);openModal(modal);">Edit</a>
+                                    <a href="javascript:void(0);" (click)="edit(item.id)">Edit</a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);" (click)="enableDisable(item.id)">Mark as {{ item.isEnable ? 'Inactive' : 'Active' }}</a>

@@ -20,7 +20,7 @@
           <tbody class="Custom-tbody">
             <tr *ngFor="let item of lstUsers">
               <td width="7%">
-                <img class="center-block" src="../../Content/images/default-avatar-sm.jpg" height="50" width="50" />
+                <img class="center-block" src="../../../assets/img/default-avatar-sm.jpg" height="50" width="50" />
               </td>
               <td>{{ item.user.userName }} <br />
                 <p [style.color]="!item.user.isEnable ? 'red' : 'green'">{{ item.user.isEnable ? 'Active' : 'Inactive' }}</p>
@@ -37,7 +37,7 @@
                                       </a>
                     <ul class="dropdown-menu pull-right" role="menu">
                       <li *ngIf="item.user.isEnable">
-                        <a href="javascript:void(0);" (click)="editUser(item.id);AddEditUserModal.open();">Edit</a>
+                        <a href="javascript:void(0);" (click)="editUser(item.id);openModal(AddEditUserModal);">Edit</a>
                       </li>
                       <li>
                         <a href="javascript:void(0);" (click)="enableDisableUser(item.id)">Mark as {{ item.user.isEnable ? 'Inactive' : 'Active' }}</a>
@@ -177,14 +177,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <div class="col-lg-5">
+        <div class="col-lg-4">
           <p *ngIf="message.text != '' && !message.isGlobal" [ngClass]="{'alert alert-danger': message.type == 2 }" style="justify-content:center;">{{message.text }}</p>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           <button type="button" class="btn btn-primary" [disabled]="!addEditUserForm.valid" (click)="saveUser()">
                   <span *ngIf="!progressing">Save</span>
                   <span *ngIf="progressing">
-                      <img src="../../../assets/img/ajax-loader.gif />
+                      <img src="../../../assets/img/ajax-loader.gif " />
                   </span>
               </button>
           <button type="button" class="btn btn-warning" (click)="onReset()">Reset</button>

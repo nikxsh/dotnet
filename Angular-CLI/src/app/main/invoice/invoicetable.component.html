@@ -102,11 +102,11 @@
                             <td colspan="2">
                               <div class="col-lg-6">
                                 <button class="btn btn-default" (click)="payInvoiceAmount()" [disabled]="!(InvoicePaymentForm.form.valid && paymentModel.amount <= unpaidAmount && paymentModel.amount > 0)">
-                                                                    <span *ngIf="!progressing">Pay</span>
-                                                                    <span *ngIf="progressing">
-                                                                        <img src="../../Content/images/ajax-loader.gif" />
-                                                                    </span>
-                                                                </button>
+                                        <span *ngIf="!progressing">Pay</span>
+                                        <span *ngIf="progressing">
+                                            <img src="../../../assets/img/ajax-loader.gif" />
+                                        </span>
+                                    </button>
                                 <button class="btn btn-default btn-warning" (click)="ResetInvoiceAmount()">Reset</button>
                               </div>
                             </td>
@@ -197,7 +197,7 @@
       <button class="btn btn-primary pull-right" (click)="deleteInvoice();removeItemModalRef.hide()">
                 <span *ngIf="!progressing">Remove</span>
                 <span *ngIf="progressing">
-                    <img src="../../Content/images/ajax-loader.gif" />
+                    <img src="../../../assets/img/ajax-loader.gif" />
                 </span>
       </button>
     </div>

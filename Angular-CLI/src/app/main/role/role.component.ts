@@ -280,8 +280,8 @@ export class RoleComponent implements OnInit {
                   }
                   else {
                       this.message.text = result.message;
-                      this.addEditPermissionForm.reset();
                       this.message.type = 2;
+                      this.addEditPermissionForm.reset();
                       this.roleModel.modulePermissions = this.deepCopyPermissionData(this.checkPermissions);
                       this.updatedPermissions.splice(0, this.updatedPermissions.length);
                   }

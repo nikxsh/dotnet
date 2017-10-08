@@ -23,7 +23,7 @@
                                                     </a>
                           <ul class="dropdown-menu pull-right" role="menu">
                             <li *ngIf="category.isEnable">
-                              <a href="javascript:void(0);" (click)="renameCategory(category.id);AddProductCategoryModal.open();">Rename</a>
+                              <a href="javascript:void(0);" (click)="renameCategory(category.id);openModal(AddProductCategoryModal);">Rename</a>
                             </li>
                             <li>
                               <a href="javascript:void(0);" (click)="enableDisableProductCategory(category.id)">Mark as {{ category.isEnable ? 'Inactive' : 'Active' }}</a>
@@ -36,7 +36,7 @@
                 </tbody>
               </table>
             </td>
-            <td valign="middle">
+            <td valign="top">
               <app-producttable [products]="lstProducts" [flag]="false">
               </app-producttable>
             </td>
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+        <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert alert-height':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
       </div>
       <div class="col-lg-4">
         <button class="btn btn-primary pull-right" (click)="openModal(AddProductCategoryModal);addCategory();">Add Product Category</button>
@@ -97,7 +97,7 @@
       <button type="button" class="btn btn-primary" [disabled]="!AddProductCategoryForm.form.valid" (click)="saveProductCategory()">
             <span *ngIf="!progressing">Save</span>
             <span *ngIf="progressing">
-                <img src="../../Content/images/ajax-loader.gif" />
+                <img src="../../../assets/img/ajax-loader.gif" />
             </span>
         </button>
       <button type="button" class="btn btn-warning" (click)="onReset(productCategoryModel.id);">Reset</button>

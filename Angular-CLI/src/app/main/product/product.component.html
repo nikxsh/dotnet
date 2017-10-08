@@ -4,7 +4,7 @@
             {{title}}
         </div>
         <div class="panel-body-no-padding">
-            <app-producttable [products]="lstProducts" [modal]="AddEditProductModal" (OnEditClick)="editProduct($event)" (OnEnableDisableClick)="enableDisableProduct($event)"></app-producttable>
+            <app-producttable [products]="lstProducts" [template]="AddEditProductModal" (OnEditClick)="editProduct($event)" (OnEnableDisableClick)="enableDisableProduct($event)"></app-producttable>
         </div>
         <div class="panel-footer-custom">
             <div class="col-lg-4">
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
+                <p *ngIf="message.text != '' && message.isGlobal" [ngClass]="{'alert alert-height':true,'alert-success': message.type == 1, 'alert-danger': message.type == 2,'alert-warning': message.type == 3}">{{message.text}}</p>
             </div>
             <div class="col-lg-4">
                 <button class="btn btn-primary pull-right" (click)="openModal(AddEditProductModal);addProduct();"  [disabled]="lstProductCategories.length <= 0">Add Product</button>
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<ng-template #AddEditProductModal class="modal-avg">
+<ng-template #AddEditProductModal>
     <div class="modal-header">
       <h4 class="modal-title pull-left">{{ isNewProduct? 'Add' : 'Edit' }} Product</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="productModalRef.hide()">
@@ -191,7 +191,7 @@
             <button type="button" class="btn btn-primary" [disabled]="!AddEditProductForm.form.valid" (click)="saveProduct()">
                 <span *ngIf="!progressing">Save</span>
                 <span *ngIf="progressing">
-                    <img src="../../Content/images/ajax-loader.gif" />
+                    <img src="../../../assets/img/ajax-loader.gif" />
                 </span>
             </button>
             <button type="button" class="btn btn-warning" (click)="onReset(productModel.id);">Reset</button>

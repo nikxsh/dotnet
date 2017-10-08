@@ -25,13 +25,13 @@ export class UserService {
             .catch(HandleError.handle);
     }
 
-    public _addUser(request: User): Promise<ResponseBase<User>> {
+    public _addUser(request: User): Promise<ResponseBase<UserResponse>> {
 
         let body = JSON.stringify(request);
 
         return this.httpRef.post(Global.API_ADD_USER, body)
             .toPromise()
-            .then(response => response.json() as ResponseBase<User>)
+            .then(response => response.json() as ResponseBase<UserResponse>)
             .catch(HandleError.handle);
     }
 

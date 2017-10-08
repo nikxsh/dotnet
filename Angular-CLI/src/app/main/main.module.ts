@@ -5,6 +5,7 @@ import { Http, XHRBackend, RequestOptions, HttpModule } from '@angular/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 
 import { MainRoutingModule } from './main-routing.module';
@@ -57,7 +58,8 @@ import { AuthGuard } from '../auth.guard';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    TypeaheadModule.forRoot()
   ],
   declarations: [
     ContactComponent, 

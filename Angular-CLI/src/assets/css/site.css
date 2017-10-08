@@ -123,13 +123,13 @@ a.disabled {
 
 .Custom-tbody-left-sidebar {
     display: block;
-    height: 78vh;
+    height: 79vh;
     overflow-y: scroll;
 }
 
 .Custom-tbody {
     display: block;
-    height: 72vh;
+    height: 74vh;
     overflow-y: scroll;
 }   
 
@@ -161,7 +161,7 @@ thead tr, tbody tr {
 
 .Custom-tbody-invoice {
     display: block;
-    height: 33vh;
+    height: 34vh;
     width: 1600px;
     border: none;
     overflow: hidden;
@@ -217,7 +217,7 @@ tbody.Custom-tbody-purchase-receive > tr > td {
 
 .Custom-tbody-roles {
     display: block;
-    height: 70vh;
+    height: 73vh;
     overflow-y: scroll;
 }
 
