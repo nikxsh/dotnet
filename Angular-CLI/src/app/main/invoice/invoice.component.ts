@@ -45,6 +45,11 @@ export class InvoiceComponent implements OnInit {
   private customerTypeaheadNoResults: boolean;
   private customerTypeaheadLoading: boolean;
 
+  private productDataSource: any;
+  private productTypeaheadNoResults: boolean;
+  private productTypeaheadLoading: boolean;
+  private selectedProduct: string;
+
   private title: string = 'Create Invoice';
   private lstStates: Array<ValueObjectPair> = [];
   private lstCountries: Array<ValueObjectPair> = [];
@@ -78,7 +83,13 @@ export class InvoiceComponent implements OnInit {
         observer.next(this.invoiceModel.customerName);
       })
       .mergeMap((token: string) => this.getCustomerInfo(token));
-      
+
+    this.productDataSource = Observable
+      .create((observer: any) => {
+        // Runs on every search
+        observer.next(this.selectedProduct);
+      })
+      .mergeMap((token: string) => this.getProductInfo(token));
   }
 
   ngOnInit(): void {
@@ -230,6 +241,21 @@ export class InvoiceComponent implements OnInit {
     }
     return Math.round(total);
   }
+  
+  private manipulateTaxWindow() {
+    try {
+      var tenantStateCode = this.invoiceModel.tenantInfo.orgProfile.gstin.substr(0, 2).toUpperCase();
+      var contactSateCode = this.invoiceModel.customerInfo.gstin.substr(0, 2).toUpperCase();
+
+      if (tenantStateCode === contactSateCode)
+        this.showIGST = false;
+      else
+        this.showIGST = true;
+    }
+    catch (e) {
+      HandleError.handle(e);
+    }
+  }
 
   private getCustomerInfo(token): Observable<any> {
     let query = new RegExp(token, 'ig');
@@ -267,7 +293,7 @@ export class InvoiceComponent implements OnInit {
     this.customerTypeaheadNoResults = e;
   }
 
-  public typeaheadOnSelect(e: TypeaheadMatch): void {    
+  public customerTypeheadOnSelect(e: TypeaheadMatch): void {
     try {
       this.isCustomerSelected = true;
       var info = (e.item as Catalogue);
@@ -282,32 +308,11 @@ export class InvoiceComponent implements OnInit {
     }
   }
 
-  private manipulateTaxWindow() {
-    try {
-      var tenantStateCode = this.invoiceModel.tenantInfo.orgProfile.gstin.substr(0, 2).toUpperCase();
-      var contactSateCode = this.invoiceModel.customerInfo.gstin.substr(0, 2).toUpperCase();
-
-      if (tenantStateCode === contactSateCode)
-        this.showIGST = false;
-      else
-        this.showIGST = true;
-    }
-    catch (e) {
-      HandleError.handle(e);
-    }
-  }
-
-  private productResultFormatter = (result: Product) => result.productName + " (" + result.description + ")";
-  private productInputFormatter = (result: Product) => result.productName;
-
-  private searchProducts = (text$: Observable<string>) =>
-    map.call(distinctUntilChanged.call(debounceTime.call(text$, 50)),
-      term => term.length < 2 ? [] : this.getProductInfo(term).slice(0, 10));
-
-  private getProductInfo(input) {
+  private getProductInfo(token): Observable<any> {
+    let query = new RegExp(token, 'ig');
     try {
       var request = new ProductPagingRequest(this.invoiceModel.products.filter(n => n.id != null || n.id != undefined).map(x => x.id));
-      request.filter.push(new Filter("name", input));
+      request.filter.push(new Filter("name", token));
       request.isEnable = true;
 
       this.productService._getProducts(request)
@@ -326,24 +331,35 @@ export class InvoiceComponent implements OnInit {
     catch (e) {
       HandleError.handle(e);
     }
-    return this.lstProductHeads.filter(x => !this.invoiceModel.products.some(p => p.id == x.id));
+
+    return Observable.of(this.lstProductHeads.filter((product: Product) => {
+      return query.test(product.productName);
+    }));
+  }
+  
+  public changeProuctTypeaheadLoading(e: boolean): void {
+    this.productTypeaheadLoading = e;
   }
 
-  private onProductSelection(selectedProduct, index) {
+  public changeProuctTypeaheadNoResults(e: boolean): void {
+    this.productTypeaheadNoResults = e;
+  }
+
+  public productTypeheadOnSelect(e: TypeaheadMatch, index): void {
     try {
       let product = this.invoiceModel.products[index];
-      product.id = selectedProduct.item.id;
-      product.productName = selectedProduct.item.productName;
-      product.productType = selectedProduct.item.productType;
-      product.productCode = selectedProduct.item.productCode;
-      product.uom = selectedProduct.item.uom;
-      product.skuCode = selectedProduct.item.skuCode;
+      product.id = e.item.id;
+      product.productName = e.item.productName;
+      product.productType = e.item.productType;
+      product.productCode = e.item.productCode;
+      product.uom = e.item.uom;
+      product.skuCode = e.item.skuCode;
       if (this.showIGST) {
-        product.igstSlab = selectedProduct.item.taxSlab;
+        product.igstSlab = e.item.taxSlab;
       }
       else {
-        product.cgstSlab = selectedProduct.item.taxSlab / 2;
-        product.sgstSlab = selectedProduct.item.taxSlab / 2;
+        product.cgstSlab = e.item.taxSlab / 2;
+        product.sgstSlab = e.item.taxSlab / 2;
       }
     }
     catch (e) {

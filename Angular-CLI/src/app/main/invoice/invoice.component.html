@@ -47,13 +47,15 @@
                               [typeahead]="customerDataSource" 
                               (typeaheadLoading)="changeCustomerTypeaheadLoading($event)" 
                               (typeaheadNoResults)="changeCustomerTypeaheadNoResults($event)"
-                              (typeaheadOnSelect)="typeaheadOnSelect($event)" 
+                              (typeaheadOnSelect)="customerTypeheadOnSelect($event)" 
                               typeaheadOptionsLimit="7" 
                               typeaheadOptionField="companyName"
                               typeaheadMinLength="3" 
                               placeholder="Select customer name" 
                               class="form-control" 
-                              name="customerName" />
+                              name="customerName" 
+                              required
+                              minlength="3"/>
                             <div *ngIf="customerTypeaheadLoading===true">
                               <i class="glyphicon glyphicon-refresh ng-hide"></i>
                             </div>
@@ -147,9 +149,19 @@
                     <tr *ngFor="let item of invoiceModel.products; let i = index" [attr.data-index]="i">
                       <td class="table-invoice-menu" align="center">{{i + 1}}</td>
                       <td class="table-invoice-name">
-                        <input type="text" class="form-control input-sm" (selectItem)="onProductSelection($event,i)" [ngbTypeahead]="searchProducts"
-                          [resultFormatter]="productResultFormatter" [inputFormatter]="productInputFormatter" required [disabled]="!isCustomerSelected ? true : null"
-                          value="{{item.productName}}" />
+                          <input [(ngModel)]="selectedProduct"
+                          name = "selectedProduct"
+                          [typeahead]="productDataSource" 
+                          (typeaheadLoading)="changeProuctTypeaheadLoading($event)" 
+                          (typeaheadNoResults)="changeProuctTypeaheadNoResults($event)"
+                          (typeaheadOnSelect)="productTypeheadOnSelect($event,i)" 
+                          typeaheadOptionsLimit="7" 
+                          typeaheadOptionField="productName"
+                          typeaheadMinLength="3" 
+                          class="form-control input-sm" 
+                          required
+                          minlength="3"
+                          [disabled]="!isCustomerSelected ? true : null"/>
                       </td>
                       <td class="table-invoice-type">
                         <select class="form-control input-sm" [(ngModel)]="item.productType" name="productType_{{i}}" required [disabled]="!isCustomerSelected ? true : null">
