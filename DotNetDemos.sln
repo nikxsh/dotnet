@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExamples", "CSharpExamples\CSharpExamples.csproj", "{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard", "Dashboard\Dashboard.csproj", "{90977B99-7A03-42BB-8B9D-E88FC5FF1CDE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiServices", "WebApiServices\WebApiServices.csproj", "{5D9E5A95-4008-4625-A51B-42359DF90250}"
 EndProject
@@ -18,31 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA-Dashboard-AJ1", "SPA-Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{B51C5D93-76EC-42D7-8750-B7B6F10A3D5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA-Dashboard-AJ2", "SPA-Dashboard-AJ2\SPA-Dashboard-AJ2.csproj", "{9AE48CA2-54FB-434E-BE5C-37B59569A751}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemSolving", "ProblemSolving\ProblemSolving.csproj", "{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}"
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Angular-CLI", "Angular-CLI\", "{4760CF2D-8F78-480A-9A62-4779954FED89}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_28803"
-		Debug.AspNetCompiler.PhysicalPath = "Angular-CLI\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28803\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_28803"
-		Release.AspNetCompiler.PhysicalPath = "Angular-CLI\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28803\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "28803"
-		SlnRelativePath = "Angular-CLI\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,12 +32,6 @@ Global
 		{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}.Test|Any CPU.Build.0 = Release|Any CPU
-		{90977B99-7A03-42BB-8B9D-E88FC5FF1CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90977B99-7A03-42BB-8B9D-E88FC5FF1CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90977B99-7A03-42BB-8B9D-E88FC5FF1CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90977B99-7A03-42BB-8B9D-E88FC5FF1CDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90977B99-7A03-42BB-8B9D-E88FC5FF1CDE}.Test|Any CPU.ActiveCfg = Release|Any CPU
-		{90977B99-7A03-42BB-8B9D-E88FC5FF1CDE}.Test|Any CPU.Build.0 = Release|Any CPU
 		{5D9E5A95-4008-4625-A51B-42359DF90250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D9E5A95-4008-4625-A51B-42359DF90250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D9E5A95-4008-4625-A51B-42359DF90250}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -88,26 +56,17 @@ Global
 		{B51C5D93-76EC-42D7-8750-B7B6F10A3D5E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B51C5D93-76EC-42D7-8750-B7B6F10A3D5E}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{B51C5D93-76EC-42D7-8750-B7B6F10A3D5E}.Test|Any CPU.Build.0 = Release|Any CPU
-		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Test|Any CPU.ActiveCfg = Release|Any CPU
-		{9AE48CA2-54FB-434E-BE5C-37B59569A751}.Test|Any CPU.Build.0 = Release|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.Build.0 = Release|Any CPU
-		{4760CF2D-8F78-480A-9A62-4779954FED89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4760CF2D-8F78-480A-9A62-4779954FED89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4760CF2D-8F78-480A-9A62-4779954FED89}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{4760CF2D-8F78-480A-9A62-4779954FED89}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{4760CF2D-8F78-480A-9A62-4779954FED89}.Test|Any CPU.ActiveCfg = Debug|Any CPU
-		{4760CF2D-8F78-480A-9A62-4779954FED89}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B09A15DE-2E81-4863-94DF-98F6B3A4F3EC}
 	EndGlobalSection
 EndGlobal
