@@ -7,8 +7,8 @@
     <ProjectGuid>{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DotNetDemos.CSharpExamples</RootNamespace>
-    <AssemblyName>CSharpExamples</AssemblyName>
+    <RootNamespace>CSharp</RootNamespace>
+    <AssemblyName>CSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
