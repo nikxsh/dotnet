@@ -75,12 +75,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\brewerydb\Brewerydb.csproj">
-      <Project>{1D426EBE-B0F6-41F6-94B5-1518C6B6AEA0}</Project>
-      <Name>Brewerydb</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
