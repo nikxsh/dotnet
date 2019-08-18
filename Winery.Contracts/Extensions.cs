@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Winery.Contracts
+namespace WineryStore.Contracts
 {
     public static class Extensions
 	{
@@ -25,15 +25,6 @@ namespace Winery.Contracts
         public static bool Contains(this string source, string token, StringComparison culture)
 		{
 			return source?.IndexOf(token, culture) >= 0;
-		}
-
-		public static ResponseBase<T> ToAdapterResponseBase<T>(this Exception ex)
-		{
-			//We can implement logger here 
-			return new ResponseBase<T>
-			{
-				Exception = ex
-			};
 		}
 
 		public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> source)
