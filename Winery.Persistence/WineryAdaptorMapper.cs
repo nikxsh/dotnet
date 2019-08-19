@@ -5,7 +5,7 @@ using WineryStore.Contracts;
 
 namespace WineryStore.Persistence
 {
-	public static class WineAdapterMapper
+	public static class WineryAdapterMapper
 	{
 		public static IEnumerable<Winery> SearchWineries(this IEnumerable<Winery> lstWineries, string token)
 		{

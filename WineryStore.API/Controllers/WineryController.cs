@@ -91,13 +91,13 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var winery = await wineryRepository.GetWinerybyIdAsync(
+				var winery = await wineryRepository.WineryExistsAsync(
 					new Contracts.Request<Guid>
 					{
 						Data = request.Id
 					});
 
-				if (winery.Result == null)
+				if (!winery.Result)
 					return NotFound("Given resource does not exists.");
 
 				var updatedWinery = await wineryRepository.UpdateWineryAsync(mapper.Map<Contracts.Winery>(request));
@@ -117,13 +117,13 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var winery = await wineryRepository.GetWinerybyIdAsync(
+				var winery = await wineryRepository.WineryExistsAsync(
 					new Contracts.Request<Guid>
 					{
 						Data = wineryId
 					});
 
-				if (winery.Result == null)
+				if (!winery.Result)
 					return NotFound("Given resource does not exists.");
 
 				WineryDTO wineryDTO = mapper.Map<WineryDTO>(winery.Result);
@@ -145,13 +145,13 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var winery = await wineryRepository.GetWinerybyIdAsync(
+				var winery = await wineryRepository.WineryExistsAsync(
 					new Contracts.Request<Guid>
 					{
 						Data = wineryId
 					});
 
-				if (winery.Result == null)
+				if (!winery.Result)
 					return NotFound("Given resource does not exists.");
 
 				var response = await wineryRepository.RemoveWineryAsync(new Contracts.Request<Guid> { Data = wineryId });

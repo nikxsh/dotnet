@@ -3,19 +3,20 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using WineryStore.API.Models;
 
 namespace WineryStore.API.Controllers
 {
-	[Route("api/winery/{wineryId}/wines")]
+	[Route("api/wines")]
 	[ApiController]
 	public class WineController : ControllerBase
 	{
-		private readonly Persistence.IWineryRepository wineryRepository;
+		private readonly Persistence.IWineRepository wineRepository;
 		private readonly IMapper mapper;
 
-		public WineController(Persistence.IWineryRepository wineryRepository, IMapper mapper)
+		public WineController(Persistence.IWineRepository wineRepository, IMapper mapper)
 		{
-			this.wineryRepository = wineryRepository;
+			this.wineRepository = wineRepository;
 			this.mapper = mapper;
 		}
 
@@ -36,7 +37,7 @@ namespace WineryStore.API.Controllers
 					Take = take,
 					Data = WineryId
 				};
-				var winesByWinery = await wineryRepository.GetAllWinesFromWineryAsync(request);
+				var winesByWinery = await wineRepository.GetAllWinesAsync(request);
 				return Ok(winesByWinery);
 			}
 			catch (Exception ex)
@@ -45,18 +46,77 @@ namespace WineryStore.API.Controllers
 			}
 		}
 
-		[HttpGet("{wineId}")]
-		public async Task<IActionResult> Get(Guid wineryId, Guid wineId)
+		[HttpGet("{wineId:Guid}")]
+		public async Task<IActionResult> Get(Guid wineId)
 		{
 			try
 			{
-				var request = new Contracts.Request<Tuple<Guid, Guid>>
+				var request = new Contracts.Request<Guid>
 				{
-					Data = new Tuple<Guid, Guid>(wineryId, wineId)
+					Data = wineId
 				};
+				var wine = await wineRepository.GetWineByIdAsync(request);
+				return Ok(wine);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+			}
+		}
 
-				var winesByWinery = await wineryRepository.GetWineFromWineryByIdAsync(request);
-				return Ok(winesByWinery);
+		[HttpPost]
+		public async Task<IActionResult> Post(WineDTO request)
+		{
+			try
+			{
+				var createdWine = await wineRepository.AddWineAsync(mapper.Map<Contracts.Wine>(request));
+				return Created($"api/wines/{createdWine.Result.Id}", createdWine);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+			}
+		}
+
+		[HttpPut]
+		public async Task<IActionResult> Put(WineDTO request)
+		{
+			try
+			{
+				var existingWine = await wineRepository.GetWineByIdAsync(
+					new Contracts.Request<Guid>
+					{
+						Data = request.Id
+					});
+
+				if (existingWine.Result == null)
+					return NotFound("Given resource does not exists.");
+
+				var udatedWine = await wineRepository.UpdateWineAsync(mapper.Map<Contracts.Wine>(request));
+				return Ok(udatedWine);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+			}
+		}
+
+		[HttpDelete("{wineId:Guid}")]
+		public async Task<IActionResult> Delete(Guid wineId)
+		{
+			try
+			{
+				var existingWine = await wineRepository.GetWineByIdAsync(
+					new Contracts.Request<Guid>
+					{
+						Data = wineId
+					});
+
+				if (existingWine.Result == null)
+					return NotFound("Given resource does not exists.");
+
+				var response = await wineRepository.RemoveWineAsync(new Contracts.Request<Guid> { Data = wineId });
+				return Ok(response);
 			}
 			catch (Exception ex)
 			{

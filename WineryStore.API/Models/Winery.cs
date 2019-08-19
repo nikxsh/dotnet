@@ -11,8 +11,6 @@ namespace WineryStore.API.Models
 		[StringLength(50)]
 		public string Name { get; set; }
 		[Required]
-		public List<WineDTO> Wines { get; set; }
-		[Required]
 		[StringLength(20)]
 		public string Region { get; set; }
 		[Required]
@@ -23,6 +21,8 @@ namespace WineryStore.API.Models
 	public class WineDTO
 	{
 		public Guid Id { get; set; }
+		[Required]
+		public Guid WineryId { get; set; }
 		[Required]
 		public string Name { get; set; }
 		[Required]

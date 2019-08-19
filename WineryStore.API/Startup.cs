@@ -25,7 +25,9 @@ namespace WineryStore.API
 
 			//https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.2#service-lifetimes
 			services.AddScoped<IWineryRepository, WineryRepository>();
+			services.AddScoped<IWineRepository, WineRepository>();
 			services.AddScoped<IWineryDataStore, InMemoryWineryDataStore>();
+			services.AddScoped<IWineDataStore, InMemoryWineDataStore>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

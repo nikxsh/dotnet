@@ -53,28 +53,6 @@ namespace WineryStore.Persistence
 			}
 		}
 
-		public async Task<Response<IEnumerable<Wine>>> GetAllWinesAsync(Request request)
-		{
-			try
-			{
-				var response = new Response<IEnumerable<Wine>>
-				{
-					Result = await DataStore.GetAllWinesAsync()
-				};
-				response.Total = response.Result.Count();
-
-				response.Result = response.Result.SearchWines(request.Token);
-				response.Result = response.Result.FilterWines(request.Filters);
-				response.Result = response.Result.SortWines(request.Sort);
-				response.Result = response.Result.Skip(request.Skip).Take(request.Take).ToList();
-				return response;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-
 		public async Task<Response<IEnumerable<Wine>>> GetAllWinesFromWineryAsync(Request<Guid> request)
 		{
 			try
@@ -148,6 +126,21 @@ namespace WineryStore.Persistence
 				{
 					Result = await DataStore.RemoveWineryAsync(request.Data),
 					Total = 0
+				};
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
+		public async Task<Response<bool>> WineryExistsAsync(Request<Guid> request)
+		{
+			try
+			{
+				return new Response<bool>
+				{
+					Result = await DataStore.WineryExistsAsync(request.Data)
 				};
 			}
 			catch (Exception ex)
