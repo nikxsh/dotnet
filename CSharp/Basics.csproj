@@ -66,17 +66,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbScripts\SqlDatabaseSetup.cs" />
-    <Compile Include="DbScripts\SqlQueries-1.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DelegateAndEvent.cs" />
-    <Compile Include="OOPBasics.cs" />
+    <Compile Include="DynamicLinq.cs" />
+    <Compile Include="Oops.cs" />
     <Compile Include="Parallelism.cs" />
     <Compile Include="DesignPatternExamples.cs" />
-    <Compile Include="DynamicLinq.cs" />
     <Compile Include="GarbageCollection.cs" />
-    <Compile Include="InterfacesExamples.cs" />
+    <Compile Include="CSharpInterfacesExamples.cs" />
     <Compile Include="LinqExamples.cs" />
     <Compile Include="ExpressionExamples.cs" />
     <Compile Include="MultiThreading.cs" />
@@ -87,7 +83,7 @@
     <Compile Include="SendAMail.cs" />
     <Compile Include="SendAnSMS.cs" />
     <Compile Include="DataStructureExamples.cs" />
-    <Compile Include="Tricky.cs" />
+    <Compile Include="Problems.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -105,8 +101,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DbScripts\Aggregate.sql" />
+    <Content Include="DbScripts\Basic.sql" />
+    <Content Include="DbScripts\Data.sql" />
+    <Content Include="DbScripts\Joins.sql" />
+    <Content Include="DbScripts\Schema.sql" />
     <Content Include="DbScripts\XML Queries.sql" />
-    <Content Include="Theory-Wcf.xml">
+    <Content Include="FrameworkTheory.txt" />
+    <Content Include="WcfTheory.xml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

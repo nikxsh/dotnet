@@ -107,7 +107,7 @@ namespace DotNetDemos.CSharpExamples
 					Console.WriteLine(state.GetData());
 				}
 
-				*/ This will give exception
+				//This will give exception
 				//var state = new UmanagedDatabaseState();
 				//Console.WriteLine(state.GetData());
 			}
