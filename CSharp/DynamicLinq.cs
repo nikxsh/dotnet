@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Threading;
 
-namespace DotNetDemos.CSharpExamples.DynamicLinq
+namespace CSharp
 {
     public static class DynamicQueryable
     {

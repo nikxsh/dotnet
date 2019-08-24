@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Linq;
 
-namespace DotNetDemos.CSharpExamples.OOPBasic
+namespace CSharp
 {
-	class OOPBasics
+	class Oops
 	{
 		public void Play()
 		{
 			//MethodHidingExample();
-			//AbstractClassExample();
+			//Polymorphism();
+			AbstractClassExample();
 			//ConstructorsExample();
 			//ClassExample();
 			//InterfaceExample();
-			LSPExample();
+			//LSPExample();
 		}
 
 		private void MethodHidingExample()
 		{
-			//---- Method Hiding
+			Console.WriteLine("-- Method Hiding --");
 			Baap obj1 = new Baap();
 			obj1.Display();
 			Beta obj2 = new Beta();
@@ -26,8 +27,34 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 			obj3.Display();
 		}
 
+		private void Polymorphism()
+		{
+			Console.WriteLine("-- Static Polymorphism (overload) --");
+			var calculator = new SimpleCalculator();
+			var sqrtOf = calculator.Calculate(155, (x) => Math.Sqrt(x));
+			Console.WriteLine($"SQRT of 155 is {sqrtOf}");
+			var divideOf = calculator.Calculate(45, 9, (x, y) => x / y);
+			Console.WriteLine($"Divide 45 by 9 is {divideOf}");
+
+
+			Console.WriteLine("-- Dynamic Polymorphism (virtual/abstract) --");
+
+			SalaryCalculator internSalaryCalculator = new InternSalaryCalculator();
+			internSalaryCalculator.CalculateTotalPay();
+			internSalaryCalculator.Print();
+
+			SalaryCalculator developerSalaryCalculator = new DeveloperSalaryCalculator();
+			developerSalaryCalculator.CalculateTotalPay();
+			developerSalaryCalculator.Print();
+
+			SalaryCalculator managerSalaryCalculator = new ManagerSalaryCalculator();
+			managerSalaryCalculator.CalculateTotalPay();
+			managerSalaryCalculator.Print();
+		}
+
 		private void LSPExample()
 		{
+			Console.WriteLine("-- LSP violation --");
 			var values = new int[] { 1, 2, 3, 4, 5 };
 
 			Total average = new Total(values);
@@ -42,47 +69,52 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 
 		private void AbstractClassExample()
 		{
-			// --- Basic constructor chaining, override and virtual
-			AbstractAccountBase savingAccount = new SavingAccount("SAVING0001", 56000, 5);
+			Console.WriteLine("-- Abstract Class --");
+			AbstractAccountBase defualtSavingAccount = new SavingAccount("SAVING0001", 10000);
+			defualtSavingAccount.DisplayAmount();
+			defualtSavingAccount.LoanApproval();
+
+			AbstractAccountBase savingAccount = new SavingAccount("SAVING0002", 56000, 5);
 			savingAccount.DisplayAmount();
 			savingAccount.LoanApproval();
+
 			SalaryAccount.TriggerForStaticConstructor = "Get out!";
-			AbstractAccountBase salaryAccount = new SalaryAccount("SALARY0001", 25000, 1);
+			AbstractAccountBase salaryAccount = new SalaryAccount("SALARY0001", 25000, 3);
 			salaryAccount.DisplayAmount();
 			salaryAccount.LoanApproval();
 		}
 
 		private void ConstructorsExample()
 		{
-			//---- Constructor Examples
-			//ProtectedBase protectedBase = new ProtectedBase(); //Will give error becuase not parameterless public constructor
+			Console.WriteLine("-- Constructors --");
+			///ProtectedBase protectedBase = new ProtectedBase(); //Will give error becuase not parameterless public constructor
 			ProtectedBase protectedChild = new ProtectedChild(); //Will work becuase of having internal constructor
 			protectedChild.value = "value"; //ProtectedBase property
-													  //InternelBase internelBase = new InternelBase();//Will give error becuase not parameterless public constructor
+													  ///InternelBase internelBase = new InternelBase();//Will give error becuase not parameterless public constructor
 			InternelBase internelChild = new InternelChild();
 			internelChild.value = "Test";
 		}
 
 		private void ClassExample()
 		{
-			//---- Clasess
+			Console.WriteLine("-- Classs --");
 			Country earth = new Country("Earth");
 			earth.Display(); //Welcome  to Earth
 			earth.GetData(23); //Country: 23
 			earth.GetData(23.56); //Country: 23.56
-										 //earth.GetData(23.5m); //Compile time error- can not convert decimal to int
+										 ///earth.GetData(23.5m); //Compile time error- can not convert decimal to int
 
 			Country india = new India();
 			india.Display(); //Country: Welcome to India
 			india.GetData(23); //Country: 23
 			india.GetData(23.56); //Country: 23.56
-										 //india.GetData(23.5m); //Compile time error- can not convert decimal to int
+										 ///india.GetData(23.5m); //Compile time error- can not convert decimal to int
 
 			Country contryMaha = new Maharashtra();
 			contryMaha.Display(); //Country: Welcome to Maharashtra
 			contryMaha.GetData(23); //Country: 23
 			contryMaha.GetData(23.56); //Country: 23.56
-												//contryMaha.GetData(23.5m); //Compile time error- can not convert decimal to int
+												///contryMaha.GetData(23.5m); //Compile time error- can not convert decimal to int
 
 			India indiaIndia = new India();
 			indiaIndia.Display(); //With out Method hiding > India: Welcome to India
@@ -94,7 +126,7 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 			indiaMaha.Display(); //India: Welcome to Maharashtra
 			indiaMaha.GetData(23); //India: 23
 			indiaMaha.GetData(23.56); //Country: 23.56
-											  //indiaMaha.GetData(23.5m); //Compile time error- can not convert decimal to int
+											  ///indiaMaha.GetData(23.5m); //Compile time error- can not convert decimal to int
 
 			Maharashtra mahaMaha = new Maharashtra();
 			mahaMaha.Display(); //Method hiding > Maharashtra: Welcome to Maharashtrasss
@@ -106,7 +138,7 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 
 			Country usa = new USA();
 			usa.Display();
-			//usa.GunShot(); method not found
+			///usa.GunShot(); method not found
 			USA usaUsa = new USA();
 			usaUsa.Display();
 			usaUsa.GunShot();
@@ -115,6 +147,7 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 
 		private void InterfaceExample()
 		{
+			Console.WriteLine("-- Interface --");
 			Calculator calculator = new Calculator();
 			ISimpleCalculator simple = new Calculator();
 			simple.Add(); //will call ISimpleCalculator.Add() 
@@ -124,7 +157,7 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 			complex.Base10();
 
 			//You cannot access interface methods from class reference.
-			//calculator.Add()  //will give compilation error.
+			///calculator.Add()  //will give compilation error.
 			calculator.Base10();
 			calculator.Divide();
 		}
@@ -238,37 +271,40 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 	#endregion
 
 	#region Polymorphism 
-	/// - Polymorphism is a consequence of inheritance. Inheriting a method from parent is useful, but being able to 
-	///   modify a method if the situation demands, is polymorphism. 
-	/// - You may implement a method in the subclass with exactly the same signature as in parent class so that when
-	///   called, the method from child class is executed. This is polymorphism.
-	/// - The word polymorphism means having many forms. In object-oriented programming paradigm, polymorphism is 
-	///   often expressed as 'one interface, multiple functions'. 
+	/// - Polymorphism is a consequence of inheritance. Inheriting a method from parent is useful, but being able to modify a method if 
+	///   the situation demands, is polymorphism. 
+	/// - You may implement a method in the subclass with exactly the same signature as in parent class so that when called, the method 
+	///   from child class is executed. This is polymorphism.
+	/// - The word polymorphism means having many forms. In object-oriented programming paradigm, polymorphism is often expressed as 
+	///   'one interface, multiple functions'. 
 	/// - Static Polymorphism: 
-	///    The mechanism of linking a function with an object during compile time is called early
-	///    binding. It is also called static binding. C# provides two techniques to implement static polymorphism. 
+	///    The mechanism of linking a function with an object during compile time is called early binding. It is also called static binding. 
+	///    C# provides two techniques to implement static polymorphism. 
 	///    They are: 
 	///     1. Function overloading
 	///     2. Operator overloading
 	/// - Dynamic  Polymorphism:  
 	///    C# allows you to create abstract classes that are used to provide partial class implementation of an interface.
-	///    Implementation is completed when a derived class inherits from it. Abstract classes contain abstract methods,
-	///    which are implemented by the derived class. The derived classes have more specialized functionality.
+	///    Implementation is completed when a derived class inherits from it. Abstract classes contain abstract methods,which are implemented by 
+	///    the derived class. The derived classes have more specialized functionality.
 	///    Here are the rules about abstract classes:
 	///     1. You cannot create an instance of an abstract class
 	///     2. You cannot declare an abstract method outside an abstract class
 	///     3. When a class is declared sealed, it cannot be inherited, abstract classes cannot be declared sealed.
 
-	class StaticPolymorphism
-	{
-		public StaticPolymorphism()
-		{
+	public delegate double SingleCalculation(double x);
+	public delegate double DoubleCalculation(double x, double y);
 
+	class SimpleCalculator
+	{
+		public double Calculate(int x, SingleCalculation singleCalculation)
+		{
+			return singleCalculation(x);
 		}
 
-		public int Calculate(int x, int y)
+		public double Calculate(int x, int y, DoubleCalculation doubleCalculation)
 		{
-			return x + y;
+			return doubleCalculation(x, y);
 		}
 
 		//Wont work as overloading does not diffentiate based on return type
@@ -278,39 +314,89 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 		//}
 
 		//Will work as it having different params
-		public double Calculate(int x, double y)
+		public double Calculate(int x, double y, DoubleCalculation doubleCalculation)
 		{
-			return x + y;
+			return doubleCalculation(x, y);
 		}
 	}
 
-	abstract class DynamicPolymorphism
+	abstract class SalaryCalculator
 	{
-		public virtual double calculate(int x, int y)
+		//Fields cannot be virtual; only methods, properties, events and indexers can be virtual.
+		protected const double BasePay = 5000.5;
+		protected double TotalPay { get; set; }
+
+		public virtual void CalculateTotalPay()
 		{
-			return x + y;
+			TotalPay = BasePay + 2000;
 		}
-		public abstract void print();
+
+		public abstract void Print();
 	}
 
-	class DynamicPolymorphismTest1 : DynamicPolymorphism
+	class InternSalaryCalculator : SalaryCalculator
 	{
-		public override double calculate(int x, int y)
+		//A derived class can override a base class member only if the base class member is declared as virtual or abstract. 
+		public override void Print()
 		{
-			return x + y * 10;
-		}
-
-		public override void print()
-		{
-			//Sent to Printer
+			Console.WriteLine($"Intern salary is {TotalPay}");
 		}
 	}
 
-	class DynamicPolymorphismTest2 : DynamicPolymorphism
+	class DeveloperSalaryCalculator : SalaryCalculator
 	{
-		public override void print()
+
+		public override void CalculateTotalPay()
 		{
-			//Print to Console
+			TotalPay = BasePay + 20000;
+		}
+
+		public override void Print()
+		{
+			Console.WriteLine($"Developer salary is {TotalPay}");
+		}
+	}
+
+	class SeniorDeveloperSalaryCalculator : DeveloperSalaryCalculator
+	{
+		//A derived class can stop virtual inheritance by declaring an override as sealed. 
+		public sealed override void CalculateTotalPay()
+		{
+			base.CalculateTotalPay();
+		}
+
+		public override void Print()
+		{
+			Console.WriteLine($"Developer salary is {TotalPay}");
+		}
+	}
+
+	class JuniorDeveloperSalaryCalculator : SeniorDeveloperSalaryCalculator
+	{
+		//In this case, if CalculateTotalPay is called on using a variable of type JuniorDeveloperSalaryCalculator, 
+		//the new DoWork is called.
+		public new void CalculateTotalPay()
+		{
+			TotalPay = BasePay + 10000;
+		}
+
+		public override void Print()
+		{
+			Console.WriteLine($"Developer salary is {TotalPay}");
+		}
+	}
+
+	class ManagerSalaryCalculator : SalaryCalculator
+	{
+
+		public override void CalculateTotalPay()
+		{
+			TotalPay = BasePay + 50000;
+		}
+
+		public override void Print()
+		{
+			Console.WriteLine($"Manager salary is {TotalPay}");
 		}
 	}
 	#endregion
@@ -560,6 +646,8 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 	{
 		private static readonly DateTime OpeningDate;
 
+		protected const int defaultDuration = 1;
+
 		protected readonly string accountNumber;
 
 		protected readonly decimal amount;
@@ -610,6 +698,11 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 		static SavingAccount()
 		{
 			Console.WriteLine($"SavingAccount Static Constructor");
+		}
+
+		public SavingAccount(string accountNumber, decimal amount) : this(accountNumber, amount, defaultDuration)
+		{
+			Console.WriteLine($"SavingAccount public overload Constructor");
 		}
 
 		public SavingAccount(string accountNumber, decimal amount, int duration) : base(accountNumber, amount, duration)
@@ -860,6 +953,7 @@ namespace DotNetDemos.CSharpExamples.OOPBasic
 	}
 
 	//Why cannot you have static method in Interface? 
-	//Because Interface methods have implementation and also can be overriden.Thera is no point in having  static methods as they should have a body and cannot be overriden.
+	//Because Interface methods does not have implementation and can be overriden.Thera is no point in having 
+	//static methods as they should have a body and cannot be overriden.
 	#endregion
 }

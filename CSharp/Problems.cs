@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotNetDemos.CSharpExamples.Puzzles
+namespace CSharp
 {
 	public class Tricky
 	{
