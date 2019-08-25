@@ -10,7 +10,7 @@ namespace CSharp
 	{
 		public static Stopwatch Watch = new Stopwatch();
 		public static Random random = new Random();
-		public static double EllapsedTime(double milliseconds)  => TimeSpan.FromMilliseconds(milliseconds).TotalSeconds;
+		public static double EllapsedTime(double milliseconds) => TimeSpan.FromMilliseconds(milliseconds).TotalSeconds;
 		public static IEnumerable<int> Numbers(int max) => Enumerable.Range(1, max);
 
 		public static IEnumerable<Employee> GetEmployeeMockArray(int length = 10)
@@ -24,7 +24,7 @@ namespace CSharp
 					Rank = GetUniqueRandomValue(employees.Select(x => x.Rank), 1, 50),
 					Name = GetUniqueRandomValue(employees.Select(x => x.Name), 0, MockData.Names.Length),
 					Salary = random.Next(30000, 90000)
-			};
+				};
 				employees.Add(employee);
 			}
 			return employees;
@@ -70,8 +70,8 @@ namespace CSharp
 			Type target = typeof(T);
 			var instance = Activator.CreateInstance(target, false);
 			var memberInfos = from source in target.GetMembers().ToList()
-					where source.MemberType == MemberTypes.Property
-					select source;
+									where source.MemberType == MemberTypes.Property
+									select source;
 			List<MemberInfo> members = memberInfos.Where(memberInfo => memberInfos.Select(c => c.Name)
 				.ToList().Contains(memberInfo.Name)).ToList();
 			PropertyInfo propertyInfo;
@@ -261,25 +261,25 @@ namespace CSharp
 			{
 				StudentId = 1,
 				StudentGrade = Grade.A,
-				StudentName = "Vikas"
+				Name = "Vikas"
 			},
 			new Student
 			{
 				StudentId = 1,
 				StudentGrade = Grade.B,
-				StudentName = "Bipin"
+				Name = "Bipin"
 			},
 			new Student
 			{
 				StudentId = 3,
 				StudentGrade = Grade.C,
-				StudentName = "Ravi"
+				Name = "Ravi"
 			},
 			new Student
 			{
 				StudentId = 4,
 				StudentGrade = Grade.D,
-				StudentName = "Nikhilesh"
+				Name = "Nikhilesh"
 			}
 		};
 	}
@@ -317,19 +317,59 @@ namespace CSharp
 		public int CategoryID { get; set; }
 	}
 
-	public class Category
+	public struct Category
 	{
 		public string Name { get; set; }
 		public int ID { get; set; }
 	}
 
-	public class Student : IEquatable<Student>, IComparable<Student>
+	interface IStudent
+	{
+		void Display();
+	}
+
+	[AttributeUsage(AttributeTargets.Class)]
+	public class HelpAttribute : Attribute
+	{
+		public string Topic { get; set; }// Named parameter
+		private string Url { get; set; }
+
+		public HelpAttribute(string url)  // Positional parameter
+		{
+			Url = url;
+		}
+	}
+
+	[Help("http://www.dummy.com/100", Topic = "Class A")]
+	public class Student : IStudent, IEquatable<Student>, IComparable<Student>
 	{
 		public int StudentId { get; set; }
-		public string StudentName { get; set; }
+		public string Name { get; set; }
 		public int Marks { get; set; }
 		public Grade StudentGrade { get; set; }
 		public int CompareChoice { get; set; }
+		public string[] AssignedSubject { get; set; }
+
+		public string this[int index]
+		{
+			get => AssignedSubject[index];
+			set => AssignedSubject[index] = value;
+		}
+
+		public void Display()
+		{
+			Console.WriteLine($"{StudentId,3}:{Name,-20}:{Marks,3:C}:{StudentGrade.ToString(),3:C}");
+		}
+
+		//The Deconstruct method of a class, structure, or interface also allows you to retrieve and deconstruct 
+		//a specific set of data from an object
+		public void Deconstruct(out int studentId, out string name, out int marks, out Grade grade)
+		{
+			studentId = StudentId;
+			name = Name;
+			marks = Marks;
+			grade = StudentGrade;
+		}
 
 		public bool Equals(Student other)
 		{

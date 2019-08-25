@@ -9,9 +9,10 @@ namespace CSharp
 		{
 			//MethodHidingExample();
 			//Polymorphism();
-			AbstractClassExample();
-			//ConstructorsExample();
+			//AbstractClassExample();
+			Struct();
 			//ClassExample();
+			//ConstructorsExample();
 			//InterfaceExample();
 			//LSPExample();
 		}
@@ -93,6 +94,24 @@ namespace CSharp
 													  ///InternelBase internelBase = new InternelBase();//Will give error becuase not parameterless public constructor
 			InternelBase internelChild = new InternelChild();
 			internelChild.value = "Test";
+		}
+
+		private void Struct()
+		{
+			var coords1 = new Coords();
+			var coords2 = new Coords(10, 10);
+			Coords coords3;
+
+			Console.WriteLine("--- Struct with default constructor  --- ");
+			coords1.Display(); 
+
+			Console.WriteLine("---  Struct with named constructor  --- ");
+			coords2.Display();
+
+			Console.WriteLine("--- Struct without creating instance  --- ");
+			coords3.x = 30;
+			coords3.y = 50;
+			coords3.Display(); //If method;s used variable are unassigned the calling method will give compile time error
 		}
 
 		private void ClassExample()
@@ -765,6 +784,53 @@ namespace CSharp
 	}
 
 
+	#endregion
+
+	#region Struct 
+	/// <summary>
+	/// - A struct type is a value type that is typically used to encapsulate small groups of related variables, such as the 
+	///   coordinates of a rectangle or the characteristics of an item in an inventory.
+	/// - Structs can also contain constructors, constants, fields, methods, properties, indexers, operators, events, and nested 
+	///   types, although if several such members are required, you should consider making your type a class instead.
+	/// - When you create a struct object using the new operator, it gets created and the appropriate constructor is called according 
+	///   to the constructor's signature. Unlike classes, structs can be instantiated without using the new operator.
+	/// - There is no inheritance for structs as there is for classes. A struct cannot inherit from another struct or class, and it 
+	///   cannot be the base of a class. 
+	/// - However, inherit from the base class Object. A struct can implement interfaces, and it does that exactly as classes do.
+	/// - You can cast a struct type to any interface type that it implements; this causes a boxing operation to wrap the struct inside a 
+	///   reference type object on the managed heap. Boxing operations occur when you pass a value type to a method that takes a System.Object 
+	///   or any interface type as an input parameter.
+	/// - You use the struct keyword to create your own custom value types
+	/// 
+	/// When to use Struct
+	/// ✓ CONSIDER defining a struct instead of a class if instances of the type are small and commonly short-lived or are commonly embedded 
+	///    in other objects.
+	/// X AVOID defining a struct unless the type has all of the following characteristics:
+	///    It logically represents a single value, similar to primitive types(int, double, etc.).
+	///    It has an instance size under 16 bytes.
+	///    It is immutable.
+	///    It will not have to be boxed frequently.
+	/// </summary>
+	interface IScreen
+	{
+		void Display();
+	}
+	struct Coords : IScreen
+	{
+		public int x, y;
+
+		public Coords(int p1, int p2)
+		{
+			x = p1;
+			y = p2;
+		}
+
+		public void Display()
+		{
+			Console.WriteLine($"x = {x}, y = {y}");
+			Console.WriteLine();
+		}
+	}
 	#endregion
 
 	#region Class Examples

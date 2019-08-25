@@ -6,10 +6,11 @@ namespace CSharp
 	{
 		static void Main(string[] args)
 		{
-			new Oops().Play();
+			//new Oops().Play();
 			//new DataStructure().Play();
 			//new DesignPatterns().Play();
 
+			new CsharpConcepts().Play();
 			//new SystemInterfaces().Play();
 			//new FunctionPointers().Play();
 			//new Collections().Play();
