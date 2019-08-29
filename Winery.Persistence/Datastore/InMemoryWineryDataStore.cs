@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WineryStore.Contracts;
+using static WineryStore.Persistence.Datastore.WineryContext;
 
-namespace WineryStore.Persistence
+namespace WineryStore.Persistence.Datastore
 {
 	public class InMemoryWineryDataStore : IWineryDataStore
 	{
@@ -13,14 +13,9 @@ namespace WineryStore.Persistence
 			return await Task.FromResult(MockWineryData.Wineries);
 		}
 
-		public async Task<Winery> GetWineryByIdAsync(Guid id)
-		{
-			return await Task.FromResult(MockWineryData.Wineries.SingleOrDefault(x => x.Id == id));
-		}
-
 		public async Task<IEnumerable<Wine>> GetAllWinesFromWineryAsync(Guid wineryId)
 		{
-			return await Task.FromResult (
+			return await Task.FromResult(
 				from winery in MockWineryData.Wineries
 				join wine in MockWineryData.Wines
 				on winery.Id equals wine.WineryId
@@ -42,6 +37,11 @@ namespace WineryStore.Persistence
 			});
 		}
 
+		public async Task<Winery> GetWineryByIdAsync(Guid id)
+		{
+			return await Task.FromResult(MockWineryData.Wineries.SingleOrDefault(x => x.Id == id));
+		}
+
 		public async Task<Winery> AddWineryAsync(Winery winery)
 		{
 			if (MockWineryData.Wineries.Any(x => x.Name.Equals(winery.Name, StringComparison.InvariantCultureIgnoreCase)))
@@ -52,7 +52,7 @@ namespace WineryStore.Persistence
 				winery.Id = Guid.NewGuid();
 				MockWineryData.Wineries.Add(winery);
 			});
-			return await GetWineryByIdAsync(winery.Id); ;
+			return await GetWineryByIdAsync(winery.Id);
 		}
 
 		public async Task<Winery> UpdateWineryAsync(Winery winery)
@@ -65,20 +65,27 @@ namespace WineryStore.Persistence
 			return await GetWineryByIdAsync(winery.Id);
 		}
 
-		public async Task<bool> RemoveWineryAsync(Guid WineryId)
+		public async Task<bool> RemoveWineryAsync(Guid wineryId)
 		{
 			await Task.Run(() =>
 			{
-				var index = MockWineryData.Wineries.FindIndex(x => x.Id == WineryId);
+				var index = MockWineryData.Wineries.FindIndex(x => x.Id == wineryId);
 				MockWineryData.Wineries.RemoveAt(index);
 			});
-			return await WineryExistsAsync(WineryId);
+			return await WineryExistsAsync(wineryId);
 		}
 
 		public async Task<bool> WineryExistsAsync(Guid wineryId)
 		{
 			return await Task.FromResult(
 				MockWineryData.Wineries.Any(x => x.Id == wineryId)
+			);
+		}
+
+		public async Task<bool> WineryExistsAsync(string wineryName)
+		{
+			return await Task.FromResult(
+				MockWineryData.Wineries.Any(x => x.Name.Equals(wineryName, StringComparison.InvariantCultureIgnoreCase))
 			);
 		}
 	}

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WineryStore.Contracts;
+using static WineryStore.Persistence.Datastore.WineryContext;
 
-namespace WineryStore.Persistence
+namespace WineryStore.Persistence.Datastore
 {
 	public class InMemoryWineDataStore : IWineDataStore
 	{
@@ -56,6 +56,13 @@ namespace WineryStore.Persistence
 		{
 			return await Task.FromResult(
 				MockWineryData.Wines.Any(x => x.Id == wineId)
+			);
+		}
+
+		public async Task<bool> WineExistsAsync(string wineName)
+		{
+			return await Task.FromResult(
+				MockWineryData.Wines.Any(x => x.Name.Equals(wineName, StringComparison.InvariantCultureIgnoreCase))
 			);
 		}
 	}

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using WineryStore.Contracts;
+using static WineryStore.Persistence.Datastore.WineryContext;
 
-namespace WineryStore.Persistence
+namespace WineryStore.Persistence.Datastore
 {
 	public class MockWineryData
 	{
@@ -115,7 +114,7 @@ namespace WineryStore.Persistence
 			},
 			new Wine
 			{
-				Id = new Guid("9C2E678D-9AF2-48FA-A2BE-40B6238C5DCE"),
+				Id = new Guid("DC8FDC32-B96B-4EA6-A4C9-F2514B183A53"),
 				WineryId = new Guid("2E085A4D-A5D8-4352-8908-1B2103437885"),
 				Name = "Valdeorras ViÃ±a Godeval Cepas Vellas",
 				Color = WineColor.White,

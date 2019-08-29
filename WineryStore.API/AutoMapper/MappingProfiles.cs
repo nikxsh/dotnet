@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using System;
 using WineryStore.API.Models;
 using WineryStore.Contracts;
 
