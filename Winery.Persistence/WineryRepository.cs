@@ -19,20 +19,21 @@ namespace WineryStore.Persistence
 			Mapper = mapper;
 		}
 
-		public async Task<Response<IEnumerable<Winery>>> GetAllWineriesAsync(Request request)
+		public async Task<PagedResponse<IEnumerable<Winery>>> GetAllWineriesAsync(Request request)
 		{
 			try
 			{
-				var response = new Response<IEnumerable<Winery>>();
+				var response = new PagedResponse<IEnumerable<Winery>>();
 
 				var wineries = await DataStore.GetAllWineriesAsync();
-				response.Result = wineries.Select(x => Mapper.Map<Winery>(x));
+				var mappedWineries = wineries.Select(x => Mapper.Map<Winery>(x));
+				response.Total = mappedWineries.Count();
 
-				response.Total = response.Result.Count();
-				response.Result = response.Result.SearchWineries(request.Token);
-				response.Result = response.Result.FilterWineries(request.Filters);
-				response.Result = response.Result.SortWineries(request.Sort);
-				response.Result = response.Result.Skip(request.Skip).Take(request.Take).ToList();
+				mappedWineries = mappedWineries.SearchWineries(request.Token);
+				mappedWineries = mappedWineries.FilterWineries(request.Filters);
+				mappedWineries = mappedWineries.SortWineries(request.Sort);
+
+				response.Result = mappedWineries.Skip(request.Skip).Take(request.Take).ToList();
 				return response;
 			}
 			catch (Exception ex)
@@ -49,7 +50,6 @@ namespace WineryStore.Persistence
 
 				var winery = await DataStore.GetWineryByIdAsync(request.Data);
 				response.Result = Mapper.Map<Winery>(winery);
-				response.Total = 1;
 
 				return response;
 			}
@@ -59,16 +59,21 @@ namespace WineryStore.Persistence
 			}
 		}
 
-		public async Task<Response<IEnumerable<Wine>>> GetAllWinesFromWineryAsync(Request<Guid> request)
+		public async Task<PagedResponse<IEnumerable<Wine>>> GetAllWinesFromWineryAsync(Request<Guid> request)
 		{
 			try
 			{
-				var response = new Response<IEnumerable<Wine>>();
+				var response = new PagedResponse<IEnumerable<Wine>>();
 
-				var wineries = await DataStore.GetAllWinesFromWineryAsync(request.Data);
-				response.Result = wineries.Select(x => Mapper.Map<Wine>(x));
-				response.Total = 1;
+				var wines = await DataStore.GetAllWinesFromWineryAsync(request.Data);
+				var mappedWines = wines.Select(x => Mapper.Map<Wine>(x));
+				response.Total = mappedWines.Count();
 
+				mappedWines = mappedWines.SearchWines(request.Token);
+				mappedWines = mappedWines.FilterWines(request.Filters);
+				mappedWines = mappedWines.SortWines(request.Sort);
+
+				response.Result = mappedWines.Skip(request.Skip).Take(request.Take).ToList();
 				return response;
 			}
 			catch (Exception ex)
@@ -85,7 +90,6 @@ namespace WineryStore.Persistence
 
 				var wine = await DataStore.GetWineFromWineryByIdAsync(request.Data.Item1, request.Data.Item2);
 				response.Result = Mapper.Map<Wine>(wine);
-				response.Total = 1;
 
 				return response;
 			}
@@ -95,50 +99,45 @@ namespace WineryStore.Persistence
 			}
 		}
 
-		public async Task<Response<Winery>> AddWineryAsync(Winery request)
+		public async Task<Response<Guid>> AddWineryAsync(Winery request)
 		{
 			try
 			{
-				var response = new Response<Winery>();
-
-				var addedWinery = await DataStore.AddWineryAsync(Mapper.Map<WineryContext.Winery>(request));
-				response.Result = Mapper.Map<Winery>(addedWinery);
-				response.Total = 1;
-
-				return response;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-
-		public async Task<Response<Winery>> UpdateWineryAsync(Winery request)
-		{
-			try
-			{
-				var response = new Response<Winery>();
-
-				var updatedWinery = await DataStore.UpdateWineryAsync(Mapper.Map<WineryContext.Winery>(request));
-				response.Result = Mapper.Map<Winery>(updatedWinery);
-				response.Total = 1;
-
-				return response;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-
-		public async Task<Response<bool>> RemoveWineryAsync(Request<Guid> request)
-		{
-			try
-			{
-				var response = new Response<bool>
+				var response = new Response<Guid>
 				{
-					Result = await DataStore.RemoveWineryAsync(request.Data),
-					Total = 0
+					Result = await DataStore.AddWineryAsync(Mapper.Map<WineryContext.Winery>(request))
+				};
+				return response;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
+		public async Task<Response<int>> UpdateWineryAsync(Winery request)
+		{
+			try
+			{
+				var response = new Response<int>
+				{
+					Result = await DataStore.UpdateWineryAsync(Mapper.Map<WineryContext.Winery>(request))
+				};
+				return response;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
+		public async Task<Response<int>> RemoveWineryAsync(Request<Guid> request)
+		{
+			try
+			{
+				var response = new Response<int>
+				{
+					Result = await DataStore.RemoveWineryAsync(request.Data)
 				};
 
 				return response;

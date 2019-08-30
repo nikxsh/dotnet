@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static WineryStore.Persistence.Datastore.WineryContext;
@@ -9,9 +8,9 @@ namespace WineryStore.Persistence.Datastore
 	public class InMemoryWineDataStore : IWineDataStore
 	{
 
-		public async Task<IEnumerable<Wine>> GetAllWinesAsync()
+		public Task<IQueryable<Wine>> GetAllWinesAsync()
 		{
-			return await Task.FromResult(MockWineryData.Wines);
+			return Task.FromResult(MockWineryData.Wines.AsQueryable());
 		}
 
 		public async Task<Wine> GetWineByIdAsync(Guid wineId)
@@ -19,37 +18,31 @@ namespace WineryStore.Persistence.Datastore
 			return await Task.FromResult(MockWineryData.Wines.SingleOrDefault(x => x.Id == wineId));
 		}
 
-		public async Task<Wine> AddWineAsync(Wine wine)
+		public Task<Guid> AddWineAsync(Wine wine)
 		{
 			if (MockWineryData.Wines.Any(x => x.Name.Equals(wine.Name, StringComparison.InvariantCultureIgnoreCase)))
 				throw new FormatException($"Wine with name {wine.Name} allready exists");
+			
+			wine.Id = Guid.NewGuid();
+			MockWineryData.Wines.Add(wine);
 
-			await Task.Run(() =>
-			{
-				wine.Id = Guid.NewGuid();
-				MockWineryData.Wines.Add(wine);
-			});
-			return await GetWineByIdAsync(wine.Id);
+			return Task.FromResult(wine.Id);
 		}
 
-		public async Task<Wine> UpdateWineAsync(Wine wine)
+		public Task<int> UpdateWineAsync(Wine wine)
 		{
-			await Task.Run(() =>
-			{
-				var index = MockWineryData.Wines.FindIndex(x => x.Id == wine.Id);
-				MockWineryData.Wines[index] = wine;
-			});
-			return await GetWineByIdAsync(wine.Id);
+			var index = MockWineryData.Wines.FindIndex(x => x.Id == wine.Id);
+			MockWineryData.Wines[index] = wine;
+
+			return Task.FromResult(1);
 		}
 
-		public async Task<bool> RemoveWineAsync(Guid wineId)
+		public Task<int> RemoveWineAsync(Guid wineId)
 		{
-			await Task.Run(() =>
-			{
-				var index = MockWineryData.Wines.FindIndex(x => x.Id == wineId);
-				MockWineryData.Wines.RemoveAt(index);
-			});
-			return await WineExistsAsync(wineId);
+			var index = MockWineryData.Wines.FindIndex(x => x.Id == wineId);
+			MockWineryData.Wines.RemoveAt(index);
+
+			return Task.FromResult(1);
 		}
 
 		public async Task<bool> WineExistsAsync(Guid wineId)

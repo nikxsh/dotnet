@@ -34,7 +34,7 @@ namespace WineryStore.Tests.API
 			// Arrange
 			_wineryRepository
 				.GetAllWineriesAsync(Arg.Any<Request>())
-				.Returns(Task.FromResult(new Response<IEnumerable<Winery>>())
+				.Returns(Task.FromResult(new PagedResponse<IEnumerable<Winery>>())
 				);
 
 			// Act
@@ -51,7 +51,7 @@ namespace WineryStore.Tests.API
 			_wineryRepository
 				.GetAllWineriesAsync(Arg.Any<Request>())
 				.Returns(Task.FromResult(
-					new Response<IEnumerable<Winery>>
+					new PagedResponse<IEnumerable<Winery>>
 					{
 						Result = new List<Winery> { new Winery(), new Winery() },
 						Total = 2
@@ -63,7 +63,7 @@ namespace WineryStore.Tests.API
 
 			// Assert
 			Assert.NotNull(okResult);
-			var resultSet = okResult.Value as Response<IEnumerable<Winery>>;
+			var resultSet = okResult.Value as PagedResponse<IEnumerable<Winery>>;
 			Assert.NotNull(resultSet);
 			Assert.AreEqual(2, resultSet.Result.Count());
 			Assert.AreEqual(2, resultSet.Total);
@@ -78,8 +78,7 @@ namespace WineryStore.Tests.API
 				.Returns(Task.FromResult(
 					new Response<Winery>
 					{
-						Result = new Winery(),
-						Total = 1
+						Result = new Winery()
 					})
 				);
 
@@ -119,8 +118,7 @@ namespace WineryStore.Tests.API
 				.Returns(Task.FromResult(
 					new Response<Winery>
 					{
-						Result = new Winery(),
-						Total = 1
+						Result = new Winery()
 					})
 				);
 

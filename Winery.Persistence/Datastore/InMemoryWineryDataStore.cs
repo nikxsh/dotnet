@@ -8,83 +8,75 @@ namespace WineryStore.Persistence.Datastore
 {
 	public class InMemoryWineryDataStore : IWineryDataStore
 	{
-		public async Task<IEnumerable<Winery>> GetAllWineriesAsync()
+		public async Task<IQueryable<Winery>> GetAllWineriesAsync()
 		{
-			return await Task.FromResult(MockWineryData.Wineries);
+			return await Task.FromResult(MockWineryData.Wineries.AsQueryable());
 		}
 
-		public async Task<IEnumerable<Wine>> GetAllWinesFromWineryAsync(Guid wineryId)
+		public Task<IQueryable<Wine>> GetAllWinesFromWineryAsync(Guid wineryId)
 		{
-			return await Task.FromResult(
-				from winery in MockWineryData.Wineries
-				join wine in MockWineryData.Wines
+			return Task.FromResult(
+				from winery in MockWineryData.Wineries.AsQueryable()
+				join wine in MockWineryData.Wines.AsQueryable()
 				on winery.Id equals wine.WineryId
 				where winery.Id == wineryId
 				select wine
 			);
 		}
 
-		public async Task<Wine> GetWineFromWineryByIdAsync(Guid wineryId, Guid wineId)
+		public Task<Wine> GetWineFromWineryByIdAsync(Guid wineryId, Guid wineId)
 		{
-			return await Task.Run(() =>
-			{
-				var result = from winery in MockWineryData.Wineries
-								 join wine in MockWineryData.Wines
-								 on winery.Id equals wine.WineryId
-								 where winery.Id == wineryId && wine.Id == wineId
-								 select wine;
-				return result.SingleOrDefault();
-			});
+			var result = from winery in MockWineryData.Wineries
+							 join wine in MockWineryData.Wines
+							 on winery.Id equals wine.WineryId
+							 where winery.Id == wineryId && wine.Id == wineId
+							 select wine;
+
+			return Task.FromResult(result.SingleOrDefault());
 		}
 
-		public async Task<Winery> GetWineryByIdAsync(Guid id)
+		public Task<Winery> GetWineryByIdAsync(Guid id)
 		{
-			return await Task.FromResult(MockWineryData.Wineries.SingleOrDefault(x => x.Id == id));
+			return Task.FromResult(MockWineryData.Wineries.SingleOrDefault(x => x.Id == id));
 		}
 
-		public async Task<Winery> AddWineryAsync(Winery winery)
+		public Task<Guid> AddWineryAsync(Winery winery)
 		{
 			if (MockWineryData.Wineries.Any(x => x.Name.Equals(winery.Name, StringComparison.InvariantCultureIgnoreCase)))
 				throw new FormatException($"Winery with {winery.Name} allready exists");
 
-			await Task.Run(() =>
-			{
-				winery.Id = Guid.NewGuid();
-				MockWineryData.Wineries.Add(winery);
-			});
-			return await GetWineryByIdAsync(winery.Id);
+			winery.Id = Guid.NewGuid();
+			MockWineryData.Wineries.Add(winery);
+
+			return Task.FromResult(winery.Id);
 		}
 
-		public async Task<Winery> UpdateWineryAsync(Winery winery)
+		public Task<int> UpdateWineryAsync(Winery winery)
 		{
-			await Task.Run(() =>
-			{
-				var index = MockWineryData.Wineries.FindIndex(x => x.Id == winery.Id);
-				MockWineryData.Wineries[index] = winery;
-			});
-			return await GetWineryByIdAsync(winery.Id);
+			var index = MockWineryData.Wineries.FindIndex(x => x.Id == winery.Id);
+			MockWineryData.Wineries[index] = winery;
+
+			return Task.FromResult(1);
 		}
 
-		public async Task<bool> RemoveWineryAsync(Guid wineryId)
+		public Task<int> RemoveWineryAsync(Guid wineryId)
 		{
-			await Task.Run(() =>
-			{
-				var index = MockWineryData.Wineries.FindIndex(x => x.Id == wineryId);
-				MockWineryData.Wineries.RemoveAt(index);
-			});
-			return await WineryExistsAsync(wineryId);
+			var index = MockWineryData.Wineries.FindIndex(x => x.Id == wineryId);
+			MockWineryData.Wineries.RemoveAt(index);
+
+			return Task.FromResult(1);
 		}
 
-		public async Task<bool> WineryExistsAsync(Guid wineryId)
+		public Task<bool> WineryExistsAsync(Guid wineryId)
 		{
-			return await Task.FromResult(
+			return Task.FromResult(
 				MockWineryData.Wineries.Any(x => x.Id == wineryId)
 			);
 		}
 
-		public async Task<bool> WineryExistsAsync(string wineryName)
+		public Task<bool> WineryExistsAsync(string wineryName)
 		{
-			return await Task.FromResult(
+			return Task.FromResult(
 				MockWineryData.Wineries.Any(x => x.Name.Equals(wineryName, StringComparison.InvariantCultureIgnoreCase))
 			);
 		}

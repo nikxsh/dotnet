@@ -44,6 +44,10 @@ namespace WineryStore.Contracts
 	public class Response<T>
 	{
 		public T Result { get; set; }
+	}
+
+	public class PagedResponse<T> : Response<T>
+	{
 		public int Total { get; set; }
 	}
 }

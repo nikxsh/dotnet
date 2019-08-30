@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using WineryStore.Contracts;
 
@@ -7,22 +6,21 @@ namespace WineryStore.Persistence
 {
 	public static class WineryAdapterMapper
 	{
-		public static IEnumerable<Winery> SearchWineries(this IEnumerable<Winery> lstWineries, string token)
+		public static IQueryable<Winery> SearchWineries(this IQueryable<Winery> lstWineries, string token)
 		{
 			if (!string.IsNullOrEmpty(token))
 				return lstWineries
 						 .Where(x =>
-								 x.Id.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
-								(x.Name?.Contains(token, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
+								x.Id.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
+								x.Name.Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
 								x.Region.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
 								x.Country.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase)
-						)
-						.ToList();
+						);
 
 			return lstWineries;
 		}
 
-		public static IEnumerable<Winery> FilterWineries(this IEnumerable<Winery> lstWineries, Filter[] filters)
+		public static IQueryable<Winery> FilterWineries(this IQueryable<Winery> lstWineries, Filter[] filters)
 		{
 			foreach (var filter in filters.EmptyIfNull())
 			{
@@ -31,11 +29,11 @@ namespace WineryStore.Persistence
 				switch (filter.Column.ToLower())
 				{
 					case "Id":
-						lstWineries = lstWineries.Where(x => x.Id.ToString().Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)).ToList();
+						lstWineries = lstWineries.Where(x => x.Id.ToString().Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase));
 						break;
 
 					case "Name":
-						lstWineries = lstWineries.Where(x => x.Name.Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)).ToList();
+						lstWineries = lstWineries.Where(x => x.Name.Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase));
 						break;
 				}
 			}
@@ -43,7 +41,7 @@ namespace WineryStore.Persistence
 			return lstWineries;
 		}
 
-		public static IEnumerable<Winery> SortWineries(this IEnumerable<Winery> lstWineries, Sort sort)
+		public static IQueryable<Winery> SortWineries(this IQueryable<Winery> lstWineries, Sort sort)
 		{
 			if (sort != null && !string.IsNullOrEmpty(sort.Column) && sort.Order != SortOrder.None)
 			{
@@ -52,11 +50,11 @@ namespace WineryStore.Persistence
 					switch (sort.Column.ToLower())
 					{
 						case "Id":
-							lstWineries = lstWineries.OrderBy(x => x.Id).ToList();
+							lstWineries = lstWineries.OrderBy(x => x.Id);
 							break;
 
 						case "Name":
-							lstWineries = lstWineries.OrderBy(x => x.Name).ToList();
+							lstWineries = lstWineries.OrderBy(x => x.Name);
 							break;
 					}
 				}
@@ -65,40 +63,39 @@ namespace WineryStore.Persistence
 					switch (sort.Column.ToLower())
 					{
 						case "Id":
-							lstWineries = lstWineries.OrderByDescending(x => x.Id).ToList();
+							lstWineries = lstWineries.OrderByDescending(x => x.Id);
 							break;
 
 						case "Name":
-							lstWineries = lstWineries.OrderByDescending(x => x.Name).ToList();
+							lstWineries = lstWineries.OrderByDescending(x => x.Name);
 							break;
 					}
 				}
 			}
 			else
-				lstWineries = lstWineries.OrderBy(x => x.Id).ToList();
+				lstWineries = lstWineries.OrderBy(x => x.Id);
 
 			return lstWineries;
 		}
 
-		public static IEnumerable<Wine> SearchWines(this IEnumerable<Wine> lstWines, string token)
+		public static IQueryable<Wine> SearchWines(this IQueryable<Wine> lstWines, string token)
 		{
 			if (!string.IsNullOrEmpty(token))
 				return lstWines
 						 .Where(x =>
-								 x.Id.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
-								(x.Name?.Contains(token, StringComparison.InvariantCultureIgnoreCase) ?? false) ||
+								x.Id.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
+								x.Name.Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
 								x.Rank.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
 								x.Score.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
 								x.IssueDate.Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
 								x.Price.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
 								x.Vintage.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase)
-						)
-						.ToList();
+						);
 
 			return lstWines;
 		}
 
-		public static IEnumerable<Wine> FilterWines(this IEnumerable<Wine> lstWines, Filter[] filters)
+		public static IQueryable<Wine> FilterWines(this IQueryable<Wine> lstWines, Filter[] filters)
 		{
 			foreach (var filter in filters.EmptyIfNull())
 			{
@@ -107,11 +104,15 @@ namespace WineryStore.Persistence
 				switch (filter.Column.ToLower())
 				{
 					case "Id":
-						lstWines = lstWines.Where(x => x.Id.ToString().Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)).ToList();
+						lstWines = lstWines.Where(x =>
+							x.Id.ToString().Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)
+						);
 						break;
 
 					case "Name":
-						lstWines = lstWines.Where(x => x.Name.Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)).ToList();
+						lstWines = lstWines.Where(x =>
+							x.Name.Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)
+						);
 						break;
 				}
 			}
@@ -119,7 +120,7 @@ namespace WineryStore.Persistence
 			return lstWines;
 		}
 
-		public static IEnumerable<Wine> SortWines(this IEnumerable<Wine> lstWines, Sort sort)
+		public static IQueryable<Wine> SortWines(this IQueryable<Wine> lstWines, Sort sort)
 		{
 			if (sort != null && !string.IsNullOrEmpty(sort.Column) && sort.Order != SortOrder.None)
 			{
@@ -128,11 +129,11 @@ namespace WineryStore.Persistence
 					switch (sort.Column.ToLower())
 					{
 						case "Id":
-							lstWines = lstWines.OrderBy(x => x.Id).ToList();
+							lstWines = lstWines.OrderBy(x => x.Id);
 							break;
 
 						case "Name":
-							lstWines = lstWines.OrderBy(x => x.Name).ToList();
+							lstWines = lstWines.OrderBy(x => x.Name);
 							break;
 					}
 				}
@@ -141,17 +142,17 @@ namespace WineryStore.Persistence
 					switch (sort.Column.ToLower())
 					{
 						case "Id":
-							lstWines = lstWines.OrderByDescending(x => x.Id).ToList();
+							lstWines = lstWines.OrderByDescending(x => x.Id);
 							break;
 
 						case "Name":
-							lstWines = lstWines.OrderByDescending(x => x.Name).ToList();
+							lstWines = lstWines.OrderByDescending(x => x.Name);
 							break;
 					}
 				}
 			}
 			else
-				lstWines = lstWines.OrderBy(x => x.Id).ToList();
+				lstWines = lstWines.OrderBy(x => x.Id);
 
 			return lstWines;
 		}

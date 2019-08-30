@@ -74,8 +74,15 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var createdWinery = await wineryRepository.AddWineryAsync(mapper.Map<Contracts.Winery>(request));
-				return Created($"api/winery/{createdWinery.Result.Id}", createdWinery);
+				var response = await wineryRepository.AddWineryAsync(mapper.Map<Contracts.Winery>(request));
+
+				if (response.Result != Guid.Empty)
+				{
+					request.Id = response.Result;
+					return Created($"api/winery/{request.Id}", request);
+				}
+				else
+					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to Add Winery!");
 			}
 			catch (Exception ex)
 			{
@@ -100,8 +107,12 @@ namespace WineryStore.API.Controllers
 				if (!winery.Result)
 					return NotFound("Given resource does not exists.");
 
-				var updatedWinery = await wineryRepository.UpdateWineryAsync(mapper.Map<Contracts.Winery>(request));
-				return Ok(updatedWinery);
+				var response = await wineryRepository.UpdateWineryAsync(mapper.Map<Contracts.Winery>(request));
+
+				if (response.Result > 0)
+					return Ok("Winery updated Successfully!");
+				else
+					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to Update Winery!");
 			}
 			catch (Exception ex)
 			{
@@ -155,8 +166,11 @@ namespace WineryStore.API.Controllers
 					return NotFound("Given resource does not exists.");
 
 				var response = await wineryRepository.RemoveWineryAsync(new Contracts.Request<Guid> { Data = wineryId });
-				
-				return Ok(response);
+
+				if (response.Result > 0)
+					return Ok("Winery removed Successfully!");
+				else
+					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to remove Winery!");
 			}
 			catch (Exception ex)
 			{
@@ -166,6 +180,5 @@ namespace WineryStore.API.Controllers
 					return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
 			}
 		}
-
 	}
 }

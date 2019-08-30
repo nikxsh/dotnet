@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using WineryStore.API.Models;
-using WineryStore.Contracts;
 
 namespace WineryStore.API.AutoMapper
 {
@@ -8,8 +7,10 @@ namespace WineryStore.API.AutoMapper
 	{
 		public MappingProfiles()
 		{
-			CreateMap<Winery, WineryDTO>().ReverseMap();
-			CreateMap<Wine, WineDTO>().ReverseMap();
+			CreateMap<Contracts.Winery, WineryDTO>().ReverseMap();
+			CreateMap<Contracts.Wine, WineDTO>().ReverseMap();
+			CreateMap<Persistence.Datastore.WineryContext.Winery, Contracts.Winery>().ReverseMap();
+			CreateMap<Persistence.Datastore.WineryContext.Wine, Contracts.Wine>().ReverseMap();
 		}
 	}
 }

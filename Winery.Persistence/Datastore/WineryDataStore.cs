@@ -16,101 +16,86 @@ namespace WineryStore.Persistence.Datastore
 			this.wineryContext = wineryContext;
 		}
 
-		public async Task<bool> WineryExistsAsync(Guid wineryId)
+		public Task<bool> WineryExistsAsync(Guid wineryId)
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
+			var exists = wineryContext
 						.Wineries
 						.Any(x => x.Id == wineryId);
-			});
+
+			return Task.FromResult(exists);
 		}
 
-		public async Task<bool> WineryExistsAsync(string wineryName)
+		public Task<bool> WineryExistsAsync(string wineryName)
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
+			var exists = wineryContext
 						.Wineries
 						.Any(x => x.Name.Equals(wineryName, StringComparison.InvariantCultureIgnoreCase));
-			});
+
+			return Task.FromResult(exists);
 		}
 
-		public async Task<IEnumerable<Winery>> GetAllWineriesAsync()
+		public Task<IQueryable<Winery>> GetAllWineriesAsync()
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
-						.Wineries
-						.ToList();
-			});
+			var allWineries = wineryContext
+							.Wineries
+							.Select(x => x);
+
+			return Task.FromResult(allWineries);
 		}
 
-		public async Task<Winery> GetWineryByIdAsync(Guid id)
+		public Task<Winery> GetWineryByIdAsync(Guid id)
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
-						.Wineries
-						.SingleOrDefault(x => x.Id == id);
-			});
+			var winery =  wineryContext
+					.Wineries
+					.SingleOrDefault(x => x.Id == id);
+
+			return Task.FromResult(winery);
 		}
 
-		public async Task<IEnumerable<Wine>> GetAllWinesFromWineryAsync(Guid wineryId)
+		public Task<IQueryable<Wine>> GetAllWinesFromWineryAsync(Guid wineryId)
 		{
-			return await Task.Run(() =>
-			{
-				var result = from winery in wineryContext.Wineries
-								 join wine in wineryContext.Wines
-								 on winery.Id equals wine.WineryId
-								 where winery.Id == wineryId
-								 select wine;
-				return result;
-			});
+			var wineries = from winery in wineryContext.Wineries
+							 join wine in wineryContext.Wines
+							 on winery.Id equals wine.WineryId
+							 where winery.Id == wineryId
+							 select wine;
+
+			return Task.FromResult(wineries);
 		}
 
-		public async Task<Wine> GetWineFromWineryByIdAsync(Guid wineryId, Guid wineId)
+		public Task<Wine> GetWineFromWineryByIdAsync(Guid wineryId, Guid wineId)
 		{
-			return await Task.Run(() =>
-			{
-				var result = from winery in wineryContext.Wineries
-								 join wine in wineryContext.Wines
-								 on winery.Id equals wine.WineryId
-								 where winery.Id == wineryId && wine.Id == wineId
-								 select wine;
-				return result.SingleOrDefault();
-			});
+			var specificWinery = (from winery in wineryContext.Wineries
+										 join wine in wineryContext.Wines
+										 on winery.Id equals wine.WineryId
+										 where winery.Id == wineryId && wine.Id == wineId
+										 select wine)
+										.SingleOrDefault();
+
+			return Task.FromResult(specificWinery);
 		}
 
-		public async Task<Winery> AddWineryAsync(Winery winery)
+		public Task<Guid> AddWineryAsync(Winery winery)
 		{
-			await Task.Run(() =>
-			{
-				wineryContext.Wineries.Add(winery);
-				wineryContext.SaveChangesAsync();
-			});
-			return await GetWineryByIdAsync(winery.Id);
+			winery.Id = Guid.NewGuid();
+			wineryContext.Wineries.Add(winery);
+			var result = wineryContext.SaveChanges() > 0 ? winery.Id : Guid.Empty;
+			return Task.FromResult(result);
 		}
 
-		public async Task<Winery> UpdateWineryAsync(Winery winery)
+		public Task<int> UpdateWineryAsync(Winery winery)
 		{
-			await Task.Run(() =>
-			{
-				wineryContext.Wineries.Update(winery);
-				wineryContext.SaveChangesAsync();
-			});
-			return await GetWineryByIdAsync(winery.Id);
+			wineryContext.Wineries.Update(winery);
+			var saved = wineryContext.SaveChanges();
+			return Task.FromResult(saved);
 		}
 
-		public async Task<bool> RemoveWineryAsync(Guid wineryId)
+		public Task<int> RemoveWineryAsync(Guid wineryId)
 		{
-			await Task.Run(() =>
-			{
-				var winery = GetWineryByIdAsync(wineryId).Result;
-				wineryContext.Wineries.Remove(winery);
-				wineryContext.SaveChangesAsync();
-			});
-			return await WineryExistsAsync(wineryId);
+			var winery = GetWineryByIdAsync(wineryId).Result;
+			wineryContext.Wineries.Remove(winery);
+			var saved = wineryContext.SaveChanges();
+			return Task.FromResult(saved);
 		}
 
 		protected virtual void Dispose(bool disposing)

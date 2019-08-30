@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using static WineryStore.Persistence.Datastore.WineryContext;
@@ -9,88 +9,78 @@ namespace WineryStore.Persistence.Datastore
 	public class WineDataStore : IWineDataStore, IDisposable
 	{
 		private bool disposed = false;
-		private readonly WineryContext wineryContext;
+		private readonly WineryContext WineContext;
 
-		public WineDataStore(WineryContext wineryContext)
+		public WineDataStore(WineryContext wineContext)
 		{
-			this.wineryContext = wineryContext;
+			this.WineContext = wineContext;
 		}
 
-		public async Task<bool> WineExistsAsync(Guid wineId)
+		public Task<bool> WineExistsAsync(Guid wineId)
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
+			var wine = WineContext
 						.Wines
 						.Any(x => x.Id == wineId);
-			});
+
+			return Task.FromResult(wine);
 		}
 
-		public async Task<bool> WineExistsAsync(string wineName)
+		public Task<bool> WineExistsAsync(string wineName)
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
+			var wine = WineContext
 						.Wines
 						.Any(x => x.Name.Equals(wineName, StringComparison.InvariantCultureIgnoreCase));
-			});
+
+			return Task.FromResult(wine);
 		}
 
-		public async Task<IEnumerable<Wine>> GetAllWinesAsync()
+		public Task<IQueryable<Wine>> GetAllWinesAsync()
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
+			var wines = WineContext
 						.Wines
-						.ToList();
-			});
+						.Select(x => x);
+
+			return Task.FromResult(wines);
 		}
 
-		public async Task<Wine> GetWineByIdAsync(Guid wineId)
+		public Task<Wine> GetWineByIdAsync(Guid wineId)
 		{
-			return await Task.Run(() =>
-			{
-				return wineryContext
+			var wine = WineContext
 						.Wines
 						.SingleOrDefault(x => x.Id == wineId);
-			});
+
+			return Task.FromResult(wine);
 		}
 
-		public async Task<Wine> AddWineAsync(Wine wine)
+		public Task<Guid> AddWineAsync(Wine wine)
 		{
-			await Task.Run(() =>
-			{
-				wineryContext.Wines.Add(wine);
-				wineryContext.SaveChangesAsync();
-			});
-			return await GetWineByIdAsync(wine.Id);
+			wine.Id = Guid.NewGuid();
+			WineContext.Wines.Add(wine);
+			var result = WineContext.SaveChanges() > 0 ? wine.Id : Guid.Empty;
+			return Task.FromResult(result);
 		}
 
-		public async Task<Wine> UpdateWineAsync(Wine wine)
+		public Task<int> UpdateWineAsync(Wine wine)
 		{
-			await Task.Run(() =>
-			{
-				wineryContext.Wines.Update(wine);
-				wineryContext.SaveChangesAsync();
-			});
-			return await GetWineByIdAsync(wine.Id);
+			WineContext.Wines.Update(wine);
+			var result = WineContext.SaveChanges();
+
+			return Task.FromResult(result);
 		}
 
-		public async Task<bool> RemoveWineAsync(Guid wineId)
+		public Task<int> RemoveWineAsync(Guid wineId)
 		{
-			await Task.Run(() =>
-			{
-				var wine = GetWineByIdAsync(wineId).Result;
-				wineryContext.Wines.Remove(wine);
-				wineryContext.SaveChangesAsync();
-			});
-			return await WineExistsAsync(wineId);
+			var wine = GetWineByIdAsync(wineId).Result;
+			WineContext.Wines.Remove(wine);
+			var result = WineContext.SaveChanges();
+
+			return Task.FromResult(result);
 		}
 
 		protected virtual void Dispose(bool disposing)
 		{
 			if (!disposed)
-				Dispose();
+				WineContext.Dispose();
 
 			disposed = true;
 		}

@@ -37,8 +37,10 @@ namespace WineryStore.API.Controllers
 					Take = take,
 					Data = WineryId
 				};
-				var winesByWinery = await wineRepository.GetAllWinesAsync(request);
-				return Ok(winesByWinery);
+
+				var allWines = await wineRepository.GetAllWinesAsync(request);
+
+				return Ok(allWines);
 			}
 			catch (Exception ex)
 			{
@@ -69,8 +71,15 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var createdWine = await wineRepository.AddWineAsync(mapper.Map<Contracts.Wine>(request));
-				return Created($"api/wines/{createdWine.Result.Id}", createdWine);
+				var response = await wineRepository.AddWineAsync(mapper.Map<Contracts.Wine>(request));
+
+				if (response.Result != Guid.Empty)
+				{
+					request.Id = response.Result;
+					return Created($"api/wines/{request.Id}", request);
+				}
+				else
+					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to Add Wine!");
 			}
 			catch (Exception ex)
 			{
@@ -83,17 +92,22 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var existingWine = await wineRepository.GetWineByIdAsync(
+				var existingWine = await wineRepository.WineExistsAsync(
 					new Contracts.Request<Guid>
 					{
 						Data = request.Id
 					});
 
-				if (existingWine.Result == null)
+				if (!existingWine.Result)
 					return NotFound("Given resource does not exists.");
 
-				var udatedWine = await wineRepository.UpdateWineAsync(mapper.Map<Contracts.Wine>(request));
-				return Ok(udatedWine);
+				var response = await wineRepository.UpdateWineAsync(mapper.Map<Contracts.Wine>(request));
+
+				if (response.Result > 0)
+					return Ok("Wine updated Successfully!");
+				else
+					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to Update Wine!");
+
 			}
 			catch (Exception ex)
 			{
@@ -116,7 +130,11 @@ namespace WineryStore.API.Controllers
 					return NotFound("Given resource does not exists.");
 
 				var response = await wineRepository.RemoveWineAsync(new Contracts.Request<Guid> { Data = wineId });
-				return Ok(response);
+
+				if (response.Result > 0)
+					return Ok("Wine removed Successfully!");
+				else
+					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to remove Wine!");
 			}
 			catch (Exception ex)
 			{
