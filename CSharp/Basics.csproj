@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Collections.cs" />
     <Compile Include="CsharpConcepts.cs" />
+    <Compile Include="DesignProblems.cs" />
     <Compile Include="DynamicLinq.cs" />
     <Compile Include="FunctionPointers.cs" />
     <Compile Include="Gateways.cs" />

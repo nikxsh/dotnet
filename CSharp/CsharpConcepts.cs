@@ -12,6 +12,7 @@ namespace CSharp
 			Indexer();
 			Discards();
 			CovarianceAndContravariance();
+			TryCatch();
 		}
 
 		/// <summary>
@@ -417,6 +418,24 @@ namespace CSharp
 			//   await Task.Delay(100);
 			//   return 5;
 			//  }
+		}
+
+
+		private string TryCatch()
+		{
+			try
+			{
+				return "a";
+			}
+			catch (Exception)
+			{
+				return "b";
+			}
+			finally
+			{
+				//Compile time error: controll can not leave the body of Finally clause
+				//return "c";
+			}
 		}
 
 		class Generic<T>

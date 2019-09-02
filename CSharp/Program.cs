@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CSharp
 {
@@ -10,7 +11,7 @@ namespace CSharp
 			//new DataStructure().Play();
 			//new DesignPatterns().Play();
 
-			new CsharpConcepts().Play();
+			//new CsharpConcepts().Play();
 			//new SystemInterfaces().Play();
 			//new FunctionPointers().Play();
 			//new Collections().Play();
@@ -21,11 +22,10 @@ namespace CSharp
 			//new Performance().Play();
 
 			//new Gateways().Play();
-			//new Tricky().Play();
+			new Problems().Play(args);
 
 			//Console.Write(typeof(string).Assembly.ImageRuntimeVersion);
 			Console.ReadKey();
-
 		}
 	}
 }
