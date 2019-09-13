@@ -25,6 +25,16 @@ namespace WineryStore.API
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddCors(options =>
+			{
+				options.AddDefaultPolicy(builder =>
+				{
+					builder.WithOrigins("http://localhost:3000")
+					.AllowAnyHeader()
+					.AllowAnyHeader();
+				});
+			});
+
 			services.AddAutoMapper(typeof(Startup));
 
 			//https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.2#service-lifetimes
@@ -55,6 +65,7 @@ namespace WineryStore.API
 				app.UseHsts();
 			}
 
+			app.UseCors();
 			app.UseHttpsRedirection();
 			app.UseMvc();
 		}
