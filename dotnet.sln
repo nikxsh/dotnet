@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemSolving", "ProblemSolving\ProblemSolving.csproj", "{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basics", "CSharp\Basics.csproj", "{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translator", "translator\Translator.csproj", "{170692F6-F9CE-41C7-AD7A-1B8914C33CE6}"
@@ -15,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineryStore.Contracts", "Wi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineryStore.API", "WineryStore.API\WineryStore.API.csproj", "{8B20D685-388C-4A80-8FF6-A740039F29C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineryStore.Tests", "WineryStore.Tests\WineryStore.Tests.csproj", "{4B664EFA-F108-4ED5-8C97-EBA84C002013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineryStore.Tests", "WineryStore.Tests\WineryStore.Tests.csproj", "{4B664EFA-F108-4ED5-8C97-EBA84C002013}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,12 +22,6 @@ Global
 		Test|Any CPU = Test|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.ActiveCfg = Release|Any CPU
-		{BAFC0208-0CF1-48C6-93FD-A5CB635B9255}.Test|Any CPU.Build.0 = Release|Any CPU
 		{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4525D8F9-EEC7-4A1D-8F28-D246CBFA5AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
