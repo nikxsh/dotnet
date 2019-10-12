@@ -89,11 +89,16 @@ namespace CSharp
 		{
 			Console.WriteLine("-- Constructors --");
 			///ProtectedBase protectedBase = new ProtectedBase(); //Will give error becuase not parameterless public constructor
-			ProtectedBase protectedChild = new ProtectedChild(); //Will work becuase of having internal constructor
-			protectedChild.value = "value"; //ProtectedBase property
-													  ///InternelBase internelBase = new InternelBase();//Will give error becuase not parameterless public constructor
-			InternelBase internelChild = new InternelChild();
-			internelChild.value = "Test";
+			ProtectedBase protectedChild = new ProtectedChild
+			{
+				value = "value" //ProtectedBase property
+			};//Will work becuase of having internal constructor
+
+			///InternelBase internelBase = new InternelBase();//Will give error becuase not parameterless public constructor
+			InternelBase internelChild = new InternelChild
+			{
+				value = "Test"
+			};
 		}
 
 		private void Struct()
@@ -876,6 +881,11 @@ namespace CSharp
 		{
 			Console.WriteLine($"Country: {number}");
 		}
+
+		public virtual string GetTimeCulture()
+		{
+			return "UTC";
+		}
 	}
 
 	internal class India : Country
@@ -928,6 +938,23 @@ namespace CSharp
 		public void GunShot()
 		{
 			Console.WriteLine($"lol, we can shoot anybody!");
+		}
+
+		public override string GetTimeCulture() //Override can't be declared as virtual
+		{
+			return base.GetTimeCulture();
+		}
+	}
+
+	internal class Hawaii : Country
+	{
+		public Hawaii() : base("Hawaii")
+		{
+		}
+
+		public virtual new string GetTimeCulture() //Sealed can only be called on override
+		{
+			return "HST";
 		}
 	}
 	#endregion
