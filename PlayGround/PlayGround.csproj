@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DbScripts\Aggregate.sql" />
+    <None Remove="DbScripts\Basic.sql" />
+    <None Remove="DbScripts\Data.sql" />
+    <None Remove="DbScripts\Joins.sql" />
+    <None Remove="DbScripts\Schema.sql" />
+    <None Remove="DbScripts\XML Queries.sql" />
+    <None Remove="FrameworkTheory.txt" />
+    <None Remove="WcfTheory.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DbScripts\Aggregate.sql" />
+    <Content Include="DbScripts\Basic.sql" />
+    <Content Include="DbScripts\Data.sql" />
+    <Content Include="DbScripts\Joins.sql" />
+    <Content Include="DbScripts\Schema.sql" />
+    <Content Include="DbScripts\XML Queries.sql" />
+    <Content Include="FrameworkTheory.txt" />
+    <Content Include="WcfTheory.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

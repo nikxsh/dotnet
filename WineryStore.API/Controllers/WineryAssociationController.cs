@@ -1,22 +1,20 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using WineryStore.Contracts.Utils;
 
 namespace WineryStore.API.Controllers
 {
-	[Route("api/winery/{wineryId}/wines")]
+	[Route("api/wineries/{wineryId}/wines")]
 	[ApiController]
 	public class WineryAssociationController : ControllerBase
 	{
 		private readonly Persistence.IWineryRepository wineryRepository;
-		private readonly IMapper mapper;
 
-		public WineryAssociationController(Persistence.IWineryRepository wineryRepository, IMapper mapper)
+		public WineryAssociationController(Persistence.IWineryRepository wineryRepository)
 		{
 			this.wineryRepository = wineryRepository;
-			this.mapper = mapper;
 		}
 
 		[HttpGet]
@@ -29,7 +27,7 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var request = new Contracts.Request<Guid>
+				var request = new Request<Guid>
 				{
 					Token = token,
 					Skip = skip,
@@ -50,7 +48,7 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var request = new Contracts.Request<Tuple<Guid, Guid>>
+				var request = new Request<Tuple<Guid, Guid>>
 				{
 					Data = new Tuple<Guid, Guid>(wineryId, wineId)
 				};

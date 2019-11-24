@@ -2,25 +2,28 @@
 
 namespace WineryStore.Contracts
 {
-	public class Winery
+	public abstract class Base
 	{
 		public Guid Id { get; set; }
 		public string Name { get; set; }
+	}
+
+	public class Winery : Base
+	{
 		public string Region { get; set; }
 		public string Country { get; set; }
 	}
 
-	public class Wine
+	public class Wine : Base
 	{
-		public Guid Id { get; set; }
 		public Guid WineryId { get; set; }
-		public string Name { get; set; }
 		public WineColor Color { get; set; }
 		public string Vintage { get; set; }
 		public int Score { get; set; }
-		public int Price { get; set; }
-		public string IssueDate { get; set; }
+		public decimal Price { get; set; }
+		public DateTime IssueDate { get; set; }
 		public int Rank { get; set; }
+		public int RankYear { get; set; }
 		public string Note { get; set; }
 	}
 
@@ -31,6 +34,7 @@ namespace WineryStore.Contracts
 		Rose,
 		Champagne,
 		Dessert,
-		Sparkling
+		Sparkling,
+		Blush
 	}
 }

@@ -1,24 +1,23 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using WineryStore.API.Mappers;
 using WineryStore.API.Models;
+using WineryStore.Contracts.Utils;
 
 namespace WineryStore.API.Controllers
 {
-	[Route("api/winery")]
+	[Route("api/wineries")]
 	[ApiController]
 	public class WineryController : ControllerBase
 	{
 		private readonly Persistence.IWineryRepository wineryRepository;
-		private readonly IMapper mapper;
 
-		public WineryController(Persistence.IWineryRepository wineryRepository, IMapper mapper)
+		public WineryController(Persistence.IWineryRepository wineryRepository)
 		{
 			this.wineryRepository = wineryRepository;
-			this.mapper = mapper;
 		}
 
 		[HttpGet]
@@ -28,7 +27,7 @@ namespace WineryStore.API.Controllers
 			int take = 10
 			)
 		{
-			var request = new Contracts.Request
+			var request = new Request
 			{
 				Token = token,
 				Skip = skip,
@@ -52,16 +51,19 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var winery = await wineryRepository.GetWinerybyIdAsync(
-					new Contracts.Request<Guid>
-					{
-						Data = wineryId
-					});
+				var request = new Request<Guid>
+				{
+					Data = wineryId
+				};
 
-				if (winery.Result == null)
-					return NotFound("Given resource does not exists.");
-				else
-					return Ok(winery);
+				var wineryExists = await wineryRepository.WineryExistsAsync(request);
+
+				if (!wineryExists.Result)
+					return NotFound($"Winery with Id {wineryId} does not exists.");
+
+				var winery = await wineryRepository.GetWinerybyIdAsync(request);
+
+				return Ok(winery);
 			}
 			catch (Exception ex)
 			{
@@ -74,7 +76,7 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var response = await wineryRepository.AddWineryAsync(mapper.Map<Contracts.Winery>(request));
+				var response = await wineryRepository.AddWineryAsync(request.MapToWineryContract());
 
 				if (response.Result != Guid.Empty)
 				{
@@ -99,18 +101,18 @@ namespace WineryStore.API.Controllers
 			try
 			{
 				var winery = await wineryRepository.WineryExistsAsync(
-					new Contracts.Request<Guid>
+					new Request<Guid>
 					{
 						Data = request.Id
 					});
 
 				if (!winery.Result)
-					return NotFound("Given resource does not exists.");
+					return NotFound($"Winery with Id {request.Id} does not exists.");
 
-				var response = await wineryRepository.UpdateWineryAsync(mapper.Map<Contracts.Winery>(request));
+				var response = await wineryRepository.UpdateWineryAsync(request.MapToWineryContract());
 
 				if (response.Result > 0)
-					return Ok("Winery updated Successfully!");
+					return Ok(request);
 				else
 					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to Update Winery!");
 			}
@@ -129,15 +131,15 @@ namespace WineryStore.API.Controllers
 			try
 			{
 				var winery = await wineryRepository.WineryExistsAsync(
-					new Contracts.Request<Guid>
+					new Request<Guid>
 					{
 						Data = wineryId
 					});
 
 				if (!winery.Result)
-					return NotFound("Given resource does not exists.");
+					return NotFound($"Winery with Id {wineryId} does not exists.");
 
-				WineryDTO wineryDTO = mapper.Map<WineryDTO>(winery.Result);
+				WineryDTO wineryDTO = new WineryDTO();
 				wineryPatch.ApplyTo(wineryDTO);
 
 				return Ok(wineryDTO);
@@ -157,18 +159,18 @@ namespace WineryStore.API.Controllers
 			try
 			{
 				var winery = await wineryRepository.WineryExistsAsync(
-					new Contracts.Request<Guid>
+					new Request<Guid>
 					{
 						Data = wineryId
 					});
 
 				if (!winery.Result)
-					return NotFound("Given resource does not exists.");
+					return NotFound($"Winery with Id {wineryId} does not exists.");
 
-				var response = await wineryRepository.RemoveWineryAsync(new Contracts.Request<Guid> { Data = wineryId });
+				var response = await wineryRepository.RemoveWineryAsync(new Request<Guid> { Data = wineryId });
 
 				if (response.Result > 0)
-					return Ok("Winery removed Successfully!");
+					return Ok(wineryId);
 				else
 					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to remove Winery!");
 			}

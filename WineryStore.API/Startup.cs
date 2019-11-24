@@ -1,13 +1,14 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
+using System.Threading;
 using WineryStore.Persistence;
 using WineryStore.Persistence.Datastore;
 
@@ -15,6 +16,8 @@ namespace WineryStore.API
 {
 	public class Startup
 	{
+		readonly string WineryAllowSpecificOrigins = "_wineryAllowSpecificOrigins";
+
 		public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
@@ -27,16 +30,15 @@ namespace WineryStore.API
 		{
 			services.AddCors(options =>
 			{
-				options.AddDefaultPolicy(builder =>
+				options.AddPolicy(WineryAllowSpecificOrigins, builder =>
 				{
-					builder.WithOrigins("http://localhost:3000")
+					builder
+					.WithOrigins("http://localhost:3000")
 					.AllowAnyHeader()
-					.AllowAnyHeader();
+					.AllowAnyMethod();
 				});
 			});
-
-			services.AddAutoMapper(typeof(Startup));
-
+			
 			//https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.2#service-lifetimes
 			services.AddScoped<IWineryRepository, WineryRepository>();
 			services.AddScoped<IWineRepository, WineRepository>();
@@ -50,12 +52,18 @@ namespace WineryStore.API
 				options.UseSqlServer(Configuration.GetConnectionString("WineryConnection")
 			));
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			app.Use(async (context, next) =>
+			{
+				Thread.Sleep(1500);
+				await next.Invoke();
+			});
+
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -65,9 +73,14 @@ namespace WineryStore.API
 				app.UseHsts();
 			}
 
-			app.UseCors();
+			app.UseCors(WineryAllowSpecificOrigins);
 			app.UseHttpsRedirection();
-			app.UseMvc();
+			app.UseRouting();
+
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+			});
 		}
 	}
 

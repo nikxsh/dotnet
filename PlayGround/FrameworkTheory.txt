@@ -1,0 +1,205 @@
+﻿.NET Framework
+
+1.What is Framework ?
+	Framework is special kind of libraries or structures that helps in building applications. 
+
+2.What is .Net Framework ?
+	It is collection of libraries and API designed by microsoft which helps in building,deploying and running applications and services that use >net technologies. 
+	In simple words a .net framwork is a combination of several diff technology like CLR,asp.net,garbage collection etc that helps in easing the process of software development.
+
+
+3.What are the features of .Net framework ?
+	MSIL,CLR,CTS,Assemblies 
+
+
+
+4.Briefly explain how the code is compiled by the framework ?
+	The .net code first is compiled into MSIL/IL i.e intermediate language which is machine independant. At this stage metadata is generated which contains the member signature.This code then gets compiled into machine specific language known as native language by JIT(just in time ) compiler.
+
+
+5.What is JIT ?
+	Just -In-Time compiler compiles the IL code to native code so that the machine can understand that language.JIT runs on demand when a method is called JIT analysis the IL and produces highly efficient code. So if the next time same piece of code i execitued then it runs and not compiled.JIT is specific to OS.
+
+
+6.What is AOT ?
+	Ahead-Of-Time compilation.the JIT runs just before the code execution hence it does not have enough time of optimize the code. hence cam AOT.It compiles the entire .net assembly into IL during application installation.
+	ngen is a type of AOT
+
+
+
+7.What is ngen.exe ?
+	Native Image Generator.It compiles the entire assembly during installation.
+	It creates native images that are nothing but files so that the next time compiles compiles it picks up these images instead of files from JIT.This helps in faster compilation.It can be used only if ngen is used for all the assembly in the application.
+
+
+8.How MSIL helps in language interopability ?
+	MSIL is machine independant language.no matter which language you use in .net all of then are converted into MSIL .thus helping diff language coexist with each other.
+
+
+9.What is CLR?
+	Common language runtime.it is the heart of .net framework and it takes care of code execution.It helps in running your program by acting as a translator between your program and the computer you are running it on.features of CLR -
+	a)Garbage Collection-helps in automatic memory management by disposing or the objects when they are not being referenced anymore. 
+	b)IL to native code -CLR uses JIT compiler to convert MSIL to native code.
+	c)Code access security(CAS)-provides right to certain programs. eg if a piece of code is trying to delete a file for which it does not have permission, CLR prevents it from doing so.
+	d)Code verification-ensures type safety and prevents code from accessing invalid memory locations etc.
+
+
+10.What is CTS ?
+	Common type system ,defines set of data types that are common for all the languages in .net.eg-long in vb.net and int in c# both point to system.int32 in IL.
+
+11.What is CLS ?
+	Common language specification,defines rules that all the languages must follow in order to co-exist among each other.
+
+8.What are languages supported in .Net ?
+	it supports over 60 languages some of them are-c#,ada,C++, j#,Perl,VB,cobol etc. 
+
+9.What is .Vshost ?
+	when we build our vs project this exe is created in the bin folder.it is a hosting process.and is used only by visual studio.it helps in imporving performance and supports immediate window.
+
+10.what is managed and unmanaged code ?
+	the code which runs under CLR is called managed code eg-VB,C#.
+	the code which is not compiled by CLR is called unmanaged code.eg-C++
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assembly
+
+1.What is an assembly ?
+it is unit of deployment.It is a file generated on successful compilation of .Net application. it can be either a DLL or an EXE.
+
+2.what are the features of Assembly?
+a) They are self descrining. They consists of metadata which tells what are the methods,propeties etc present in the assembly.
+b)Assembly can be loaded side-by side thus achieveing side by side execution.
+c)installation of an assembly is easier.
+d)Assemblies solve the DLL HELL problem.
+
+2.Whats the diff bt a DLL and and EXE 
+     
+DLL
+EXE
+Dynamic Link Library with .dll extension
+Executable with .exe extension
+Can have many entry points
+Has only one entry point
+Does not contain UI
+Contains UI
+It is an in-process file.that means it runsin someone else’s memory
+It is out-process file.It  can run independently. Its standalone.
+
+
+
+2.What the physical location of assembly ?
+ c:\Windows\assembly
+
+3.Different types of  Assembly ?
+a)Private Assembly
+An assembly used by a single application is called private assembly. Its present in the bin folder.
+b) SharedAssembly
+An assembly used by more than one application.Its present in GAC.
+c)Satellite Assembly
+These are resource files which are compiled to assemblies.
+
+4.What is DLL Hell ?
+DLL HELL is a problem which arises when a new version of application with a new set of DLL overrides the older version.The application which are using older version of DLL crashes because those have been replaced by new DLL which are not compatible with the old applicaitons.
+
+5.How is DLL Hell solved in .Net?
+It is solved with the help of Assemblies.Assemblies allow different versions of DLL to co-exist among themselves.This feature is called Versioning.
+
+6.What is Process ?
+Instance of computer program that is being executed.
+
+6.What are Application domains?
+The domain in which your application runs. They provide isolation for running applications.
+They are hosted inside Process.Single process can have more than one application domain. Communication between them can be achieved with the help of proxy.
+
+7.How are Application domains created in C#?
+
+static void Main()
+{
+    // Create an Application Domain:
+    System.AppDomain newDomain = System.AppDomain.CreateDomain("NewAppDomain");
+
+    // Load and execute an assembly:
+    newDomain.ExecuteAssembly(@"d:\HelloWorld.exe");
+
+    // Unload the application domain:
+    System.AppDomain.Unload(newDomain);
+}
+
+8.What is PE file ?
+Portable Executable File is either a DLL or an EXE.It is generated when a program is compiled.It consists of 3 part-
+PE Header
+MSIL
+Metadat
+
+8.What are the contents of an Assembly ?
+An assembly consists-
+a)Manifest
+b)IL Code
+c)Resource Files
+d)Metadata
+
+9.What is manifest ?
+
+Manifest of an assembly contains the following-
+a)Identity--consists of Assembly Name,Version No,Culture and Public Key Token.
+b)List of File present in Assembly.
+c)A list of referenced assemblies.
+d)A set of permission requests.
+
+10.What is metadata ?
+Contains all the type and member information present in the code.
+
+11.What is Single File and MultiFile assembly ?
+Single File Assembly-it consists of only one file.
+
+Multifile Assembly-consists of more then one files like- module(.netmodule), resource file(x.jpg) etc.All of them can be linked to form one assembly.
+
+12.Whats the diff bt assembly and module ?
+Assembly contains the manifest info.
+modules does not have manifest info.They only contain metadata.They cannot be created in VS.
+
+13.Can you compile an assembly with more than one file ?
+Yes 
+
+14.What is ILDASM ?
+Its a tool used to view contents of an assembly.
+
+
+15. what is ngen.exe ?
+Native Image Generator.It compiles the entire assembly during installation.
+It creates native images that are nothing but files so that the next time compiles compiles it picks up these images instead of files from JIT.
+This helps in faster compilation.It can be used only if ngen is used for all the assembly in the application.  
+
+
+16.What is GAC ?
+It a a cache for assemblies which are globally available. For assemblies to be loadede in GAC they must have a strong name.Strong name ensures that assemblies with same name exists in GAC.
+
+17.How do install and uninstall assembly in GAC ?
+install- gacutil -i <assembly name>
+uninstall-gacutil -u <assembly name>
+
+18.What is strong name ?
+Its  a .Net assembly name that consists of foll-
+Name,Version,Culture Info and Public Key token.
+It is used to help different versions of same assembly co-exist in GAC.
+
+18.what is strong name key file?How is it created?
+The snk.exe utility generated a public/private key pair that is stored in file called snk file(<name>.snk).it can be created by going to command prompt and typing-
+                             snk -k <name>.snk
+
+19.What do you mean by signing  a assembly
+it means ensuring your software does not fall into wrong hands. this is done by creating a .snk file for the assembly and then it is used to sign the assembly by giving it a strong name. 
+.Net uses digital signature to safe guard the integrity of an assembly .it follows Public-key cryptography.
+
+20.Explain how public key cryptography works.
+In this method both the sender and receiver will have set of keys know as public keys(which is used to encrypt a assembly) and private key(used to decrypt an assembly).when you sign an assembly using snk utility these two keys are embedded into the assembly. the assembly gets signed by the pubic key ,public key is freely distributed. the user who wants to use it must have the private key which is used to decrypt this assembly.
+
+21.What is delay signing  ? 
+
+22.What is satellite assembly ?
+satellite assembly consists of resource files which for a specific language.it can be used for localization and globalization.
+read more about them here ads
+
+
+23.what is shfusion.dll?
+Its a dll that allows you to see the contents of GAC very easily.go to run command and type assembly ,it opens up a windows which shows the contents of assembly. 

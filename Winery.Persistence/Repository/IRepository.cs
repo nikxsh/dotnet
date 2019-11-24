@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WineryStore.Contracts;
+using WineryStore.Contracts.Utils;
 
 namespace WineryStore.Persistence
 {

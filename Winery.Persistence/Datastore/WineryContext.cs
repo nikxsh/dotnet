@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace WineryStore.Persistence.Datastore
 {
@@ -44,31 +43,10 @@ namespace WineryStore.Persistence.Datastore
 				.HasConversion<int>();
 
 			//Seed Mock Data
-			modelBuilder.Entity<Winery>().HasData(
-				MockWineryData.Wineries
-				.Select(x => new Winery
-				{
-					Id = x.Id,
-					Name = x.Name,
-					Region = x.Region,
-					Country = x.Country
-				}).ToArray());
+			MockWineryData.LoadJsonData();
+			modelBuilder.Entity<Winery>().HasData(MockWineryData.Wineries);
 
-			modelBuilder.Entity<Wine>().HasData(
-				MockWineryData.Wines
-				.Select(x => new Wine
-				{
-					Id = x.Id,
-					Name = x.Name,
-					Color = (WineColor)x.Color,
-					Vintage = x.Vintage,
-					Score = x.Score,
-					Price = x.Price,
-					IssueDate = x.IssueDate,
-					Rank = x.Rank,
-					Note = x.Note,
-					WineryId = x.WineryId
-				}).ToArray());
+			modelBuilder.Entity<Wine>().HasData(MockWineryData.Wines);
 
 			//https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/index
 			//1. Install-Package Microsoft.EntityFrameworkCore.Design -Version 2.1.1
@@ -79,10 +57,15 @@ namespace WineryStore.Persistence.Datastore
 			base.OnModelCreating(modelBuilder);
 		}
 
-		public class Winery
+		public abstract class Base
 		{
 			public Guid Id { get; set; }
 			public string Name { get; set; }
+
+		}
+
+		public class Winery : Base
+		{
 			public string Region { get; set; }
 			public string Country { get; set; }
 
@@ -90,16 +73,15 @@ namespace WineryStore.Persistence.Datastore
 			public List<Wine> Wines { get; set; }
 		}
 
-		public class Wine
+		public class Wine : Base
 		{
-			public Guid Id { get; set; }
-			public string Name { get; set; }
 			public WineColor Color { get; set; }
 			public string Vintage { get; set; }
 			public int Score { get; set; }
-			public int Price { get; set; }
-			public string IssueDate { get; set; }
+			public decimal Price { get; set; }
+			public DateTime IssueDate { get; set; }
 			public int Rank { get; set; }
+			public int RankYear { get; set; }
 			public string Note { get; set; }
 
 			//It is recommended to have a foreign key property defined in the dependent entity class, it is not required. 
@@ -117,7 +99,8 @@ namespace WineryStore.Persistence.Datastore
 			Rose,
 			Champagne,
 			Dessert,
-			Sparkling
+			Sparkling,
+			Blush
 		}
 	}
 }

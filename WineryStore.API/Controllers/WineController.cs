@@ -1,9 +1,10 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using WineryStore.API.Mappers;
 using WineryStore.API.Models;
+using WineryStore.Contracts.Utils;
 
 namespace WineryStore.API.Controllers
 {
@@ -12,12 +13,10 @@ namespace WineryStore.API.Controllers
 	public class WineController : ControllerBase
 	{
 		private readonly Persistence.IWineRepository wineRepository;
-		private readonly IMapper mapper;
 
-		public WineController(Persistence.IWineRepository wineRepository, IMapper mapper)
+		public WineController(Persistence.IWineRepository wineRepository)
 		{
 			this.wineRepository = wineRepository;
-			this.mapper = mapper;
 		}
 
 		[HttpGet]
@@ -30,7 +29,7 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var request = new Contracts.Request<Guid>
+				var request = new Request<Guid>
 				{
 					Token = token,
 					Skip = skip,
@@ -53,10 +52,16 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var request = new Contracts.Request<Guid>
+				var request = new Request<Guid>
 				{
 					Data = wineId
 				};
+
+				var existingWine = await wineRepository.WineExistsAsync(request);
+
+				if (!existingWine.Result)
+					return NotFound($"Wine with Id {wineId} does not exists.");
+
 				var wine = await wineRepository.GetWineByIdAsync(request);
 				return Ok(wine);
 			}
@@ -71,7 +76,7 @@ namespace WineryStore.API.Controllers
 		{
 			try
 			{
-				var response = await wineRepository.AddWineAsync(mapper.Map<Contracts.Wine>(request));
+				var response = await wineRepository.AddWineAsync(request.MapToWineContract());
 
 				if (response.Result != Guid.Empty)
 				{
@@ -93,18 +98,18 @@ namespace WineryStore.API.Controllers
 			try
 			{
 				var existingWine = await wineRepository.WineExistsAsync(
-					new Contracts.Request<Guid>
+					new Request<Guid>
 					{
 						Data = request.Id
 					});
 
 				if (!existingWine.Result)
-					return NotFound("Given resource does not exists.");
+					return NotFound($"Wine with Id {request.Id} does not exists.");
 
-				var response = await wineRepository.UpdateWineAsync(mapper.Map<Contracts.Wine>(request));
+				var response = await wineRepository.UpdateWineAsync(request.MapToWineContract());
 
 				if (response.Result > 0)
-					return Ok("Wine updated Successfully!");
+					return Ok(request);
 				else
 					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to Update Wine!");
 
@@ -121,18 +126,18 @@ namespace WineryStore.API.Controllers
 			try
 			{
 				var existingWine = await wineRepository.GetWineByIdAsync(
-					new Contracts.Request<Guid>
+					new Request<Guid>
 					{
 						Data = wineId
 					});
 
 				if (existingWine.Result == null)
-					return NotFound("Given resource does not exists.");
+					return NotFound($"Wine with Id {wineId} does not exists.");
 
-				var response = await wineRepository.RemoveWineAsync(new Contracts.Request<Guid> { Data = wineId });
+				var response = await wineRepository.RemoveWineAsync(new Request<Guid> { Data = wineId });
 
 				if (response.Result > 0)
-					return Ok("Wine removed Successfully!");
+					return Ok(wineId);
 				else
 					return StatusCode(StatusCodes.Status500InternalServerError, "Failed to remove Wine!");
 			}

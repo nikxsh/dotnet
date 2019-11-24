@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WineryStore.Contracts
+namespace WineryStore.Contracts.Utils
 {
 	public class Request
 	{

@@ -1,41 +1,91 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using static WineryStore.Persistence.Datastore.WineryContext;
 
 namespace WineryStore.Persistence.Datastore
 {
+	class WineDetail
+	{
+		public string id { get; set; }
+		public string winery_full { get; set; }
+		public string wine_full { get; set; }
+		public string vintage { get; set; }
+		public string taster_initials { get; set; }
+		public string color { get; set; }
+		public string country { get; set; }
+		public string region { get; set; }
+		public int score { get; set; }
+		public decimal price { get; set; }
+		public string issue_date { get; set; }
+		public int top100_year { get; set; }
+		public int top100_rank { get; set; }
+		public string note { get; set; }
+	}
+
+	class WineryEqualityComparer : IEqualityComparer<Winery>
+	{
+		public bool Equals([AllowNull] Winery x, [AllowNull] Winery y)
+		{
+			return x.Name == y.Name;
+		}
+
+		public int GetHashCode([DisallowNull] Winery obj)
+		{
+			return obj.Name.GetHashCode();
+		}
+	}
+
+	class WineEqualityComparer : IEqualityComparer<Wine>
+	{
+		public bool Equals([AllowNull] Wine x, [AllowNull] Wine y)
+		{
+			return x.Name == y.Name;
+		}
+
+		public int GetHashCode([DisallowNull] Wine obj)
+		{
+			return obj.Name.GetHashCode();
+		}
+	}
+
 	public class MockWineryData
 	{
+		public static void LoadJsonData()
+		{
+			var jsonData = new FileHandler().ReadJsonData<WineDetail[]>(@"D:/wines.json");
+
+			var wineries = jsonData.Select(x => new Winery
+			{
+				Id = Guid.NewGuid(),
+				Name = x.winery_full,
+				Region = x.region,
+				Country = x.country
+			}).ToList();
+
+			Wineries.AddRange(wineries.Distinct(new WineryEqualityComparer()));
+
+			var wines = jsonData.Select(x => new Wine
+			{
+				Id = Guid.NewGuid(),
+				WineryId = wineries.Where(y => y.Name.Equals(x.winery_full, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault().Id,
+				Name = x.wine_full,
+				Color = (WineColor)Enum.Parse(typeof(WineColor), x.color.ToUpper(), true),
+				Score = x.score,
+				Price = x.price,
+				Rank = x.top100_rank,
+				IssueDate = DateTime.Parse(x.issue_date),
+				Vintage = x.vintage,
+				Note = x.note
+			}).ToList();
+
+			Wines.AddRange(wines.Distinct(new WineEqualityComparer()));
+		}
+
 		public static List<Winery> Wineries = new List<Winery>
 		{
-			new Winery
-			{
-				Id = new Guid("B3DC052C-C3A2-4607-9CA5-20E6DEDA3FC2"),
-				Name = "Duckhorn",
-				Region = "Napa",
-				Country = "California"
-			},
-			new Winery
-			{
-				Id = new Guid("0A634FFD-874B-4796-8875-02181B0EBCC8"),
-				Name = "Château Coutet",
-				Region = "Bordeaux",
-				Country = "France"
-			},
-			new Winery
-			{
-				Id = new Guid("B39C7530-622D-456E-AFB6-760F3653F076"),
-				Name = "Casanova di Neri",
-				Region = "Tuscany",
-				Country = "Italy"
-			},
-			new Winery
-			{
-				Id = new Guid("2E085A4D-A5D8-4352-8908-1B2103437885"),
-				Name = "Bodegas Godeval",
-				Region = "Spain",
-				Country = "Spain"
-			},
 			new Winery
 			{
 				Id = new Guid("D2835E85-89AB-4B23-A5D5-48DB93F778DD"),
@@ -49,84 +99,6 @@ namespace WineryStore.Persistence.Datastore
 		{
 			new Wine
 			{
-				Id = new Guid("9293677D-A36B-46CE-B2A0-9173858156EB"),
-				WineryId = new Guid("B3DC052C-C3A2-4607-9CA5-20E6DEDA3FC2"),
-				Name = "Merlot Napa Valley Three Palms Vineyard",
-				Color = WineColor.Red,
-				Score = 95,
-				Price = 98,
-				Rank = 1,
-				IssueDate = "Nov 30, 2017",
-				Vintage = "2014",
-				Note = "A powerful red, with concentrated flavors of red plum, cherry and boysenberry that are layered with plenty of rich spice and mineral accents. Touches of slate and cardamom make for a complex finish. Drink now through 2023. 3,170 cases made."
-			},
-			new Wine
-			{
-				Id = new Guid("961BD0D0-A0EB-43C8-B076-441E47FDC847"),
-				WineryId = new Guid("B3DC052C-C3A2-4607-9CA5-20E6DEDA3FC2"),
-				Name = "Cabernet Sauvignon Napa Valley",
-				Color = WineColor.Red,
-				Score = 94,
-				Price = 18,
-				Rank = 32,
-				IssueDate = "Jul 31, 1989",
-				Vintage = "1986",
-				Note = "On first sniff, this reveals itself as the complex wine it is, with smooth texture and deep plum, cherry, tar and vanilla flavors, long and perfumed. Drinkable now. 4,000 cases made."
-			},
-			new Wine
-			{
-				Id = new Guid("18CC07E8-712E-4830-BCEB-26F75F2AD3AB"),
-				WineryId = new Guid("0A634FFD-874B-4796-8875-02181B0EBCC8"),
-				Name = "Barsac",
-				Color = WineColor.Dessert,
-				Score = 96,
-				Price = 37,
-				Rank = 3,
-				IssueDate = "Mar 31, 2017",
-				Vintage = "2014",
-				Note = "This shows the vivid, racy side of Barsac, with streaming flavors of pineapple, yellow apple, green plum and white ginger, displaying lovely energy from start to finish. Ends with enough honeysuckle and orange blossom notes to balance the richness. Best from 2020 through 2035. 4,000 cases made."
-			},
-			new Wine
-			{
-				Id = new Guid("05E45CF9-FEFC-408C-97A0-81B3598EF415"),
-				WineryId = new Guid("B39C7530-622D-456E-AFB6-760F3653F076"),
-				Name = "Brunello di Montalcino",
-				Color = WineColor.Red,
-				Score = 95,
-				Price = 65,
-				Rank = 4,
-				IssueDate = "Jun 15, 2017",
-				Vintage = "2012",
-				Note = "Effusive aromas and flavors of raspberry, cherry, floral, mineral and tobacco are at the center of this linear, vibrant red. Well-structured, this offers terrific length on the sinewy finish. Best from 2020 through 2035. 6,054 cases made."
-			},
-			new Wine
-			{
-				Id = new Guid("9C2E678D-9AF2-48FA-A2BE-40B6238C5DCE"),
-				WineryId = new Guid("2E085A4D-A5D8-4352-8908-1B2103437885"),
-				Name = "Valdeorras ViÃ±a Godeval Cepas Vellas",
-				Color = WineColor.White,
-				Score = 92,
-				Price = 20,
-				Rank = 36,
-				IssueDate = "Jun 15, 2015",
-				Vintage = "2013",
-				Note = "This alluring white delivers a broad range of flavors in a pillowy texture, while crisp, well-integrated acidity maintains the focus. Melon, coconut, spice and smoke flavors mingle harmoniously on the plush palate. The mineral element is fresh and long. Godello. Drink now through 2018. 1,800 cases imported."
-			},
-			new Wine
-			{
-				Id = new Guid("DC8FDC32-B96B-4EA6-A4C9-F2514B183A53"),
-				WineryId = new Guid("2E085A4D-A5D8-4352-8908-1B2103437885"),
-				Name = "Valdeorras ViÃ±a Godeval Cepas Vellas",
-				Color = WineColor.White,
-				Score = 91,
-				Price = 20,
-				Rank = 75,
-				IssueDate = "Sep 30, 2016",
-				Vintage = "2014",
-				Note = "Pear, peach and quince flavors mingle in this expressive white, while notes of mineral, tangerine and ginger add complexity. Shows depth and focus, with a clean, juicy finish. Drink now. 1,800 cases imported."
-			},
-			new Wine
-			{
 				Id = new Guid("A05164DF-2BDB-4675-9AFA-9F5CBD9E69BD"),
 				WineryId = new Guid("D2835E85-89AB-4B23-A5D5-48DB93F778DD"),
 				Name = "Rasa Shiraz",
@@ -134,7 +106,7 @@ namespace WineryStore.Persistence.Datastore
 				Score = 92,
 				Price = 20,
 				Rank = 36,
-				IssueDate = "Jun 15, 2018",
+				IssueDate = DateTime.Parse("Jun 15, 2018"),
 				Vintage = "2015",
 				Note = "It is a complex wine, with power and finesse. Crafted from handpicked grapes from our own estate vineyards, Rasa Shiraz is aged for 12 months in premium French oak barrels and then further matured in the bottle before release."
 			},
@@ -147,7 +119,7 @@ namespace WineryStore.Persistence.Datastore
 				Score = 91,
 				Price = 20,
 				Rank = 75,
-				IssueDate = "Sep 30, 2017",
+				IssueDate = DateTime.Parse("Sep 30, 2017"),
 				Vintage = "2014",
 				Note = "Dindori Reserve Viognier is an exotic elixir of peach and lychee flavours. Floral, spicy, stunning. Great as an aperitif and terrific with spicy food. Serve well chilled."
 			},
@@ -160,7 +132,7 @@ namespace WineryStore.Persistence.Datastore
 				Score = 91,
 				Price = 16,
 				Rank = 100,
-				IssueDate = "Sep 30, 2016",
+				IssueDate = DateTime.Parse("Sep 30, 2016"),
 				Vintage = "2015",
 				Note = "Zinfandel Rose is ripe, fresh and fruity, with abundant aromas of cranberries and fresh strawberries. A versatile “anytime” wine great for picnics, parties and hot summer days. Lovely with poultry and spicy dishes. Serve well chilled."
 			},
@@ -173,7 +145,7 @@ namespace WineryStore.Persistence.Datastore
 				Score = 91,
 				Price = 41,
 				Rank = 12,
-				IssueDate = "Sep 30, 2019",
+				IssueDate = DateTime.Parse("Sep 30, 2019"),
 				Vintage = "2017",
 				Note = "A complex blend of Chenin Blanc, Chardonnay, Viognier, Pinot Noir, Riesling and Shiraz. This is one of the few “Méthode Champenoise” wines in the world to be crafted from six different grapes, resulting in something remarkable"
 			},
@@ -186,7 +158,7 @@ namespace WineryStore.Persistence.Datastore
 				Score = 91,
 				Price = 15,
 				Rank = 5,
-				IssueDate = "Sep 30, 2019",
+				IssueDate = DateTime.Parse("Sep 30, 2019"),
 				Vintage = "2019",
 				Note = "Abounding with aromas of mango, honey and tropical fruit, our award winning Late Harvest Chenin Blanc is the perfect close to a delicious meal, but is also an elegant aperiti"
 			}

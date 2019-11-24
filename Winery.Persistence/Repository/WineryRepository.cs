@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using WineryStore.Contracts;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
+using WineryStore.Contracts;
+using WineryStore.Contracts.Utils;
 using WineryStore.Persistence.Datastore;
 
 namespace WineryStore.Persistence
@@ -11,12 +11,10 @@ namespace WineryStore.Persistence
 	public class WineryRepository : IWineryRepository
 	{
 		public IWineryDataStore DataStore;
-		public IMapper Mapper;
 
-		public WineryRepository(IWineryDataStore dataStore, IMapper mapper)
+		public WineryRepository(IWineryDataStore dataStore)
 		{
 			DataStore = dataStore;
-			Mapper = mapper;
 		}
 
 		public async Task<PagedResponse<IEnumerable<Winery>>> GetAllWineriesAsync(Request request)
@@ -26,14 +24,14 @@ namespace WineryStore.Persistence
 				var response = new PagedResponse<IEnumerable<Winery>>();
 
 				var wineries = await DataStore.GetAllWineriesAsync();
-				var mappedWineries = wineries.Select(x => Mapper.Map<Winery>(x));
-				response.Total = mappedWineries.Count();
 
-				mappedWineries = mappedWineries.SearchWineries(request.Token);
-				mappedWineries = mappedWineries.FilterWineries(request.Filters);
-				mappedWineries = mappedWineries.SortWineries(request.Sort);
+				response.Total = wineries.Count();
+				wineries = wineries.SearchWineries(request.Token);
+				wineries = wineries.FilterWineries(request.Filters);
+				wineries = wineries.SortWineries(request.Sort);
+				wineries = wineries.Skip(request.Skip).Take(request.Take);
 
-				response.Result = mappedWineries.Skip(request.Skip).Take(request.Take).ToList();
+				response.Result = wineries.Select(x => x.MapToWineryContract());
 				return response;
 			}
 			catch (Exception ex)
@@ -49,7 +47,7 @@ namespace WineryStore.Persistence
 				var response = new Response<Winery>();
 
 				var winery = await DataStore.GetWineryByIdAsync(request.Data);
-				response.Result = Mapper.Map<Winery>(winery);
+				response.Result = winery.MapToWineryContract();
 
 				return response;
 			}
@@ -66,14 +64,14 @@ namespace WineryStore.Persistence
 				var response = new PagedResponse<IEnumerable<Wine>>();
 
 				var wines = await DataStore.GetAllWinesFromWineryAsync(request.Data);
-				var mappedWines = wines.Select(x => Mapper.Map<Wine>(x));
-				response.Total = mappedWines.Count();
 
-				mappedWines = mappedWines.SearchWines(request.Token);
-				mappedWines = mappedWines.FilterWines(request.Filters);
-				mappedWines = mappedWines.SortWines(request.Sort);
+				response.Total = wines.Count();
+				wines = wines.SearchWines(request.Token);
+				wines = wines.FilterWines(request.Filters);
+				wines = wines.SortWines(request.Sort);
+				wines = wines.Skip(request.Skip).Take(request.Take);
 
-				response.Result = mappedWines.Skip(request.Skip).Take(request.Take).ToList();
+				response.Result = wines.Select(x => x.MapToWineContract());
 				return response;
 			}
 			catch (Exception ex)
@@ -89,7 +87,7 @@ namespace WineryStore.Persistence
 				var response = new Response<Wine>();
 
 				var wine = await DataStore.GetWineFromWineryByIdAsync(request.Data.Item1, request.Data.Item2);
-				response.Result = Mapper.Map<Wine>(wine);
+				response.Result = wine.MapToWineContract();
 
 				return response;
 			}
@@ -99,13 +97,13 @@ namespace WineryStore.Persistence
 			}
 		}
 
-		public async Task<Response<Guid>> AddWineryAsync(Winery request)
+		public async Task<Response<Guid>> AddWineryAsync(Winery winery)
 		{
 			try
 			{
 				var response = new Response<Guid>
 				{
-					Result = await DataStore.AddWineryAsync(Mapper.Map<WineryContext.Winery>(request))
+					Result = await DataStore.AddWineryAsync(winery.MapToWineryPersistence())
 				};
 				return response;
 			}
@@ -115,13 +113,13 @@ namespace WineryStore.Persistence
 			}
 		}
 
-		public async Task<Response<int>> UpdateWineryAsync(Winery request)
+		public async Task<Response<int>> UpdateWineryAsync(Winery winery)
 		{
 			try
 			{
 				var response = new Response<int>
 				{
-					Result = await DataStore.UpdateWineryAsync(Mapper.Map<WineryContext.Winery>(request))
+					Result = await DataStore.UpdateWineryAsync(winery.MapToWineryPersistence())
 				};
 				return response;
 			}

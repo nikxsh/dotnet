@@ -1,0 +1,5 @@
+﻿1. Add-Migration InitialCreate
+2. Update-Database
+
+
+https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
