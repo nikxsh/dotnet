@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineryStore.API", "WinerySt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineryStore.Tests", "WineryStore.Tests\WineryStore.Tests.csproj", "{4B664EFA-F108-4ED5-8C97-EBA84C002013}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{3B5E49B7-E675-4B38-BAA2-D34CA4AE05F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{3B5E49B7-E675-4B38-BAA2-D34CA4AE05F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayGround", "PlayGround\PlayGround.csproj", "{3F7E339E-3627-497F-8361-C938A9C31ED5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayGround", "PlayGround\PlayGround.csproj", "{3F7E339E-3627-497F-8361-C938A9C31ED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

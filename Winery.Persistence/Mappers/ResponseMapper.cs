@@ -86,7 +86,7 @@ namespace WineryStore.Persistence
 				}
 			}
 			else
-				lstWineries = lstWineries.OrderBy(x => x.Name);
+				lstWineries = lstWineries.OrderBy(x => x.Country);
 
 			return lstWineries;
 		}

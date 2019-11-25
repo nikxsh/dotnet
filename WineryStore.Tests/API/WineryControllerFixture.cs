@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using NUnit.Framework;
 using System;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WineryStore.API.Controllers;
 using WineryStore.Contracts;
+using WineryStore.Contracts.Utils;
 using WineryStore.Persistence;
 
 namespace WineryStore.Tests.API
@@ -16,16 +16,14 @@ namespace WineryStore.Tests.API
 	public class WineryControllerFixture
 	{
 		private readonly IWineryRepository _wineryRepository;
-		private readonly IMapper _mapper;
 		private readonly WineryController _controller;
 
 
 		public WineryControllerFixture()
 		{
 			_wineryRepository = Substitute.For<IWineryRepository>();
-			_mapper = Substitute.For<IMapper>();
 
-			_controller = new WineryController(_wineryRepository, _mapper);
+			_controller = new WineryController(_wineryRepository);
 		}
 
 		[TestCase]

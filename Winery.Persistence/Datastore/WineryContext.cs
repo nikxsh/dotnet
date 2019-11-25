@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WineryStore.Persistence.Datastore
 {
@@ -43,10 +45,8 @@ namespace WineryStore.Persistence.Datastore
 				.HasConversion<int>();
 
 			//Seed Mock Data
-			MockWineryData.LoadJsonData();
-			modelBuilder.Entity<Winery>().HasData(MockWineryData.Wineries);
-
-			modelBuilder.Entity<Wine>().HasData(MockWineryData.Wines);
+			modelBuilder.Entity<Winery>().HasData(SeedWineryData.GetWineries());
+			modelBuilder.Entity<Wine>().HasData(SeedWineryData.GetWines());
 
 			//https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/index
 			//1. Install-Package Microsoft.EntityFrameworkCore.Design -Version 2.1.1

@@ -15,7 +15,7 @@ namespace WineryStore.API.Models
 	public class WineryDTO : Base
 	{
 		[Required]
-		[StringLength(20)]
+		[StringLength(50)]
 		public string Region { get; set; }
 		[Required]
 		[StringLength(20)]
