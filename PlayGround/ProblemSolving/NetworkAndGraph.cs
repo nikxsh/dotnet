@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace CSharp.ProblemSolving
+namespace PlayGround.ProblemSolving
 {
 	public class NetworkAndGraph
 	{

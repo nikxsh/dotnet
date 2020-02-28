@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSharp
+namespace PlayGround
 {
 	class DesignProblems
 	{
@@ -38,7 +38,6 @@ namespace CSharp
 	{
 		public GPS Location { get; set; }
 		public double FuelCapacity { get; set; }
-
 		public abstract void StartEngine();
 	}
 

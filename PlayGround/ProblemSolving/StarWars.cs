@@ -1,4 +1,4 @@
-﻿namespace CSharp.ProblemSolving
+﻿namespace PlayGround.ProblemSolving
 {
 	public class StarWars
 	{

@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace CSharp
+namespace PlayGround
 {
 	public class DataStructure
 	{

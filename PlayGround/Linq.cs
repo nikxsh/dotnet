@@ -1,11 +1,11 @@
-﻿using CSharp;
+﻿using PlayGround;
 using PlayGround.Common;
 using System;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace CSharp
+namespace PlayGround
 {
 	/// <summary>
 	/// Language Integrated Query (LINQ)

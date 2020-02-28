@@ -38,8 +38,8 @@ namespace WineryStore.API
 					.AllowAnyMethod();
 				});
 			});
-			
-			//https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.2#service-lifetimes
+
+			//https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1
 			services.AddScoped<IWineryRepository, WineryRepository>();
 			services.AddScoped<IWineRepository, WineRepository>();
 			//services.AddScoped<IWineryDataStore, InMemoryWineryDataStore>();

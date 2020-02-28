@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace CSharp
+namespace PlayGround
 {
 	public class Problems
 	{

@@ -3,9 +3,9 @@ using Shared;
 using System;
 using System.Linq;
 
-namespace CSharp
+namespace PlayGround
 {
-	class Program
+	internal class Program
 	{
 		static void Main(string[] args)
 		{
@@ -13,9 +13,8 @@ namespace CSharp
 			//new DataStructure().Play();
 			//new DesignPatterns().Play();
 
-			//new CsharpConcepts().Play();
+			new CsharpConcepts().Play();
 			//new SystemInterfaces().Play();
-			//new FunctionPointers().Play();
 			//new Collections().Play();
 			//new Linq().Play();
 			//new MultiThreading().Play();

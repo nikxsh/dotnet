@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayGround", "PlayGround\PlayGround.csproj", "{3F7E339E-3627-497F-8361-C938A9C31ED5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WineShop", "WineShop", "{E899C027-3C11-43B2-9E64-18115005A258}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineryStore.API", "WineShop\WineryStore.API\WineryStore.API.csproj", "{577825F6-017D-4DB9-8E9A-03F564E13013}"
 EndProject
