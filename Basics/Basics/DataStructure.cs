@@ -1,9 +1,9 @@
-﻿using PlayGround.Common;
+﻿using Basics.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace PlayGround
+namespace Basics
 {
 	public class DataStructure
 	{

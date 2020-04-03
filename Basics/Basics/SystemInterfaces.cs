@@ -1,10 +1,10 @@
-﻿using PlayGround.Common;
+﻿using Basics.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlayGround
+namespace Basics
 {
 	public class SystemInterfaces
 	{

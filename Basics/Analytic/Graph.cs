@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 
-namespace PlayGround.ProblemSolving
+namespace Analytic
 {
-	public class NetworkAndGraph
+	class Graph
 	{
-		public void Run(string name)
+		public void ConnectionOf(string name)
 		{
 			var network = new Network();
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace PlayGround
+namespace Basics
 {
 	/// <summary>
 	/// - To Test whether List.contains(), Dictinory or HashSet.Contains() is better

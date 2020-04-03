@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PlayGround
+namespace Basics
 {
 	class DesignProblems
 	{

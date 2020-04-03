@@ -1,9 +1,6 @@
-﻿using PlayGround.Common;
-using Shared;
-using System;
-using System.Linq;
+﻿using System;
 
-namespace PlayGround
+namespace Basics
 {
 	internal class Program
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PlayGround.Common
+namespace Basics.Common
 {
 	public class MockData
 	{

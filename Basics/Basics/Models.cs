@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PlayGround.Common
+namespace Basics.Common
 {
 	public class Singer
 	{

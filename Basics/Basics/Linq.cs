@@ -1,11 +1,11 @@
-﻿using PlayGround;
-using PlayGround.Common;
+﻿using Basics;
+using Basics.Common;
 using System;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace PlayGround
+namespace Basics
 {
 	/// <summary>
 	/// Language Integrated Query (LINQ)

@@ -1,10 +1,10 @@
-﻿using PlayGround.Common;
+﻿using Basics.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PlayGround
+namespace Basics
 {
 	class CsharpConcepts
 	{

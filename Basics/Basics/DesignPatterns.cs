@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PlayGround
+namespace Basics
 {
 	/// <summary>
 	///  Creational Patterns
