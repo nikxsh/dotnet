@@ -22,6 +22,7 @@ namespace WineryStore.Contracts.Extensions
 			uriBuilder.Query = query.ToString();
 			return uriBuilder.Uri;
 		}
+
 		public static bool Contains(this string source, string token, StringComparison culture)
 		{
 			return source?.IndexOf(token, culture) >= 0;

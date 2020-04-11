@@ -18,23 +18,12 @@ namespace WineryStore.Contracts.Utils
 
 	public class Filter
 	{
-		public Filter(string column, string token)
-		{
-			this.Column = column;
-			this.Token = token;
-		}
-
 		public string Column { get; set; }
 		public string Token { get; set; }
 	}
 
 	public class Sort
 	{
-		public Sort(string column, SortOrder order)
-		{
-			this.Column = column;
-			this.Order = order;
-		}
 		public string Column { get; set; }
 		public SortOrder Order { get; set; }
 	}
@@ -49,5 +38,6 @@ namespace WineryStore.Contracts.Utils
 	public class PagedResponse<T> : Response<T>
 	{
 		public int Total { get; set; }
+		public int FilteredTotal { get; set; }
 	}
 }

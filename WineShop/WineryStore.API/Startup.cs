@@ -33,7 +33,7 @@ namespace WineryStore.API
 				options.AddPolicy(WineryAllowSpecificOrigins, builder =>
 				{
 					builder
-					.WithOrigins("http://localhost:3000")
+					.WithOrigins("http://localhost:3000", "http://localhost:4200")
 					.AllowAnyHeader()
 					.AllowAnyMethod();
 				});

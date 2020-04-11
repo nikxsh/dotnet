@@ -8,7 +8,7 @@ using WineryStore.Contracts.Utils;
 
 namespace WineryStore.API.Controllers
 {
-	[Route("api/wines")]
+	[Route("api")]
 	[ApiController]
 	public class WineController : ControllerBase
 	{
@@ -19,24 +19,11 @@ namespace WineryStore.API.Controllers
 			this.wineRepository = wineRepository;
 		}
 
-		[HttpGet]
-		public async Task<IActionResult> Get(
-			Guid WineryId,
-			string token = "",
-			int skip = 0,
-			int take = 10
-			)
+		[HttpPost("wines")]
+		public async Task<IActionResult> Get(Request request)
 		{
 			try
 			{
-				var request = new Request<Guid>
-				{
-					Token = token,
-					Skip = skip,
-					Take = take,
-					Data = WineryId
-				};
-
 				var allWines = await wineRepository.GetAllWinesAsync(request);
 
 				return Ok(allWines);
@@ -47,7 +34,7 @@ namespace WineryStore.API.Controllers
 			}
 		}
 
-		[HttpGet("{wineId:Guid}")]
+		[HttpGet("wines/{wineId:Guid}")]
 		public async Task<IActionResult> Get(Guid wineId)
 		{
 			try
@@ -71,7 +58,7 @@ namespace WineryStore.API.Controllers
 			}
 		}
 
-		[HttpPost]
+		[HttpPost("wine")]
 		public async Task<IActionResult> Post(WineDTO request)
 		{
 			try
@@ -92,7 +79,7 @@ namespace WineryStore.API.Controllers
 			}
 		}
 
-		[HttpPut]
+		[HttpPut("wine")]
 		public async Task<IActionResult> Put(WineDTO request)
 		{
 			try
@@ -120,7 +107,7 @@ namespace WineryStore.API.Controllers
 			}
 		}
 
-		[HttpDelete("{wineId:Guid}")]
+		[HttpDelete("wine/{wineId:Guid}")]
 		public async Task<IActionResult> Delete(Guid wineId)
 		{
 			try

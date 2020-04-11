@@ -29,8 +29,9 @@ namespace WineryStore.Persistence
 				wines = wines.SearchWines(request.Token);
 				wines = wines.FilterWines(request.Filters);
 				wines = wines.SortWines(request.Sort);
-				wines = wines.Skip(request.Skip).Take(request.Take);
+				response.FilteredTotal = wines.Count();
 
+				wines = wines.Skip(request.Skip).Take(request.Take);
 				response.Result = wines.Select(x => x.MapToWineContract());
 
 				return response;

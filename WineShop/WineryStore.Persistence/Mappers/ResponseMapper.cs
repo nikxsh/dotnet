@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using WineryStore.Contracts.Helper;
 using WineryStore.Contracts.Extensions;
 using WineryStore.Contracts.Utils;
 using static WineryStore.Persistence.Datastore.WineryContext;
@@ -91,19 +92,29 @@ namespace WineryStore.Persistence
 			return lstWineries;
 		}
 
+		/// <summary>
+		/// https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ef/language-reference/supported-and-unsupported-linq-methods-linq-to-entities?redirectedfrom=MSDN
+		/// </summary>
 		public static IQueryable<Wine> SearchWines(this IQueryable<Wine> lstWines, string token)
 		{
 			if (!string.IsNullOrEmpty(token))
-				return lstWines
-						 .Where(x =>
-								x.Name.Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
-								x.Rank.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
-								x.Score.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
-								x.IssueDate.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
-								x.Price.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase) ||
-								x.Vintage.ToString().Contains(token, StringComparison.InvariantCultureIgnoreCase)
-						);
+			{
+				token = token.ToLower();
+				var colorTokens = Helper.ToEnumArray<Contracts.WineColor>()
+					.Where(x => x.Value.Contains(token, StringComparison.InvariantCultureIgnoreCase))
+					?.Select(y => y.Key);
 
+				return lstWines
+							 .Where(x =>
+									x.Name.ToLower().Contains(token) ||
+									colorTokens.Any(tok => tok == (int)x.Color) ||
+									x.Rank.ToString().Contains(token) ||
+									x.Score.ToString().Contains(token) ||
+									x.IssueDate.ToString().Contains(token) ||
+									x.Price.ToString().Contains(token) ||
+									x.Vintage.ToLower().Contains(token)
+							  );
+			}
 			return lstWines;
 		}
 
@@ -113,23 +124,28 @@ namespace WineryStore.Persistence
 			{
 				if (filter == null || string.IsNullOrEmpty(filter.Column) || string.IsNullOrEmpty(filter.Token)) continue;
 
+				filter.Token = filter.Token.ToLower();
+				var colorTokens = Helper.ToEnumArray<Contracts.WineColor>()
+					.Where(x => x.Value.Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase))
+					?.Select(y => y.Key);
+
 				switch (filter.Column.ToLower())
 				{
-					case "Name":
+					case "name":
 						lstWines = lstWines.Where(x =>
-							x.Name.Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)
+							x.Name.ToLower().Contains(filter.Token)
 						);
 						break;
 
-					case "Price":
+					case "color":
 						lstWines = lstWines.Where(x =>
-							x.Price.ToString().Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)
+							colorTokens.Any(y => y == (int)x.Color)
 						);
 						break;
 
-					case "Vintage":
+					case "price":
 						lstWines = lstWines.Where(x =>
-							x.Vintage.Contains(filter.Token, StringComparison.InvariantCultureIgnoreCase)
+							x.Price.ToString().ToLower().Contains(filter.Token)
 						);
 						break;
 				}
@@ -146,19 +162,19 @@ namespace WineryStore.Persistence
 				{
 					switch (sort.Column.ToLower())
 					{
-						case "Name":
+						case "name":
 							lstWines = lstWines.OrderBy(x => x.Name);
 							break;
 
-						case "Price":
+						//case "color":
+						//	lstWines = lstWines.OrderBy(x => x.Color);
+						//	break;
+
+						case "price":
 							lstWines = lstWines.OrderBy(x => x.Price);
 							break;
 
-						case "Rank":
-							lstWines = lstWines.OrderBy(x => x.Rank);
-							break;
-
-						case "Vintage":
+						case "vintage":
 							lstWines = lstWines.OrderBy(x => x.Vintage);
 							break;
 					}
@@ -167,19 +183,19 @@ namespace WineryStore.Persistence
 				{
 					switch (sort.Column.ToLower())
 					{
-						case "Name":
+						case "name":
 							lstWines = lstWines.OrderByDescending(x => x.Name);
 							break;
 
-						case "Price":
+						//case "color":
+						//	lstWines = lstWines.OrderByDescending(x => x.Color);
+						//	break;
+
+						case "price":
 							lstWines = lstWines.OrderByDescending(x => x.Price);
 							break;
 
-						case "Rank":
-							lstWines = lstWines.OrderByDescending(x => x.Rank);
-							break;
-
-						case "Vintage":
+						case "vintage":
 							lstWines = lstWines.OrderByDescending(x => x.Vintage);
 							break;
 					}
