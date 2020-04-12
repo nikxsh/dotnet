@@ -1,7 +1,7 @@
 ﻿[
 	{
 		"wineryId": "7e5c58bd-5194-49bd-a96e-7fb914ecb92d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 20,
@@ -14,7 +14,7 @@
 	},
 	{
 		"wineryId": "722cf670-1671-4df7-81f2-f07b0207ffb9",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 36,
@@ -27,7 +27,7 @@
 	},
 	{
 		"wineryId": "155f2304-8ec9-4533-a36a-05a4faab3ddb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 18,
@@ -40,7 +40,7 @@
 	},
 	{
 		"wineryId": "0d28fae2-7466-4c42-9a03-52fc09e62d78",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 91,
 		"price": 21,
@@ -53,7 +53,7 @@
 	},
 	{
 		"wineryId": "85f21d28-1f75-4f35-bdd0-1aed00aca8d4",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 13,
@@ -66,7 +66,7 @@
 	},
 	{
 		"wineryId": "55d74e35-975b-48e5-9fbe-d19ac6481edd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 92,
 		"price": 17,
@@ -79,7 +79,7 @@
 	},
 	{
 		"wineryId": "1d1e3420-3dfd-4fb5-adaa-5c69b20aba47",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2008",
 		"score": 95,
 		"price": 85,
@@ -92,7 +92,7 @@
 	},
 	{
 		"wineryId": "de83665c-46c0-4c70-8d40-10613715b316",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 91,
 		"price": 22,
@@ -105,7 +105,7 @@
 	},
 	{
 		"wineryId": "3d57f495-5239-4872-b7f0-d7142d574399",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 20,
@@ -118,7 +118,7 @@
 	},
 	{
 		"wineryId": "9dc31db5-57ef-4b9f-8ee4-f3fbc97f34b3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 39,
@@ -131,7 +131,7 @@
 	},
 	{
 		"wineryId": "46abc59d-09db-444f-8fc7-3cffb1f3bbbf",
-		"color": 6,
+		"color": "Blush",
 		"vintage": "2014",
 		"score": 92,
 		"price": 40,
@@ -144,7 +144,7 @@
 	},
 	{
 		"wineryId": "a6ec140a-0069-4a2c-89b2-ce0605ca3b7f",
-		"color": 6,
+		"color": "Blush",
 		"vintage": "2015",
 		"score": 91,
 		"price": 30,
@@ -157,7 +157,7 @@
 	},
 	{
 		"wineryId": "fb00fa6c-eb6f-467d-8d8f-74e8ab0c4cd6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 95,
 		"price": 45,
@@ -170,7 +170,7 @@
 	},
 	{
 		"wineryId": "3c8a34f2-cf3d-472c-b3ae-6d849d68258e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 96,
 		"price": 59,
@@ -183,7 +183,7 @@
 	},
 	{
 		"wineryId": "fb00fa6c-eb6f-467d-8d8f-74e8ab0c4cd6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 83,
@@ -196,7 +196,7 @@
 	},
 	{
 		"wineryId": "d173e662-963e-4aca-a26d-42fcc182e1bc",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 37,
@@ -209,7 +209,7 @@
 	},
 	{
 		"wineryId": "d174e33e-9c71-466a-9415-457c22ccc4b7",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 97,
 		"price": 62,
@@ -222,7 +222,7 @@
 	},
 	{
 		"wineryId": "72c41607-e3d3-448a-963e-df1bc271e55b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 94,
 		"price": 55,
@@ -235,7 +235,7 @@
 	},
 	{
 		"wineryId": "fb00fa6c-eb6f-467d-8d8f-74e8ab0c4cd6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 88,
@@ -248,7 +248,7 @@
 	},
 	{
 		"wineryId": "fb00fa6c-eb6f-467d-8d8f-74e8ab0c4cd6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 97,
 		"price": 94,
@@ -261,7 +261,7 @@
 	},
 	{
 		"wineryId": "60766f0b-f62d-48e5-8c6a-51fc77e38eb7",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 17,
@@ -274,7 +274,7 @@
 	},
 	{
 		"wineryId": "e3749f96-cb18-43e4-a3ee-c4f5052d145a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 90,
 		"price": 6,
@@ -287,7 +287,7 @@
 	},
 	{
 		"wineryId": "53be9bd3-03d4-4df4-b437-69da5e02242f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 97,
 		"price": 138,
@@ -300,7 +300,7 @@
 	},
 	{
 		"wineryId": "ce5ef47b-0dda-4258-b0cb-91014b71e031",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 53,
@@ -313,7 +313,7 @@
 	},
 	{
 		"wineryId": "4b2cdd19-bcd1-49a1-a6ed-1ec3da1a93a6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 97,
 		"price": 129,
@@ -326,7 +326,7 @@
 	},
 	{
 		"wineryId": "12dff6ae-ede0-4f23-b598-74885fb3b953",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 30,
@@ -339,7 +339,7 @@
 	},
 	{
 		"wineryId": "de83665c-46c0-4c70-8d40-10613715b316",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 27,
@@ -352,7 +352,7 @@
 	},
 	{
 		"wineryId": "06f47c13-2d32-49b5-b1d8-f372b3667de6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 35,
@@ -365,7 +365,7 @@
 	},
 	{
 		"wineryId": "cc96f482-7ada-4bb2-9f1b-397604afb49f",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2014",
 		"score": 96,
 		"price": 37,
@@ -378,7 +378,7 @@
 	},
 	{
 		"wineryId": "faa25a25-3864-46ca-96f4-e73ea1c6f2e8",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 95,
 		"price": 93,
@@ -391,7 +391,7 @@
 	},
 	{
 		"wineryId": "cfa8a27d-4f56-4b7c-bc23-32c6efd7291c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 25,
@@ -404,7 +404,7 @@
 	},
 	{
 		"wineryId": "7c09700f-4c6d-4eeb-b40f-01bbb76dc71d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 95,
 		"price": 30,
@@ -417,7 +417,7 @@
 	},
 	{
 		"wineryId": "b6c686d4-7971-40f2-b55f-fea70acc24ac",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 92,
 		"price": 55,
@@ -430,7 +430,7 @@
 	},
 	{
 		"wineryId": "7faa1e22-9881-416c-9f2c-a86939382f31",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 23,
@@ -443,7 +443,7 @@
 	},
 	{
 		"wineryId": "3d74a274-c81d-44a8-b8d4-5c333019df57",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 34,
@@ -456,7 +456,7 @@
 	},
 	{
 		"wineryId": "a1038f80-22a7-4110-b28b-51f2c51ee556",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 96,
 		"price": 240,
@@ -469,7 +469,7 @@
 	},
 	{
 		"wineryId": "479915f3-68cb-4ec1-beb2-7b2c4ba6d43a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 102,
@@ -482,7 +482,7 @@
 	},
 	{
 		"wineryId": "8effcf7f-9e13-4f49-a382-aeab2cd0e0c8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 35,
@@ -495,7 +495,7 @@
 	},
 	{
 		"wineryId": "7c09700f-4c6d-4eeb-b40f-01bbb76dc71d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 95,
 		"price": 48,
@@ -508,7 +508,7 @@
 	},
 	{
 		"wineryId": "9273fad8-60a5-4edb-af74-e3c82ea1c300",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 65,
@@ -521,7 +521,7 @@
 	},
 	{
 		"wineryId": "3bb6ed6b-0083-44bb-9364-854c348d9d00",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 96,
 		"price": 60,
@@ -534,7 +534,7 @@
 	},
 	{
 		"wineryId": "2c3610f5-dc68-4646-a569-58a641754756",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 34,
@@ -547,7 +547,7 @@
 	},
 	{
 		"wineryId": "fc89fb59-b978-4dc9-95aa-38bc7cb10892",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 98,
 		"price": 125,
@@ -560,7 +560,7 @@
 	},
 	{
 		"wineryId": "fc89fb59-b978-4dc9-95aa-38bc7cb10892",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 96,
 		"price": 65,
@@ -573,7 +573,7 @@
 	},
 	{
 		"wineryId": "0ea5a090-0fd1-4923-b59c-0f42999ffed0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 95,
 		"price": 55,
@@ -586,7 +586,7 @@
 	},
 	{
 		"wineryId": "04f57959-3897-4de1-aaef-a67b2615b170",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 96,
 		"price": 100,
@@ -599,7 +599,7 @@
 	},
 	{
 		"wineryId": "d2835e85-89ab-4b23-a5d5-48db93f778dd",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "2017",
 		"score": 91,
 		"price": 41,
@@ -612,7 +612,7 @@
 	},
 	{
 		"wineryId": "6fa46694-c17b-472d-8bc0-548e45b262ed",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "NV",
 		"score": 92,
 		"price": 24,
@@ -625,7 +625,7 @@
 	},
 	{
 		"wineryId": "6fa46694-c17b-472d-8bc0-548e45b262ed",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "2007",
 		"score": 93,
 		"price": 48,
@@ -638,7 +638,7 @@
 	},
 	{
 		"wineryId": "509ff0b9-3d09-4ef6-a9c8-085580500677",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "1982",
 		"score": 94,
 		"price": 61,
@@ -651,7 +651,7 @@
 	},
 	{
 		"wineryId": "cdb1c8e7-59a2-42a8-b270-634baef09d14",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "NV",
 		"score": 90,
 		"price": 14,
@@ -664,7 +664,7 @@
 	},
 	{
 		"wineryId": "110a9308-b90a-4d4a-aa12-daf22f694861",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "2011",
 		"score": 93,
 		"price": 42,
@@ -677,7 +677,7 @@
 	},
 	{
 		"wineryId": "a0bb51f6-5e8a-4b38-9d67-ff0eda46d2eb",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "1982",
 		"score": 93,
 		"price": 24,
@@ -690,7 +690,7 @@
 	},
 	{
 		"wineryId": "b9e116a7-28e3-49c8-a1cf-55f37e691a3f",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "1982",
 		"score": 93,
 		"price": 150,
@@ -703,7 +703,7 @@
 	},
 	{
 		"wineryId": "cbddef77-617b-4d4d-9865-cbb3b623210a",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "NV",
 		"score": 92,
 		"price": 50,
@@ -716,7 +716,7 @@
 	},
 	{
 		"wineryId": "62f81671-4cec-49bc-b277-2cf6ca2b92d5",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "1985",
 		"score": 93,
 		"price": 37,
@@ -729,7 +729,7 @@
 	},
 	{
 		"wineryId": "792d2006-a460-4822-9811-f502e9108aad",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "1982",
 		"score": 93,
 		"price": 30,
@@ -742,7 +742,7 @@
 	},
 	{
 		"wineryId": "a2ba8c82-6e82-4eb3-996a-06f784df17e4",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "NV",
 		"score": 92,
 		"price": 46,
@@ -755,7 +755,7 @@
 	},
 	{
 		"wineryId": "98a949e0-9ee2-4872-9cff-d7b275ca002a",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "1985",
 		"score": 91,
 		"price": 13,
@@ -768,7 +768,7 @@
 	},
 	{
 		"wineryId": "2eb50a6c-4631-41e2-af25-6fb78a21b155",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "1987",
 		"score": 91,
 		"price": 22,
@@ -781,7 +781,7 @@
 	},
 	{
 		"wineryId": "591dffb3-1ca9-408a-953d-39149a924c00",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "NV",
 		"score": 91,
 		"price": 22,
@@ -794,7 +794,7 @@
 	},
 	{
 		"wineryId": "9687a8c2-b11b-4fa0-8259-cd00980ae8e1",
-		"color": 5,
+		"color": "Sparkling",
 		"vintage": "2013",
 		"score": 90,
 		"price": 33,
@@ -807,7 +807,7 @@
 	},
 	{
 		"wineryId": "34c3afe4-3258-4400-a275-0bf108f73b58",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2002",
 		"score": 94,
 		"price": 50,
@@ -820,7 +820,7 @@
 	},
 	{
 		"wineryId": "46e8d8ba-1c8d-44e7-923b-d548e3d82429",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 97,
 		"price": 206,
@@ -833,7 +833,7 @@
 	},
 	{
 		"wineryId": "bc17acb2-c19b-4cdb-a5d3-cf2976e03088",
-		"color": 1,
+		"color": "White",
 		"vintage": "2011",
 		"score": 93,
 		"price": 53,
@@ -846,7 +846,7 @@
 	},
 	{
 		"wineryId": "c3126d66-b515-47aa-887b-62448904137a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 16,
@@ -859,7 +859,7 @@
 	},
 	{
 		"wineryId": "0c8d7bf9-fa31-4c05-b4cb-c8bf21d48747",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 91,
 		"price": 25,
@@ -872,7 +872,7 @@
 	},
 	{
 		"wineryId": "c42c3451-a937-4fe4-b2f5-c5678d363c89",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 15,
@@ -885,7 +885,7 @@
 	},
 	{
 		"wineryId": "d381d8f1-ff3d-4a77-9ad3-d5aa03fbf37c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 14,
@@ -898,7 +898,7 @@
 	},
 	{
 		"wineryId": "0102ce7a-2bae-4275-b0e2-8101662451e5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 85,
@@ -911,7 +911,7 @@
 	},
 	{
 		"wineryId": "87068a57-b8b9-4c32-8b49-335924df24e4",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 75,
@@ -924,7 +924,7 @@
 	},
 	{
 		"wineryId": "f8bd7e6e-0609-4c88-b6ff-14fd45db3195",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 93,
 		"price": 20,
@@ -937,7 +937,7 @@
 	},
 	{
 		"wineryId": "f03bbe30-d6ee-41c0-9662-030a7eb3ae4f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 30,
@@ -950,7 +950,7 @@
 	},
 	{
 		"wineryId": "e7f17021-4c0d-4bbe-bc52-9d0ea9d78bd2",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 75,
@@ -963,7 +963,7 @@
 	},
 	{
 		"wineryId": "0c615755-f955-48ad-b2b3-269b993a997f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 97,
 		"price": 45,
@@ -976,7 +976,7 @@
 	},
 	{
 		"wineryId": "0c615755-f955-48ad-b2b3-269b993a997f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 95,
 		"price": 20,
@@ -989,7 +989,7 @@
 	},
 	{
 		"wineryId": "b85fa34d-c1b1-4802-83ee-8f1941c684e9",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 11,
@@ -1002,7 +1002,7 @@
 	},
 	{
 		"wineryId": "b85fa34d-c1b1-4802-83ee-8f1941c684e9",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 18,
@@ -1015,7 +1015,7 @@
 	},
 	{
 		"wineryId": "d2cf4933-3a27-4aa3-886d-8c9cbaab5fd3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 13,
@@ -1028,7 +1028,7 @@
 	},
 	{
 		"wineryId": "c234eff8-5f6a-4ee8-8054-837f757251ef",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 12,
@@ -1041,7 +1041,7 @@
 	},
 	{
 		"wineryId": "16c68f7b-75f9-40be-a8fd-b2e732aefda8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 26,
@@ -1054,7 +1054,7 @@
 	},
 	{
 		"wineryId": "eff1a989-af8d-45cc-b98c-9d11521c4448",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 22,
@@ -1067,7 +1067,7 @@
 	},
 	{
 		"wineryId": "efc4a523-b61a-413a-ae47-fd4e934b23e3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 94,
 		"price": 32,
@@ -1080,7 +1080,7 @@
 	},
 	{
 		"wineryId": "7bcc5fd0-3c0d-4da8-a052-06e962fc5381",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 20,
@@ -1093,7 +1093,7 @@
 	},
 	{
 		"wineryId": "fb00fa6c-eb6f-467d-8d8f-74e8ab0c4cd6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 70,
@@ -1106,7 +1106,7 @@
 	},
 	{
 		"wineryId": "a2c6479d-6e23-454e-a177-b5ef6cd58f1d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 93,
 		"price": 40,
@@ -1119,7 +1119,7 @@
 	},
 	{
 		"wineryId": "dd1c08e9-2e64-4f77-a8e9-cc4a487df177",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 9,
@@ -1132,7 +1132,7 @@
 	},
 	{
 		"wineryId": "787cfa8c-5ec8-4d99-8861-c15936d94dd6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 17,
@@ -1145,7 +1145,7 @@
 	},
 	{
 		"wineryId": "54a4d0f2-e023-40cd-899d-77433d94b623",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 95,
 		"price": 25,
@@ -1158,7 +1158,7 @@
 	},
 	{
 		"wineryId": "4946360d-19bd-4500-b3d4-0c57ecc433ac",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 93,
 		"price": 11,
@@ -1171,7 +1171,7 @@
 	},
 	{
 		"wineryId": "5816bcb1-fea4-4429-9260-24b7b122400b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 91,
 		"price": 18,
@@ -1184,7 +1184,7 @@
 	},
 	{
 		"wineryId": "e90070e7-4977-4cb7-8cf4-75b4abc96dbf",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 15,
@@ -1197,7 +1197,7 @@
 	},
 	{
 		"wineryId": "96056bd7-e919-44f7-9a73-9b26ffed5eba",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 92,
 		"price": 17,
@@ -1210,7 +1210,7 @@
 	},
 	{
 		"wineryId": "584838e6-8417-4c35-a458-d8d7e3716a79",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 15,
@@ -1223,7 +1223,7 @@
 	},
 	{
 		"wineryId": "acea6555-a172-4dfd-b05e-6a30d00743ce",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 70,
@@ -1236,7 +1236,7 @@
 	},
 	{
 		"wineryId": "28daf634-4957-4bf3-bf4d-e136080f572d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 12,
@@ -1249,7 +1249,7 @@
 	},
 	{
 		"wineryId": "391d409e-41a2-42f8-9c3a-b05011c4957f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 94,
 		"price": 80,
@@ -1262,7 +1262,7 @@
 	},
 	{
 		"wineryId": "88898de3-7d5b-46ad-ae9d-c19b3dc5ef67",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 96,
 		"price": 35,
@@ -1275,7 +1275,7 @@
 	},
 	{
 		"wineryId": "150997c7-2e19-40b4-99b6-133af0cadcb1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1984",
 		"score": 97,
 		"price": 40,
@@ -1288,7 +1288,7 @@
 	},
 	{
 		"wineryId": "9b5dcb70-1458-4a9b-92f8-85adbcc485c5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 95,
 		"price": 57,
@@ -1301,7 +1301,7 @@
 	},
 	{
 		"wineryId": "ae962901-16c8-40b8-a501-c5816443bdbb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 95,
 		"price": 35,
@@ -1314,7 +1314,7 @@
 	},
 	{
 		"wineryId": "7239edc3-caf7-4671-9344-575fe833efa5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 56,
@@ -1327,7 +1327,7 @@
 	},
 	{
 		"wineryId": "28daf634-4957-4bf3-bf4d-e136080f572d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 160,
@@ -1340,7 +1340,7 @@
 	},
 	{
 		"wineryId": "0542d710-ec41-40b6-97ea-efdf5b581d32",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 95,
 		"price": 25,
@@ -1353,7 +1353,7 @@
 	},
 	{
 		"wineryId": "a0510284-1757-4a1e-8093-532a9655a148",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 24,
@@ -1366,7 +1366,7 @@
 	},
 	{
 		"wineryId": "2a84e320-1855-4a0c-9d2f-6d6e8e43b1cd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 95,
 		"price": 40,
@@ -1379,7 +1379,7 @@
 	},
 	{
 		"wineryId": "025ba94d-edb2-4364-8eda-367227afcd81",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 96,
 		"price": 195,
@@ -1392,7 +1392,7 @@
 	},
 	{
 		"wineryId": "97dbcd54-0662-40d8-87b5-b37b79cddee1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 96,
 		"price": 120,
@@ -1405,7 +1405,7 @@
 	},
 	{
 		"wineryId": "d886b4c5-3548-401e-ab7a-4af2c64d196e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 95,
 		"price": 35,
@@ -1418,7 +1418,7 @@
 	},
 	{
 		"wineryId": "93c8fbdc-bcc2-469d-89ec-19641cd959dc",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 19,
@@ -1431,7 +1431,7 @@
 	},
 	{
 		"wineryId": "33f51a3e-dfde-4d0c-a61e-11cef82db37a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2009",
 		"score": 93,
 		"price": 45,
@@ -1444,7 +1444,7 @@
 	},
 	{
 		"wineryId": "180e8672-2555-4afd-a384-4366f8146a91",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 94,
 		"price": 13,
@@ -1457,7 +1457,7 @@
 	},
 	{
 		"wineryId": "bd26bbb6-f522-4b00-b042-71c81a6822bc",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 95,
 		"price": 30,
@@ -1470,7 +1470,7 @@
 	},
 	{
 		"wineryId": "f2d2d3d1-8ce4-41e8-a8ae-d65027581e92",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 93,
 		"price": 20,
@@ -1483,7 +1483,7 @@
 	},
 	{
 		"wineryId": "46a12950-fe15-4683-8d81-d1936aa5c0ab",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 16,
@@ -1496,7 +1496,7 @@
 	},
 	{
 		"wineryId": "3cb7417c-7010-4cfe-920f-508c79c65f97",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 93,
 		"price": 20,
@@ -1509,7 +1509,7 @@
 	},
 	{
 		"wineryId": "f492766c-532f-4a20-9692-f450992df951",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 20,
@@ -1522,7 +1522,7 @@
 	},
 	{
 		"wineryId": "48d1302c-02a7-43e3-98bf-6cb4fb9f206b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 92,
 		"price": 29,
@@ -1535,7 +1535,7 @@
 	},
 	{
 		"wineryId": "2fd3ec85-a328-4c1a-9ecd-4445e21d3741",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 91,
 		"price": 22,
@@ -1548,7 +1548,7 @@
 	},
 	{
 		"wineryId": "ce05cdd2-17ac-4059-bdec-0d9a88cfd1db",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 18,
@@ -1561,7 +1561,7 @@
 	},
 	{
 		"wineryId": "6e668b6f-a413-4843-af84-6faf669550bc",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 91,
 		"price": 14,
@@ -1574,7 +1574,7 @@
 	},
 	{
 		"wineryId": "d48571d5-17e5-4345-9950-93caca2a83ea",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 19,
@@ -1587,7 +1587,7 @@
 	},
 	{
 		"wineryId": "4b84f67c-0b65-40c3-90d6-cc5e43ca8e75",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 45,
@@ -1600,7 +1600,7 @@
 	},
 	{
 		"wineryId": "fb70187b-918a-4a2f-9884-b6b00fef45b2",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 75,
@@ -1613,7 +1613,7 @@
 	},
 	{
 		"wineryId": "14cfcb7e-18ad-4f0a-bce8-47110be10849",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 116,
@@ -1626,7 +1626,7 @@
 	},
 	{
 		"wineryId": "75094613-e6a1-4fe9-8804-ee28eb673f5f",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 91,
 		"price": 31,
@@ -1639,7 +1639,7 @@
 	},
 	{
 		"wineryId": "b78c1774-da1f-48d7-b8f3-250efcabdae6",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 32,
@@ -1652,7 +1652,7 @@
 	},
 	{
 		"wineryId": "c9a2bbae-7e5b-4965-9bc8-6e8d9dcae0de",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 95,
 		"price": 40,
@@ -1665,7 +1665,7 @@
 	},
 	{
 		"wineryId": "059c59f7-4407-40f4-aae2-4ef6623ccaa7",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 91,
 		"price": 22,
@@ -1678,7 +1678,7 @@
 	},
 	{
 		"wineryId": "16a3dde8-dcca-4c7d-8050-319a757636d1",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 93,
 		"price": 20,
@@ -1691,7 +1691,7 @@
 	},
 	{
 		"wineryId": "c1fabd40-985c-49a0-8684-44d351bb406a",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 93,
 		"price": 13,
@@ -1704,7 +1704,7 @@
 	},
 	{
 		"wineryId": "b2405bb1-a12b-4acf-9c8e-5f225779c79e",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 92,
 		"price": 17,
@@ -1717,7 +1717,7 @@
 	},
 	{
 		"wineryId": "b2405bb1-a12b-4acf-9c8e-5f225779c79e",
-		"color": 1,
+		"color": "White",
 		"vintage": "1985",
 		"score": 93,
 		"price": 40,
@@ -1730,7 +1730,7 @@
 	},
 	{
 		"wineryId": "ee171553-07f0-4722-9c35-e2d61a038268",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 93,
 		"price": 24,
@@ -1743,7 +1743,7 @@
 	},
 	{
 		"wineryId": "c1fabd40-985c-49a0-8684-44d351bb406a",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 92,
 		"price": 28,
@@ -1756,7 +1756,7 @@
 	},
 	{
 		"wineryId": "3daff142-84f3-4f5b-b306-af2304b327dd",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 90,
 		"price": 9,
@@ -1769,7 +1769,7 @@
 	},
 	{
 		"wineryId": "0c615755-f955-48ad-b2b3-269b993a997f",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 91,
 		"price": 17,
@@ -1782,7 +1782,7 @@
 	},
 	{
 		"wineryId": "fb007f07-f8c1-47d2-bef4-6f173864970a",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 93,
 		"price": 36,
@@ -1795,7 +1795,7 @@
 	},
 	{
 		"wineryId": "4a92c732-ef9b-4258-9385-7dcb51900898",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 94,
 		"price": 80,
@@ -1808,7 +1808,7 @@
 	},
 	{
 		"wineryId": "e51d19cf-9cfe-4814-bc78-c1e57333911d",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 90,
 		"price": 20,
@@ -1821,7 +1821,7 @@
 	},
 	{
 		"wineryId": "7260f594-c829-4763-b6d4-11f4ad52089a",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 95,
 		"price": 55,
@@ -1834,7 +1834,7 @@
 	},
 	{
 		"wineryId": "d1f20bf8-bc84-4471-a72a-63245ec1094e",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 93,
 		"price": 14,
@@ -1847,7 +1847,7 @@
 	},
 	{
 		"wineryId": "8c1e75f5-187a-4002-b08b-f7e520f8b1ad",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 94,
 		"price": 37,
@@ -1860,7 +1860,7 @@
 	},
 	{
 		"wineryId": "efe9aea7-52d3-4364-9cdd-b1a3a2c5c4e4",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 92,
 		"price": 16,
@@ -1873,7 +1873,7 @@
 	},
 	{
 		"wineryId": "4c8ed789-146b-4fc1-9f3f-e2af5582fa9b",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 91,
 		"price": 16,
@@ -1886,7 +1886,7 @@
 	},
 	{
 		"wineryId": "025ba94d-edb2-4364-8eda-367227afcd81",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 95,
 		"price": 90,
@@ -1899,7 +1899,7 @@
 	},
 	{
 		"wineryId": "2c31b9b7-8682-4645-8217-59e6bb8bb7da",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 93,
 		"price": 29,
@@ -1912,7 +1912,7 @@
 	},
 	{
 		"wineryId": "2c31b9b7-8682-4645-8217-59e6bb8bb7da",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 93,
 		"price": 34,
@@ -1925,7 +1925,7 @@
 	},
 	{
 		"wineryId": "0f719169-ea30-4506-8213-fd358184ac85",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 91,
 		"price": 18,
@@ -1938,7 +1938,7 @@
 	},
 	{
 		"wineryId": "ef799266-1190-46a1-b350-085238ca1f42",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 94,
 		"price": 89,
@@ -1951,7 +1951,7 @@
 	},
 	{
 		"wineryId": "01571366-6b83-4f71-aa28-f710b8153333",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 92,
 		"price": 10,
@@ -1964,7 +1964,7 @@
 	},
 	{
 		"wineryId": "52b41ebd-2154-49a9-84dc-b91edc2d13dc",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 90,
 		"price": 21,
@@ -1977,7 +1977,7 @@
 	},
 	{
 		"wineryId": "1a07f048-f8de-4251-8bdb-a55c2b6cdd64",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 95,
 		"price": 75,
@@ -1990,7 +1990,7 @@
 	},
 	{
 		"wineryId": "9b5dcb70-1458-4a9b-92f8-85adbcc485c5",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 91,
 		"price": 16,
@@ -2003,7 +2003,7 @@
 	},
 	{
 		"wineryId": "297014c4-c0c7-4969-b396-b61ebd3a8c76",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 92,
 		"price": 15,
@@ -2016,7 +2016,7 @@
 	},
 	{
 		"wineryId": "955bc2b6-3ffb-4af8-8213-3f989e1dccbb",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 93,
 		"price": 19,
@@ -2029,7 +2029,7 @@
 	},
 	{
 		"wineryId": "10fefee4-854a-4f1b-b926-a5e3c356932e",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 91,
 		"price": 32,
@@ -2042,7 +2042,7 @@
 	},
 	{
 		"wineryId": "bb4ba9a0-5b92-482e-ac55-d66482051705",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 95,
 		"price": 80,
@@ -2055,7 +2055,7 @@
 	},
 	{
 		"wineryId": "221a3051-1cbc-4ed8-b29d-d54777278dbf",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 94,
 		"price": 65,
@@ -2068,7 +2068,7 @@
 	},
 	{
 		"wineryId": "9491eb3f-8268-4e98-b20e-2bdcfa0a265b",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 92,
 		"price": 12,
@@ -2081,7 +2081,7 @@
 	},
 	{
 		"wineryId": "942c9e71-d4da-40aa-9890-d0872b4a1199",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 94,
 		"price": 25,
@@ -2094,7 +2094,7 @@
 	},
 	{
 		"wineryId": "d1f20bf8-bc84-4471-a72a-63245ec1094e",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 95,
 		"price": 60,
@@ -2107,7 +2107,7 @@
 	},
 	{
 		"wineryId": "4a92c732-ef9b-4258-9385-7dcb51900898",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 92,
 		"price": 25,
@@ -2120,7 +2120,7 @@
 	},
 	{
 		"wineryId": "35c57ac3-dc6a-433c-8743-89c536aa052f",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 94,
 		"price": 35,
@@ -2133,7 +2133,7 @@
 	},
 	{
 		"wineryId": "7cb2b01d-e09d-45bb-b8a2-50684cc28795",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 91,
 		"price": 10,
@@ -2146,7 +2146,7 @@
 	},
 	{
 		"wineryId": "670e9f71-fb9a-4def-a64a-cea2c5836a3d",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 96,
 		"price": 34,
@@ -2159,7 +2159,7 @@
 	},
 	{
 		"wineryId": "b2e321d5-c0bb-4cbe-a649-7d473755d44a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 98,
 		"price": 109,
@@ -2172,7 +2172,7 @@
 	},
 	{
 		"wineryId": "716f360b-8098-4d63-870a-8520719c2fde",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 97,
 		"price": 55,
@@ -2185,7 +2185,7 @@
 	},
 	{
 		"wineryId": "bb677ba9-ca6e-45df-97da-dcf3c6dfda49",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 78,
@@ -2198,7 +2198,7 @@
 	},
 	{
 		"wineryId": "b58ef386-8abe-472f-a3e2-52919d0b15af",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 41,
@@ -2211,7 +2211,7 @@
 	},
 	{
 		"wineryId": "6a6385de-2e67-4dca-920b-fdff56690a60",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 95,
 		"price": 50,
@@ -2224,7 +2224,7 @@
 	},
 	{
 		"wineryId": "1024bd11-5a7c-4d1c-bbca-5a4d446e46f9",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 93,
 		"price": 33,
@@ -2237,7 +2237,7 @@
 	},
 	{
 		"wineryId": "9b3a8897-aff2-41fc-bd65-6b1c5a7d924e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 19,
@@ -2250,7 +2250,7 @@
 	},
 	{
 		"wineryId": "20f17a48-a16b-4e08-aa86-60a8eaada409",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 30,
@@ -2263,7 +2263,7 @@
 	},
 	{
 		"wineryId": "1817f16e-5f68-4526-9863-72a091321544",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 92,
 		"price": 26,
@@ -2276,7 +2276,7 @@
 	},
 	{
 		"wineryId": "1817f16e-5f68-4526-9863-72a091321544",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 23,
@@ -2289,7 +2289,7 @@
 	},
 	{
 		"wineryId": "3bb6ed6b-0083-44bb-9364-854c348d9d00",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1982",
 		"score": 90,
 		"price": 11,
@@ -2302,7 +2302,7 @@
 	},
 	{
 		"wineryId": "479915f3-68cb-4ec1-beb2-7b2c4ba6d43a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 16,
@@ -2315,7 +2315,7 @@
 	},
 	{
 		"wineryId": "603049d5-e3bc-476d-b8d2-08ff87a29df8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 25,
@@ -2328,7 +2328,7 @@
 	},
 	{
 		"wineryId": "20f17a48-a16b-4e08-aa86-60a8eaada409",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 95,
 		"price": 52,
@@ -2341,7 +2341,7 @@
 	},
 	{
 		"wineryId": "5405fd9b-2c9a-4239-be37-ab60eb000b91",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 91,
 		"price": 19,
@@ -2354,7 +2354,7 @@
 	},
 	{
 		"wineryId": "e732786c-150c-4891-a04e-3ce42eb79668",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 23,
@@ -2367,7 +2367,7 @@
 	},
 	{
 		"wineryId": "3c9b36cd-e00d-4495-99a6-d9497a4d7aa3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 15,
@@ -2380,7 +2380,7 @@
 	},
 	{
 		"wineryId": "01ddf250-2355-4b48-b0fd-9da8cb981191",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 93,
 		"price": 40,
@@ -2393,7 +2393,7 @@
 	},
 	{
 		"wineryId": "efd8d157-f9b3-481b-b561-db5697a31bd8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 94,
 		"price": 89,
@@ -2406,7 +2406,7 @@
 	},
 	{
 		"wineryId": "a70ac52f-5b4d-42e8-88b9-a03981600e84",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 49,
@@ -2419,7 +2419,7 @@
 	},
 	{
 		"wineryId": "ec8243a4-383b-4e8f-8414-ca8155ea1f68",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 95,
 		"price": 120,
@@ -2432,7 +2432,7 @@
 	},
 	{
 		"wineryId": "ee416f5d-cc2e-4079-8125-7f4382b8efd6",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 96,
 		"price": 69,
@@ -2445,7 +2445,7 @@
 	},
 	{
 		"wineryId": "2c793ccd-4f1a-4592-a86a-55c904fab676",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 96,
 		"price": 120,
@@ -2458,7 +2458,7 @@
 	},
 	{
 		"wineryId": "bf8338ca-b998-4ced-a031-3c250dda2262",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 94,
 		"price": 58,
@@ -2471,7 +2471,7 @@
 	},
 	{
 		"wineryId": "311d0eaf-1e8d-4b03-8597-f2067a1c382e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 20,
@@ -2484,7 +2484,7 @@
 	},
 	{
 		"wineryId": "1b224148-efe5-4337-8719-638cd4c7537d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 97,
 		"price": 75,
@@ -2497,7 +2497,7 @@
 	},
 	{
 		"wineryId": "cd6b40c9-0e88-4eeb-af88-82a16a04cce0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 92,
 		"price": 36,
@@ -2510,7 +2510,7 @@
 	},
 	{
 		"wineryId": "b80a1f6a-77dd-44a7-b006-367bb739e18c",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 95,
 		"price": 175,
@@ -2523,7 +2523,7 @@
 	},
 	{
 		"wineryId": "9e24f6a5-ef62-4127-9793-cf1a252e9599",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 93,
 		"price": 31,
@@ -2536,7 +2536,7 @@
 	},
 	{
 		"wineryId": "46e8d8ba-1c8d-44e7-923b-d548e3d82429",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 30,
@@ -2549,7 +2549,7 @@
 	},
 	{
 		"wineryId": "46e8d8ba-1c8d-44e7-923b-d548e3d82429",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 95,
 		"price": 100,
@@ -2562,7 +2562,7 @@
 	},
 	{
 		"wineryId": "39b699a5-4f50-44b8-8b78-665e5af17e54",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 35,
@@ -2575,7 +2575,7 @@
 	},
 	{
 		"wineryId": "9efa6af8-15ea-47f4-bf69-05b08fc9735f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 20,
@@ -2588,7 +2588,7 @@
 	},
 	{
 		"wineryId": "16dcccea-b780-4ab7-97b3-5cebeb6a61a9",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 10,
@@ -2601,7 +2601,7 @@
 	},
 	{
 		"wineryId": "d2835e85-89ab-4b23-a5d5-48db93f778dd",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 91,
 		"price": 20,
@@ -2614,7 +2614,7 @@
 	},
 	{
 		"wineryId": "eafd5e9f-4780-4e5f-8e6d-f97e7be7588b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 92,
 		"price": 16,
@@ -2627,7 +2627,7 @@
 	},
 	{
 		"wineryId": "21df9e26-0b12-44db-8551-6bdc81c920dd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 20,
@@ -2640,7 +2640,7 @@
 	},
 	{
 		"wineryId": "e686a959-accf-4871-90e1-9c829a01b669",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 75,
@@ -2653,7 +2653,7 @@
 	},
 	{
 		"wineryId": "e1bb2743-6ff2-4d34-b314-477a2cf28c64",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 92,
 		"price": 15,
@@ -2666,7 +2666,7 @@
 	},
 	{
 		"wineryId": "279ad778-1309-4128-9a00-90321e6318d6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 13,
@@ -2679,7 +2679,7 @@
 	},
 	{
 		"wineryId": "279ad778-1309-4128-9a00-90321e6318d6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 90,
 		"price": 10,
@@ -2692,7 +2692,7 @@
 	},
 	{
 		"wineryId": "4af49914-183d-44ca-8cef-6d7f02062efb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 94,
 		"price": 68,
@@ -2705,7 +2705,7 @@
 	},
 	{
 		"wineryId": "766f8445-ed16-4945-a445-787924478609",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 22,
@@ -2718,7 +2718,7 @@
 	},
 	{
 		"wineryId": "43f3e4db-3129-4963-be08-1b4ed731f7b9",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 30,
@@ -2731,7 +2731,7 @@
 	},
 	{
 		"wineryId": "8561631c-c9ba-43a1-ab69-d11baa89be47",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 47,
@@ -2744,7 +2744,7 @@
 	},
 	{
 		"wineryId": "7d58907f-27ac-4824-9e5c-911d18fe138f",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 90,
 		"price": 22,
@@ -2757,7 +2757,7 @@
 	},
 	{
 		"wineryId": "94534448-4c0d-4f81-9845-30794630efdf",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 90,
 		"price": 24,
@@ -2770,7 +2770,7 @@
 	},
 	{
 		"wineryId": "1024bd11-5a7c-4d1c-bbca-5a4d446e46f9",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 91,
 		"price": 25,
@@ -2783,7 +2783,7 @@
 	},
 	{
 		"wineryId": "a4a80967-9ed8-4f38-ba06-d77603421741",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 50,
@@ -2796,7 +2796,7 @@
 	},
 	{
 		"wineryId": "729d87fb-7b39-47c4-80dd-51596bceecc1",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 90,
 		"price": 10,
@@ -2809,7 +2809,7 @@
 	},
 	{
 		"wineryId": "41c5ebbb-8870-4f7d-b86b-5c5792825f62",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 91,
 		"price": 18,
@@ -2822,7 +2822,7 @@
 	},
 	{
 		"wineryId": "05300ba7-8891-42ca-ab62-6fa2ac1165a5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 30,
@@ -2835,7 +2835,7 @@
 	},
 	{
 		"wineryId": "7fcf4f48-e576-40e5-83f2-35846ffb2c60",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 25,
@@ -2848,7 +2848,7 @@
 	},
 	{
 		"wineryId": "8ec7894c-70ac-4ba9-9ab0-300398a8511f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 93,
 		"price": 29,
@@ -2861,7 +2861,7 @@
 	},
 	{
 		"wineryId": "62d425f8-fd3e-4302-8052-ebd73f61fed8",
-		"color": 1,
+		"color": "White",
 		"vintage": "1985",
 		"score": 91,
 		"price": 11,
@@ -2874,7 +2874,7 @@
 	},
 	{
 		"wineryId": "d8e2ef04-e713-4d45-9eb8-5ca8d7d39b76",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 90,
 		"price": 7,
@@ -2887,7 +2887,7 @@
 	},
 	{
 		"wineryId": "cda589df-1a87-49b1-847b-506e7c5904cd",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "1986",
 		"score": 93,
 		"price": 19,
@@ -2900,7 +2900,7 @@
 	},
 	{
 		"wineryId": "510ecc57-b901-4a59-bc76-c6231ac75ff3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 91,
 		"price": 20,
@@ -2913,7 +2913,7 @@
 	},
 	{
 		"wineryId": "dd1d561d-7b69-4a8c-8f30-85734a5348b8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 95,
 		"price": 43,
@@ -2926,7 +2926,7 @@
 	},
 	{
 		"wineryId": "5112ac17-77dc-418b-9ab7-9817d6e10daa",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 90,
 		"price": 14,
@@ -2939,7 +2939,7 @@
 	},
 	{
 		"wineryId": "e98c76e3-c481-4aa0-9ef4-2b7bebd301fe",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 91,
 		"price": 22,
@@ -2952,7 +2952,7 @@
 	},
 	{
 		"wineryId": "e1c6599e-e67b-4885-9b23-80180714cc73",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 92,
 		"price": 37,
@@ -2965,7 +2965,7 @@
 	},
 	{
 		"wineryId": "5112ac17-77dc-418b-9ab7-9817d6e10daa",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 92,
 		"price": 30,
@@ -2978,7 +2978,7 @@
 	},
 	{
 		"wineryId": "8ed7f3a4-cd45-43ee-aeca-abff5db34478",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1981",
 		"score": 93,
 		"price": 49,
@@ -2991,7 +2991,7 @@
 	},
 	{
 		"wineryId": "468ed4b7-c1b6-4897-a056-90bab6dce108",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 70,
@@ -3004,7 +3004,7 @@
 	},
 	{
 		"wineryId": "4fec51ad-80fa-45bc-9e97-446bd609b4a4",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 91,
 		"price": 9,
@@ -3017,7 +3017,7 @@
 	},
 	{
 		"wineryId": "b09502ba-f97d-44c4-951c-9af4cb2e7711",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 90,
 		"price": 20,
@@ -3030,7 +3030,7 @@
 	},
 	{
 		"wineryId": "23a7f5ae-cf05-489f-882b-f6a9d91a5de1",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 90,
 		"price": 27,
@@ -3043,7 +3043,7 @@
 	},
 	{
 		"wineryId": "317ca036-4b75-499e-b59d-1ec4ab55b99d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 93,
 		"price": 42,
@@ -3056,7 +3056,7 @@
 	},
 	{
 		"wineryId": "3dc25d09-defa-4ded-af8f-27b6dd4962f7",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2009",
 		"score": 95,
 		"price": 75,
@@ -3069,7 +3069,7 @@
 	},
 	{
 		"wineryId": "90690f43-4f4f-4993-8a3b-be5f850c976a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 19,
@@ -3082,7 +3082,7 @@
 	},
 	{
 		"wineryId": "46e8d8ba-1c8d-44e7-923b-d548e3d82429",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 34,
@@ -3095,7 +3095,7 @@
 	},
 	{
 		"wineryId": "39b699a5-4f50-44b8-8b78-665e5af17e54",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 90,
 		"price": 30,
@@ -3108,7 +3108,7 @@
 	},
 	{
 		"wineryId": "c42c3451-a937-4fe4-b2f5-c5678d363c89",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 95,
 		"price": 100,
@@ -3121,7 +3121,7 @@
 	},
 	{
 		"wineryId": "f4b5673f-519a-4602-820e-dee9a735dc54",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 25,
@@ -3134,7 +3134,7 @@
 	},
 	{
 		"wineryId": "6f8a1d17-1a15-4185-a109-67bc44202d75",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 52,
@@ -3147,7 +3147,7 @@
 	},
 	{
 		"wineryId": "b3fa4bb8-8498-4c32-9b28-afe3eb373f92",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 30,
@@ -3160,7 +3160,7 @@
 	},
 	{
 		"wineryId": "273db847-8c65-4b19-9160-d85ec6178449",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 97,
 		"price": 98,
@@ -3173,7 +3173,7 @@
 	},
 	{
 		"wineryId": "729d87fb-7b39-47c4-80dd-51596bceecc1",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 90,
 		"price": 8,
@@ -3186,7 +3186,7 @@
 	},
 	{
 		"wineryId": "ddc44aee-b746-4278-93e0-ebe22649b3d3",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "1989",
 		"score": 92,
 		"price": 22,
@@ -3199,7 +3199,7 @@
 	},
 	{
 		"wineryId": "fe822c9a-77fa-42a8-95c6-90714182d294",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 90,
 		"price": 6,
@@ -3212,7 +3212,7 @@
 	},
 	{
 		"wineryId": "4fc8539f-e8ab-4b15-a996-ca51a22da241",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 92,
 		"price": 30,
@@ -3225,7 +3225,7 @@
 	},
 	{
 		"wineryId": "535ed0c1-392f-4985-8b87-fe0bb14c0a8f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 50,
@@ -3238,7 +3238,7 @@
 	},
 	{
 		"wineryId": "573fa7f5-bbe0-4af2-aa9b-049b676c771f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 98,
 		"price": 225,
@@ -3251,7 +3251,7 @@
 	},
 	{
 		"wineryId": "297ea41b-1836-4f4c-90eb-c7e2426abbf4",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2009",
 		"score": 93,
 		"price": 25,
@@ -3264,7 +3264,7 @@
 	},
 	{
 		"wineryId": "d2835e85-89ab-4b23-a5d5-48db93f778dd",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2019",
 		"score": 91,
 		"price": 15,
@@ -3277,7 +3277,7 @@
 	},
 	{
 		"wineryId": "4abd288b-2c18-45c0-abba-2b66d7d60711",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 14,
@@ -3290,7 +3290,7 @@
 	},
 	{
 		"wineryId": "49f2f429-2387-4562-ae73-298e4d53c400",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1980",
 		"score": 91,
 		"price": 17,
@@ -3303,7 +3303,7 @@
 	},
 	{
 		"wineryId": "a5c13240-da3c-4442-b728-a8f888374579",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 91,
 		"price": 15,
@@ -3316,7 +3316,7 @@
 	},
 	{
 		"wineryId": "91f80222-18d6-4a10-b57b-47b93f303a01",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 25,
@@ -3329,7 +3329,7 @@
 	},
 	{
 		"wineryId": "af348029-58f5-46a7-a46e-4f738f6b6ff5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 48,
@@ -3342,7 +3342,7 @@
 	},
 	{
 		"wineryId": "cfc16b16-8348-4401-a439-91baa29cfdde",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2009",
 		"score": 91,
 		"price": 20,
@@ -3355,7 +3355,7 @@
 	},
 	{
 		"wineryId": "1cd2b713-7a61-47b3-8ce5-f98e989efe6b",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 18,
@@ -3368,7 +3368,7 @@
 	},
 	{
 		"wineryId": "9bcbdcce-2d78-4d81-a1be-fa7f2b24e267",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 22,
@@ -3381,7 +3381,7 @@
 	},
 	{
 		"wineryId": "adf84ca7-4b52-45f6-a65c-f08fb65419dd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 90,
 		"price": 17,
@@ -3394,7 +3394,7 @@
 	},
 	{
 		"wineryId": "db032956-c00c-431b-9852-9cc824e47173",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 27,
@@ -3407,7 +3407,7 @@
 	},
 	{
 		"wineryId": "b34c9a57-9c2d-498f-9237-d5f18904a28a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 19,
@@ -3420,7 +3420,7 @@
 	},
 	{
 		"wineryId": "3bfd034d-637e-4d5a-a086-8a03283c10fc",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 20,
@@ -3433,7 +3433,7 @@
 	},
 	{
 		"wineryId": "50b29b9b-4f98-496f-a66c-72d7deec61c4",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 19,
@@ -3446,7 +3446,7 @@
 	},
 	{
 		"wineryId": "2b1c438d-9116-49d9-abc2-245e263b579f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 92,
 		"price": 25,
@@ -3459,7 +3459,7 @@
 	},
 	{
 		"wineryId": "2b1c438d-9116-49d9-abc2-245e263b579f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 25,
@@ -3472,7 +3472,7 @@
 	},
 	{
 		"wineryId": "4bf31bde-40bc-4a6b-a954-b1c5338b25f0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 32,
@@ -3485,7 +3485,7 @@
 	},
 	{
 		"wineryId": "61a0aaf5-6c01-4bc4-a770-8d629b299e44",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 94,
 		"price": 54,
@@ -3498,7 +3498,7 @@
 	},
 	{
 		"wineryId": "7eb18f95-2f0c-45c8-b294-38443ef3e1a0",
-		"color": 1,
+		"color": "White",
 		"vintage": "NV",
 		"score": 90,
 		"price": 15,
@@ -3511,7 +3511,7 @@
 	},
 	{
 		"wineryId": "a4856c73-611a-436e-90dd-42220651b40d",
-		"color": 1,
+		"color": "White",
 		"vintage": "NV",
 		"score": 91,
 		"price": 15,
@@ -3524,7 +3524,7 @@
 	},
 	{
 		"wineryId": "fdbd63bb-53da-462c-b18a-8749eb6b22b0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 55,
@@ -3537,7 +3537,7 @@
 	},
 	{
 		"wineryId": "15cf91d4-3f1c-49d5-affe-3badcd740e07",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 99,
 		"price": 76,
@@ -3550,7 +3550,7 @@
 	},
 	{
 		"wineryId": "e7acc167-5539-4bd9-a28b-93c2c939a707",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 38,
@@ -3563,7 +3563,7 @@
 	},
 	{
 		"wineryId": "db6dcee0-a203-4c48-9a27-2a7bb8ded865",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 92,
 		"price": 21,
@@ -3576,7 +3576,7 @@
 	},
 	{
 		"wineryId": "8d6050d2-a38c-42a5-8d82-724316b5dfb4",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 93,
 		"price": 30,
@@ -3589,7 +3589,7 @@
 	},
 	{
 		"wineryId": "68694b72-24dd-450d-abb2-21621656e44e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 20,
@@ -3602,7 +3602,7 @@
 	},
 	{
 		"wineryId": "6ffb5144-5c32-49b5-b9f1-96b5065a0794",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 93,
 		"price": 53,
@@ -3615,7 +3615,7 @@
 	},
 	{
 		"wineryId": "0c615755-f955-48ad-b2b3-269b993a997f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 93,
 		"price": 16,
@@ -3628,7 +3628,7 @@
 	},
 	{
 		"wineryId": "c8f03db6-96ec-45d8-8646-f9125db6bfb2",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 91,
 		"price": 12,
@@ -3641,7 +3641,7 @@
 	},
 	{
 		"wineryId": "8d868bea-f93f-4310-b51b-de172351d52e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 92,
 		"price": 44,
@@ -3654,7 +3654,7 @@
 	},
 	{
 		"wineryId": "afe623ce-358a-49f3-9062-d36f9f45cdbe",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 23,
@@ -3667,7 +3667,7 @@
 	},
 	{
 		"wineryId": "4fec51ad-80fa-45bc-9e97-446bd609b4a4",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 91,
 		"price": 14,
@@ -3680,7 +3680,7 @@
 	},
 	{
 		"wineryId": "286d578a-33f4-41ff-bcb7-c1ea471aa4fe",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 98,
@@ -3693,7 +3693,7 @@
 	},
 	{
 		"wineryId": "a8cc4bad-0dd5-4deb-9e5c-33049fc5b0f9",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 20,
@@ -3706,7 +3706,7 @@
 	},
 	{
 		"wineryId": "085f286d-2f8e-4821-a746-8160c9bcabde",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 94,
 		"price": 28,
@@ -3719,7 +3719,7 @@
 	},
 	{
 		"wineryId": "73149de5-26c6-4330-a51c-2e5041da95e6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 93,
 		"price": 18,
@@ -3732,7 +3732,7 @@
 	},
 	{
 		"wineryId": "88898de3-7d5b-46ad-ae9d-c19b3dc5ef67",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 92,
 		"price": 14,
@@ -3745,7 +3745,7 @@
 	},
 	{
 		"wineryId": "2bbe6e28-525b-49d0-a326-6e518c57bdf1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 90,
 		"price": 10,
@@ -3758,7 +3758,7 @@
 	},
 	{
 		"wineryId": "9424708c-fbd7-4537-99f9-962b28ad7324",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 93,
 		"price": 37,
@@ -3771,7 +3771,7 @@
 	},
 	{
 		"wineryId": "e8d317f4-f34f-431c-9fda-63f76f08e1cc",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 18,
@@ -3784,7 +3784,7 @@
 	},
 	{
 		"wineryId": "d886b4c5-3548-401e-ab7a-4af2c64d196e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 175,
@@ -3797,7 +3797,7 @@
 	},
 	{
 		"wineryId": "5e51ba6b-547b-410e-9246-a0a4669e1a4f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 92,
 		"price": 40,
@@ -3810,7 +3810,7 @@
 	},
 	{
 		"wineryId": "2859bea8-d08f-444f-b799-4b0a49b1f040",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 91,
 		"price": 25,
@@ -3823,7 +3823,7 @@
 	},
 	{
 		"wineryId": "9fe6457a-e00c-4acf-b0b9-19757f31c233",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 97,
 		"price": 200,
@@ -3836,7 +3836,7 @@
 	},
 	{
 		"wineryId": "43ee7ec9-64a8-42fd-83e2-85d6a90cfde1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 20,
@@ -3849,7 +3849,7 @@
 	},
 	{
 		"wineryId": "0046d21b-2692-4182-8555-906034d10743",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1984",
 		"score": 94,
 		"price": 50,
@@ -3862,7 +3862,7 @@
 	},
 	{
 		"wineryId": "030725a4-577e-4a61-a166-441b8573922b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 22,
@@ -3875,7 +3875,7 @@
 	},
 	{
 		"wineryId": "7885f8f4-8cbb-4238-85a4-6c05a47e5204",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 33,
@@ -3888,7 +3888,7 @@
 	},
 	{
 		"wineryId": "7c09700f-4c6d-4eeb-b40f-01bbb76dc71d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 46,
@@ -3901,7 +3901,7 @@
 	},
 	{
 		"wineryId": "be39960e-3809-4960-9aa1-1fd187c66ee8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 95,
 		"price": 35,
@@ -3914,7 +3914,7 @@
 	},
 	{
 		"wineryId": "59b70e44-d5b9-4e59-bde7-cfa22efa2ed0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1988",
 		"score": 90,
 		"price": 12,
@@ -3927,7 +3927,7 @@
 	},
 	{
 		"wineryId": "5969650b-509a-478f-bb4d-b9488edd8644",
-		"color": 1,
+		"color": "White",
 		"vintage": "NV",
 		"score": 92,
 		"price": 27,
@@ -3940,7 +3940,7 @@
 	},
 	{
 		"wineryId": "2ee9b460-9542-4cec-bd3a-ea125d0eb93c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 93,
 		"price": 25,
@@ -3953,7 +3953,7 @@
 	},
 	{
 		"wineryId": "f0ed8a1a-7155-4eb4-bec5-503a4f536bcd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 80,
@@ -3966,7 +3966,7 @@
 	},
 	{
 		"wineryId": "36ca0169-bba7-4199-ae17-177484c05882",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 94,
 		"price": 113,
@@ -3979,7 +3979,7 @@
 	},
 	{
 		"wineryId": "4d0d931d-d8bf-40ca-bb09-8ed297bddff9",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 93,
 		"price": 25,
@@ -3992,7 +3992,7 @@
 	},
 	{
 		"wineryId": "cf0db00d-42a4-494c-9a03-b0693dccddeb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 23,
@@ -4005,7 +4005,7 @@
 	},
 	{
 		"wineryId": "044cc621-b4e2-4398-83c3-e81dee5cab17",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 97,
 		"price": 37,
@@ -4018,7 +4018,7 @@
 	},
 	{
 		"wineryId": "072fc75a-1901-43d7-aa64-3a1948ee9aeb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1983",
 		"score": 91,
 		"price": 9,
@@ -4031,7 +4031,7 @@
 	},
 	{
 		"wineryId": "072fc75a-1901-43d7-aa64-3a1948ee9aeb",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 94,
 		"price": 35,
@@ -4044,7 +4044,7 @@
 	},
 	{
 		"wineryId": "515f085f-96d8-4a1e-bae0-553be3dce317",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 96,
 		"price": 106,
@@ -4057,7 +4057,7 @@
 	},
 	{
 		"wineryId": "9b720961-060d-42ab-b223-40afa70f93d5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 30,
@@ -4070,7 +4070,7 @@
 	},
 	{
 		"wineryId": "1e0ac61a-de5a-4238-9b96-c594d8d5c070",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 93,
 		"price": 15,
@@ -4083,7 +4083,7 @@
 	},
 	{
 		"wineryId": "11b85d53-dbf4-4dbb-b1a4-cfcdb1f644da",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 44,
@@ -4096,7 +4096,7 @@
 	},
 	{
 		"wineryId": "9f194236-d39d-4ed8-baf1-c5e2cc7ae2d8",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 20,
@@ -4109,7 +4109,7 @@
 	},
 	{
 		"wineryId": "456ed697-bc45-494d-a781-3fae792d31a5",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 92,
 		"price": 38,
@@ -4122,7 +4122,7 @@
 	},
 	{
 		"wineryId": "4d826ead-4e66-41fa-aa90-eff19f971ec0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 14,
@@ -4135,7 +4135,7 @@
 	},
 	{
 		"wineryId": "0e290667-a531-4166-a4a6-6a317cbed448",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 92,
 		"price": 9,
@@ -4148,7 +4148,7 @@
 	},
 	{
 		"wineryId": "8637418b-a051-44d3-8685-a1b8dfc90959",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 15,
@@ -4161,7 +4161,7 @@
 	},
 	{
 		"wineryId": "5c6eeecf-2791-41f2-9e4d-c714f05f5437",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 65,
@@ -4174,7 +4174,7 @@
 	},
 	{
 		"wineryId": "3ec28f4e-0006-407d-a684-d3adf7da7e6c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 91,
 		"price": 26,
@@ -4187,7 +4187,7 @@
 	},
 	{
 		"wineryId": "3ec28f4e-0006-407d-a684-d3adf7da7e6c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 36,
@@ -4200,7 +4200,7 @@
 	},
 	{
 		"wineryId": "269600bd-1578-4010-8ca4-d9bb6303087c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 94,
 		"price": 50,
@@ -4213,7 +4213,7 @@
 	},
 	{
 		"wineryId": "d554372e-738a-4bc4-bfa4-a436d0157c50",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 98,
 		"price": 70,
@@ -4226,7 +4226,7 @@
 	},
 	{
 		"wineryId": "128f48e9-f17c-4ba5-9918-39310b92891a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 94,
 		"price": 60,
@@ -4239,7 +4239,7 @@
 	},
 	{
 		"wineryId": "8c1e75f5-187a-4002-b08b-f7e520f8b1ad",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 46,
@@ -4252,7 +4252,7 @@
 	},
 	{
 		"wineryId": "ee707c52-c443-4a12-883d-6310a9f0e510",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 93,
 		"price": 39,
@@ -4265,7 +4265,7 @@
 	},
 	{
 		"wineryId": "ad5d9b02-ed5c-4ed1-8cc0-6839d1646686",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 92,
 		"price": 31,
@@ -4278,7 +4278,7 @@
 	},
 	{
 		"wineryId": "5b4cd33e-ca03-470d-9c1d-5ce542d7c6a1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 69,
@@ -4291,7 +4291,7 @@
 	},
 	{
 		"wineryId": "ae962901-16c8-40b8-a501-c5816443bdbb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 31,
@@ -4304,7 +4304,7 @@
 	},
 	{
 		"wineryId": "7e3f1d8d-40ea-4999-95df-6542003bbb60",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 20,
@@ -4317,7 +4317,7 @@
 	},
 	{
 		"wineryId": "4abd288b-2c18-45c0-abba-2b66d7d60711",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 90,
 		"price": 18,
@@ -4330,7 +4330,7 @@
 	},
 	{
 		"wineryId": "ad35f493-f283-4211-8bfc-b94f53a81a12",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 60,
@@ -4343,7 +4343,7 @@
 	},
 	{
 		"wineryId": "a663e542-4e86-4145-b7d2-45c8517370ee",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 90,
@@ -4356,7 +4356,7 @@
 	},
 	{
 		"wineryId": "1df7d119-9915-4c29-af74-03d8853b0cab",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 92,
 		"price": 20,
@@ -4369,7 +4369,7 @@
 	},
 	{
 		"wineryId": "64a8a904-8a0c-4dbc-92a0-5488da9cae5a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 60,
@@ -4382,7 +4382,7 @@
 	},
 	{
 		"wineryId": "f30f5098-07b0-4158-a7f2-13632b853c13",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 92,
 		"price": 44,
@@ -4395,7 +4395,7 @@
 	},
 	{
 		"wineryId": "65be8f65-1023-4884-8be2-e4288ce2e522",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 93,
 		"price": 42,
@@ -4408,7 +4408,7 @@
 	},
 	{
 		"wineryId": "0ecd2247-2fbe-4106-81fb-7b9488c224c3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 94,
 		"price": 125,
@@ -4421,7 +4421,7 @@
 	},
 	{
 		"wineryId": "cb77e768-468b-4f67-a9a3-3b8ebd801261",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 23,
@@ -4434,7 +4434,7 @@
 	},
 	{
 		"wineryId": "428bbe2e-7b48-4115-b49d-9f2d1fa3ebb8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 15,
@@ -4447,7 +4447,7 @@
 	},
 	{
 		"wineryId": "238b7112-6303-4156-aa73-a404ccb71bd2",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 52,
@@ -4460,7 +4460,7 @@
 	},
 	{
 		"wineryId": "22f8b80e-f001-445c-88c3-4384a6eb4e54",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 30,
@@ -4473,7 +4473,7 @@
 	},
 	{
 		"wineryId": "f810ad09-3dc7-401d-b59c-5aa973c4e2bd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 125,
@@ -4486,7 +4486,7 @@
 	},
 	{
 		"wineryId": "e3fe3398-0802-4cc9-a169-c0dab1d622fb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 59,
@@ -4499,7 +4499,7 @@
 	},
 	{
 		"wineryId": "6fa1f84d-223e-4c32-a510-4deec9078ec8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2009",
 		"score": 97,
 		"price": 125,
@@ -4512,7 +4512,7 @@
 	},
 	{
 		"wineryId": "cb77e768-468b-4f67-a9a3-3b8ebd801261",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 22,
@@ -4525,7 +4525,7 @@
 	},
 	{
 		"wineryId": "5b1ce94f-6af1-4170-a6c3-cdba66e9ff5f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 40,
@@ -4538,7 +4538,7 @@
 	},
 	{
 		"wineryId": "ff172094-c2bb-49e9-b37f-46e30106a339",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 93,
 		"price": 45,
@@ -4551,7 +4551,7 @@
 	},
 	{
 		"wineryId": "1247f1dd-7964-4ab8-8b5f-35142a949fb4",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 92,
 		"price": 25,
@@ -4564,7 +4564,7 @@
 	},
 	{
 		"wineryId": "c12fb6d7-7c71-48ed-a25e-c8640e05cb00",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 91,
 		"price": 20,
@@ -4577,7 +4577,7 @@
 	},
 	{
 		"wineryId": "c12fb6d7-7c71-48ed-a25e-c8640e05cb00",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 25,
@@ -4590,7 +4590,7 @@
 	},
 	{
 		"wineryId": "cb7158bc-b3b8-401c-85ce-f33374daff8c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 30,
@@ -4603,7 +4603,7 @@
 	},
 	{
 		"wineryId": "325cc463-b3d6-4733-a6ca-38a0b6d997e3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 60,
@@ -4616,7 +4616,7 @@
 	},
 	{
 		"wineryId": "35a8363b-9ed5-4ad2-baca-95d335ffdd68",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2016",
 		"score": 90,
 		"price": 20,
@@ -4629,7 +4629,7 @@
 	},
 	{
 		"wineryId": "90139211-71f7-47d0-a5b2-c4878ccedb23",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 93,
 		"price": 40,
@@ -4642,7 +4642,7 @@
 	},
 	{
 		"wineryId": "e9840f69-6dbf-4ccc-b4fc-4c4ba79d3b93",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 98,
 		"price": 160,
@@ -4655,7 +4655,7 @@
 	},
 	{
 		"wineryId": "992d74b9-8635-4461-8e17-617d72743e6b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 12,
@@ -4668,7 +4668,7 @@
 	},
 	{
 		"wineryId": "cd6b40c9-0e88-4eeb-af88-82a16a04cce0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 94,
 		"price": 45,
@@ -4681,7 +4681,7 @@
 	},
 	{
 		"wineryId": "685e9229-63a6-4182-933a-583dffd9ccf4",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 92,
 		"price": 35,
@@ -4694,7 +4694,7 @@
 	},
 	{
 		"wineryId": "3bb6ed6b-0083-44bb-9364-854c348d9d00",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1982",
 		"score": 92,
 		"price": 19,
@@ -4707,7 +4707,7 @@
 	},
 	{
 		"wineryId": "574ef066-54f6-4a82-999a-8093d1056523",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 17,
@@ -4720,7 +4720,7 @@
 	},
 	{
 		"wineryId": "82026cbf-5dd2-4a24-9c30-d264d4754642",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 22,
@@ -4733,7 +4733,7 @@
 	},
 	{
 		"wineryId": "9d06fe79-e764-475a-8f5f-6070685a5b25",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 19,
@@ -4746,7 +4746,7 @@
 	},
 	{
 		"wineryId": "b6d25b85-a2d1-41c2-8350-4ee2431ebe68",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 93,
 		"price": 33,
@@ -4759,7 +4759,7 @@
 	},
 	{
 		"wineryId": "670e9f71-fb9a-4def-a64a-cea2c5836a3d",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 94,
 		"price": 50,
@@ -4772,7 +4772,7 @@
 	},
 	{
 		"wineryId": "b6d25b85-a2d1-41c2-8350-4ee2431ebe68",
-		"color": 1,
+		"color": "White",
 		"vintage": "1986",
 		"score": 93,
 		"price": 36,
@@ -4785,7 +4785,7 @@
 	},
 	{
 		"wineryId": "670e9f71-fb9a-4def-a64a-cea2c5836a3d",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 94,
 		"price": 38,
@@ -4798,7 +4798,7 @@
 	},
 	{
 		"wineryId": "d2835e85-89ab-4b23-a5d5-48db93f778dd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 92,
 		"price": 20,
@@ -4811,7 +4811,7 @@
 	},
 	{
 		"wineryId": "c66cff2d-b174-43cf-9663-cf51d4e5360c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 96,
 		"price": 42,
@@ -4824,7 +4824,7 @@
 	},
 	{
 		"wineryId": "db599ce0-1d88-40b8-b6bf-f68d17265f60",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 25,
@@ -4837,7 +4837,7 @@
 	},
 	{
 		"wineryId": "c71e7165-c07d-4f94-b491-bef9774c2cee",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 93,
 		"price": 51,
@@ -4850,7 +4850,7 @@
 	},
 	{
 		"wineryId": "606e26e2-9a00-4803-8ccd-035e66ca4f29",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 20,
@@ -4863,7 +4863,7 @@
 	},
 	{
 		"wineryId": "606e26e2-9a00-4803-8ccd-035e66ca4f29",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1982",
 		"score": 94,
 		"price": 75,
@@ -4876,7 +4876,7 @@
 	},
 	{
 		"wineryId": "606e26e2-9a00-4803-8ccd-035e66ca4f29",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 25,
@@ -4889,7 +4889,7 @@
 	},
 	{
 		"wineryId": "9d9af9a7-3bc2-4ab2-b181-61f92cbb4107",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1979",
 		"score": 95,
 		"price": 75,
@@ -4902,7 +4902,7 @@
 	},
 	{
 		"wineryId": "9d9af9a7-3bc2-4ab2-b181-61f92cbb4107",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 55,
@@ -4915,7 +4915,7 @@
 	},
 	{
 		"wineryId": "573fa7f5-bbe0-4af2-aa9b-049b676c771f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 100,
 		"price": 210,
@@ -4928,7 +4928,7 @@
 	},
 	{
 		"wineryId": "456ed697-bc45-494d-a781-3fae792d31a5",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 91,
 		"price": 25,
@@ -4941,7 +4941,7 @@
 	},
 	{
 		"wineryId": "456ed697-bc45-494d-a781-3fae792d31a5",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 91,
 		"price": 15,
@@ -4954,7 +4954,7 @@
 	},
 	{
 		"wineryId": "d1229452-37b7-456a-95a2-660515ec3bf1",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 90,
 		"price": 14,
@@ -4967,7 +4967,7 @@
 	},
 	{
 		"wineryId": "7cc039b4-3942-45d8-b933-d839b9a468b1",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 95,
 		"price": 19,
@@ -4980,7 +4980,7 @@
 	},
 	{
 		"wineryId": "113ec480-5b30-4573-bff2-066a1c67bfcf",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 90,
 		"price": 12,
@@ -4993,7 +4993,7 @@
 	},
 	{
 		"wineryId": "b7e28be6-b4da-4448-a251-4933969ee405",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 93,
 		"price": 42,
@@ -5006,7 +5006,7 @@
 	},
 	{
 		"wineryId": "2dc569da-72d0-4831-9f6a-fd1ae3fbcb76",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 91,
 		"price": 20,
@@ -5019,7 +5019,7 @@
 	},
 	{
 		"wineryId": "113ec480-5b30-4573-bff2-066a1c67bfcf",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 91,
 		"price": 12,
@@ -5032,7 +5032,7 @@
 	},
 	{
 		"wineryId": "84206036-c2b2-4f0a-9150-da8d98fed26d",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 91,
 		"price": 17,
@@ -5045,7 +5045,7 @@
 	},
 	{
 		"wineryId": "74cf444e-6b2c-4c9a-9fdd-f09b2a01999f",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 92,
 		"price": 35,
@@ -5058,7 +5058,7 @@
 	},
 	{
 		"wineryId": "753c5184-f853-4275-8c0a-814595620d96",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 92,
 		"price": 19,
@@ -5071,7 +5071,7 @@
 	},
 	{
 		"wineryId": "45797a0c-a5bd-4e8c-8b4d-32abf29ecba7",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 18,
@@ -5084,7 +5084,7 @@
 	},
 	{
 		"wineryId": "45797a0c-a5bd-4e8c-8b4d-32abf29ecba7",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 92,
 		"price": 30,
@@ -5097,7 +5097,7 @@
 	},
 	{
 		"wineryId": "c97a34be-5be1-4fb7-a5d5-878a6278d6f4",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 93,
 		"price": 20,
@@ -5110,7 +5110,7 @@
 	},
 	{
 		"wineryId": "12d959ea-32e5-48d5-81bb-31931f00c504",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 91,
 		"price": 12,
@@ -5123,7 +5123,7 @@
 	},
 	{
 		"wineryId": "40af7b6f-ccc6-486a-93df-ff6aec00e093",
-		"color": 1,
+		"color": "White",
 		"vintage": "2012",
 		"score": 90,
 		"price": 16,
@@ -5136,7 +5136,7 @@
 	},
 	{
 		"wineryId": "3b301462-64ee-4df4-9504-7bb9045c19ac",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 14,
@@ -5149,7 +5149,7 @@
 	},
 	{
 		"wineryId": "2b75b564-208e-4020-a767-52a09f5fa2ef",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 95,
 		"price": 92,
@@ -5162,7 +5162,7 @@
 	},
 	{
 		"wineryId": "f2ac028e-20d1-4a31-9624-e50a82a38a7c",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 91,
 		"price": 25,
@@ -5175,7 +5175,7 @@
 	},
 	{
 		"wineryId": "c8883c49-56dc-4c93-b832-8225817ee72c",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 96,
 		"price": 18,
@@ -5188,7 +5188,7 @@
 	},
 	{
 		"wineryId": "1f801541-d77a-46df-9b90-517cae07e3d9",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 95,
 		"price": 17,
@@ -5201,7 +5201,7 @@
 	},
 	{
 		"wineryId": "d15aeddb-646b-4f44-8dcc-34af39368f2c",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 98,
 		"price": 24,
@@ -5214,7 +5214,7 @@
 	},
 	{
 		"wineryId": "bb3f591d-d15d-4781-a2b9-7826360a9ba8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2007",
 		"score": 93,
 		"price": 55,
@@ -5227,7 +5227,7 @@
 	},
 	{
 		"wineryId": "4e52683c-b90f-448c-ac52-0f73b3eb6225",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2005",
 		"score": 94,
 		"price": 89,
@@ -5240,7 +5240,7 @@
 	},
 	{
 		"wineryId": "4f4f0b8d-f62b-426c-81c8-2bdfb4534275",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 94,
 		"price": 50,
@@ -5253,7 +5253,7 @@
 	},
 	{
 		"wineryId": "ec2c0403-35dd-4f75-9feb-024a6c4726cf",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 14,
@@ -5266,7 +5266,7 @@
 	},
 	{
 		"wineryId": "7b52b9ba-6f3b-41f1-a406-e7ae3e7bc96c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 94,
 		"price": 33,
@@ -5279,7 +5279,7 @@
 	},
 	{
 		"wineryId": "7b52b9ba-6f3b-41f1-a406-e7ae3e7bc96c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 93,
 		"price": 44,
@@ -5292,7 +5292,7 @@
 	},
 	{
 		"wineryId": "b37874b3-990b-471a-b453-45881bf1b907",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 20,
@@ -5305,7 +5305,7 @@
 	},
 	{
 		"wineryId": "b37874b3-990b-471a-b453-45881bf1b907",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 17,
@@ -5318,7 +5318,7 @@
 	},
 	{
 		"wineryId": "26010af4-ff85-48a1-9125-f9a87df69673",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 31,
@@ -5331,7 +5331,7 @@
 	},
 	{
 		"wineryId": "bb3f591d-d15d-4781-a2b9-7826360a9ba8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2005",
 		"score": 92,
 		"price": 30,
@@ -5344,7 +5344,7 @@
 	},
 	{
 		"wineryId": "0a046435-f881-4dc4-8983-dda7463ba76b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 90,
 		"price": 10,
@@ -5357,7 +5357,7 @@
 	},
 	{
 		"wineryId": "7b52b9ba-6f3b-41f1-a406-e7ae3e7bc96c",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 90,
 		"price": 15,
@@ -5370,7 +5370,7 @@
 	},
 	{
 		"wineryId": "fe0ca9e5-a2b8-44af-b8c3-59f57ad1ed12",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 93,
 		"price": 20,
@@ -5383,7 +5383,7 @@
 	},
 	{
 		"wineryId": "573fa7f5-bbe0-4af2-aa9b-049b676c771f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 98,
 		"price": 195,
@@ -5396,7 +5396,7 @@
 	},
 	{
 		"wineryId": "b80a1f6a-77dd-44a7-b006-367bb739e18c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 98,
 		"price": 99,
@@ -5409,7 +5409,7 @@
 	},
 	{
 		"wineryId": "c14c5f40-f155-4a85-9cf1-8c2f36aba12b",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 27,
@@ -5422,7 +5422,7 @@
 	},
 	{
 		"wineryId": "13421944-166d-4ef8-a712-d276756e5ede",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 91,
 		"price": 23,
@@ -5435,7 +5435,7 @@
 	},
 	{
 		"wineryId": "66623667-2e19-4d9a-9b86-46ad87cc759a",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 92,
 		"price": 26,
@@ -5448,7 +5448,7 @@
 	},
 	{
 		"wineryId": "5d1c7722-1d14-42b1-ab4a-781f297b4abe",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 92,
 		"price": 18,
@@ -5461,7 +5461,7 @@
 	},
 	{
 		"wineryId": "479915f3-68cb-4ec1-beb2-7b2c4ba6d43a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 90,
 		"price": 6,
@@ -5474,7 +5474,7 @@
 	},
 	{
 		"wineryId": "7cde7d53-5c21-4922-89c5-2e3c2b0435cd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 95,
 		"price": 50,
@@ -5487,7 +5487,7 @@
 	},
 	{
 		"wineryId": "62b8b70b-95da-40cc-898b-1dbb9bc1bb11",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2011",
 		"score": 97,
 		"price": 50,
@@ -5500,7 +5500,7 @@
 	},
 	{
 		"wineryId": "f8d55f57-e63b-48ac-8621-cbedb991c9df",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 12,
@@ -5513,7 +5513,7 @@
 	},
 	{
 		"wineryId": "66ffa81e-87f5-4873-a76f-4dbb435e6ccf",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 90,
 		"price": 15,
@@ -5526,7 +5526,7 @@
 	},
 	{
 		"wineryId": "24de4671-57d2-4fd6-b653-ed230f708a46",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 91,
 		"price": 20,
@@ -5539,7 +5539,7 @@
 	},
 	{
 		"wineryId": "b85fa34d-c1b1-4802-83ee-8f1941c684e9",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 90,
 		"price": 7,
@@ -5552,7 +5552,7 @@
 	},
 	{
 		"wineryId": "0c615755-f955-48ad-b2b3-269b993a997f",
-		"color": 1,
+		"color": "White",
 		"vintage": "1989",
 		"score": 90,
 		"price": 9,
@@ -5565,7 +5565,7 @@
 	},
 	{
 		"wineryId": "cb3adc5f-3661-426b-ae29-207cd1303b42",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 90,
 		"price": 12,
@@ -5578,7 +5578,7 @@
 	},
 	{
 		"wineryId": "c6cde1c8-c333-4e2c-90d7-30f7bdb44edd",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 90,
 		"price": 13,
@@ -5591,7 +5591,7 @@
 	},
 	{
 		"wineryId": "88898de3-7d5b-46ad-ae9d-c19b3dc5ef67",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 90,
 		"price": 8,
@@ -5604,7 +5604,7 @@
 	},
 	{
 		"wineryId": "2c47abe3-54b7-4574-b66a-9b0d1f41819e",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 90,
 		"price": 19,
@@ -5617,7 +5617,7 @@
 	},
 	{
 		"wineryId": "6ad3273a-c96b-4913-8de2-9f4e598a5561",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 93,
 		"price": 32,
@@ -5630,7 +5630,7 @@
 	},
 	{
 		"wineryId": "a5950729-6640-4894-8eb8-3fea8cbc4aac",
-		"color": 1,
+		"color": "White",
 		"vintage": "2013",
 		"score": 90,
 		"price": 24,
@@ -5643,7 +5643,7 @@
 	},
 	{
 		"wineryId": "f03bbe30-d6ee-41c0-9662-030a7eb3ae4f",
-		"color": 1,
+		"color": "White",
 		"vintage": "1988",
 		"score": 90,
 		"price": 8,
@@ -5656,7 +5656,7 @@
 	},
 	{
 		"wineryId": "7f27b425-c446-495d-ab4c-3a7a2357093b",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 94,
 		"price": 30,
@@ -5669,7 +5669,7 @@
 	},
 	{
 		"wineryId": "c19eea15-8615-47a0-ba81-9f90fbf17067",
-		"color": 1,
+		"color": "White",
 		"vintage": "1989",
 		"score": 91,
 		"price": 33,
@@ -5682,7 +5682,7 @@
 	},
 	{
 		"wineryId": "d4b91acf-51bc-472e-9c03-b21cb5f20612",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 90,
 		"price": 16,
@@ -5695,7 +5695,7 @@
 	},
 	{
 		"wineryId": "b0508b8d-40cb-4f32-bf55-33edc9252000",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 69,
@@ -5708,7 +5708,7 @@
 	},
 	{
 		"wineryId": "4946360d-19bd-4500-b3d4-0c57ecc433ac",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 9,
@@ -5721,7 +5721,7 @@
 	},
 	{
 		"wineryId": "2f166316-e168-4206-acbd-d14d1ebeac5d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 75,
@@ -5734,7 +5734,7 @@
 	},
 	{
 		"wineryId": "b0508b8d-40cb-4f32-bf55-33edc9252000",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 69,
@@ -5747,7 +5747,7 @@
 	},
 	{
 		"wineryId": "a567ebca-3467-4c3f-b5ac-e240e1bfca98",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 17,
@@ -5760,7 +5760,7 @@
 	},
 	{
 		"wineryId": "285f06d5-5680-4742-8447-f235e70eca63",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 91,
 		"price": 18,
@@ -5773,7 +5773,7 @@
 	},
 	{
 		"wineryId": "61c26569-2caf-47ab-9b7f-55ce6ce90662",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 90,
 		"price": 26,
@@ -5786,7 +5786,7 @@
 	},
 	{
 		"wineryId": "f05694a9-ea24-4c5a-8f8c-2061c05bb9ed",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 91,
 		"price": 23,
@@ -5799,7 +5799,7 @@
 	},
 	{
 		"wineryId": "75e7310a-73fe-418c-8de3-4e02f79b9815",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 90,
 		"price": 21,
@@ -5812,7 +5812,7 @@
 	},
 	{
 		"wineryId": "c90cc64b-4f54-4e8a-99aa-1731b3b2a5bb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 91,
 		"price": 20,
@@ -5825,7 +5825,7 @@
 	},
 	{
 		"wineryId": "92351592-13a0-4808-8586-9562f0eb79e1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 61,
@@ -5838,7 +5838,7 @@
 	},
 	{
 		"wineryId": "83ad3aad-4ba2-4a39-b902-91789fa01086",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 19,
@@ -5851,7 +5851,7 @@
 	},
 	{
 		"wineryId": "c26dd46e-66f5-46e0-abb7-a21535b1ebce",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 92,
 		"price": 16,
@@ -5864,7 +5864,7 @@
 	},
 	{
 		"wineryId": "c65e1397-8fcf-4933-ab7f-fffc1aef91fe",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 135,
@@ -5877,7 +5877,7 @@
 	},
 	{
 		"wineryId": "9fe6457a-e00c-4acf-b0b9-19757f31c233",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 19,
@@ -5890,7 +5890,7 @@
 	},
 	{
 		"wineryId": "43c4adad-419a-425c-ae7e-4f81c10222d4",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 95,
 		"price": 70,
@@ -5903,7 +5903,7 @@
 	},
 	{
 		"wineryId": "d2cf4933-3a27-4aa3-886d-8c9cbaab5fd3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 92,
 		"price": 22,
@@ -5916,7 +5916,7 @@
 	},
 	{
 		"wineryId": "8a185125-0f35-4a7d-812e-cca7e2234d56",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 90,
 		"price": 13,
@@ -5929,7 +5929,7 @@
 	},
 	{
 		"wineryId": "7a4dccdd-4c49-4f53-8538-f50782730f1c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 92,
 		"price": 25,
@@ -5942,7 +5942,7 @@
 	},
 	{
 		"wineryId": "f42a00e8-cbb6-47cf-b967-9e84ab68f987",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 94,
 		"price": 98,
@@ -5955,7 +5955,7 @@
 	},
 	{
 		"wineryId": "47d239ec-f9ba-41a4-b0bd-38da32be4a0e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 91,
 		"price": 23,
@@ -5968,7 +5968,7 @@
 	},
 	{
 		"wineryId": "5d6f0395-a58d-4f5c-a920-c935194d812f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 60,
@@ -5981,7 +5981,7 @@
 	},
 	{
 		"wineryId": "1a9d4fae-ed92-47ba-baba-9db0af0a59bc",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 92,
 		"price": 30,
@@ -5994,7 +5994,7 @@
 	},
 	{
 		"wineryId": "f0ed8a1a-7155-4eb4-bec5-503a4f536bcd",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 94,
 		"price": 85,
@@ -6007,7 +6007,7 @@
 	},
 	{
 		"wineryId": "2e8a66b5-e705-4cb9-b489-5eef56661bd1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 94,
 		"price": 55,
@@ -6020,7 +6020,7 @@
 	},
 	{
 		"wineryId": "a5c13240-da3c-4442-b728-a8f888374579",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 12,
@@ -6033,7 +6033,7 @@
 	},
 	{
 		"wineryId": "0c615755-f955-48ad-b2b3-269b993a997f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 92,
 		"price": 14,
@@ -6046,7 +6046,7 @@
 	},
 	{
 		"wineryId": "bfe27f51-272b-4327-9032-c8e7b5696200",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 29,
@@ -6059,7 +6059,7 @@
 	},
 	{
 		"wineryId": "ab128e98-4882-40ad-bb04-221049eecac5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 96,
 		"price": 80,
@@ -6072,7 +6072,7 @@
 	},
 	{
 		"wineryId": "acdc57f1-8222-4143-99b4-c459e17cfeeb",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 97,
 		"price": 70,
@@ -6085,7 +6085,7 @@
 	},
 	{
 		"wineryId": "4728ab4d-e3e7-4cb6-9c5c-c36346a936ad",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 45,
@@ -6098,7 +6098,7 @@
 	},
 	{
 		"wineryId": "f9f62fba-ee86-486a-a28a-60742d52bca5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 52,
@@ -6111,7 +6111,7 @@
 	},
 	{
 		"wineryId": "90690f43-4f4f-4993-8a3b-be5f850c976a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 19,
@@ -6124,7 +6124,7 @@
 	},
 	{
 		"wineryId": "66adbb65-26f6-40d3-a10e-739c1d0dc199",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 91,
 		"price": 10,
@@ -6137,7 +6137,7 @@
 	},
 	{
 		"wineryId": "36ca0169-bba7-4199-ae17-177484c05882",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 95,
 		"price": 67,
@@ -6150,7 +6150,7 @@
 	},
 	{
 		"wineryId": "1f8f6b43-0fb7-47f8-a29f-81ecad51f32d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 17,
@@ -6163,7 +6163,7 @@
 	},
 	{
 		"wineryId": "28617d6b-2618-4194-be58-6a7e255515bf",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "NV",
 		"score": 95,
 		"price": 15,
@@ -6176,7 +6176,7 @@
 	},
 	{
 		"wineryId": "8e139a44-87df-4434-9e0d-39f8a476533e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 24,
@@ -6189,7 +6189,7 @@
 	},
 	{
 		"wineryId": "23718768-d68d-42f8-9647-e35a6e8a0a18",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 91,
 		"price": 23,
@@ -6202,7 +6202,7 @@
 	},
 	{
 		"wineryId": "63f5e526-4d01-4589-98c8-35b14fa242f2",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 42,
@@ -6215,7 +6215,7 @@
 	},
 	{
 		"wineryId": "4728ab4d-e3e7-4cb6-9c5c-c36346a936ad",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 55,
@@ -6228,7 +6228,7 @@
 	},
 	{
 		"wineryId": "c66cff2d-b174-43cf-9663-cf51d4e5360c",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 93,
 		"price": 22,
@@ -6241,7 +6241,7 @@
 	},
 	{
 		"wineryId": "20e17321-5fb1-4077-9a57-697b9733df8a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 8,
@@ -6254,7 +6254,7 @@
 	},
 	{
 		"wineryId": "3589b918-0404-4f09-b0ed-c06becfdbb3e",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2006",
 		"score": 94,
 		"price": 49,
@@ -6267,7 +6267,7 @@
 	},
 	{
 		"wineryId": "947c388c-e80b-4093-a74a-a57ae79f0cb1",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 95,
 		"price": 65,
@@ -6280,7 +6280,7 @@
 	},
 	{
 		"wineryId": "5e9c6c62-02d0-4fe9-8c7e-c7b171ef4978",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 91,
 		"price": 12,
@@ -6293,7 +6293,7 @@
 	},
 	{
 		"wineryId": "b1344654-0272-4426-a5cf-e43235e22cae",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 30,
@@ -6306,7 +6306,7 @@
 	},
 	{
 		"wineryId": "9a71ec46-e910-4b35-b7fb-ae55ed2ac40d",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 60,
@@ -6319,7 +6319,7 @@
 	},
 	{
 		"wineryId": "0aa7b76b-4195-4649-8fbe-585704b6c4be",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 93,
 		"price": 27,
@@ -6332,7 +6332,7 @@
 	},
 	{
 		"wineryId": "8abecda6-71ad-4587-9e1b-3a62427521d5",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 95,
 		"price": 105,
@@ -6345,7 +6345,7 @@
 	},
 	{
 		"wineryId": "479915f3-68cb-4ec1-beb2-7b2c4ba6d43a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 94,
 		"price": 105,
@@ -6358,7 +6358,7 @@
 	},
 	{
 		"wineryId": "dfbef8e5-c4c5-47c4-bce6-df4ba95277f6",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 90,
 		"price": 22,
@@ -6371,7 +6371,7 @@
 	},
 	{
 		"wineryId": "4ad06de9-9902-4c3f-8350-959cc8ebf855",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 39,
@@ -6384,7 +6384,7 @@
 	},
 	{
 		"wineryId": "16a8a769-32c5-4ace-9c0b-833c60e4606b",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 91,
 		"price": 20,
@@ -6397,7 +6397,7 @@
 	},
 	{
 		"wineryId": "64b676e8-96a9-4bc4-9f0c-240916fb9d55",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 90,
 		"price": 28,
@@ -6410,7 +6410,7 @@
 	},
 	{
 		"wineryId": "2209ce34-4416-4e5a-94cf-8c1c30d8e6e3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 90,
 		"price": 20,
@@ -6423,7 +6423,7 @@
 	},
 	{
 		"wineryId": "5527fe88-8a11-44af-ad06-d51c963b3509",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 90,
 		"price": 18,
@@ -6436,7 +6436,7 @@
 	},
 	{
 		"wineryId": "b422a5be-bc46-47ed-93bf-5e63c5d4fff7",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 90,
 		"price": 25,
@@ -6449,7 +6449,7 @@
 	},
 	{
 		"wineryId": "cd084e07-27f0-4792-8fd4-79b30d9b891b",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 90,
 		"price": 18,
@@ -6462,7 +6462,7 @@
 	},
 	{
 		"wineryId": "4943c87e-21d4-4a36-bb88-69b5eed1e5f0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 94,
 		"price": 30,
@@ -6475,7 +6475,7 @@
 	},
 	{
 		"wineryId": "4943c87e-21d4-4a36-bb88-69b5eed1e5f0",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 93,
 		"price": 28,
@@ -6488,7 +6488,7 @@
 	},
 	{
 		"wineryId": "1fd5b0ed-4175-43a4-825b-2c11beed8d70",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2009",
 		"score": 95,
 		"price": 80,
@@ -6501,7 +6501,7 @@
 	},
 	{
 		"wineryId": "748307a4-09cb-484d-81ef-18352fa87cc3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 90,
 		"price": 20,
@@ -6514,7 +6514,7 @@
 	},
 	{
 		"wineryId": "302d32b6-ec2b-407e-a59d-10dffecb471f",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2010",
 		"score": 90,
 		"price": 15,
@@ -6527,7 +6527,7 @@
 	},
 	{
 		"wineryId": "be9852e7-e436-4b8e-b7e6-a6d839bb2dbf",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 93,
 		"price": 31,
@@ -6540,7 +6540,7 @@
 	},
 	{
 		"wineryId": "dd90d753-4430-480b-a08e-22d1ce27b720",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2011",
 		"score": 99,
 		"price": 82,
@@ -6553,7 +6553,7 @@
 	},
 	{
 		"wineryId": "56bf6e93-bf4f-4bc9-a938-f764ae0ac555",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2015",
 		"score": 93,
 		"price": 58,
@@ -6566,7 +6566,7 @@
 	},
 	{
 		"wineryId": "1a712f97-9b3c-4761-8807-4bd75b81cdda",
-		"color": 1,
+		"color": "White",
 		"vintage": "2010",
 		"score": 92,
 		"price": 28,
@@ -6579,7 +6579,7 @@
 	},
 	{
 		"wineryId": "84012990-4588-476b-ab49-389b570ead11",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 91,
 		"price": 15,
@@ -6592,7 +6592,7 @@
 	},
 	{
 		"wineryId": "0d25613f-5ebb-42e0-8700-bec7996b9d5e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 95,
 		"price": 63,
@@ -6605,7 +6605,7 @@
 	},
 	{
 		"wineryId": "0d25613f-5ebb-42e0-8700-bec7996b9d5e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 95,
 		"price": 63,
@@ -6618,7 +6618,7 @@
 	},
 	{
 		"wineryId": "be39960e-3809-4960-9aa1-1fd187c66ee8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1985",
 		"score": 95,
 		"price": 55,
@@ -6631,7 +6631,7 @@
 	},
 	{
 		"wineryId": "be39960e-3809-4960-9aa1-1fd187c66ee8",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 93,
 		"price": 47,
@@ -6644,7 +6644,7 @@
 	},
 	{
 		"wineryId": "2e50d1e4-d133-4b81-bdc0-919be7ea01f2",
-		"color": 1,
+		"color": "White",
 		"vintage": "2016",
 		"score": 95,
 		"price": 44,
@@ -6657,7 +6657,7 @@
 	},
 	{
 		"wineryId": "9ba74bf6-0694-4951-ab5b-70a4f6407585",
-		"color": 4,
+		"color": "Dessert",
 		"vintage": "2015",
 		"score": 97,
 		"price": 70,
@@ -6670,7 +6670,7 @@
 	},
 	{
 		"wineryId": "3963563d-6111-438f-94c5-910c4d19c80f",
-		"color": 1,
+		"color": "White",
 		"vintage": "2015",
 		"score": 92,
 		"price": 20,
@@ -6683,7 +6683,7 @@
 	},
 	{
 		"wineryId": "cda589df-1a87-49b1-847b-506e7c5904cd",
-		"color": 1,
+		"color": "White",
 		"vintage": "1987",
 		"score": 90,
 		"price": 7,
@@ -6696,7 +6696,7 @@
 	},
 	{
 		"wineryId": "3963563d-6111-438f-94c5-910c4d19c80f",
-		"color": 1,
+		"color": "White",
 		"vintage": "2014",
 		"score": 92,
 		"price": 20,
@@ -6709,7 +6709,7 @@
 	},
 	{
 		"wineryId": "efab9088-ea13-44ab-bf31-40f162eb5526",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2013",
 		"score": 92,
 		"price": 32,
@@ -6722,7 +6722,7 @@
 	},
 	{
 		"wineryId": "28fea3fa-2d4e-48dc-afbd-106202bcd203",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 92,
 		"price": 30,
@@ -6735,7 +6735,7 @@
 	},
 	{
 		"wineryId": "73636108-5b74-449b-836b-bd0fbbf31b1e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 90,
 		"price": 7,
@@ -6748,7 +6748,7 @@
 	},
 	{
 		"wineryId": "11b85d53-dbf4-4dbb-b1a4-cfcdb1f644da",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 91,
 		"price": 20,
@@ -6761,7 +6761,7 @@
 	},
 	{
 		"wineryId": "63f5e526-4d01-4589-98c8-35b14fa242f2",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 93,
 		"price": 25,
@@ -6774,7 +6774,7 @@
 	},
 	{
 		"wineryId": "dd1c08e9-2e64-4f77-a8e9-cc4a487df177",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1986",
 		"score": 91,
 		"price": 7,
@@ -6787,7 +6787,7 @@
 	},
 	{
 		"wineryId": "3b453b86-584a-485c-8370-f8c9c6f6d7f3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2011",
 		"score": 90,
 		"price": 19,
@@ -6800,7 +6800,7 @@
 	},
 	{
 		"wineryId": "11b85d53-dbf4-4dbb-b1a4-cfcdb1f644da",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 95,
 		"price": 48,
@@ -6813,7 +6813,7 @@
 	},
 	{
 		"wineryId": "d2835e85-89ab-4b23-a5d5-48db93f778dd",
-		"color": 2,
+		"color": "Rose",
 		"vintage": "2015",
 		"score": 91,
 		"price": 16,
@@ -6826,7 +6826,7 @@
 	},
 	{
 		"wineryId": "4c802ae1-d537-409b-8056-852abc4f4159",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2012",
 		"score": 94,
 		"price": 32,
@@ -6839,7 +6839,7 @@
 	},
 	{
 		"wineryId": "8c7c0280-15a1-439b-b9ee-32a7a883d496",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2014",
 		"score": 96,
 		"price": 47,
@@ -6852,7 +6852,7 @@
 	},
 	{
 		"wineryId": "eba7cdd7-1b40-4b5c-8425-e899c54b650a",
-		"color": 0,
+		"color": "Red",
 		"vintage": "2015",
 		"score": 94,
 		"price": 38,
@@ -6865,7 +6865,7 @@
 	},
 	{
 		"wineryId": "60591cc9-88ad-4043-8426-20d3117a3bc3",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1988",
 		"score": 90,
 		"price": 12,
@@ -6878,7 +6878,7 @@
 	},
 	{
 		"wineryId": "d886b4c5-3548-401e-ab7a-4af2c64d196e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 90,
 		"price": 15,
@@ -6891,7 +6891,7 @@
 	},
 	{
 		"wineryId": "d886b4c5-3548-401e-ab7a-4af2c64d196e",
-		"color": 0,
+		"color": "Red",
 		"vintage": "1987",
 		"score": 91,
 		"price": 18,

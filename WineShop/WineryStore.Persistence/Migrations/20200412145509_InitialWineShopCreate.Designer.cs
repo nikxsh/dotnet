@@ -10,14 +10,14 @@ using WineryStore.Persistence.Datastore;
 namespace WineryStore.Persistence.Migrations
 {
     [DbContext(typeof(WineryContext))]
-    [Migration("20200120115930_InitialWineShopCreate")]
+    [Migration("20200412145509_InitialWineShopCreate")]
     partial class InitialWineShopCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -67,7 +67,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c32aa1ff-abda-4017-bb70-b65787612f51"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Aglianico del Vulture",
                             Note = "The black cherry and fresh earth flavors are sweet and focused in this harmonious, medium-bodied red, accented by black olive, fig bread and dried herb notes, all framed by fine-grained tannins that firm up the finish. Drink now through 2027. 15,000 cases made.",
@@ -81,7 +81,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9faec776-8156-4ff2-8b8d-f176919db303"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Aglianico del Vulture Piano del Cerro",
                             Note = "A dense and tarry red that glides on the silky palate, with mouthwatering acidity framing flavors of blueberry puree, chocolate-covered cherry, vanilla, dried thyme and oak spice. An expressive version in a modern style, yet refined and harmonious overall, with the grippy finish echoing the ripe fruit and tarry mineral character. Drink now through 2027. 5,000 cases made.",
@@ -95,7 +95,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d3ef3cd0-1507-4745-a82b-ed6115c4ec67"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Aglianico Irpinia",
                             Note = "This is elegant and well-meshed, with fine tannins and a fragrant skein of ground spice layered with flavors of baked black currant, herbes de Provence, smoke and fig cake. The fresh finish is chewy and lingering. Drink now through 2022. 2,083 cases made.",
@@ -109,7 +109,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4f9cafcb-7f4b-46e7-baf7-11fea6a46cd1"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Albariño Rias Baixas",
                             Note = "This big white is round and polished, with good weight and solid acidity behind the pear, blanched almond and white tea flavors. Ginger and briny notes give this a savory character. A muscular style. Drink now through 2022. 3,000 cases imported.",
@@ -123,7 +123,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fd4d80bf-33df-42f2-8519-26763abdb6fd"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Alentejo Ramos Reserva",
                             Note = "Black olive, dark currant and dried plum flavors give this red plenty of power and lift. Quite minerally as well, featuring an intense and balanced finish that lingers with fig paste and raspberry ganache elements. Drink now through 2020. 41,800 cases made.",
@@ -137,7 +137,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("25cf36e6-282d-4679-8775-9b71dd73ddc5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Alicante Tarima Hill Old Vines",
                             Note = "This red shows grace and depth. Black cherry, plum, mineral and smoke flavors mingle harmoniously over well-integrated tannins, while lively acidity keeps this focused. Not showy, but all the pieces fit together. Balanced, in the modern style. Drink now through 2025. 10,000 cases made.",
@@ -151,7 +151,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("56aa9565-3546-4e72-b5bb-87c503278547"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Amarone della Valpolicella Classico SerÃ¨go Alighieri Vaio Armaron",
                             Note = "An elegant, impeccably balanced red, layering sculpted tannins with finely knit flavors of plumped black cherry, plum sauce, cured tobacco, dark chocolate and woodsy spice. A rich vein of smoky minerality sings on the lasting finish. Drink now through 2035. 3,750 cases made.",
@@ -165,7 +165,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4b70e9d0-664f-4f10-acff-9719f0d34da2"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Arte",
                             Note = "The distinctive raspberry tang of Nebbiolo is the beautiful core around which this elegant, full-bodied wine is built. So artfully balanced it's drinkable now, but the tightly wound flavors need 3-4 years to unfold.  ",
@@ -179,7 +179,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("021ba6e0-73c0-4eea-aa5d-cb985f8f71c5"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Assyrtiko Santorini Greek Wine Cellars",
                             Note = "A creamy white, with notes of dried coconut to the ripe apple, baked pear and lemon curd flavors. The richly spiced finish features accents of dried mint and sage. Drink now through 2020. 10,000 cases made.",
@@ -193,7 +193,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("093b2dda-fcaf-4f0e-a285-ffa9b7152b86"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bandol",
                             Note = "This has a dark leathery frame but remains sleek and pure overall, with a dense core of currant preserves, steeped plum and lightly mulled blackberry fruit, studded with dried anise and singed juniper notes. A bolt of iron is buried deeply on the finish. Best from 2017 through 2025. 420 cases imported.",
@@ -207,7 +207,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("775bf8d6-545e-45e8-bbfc-e317d076ef98"),
-                            Color = 6,
+                            Color = 0,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bandol RosÃ©",
                             Note = "Bright and high-pitched, this features a talc note that gives way to rosemary and white cherry hints, while the finish races along with sea salt and blood orange details. Long, chiseled and pure. A delicious rosÃ© that should unwind further with some cellaring. Drink now through 2016. 2,275 cases imported.",
@@ -221,7 +221,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("03670449-5a60-4307-b67c-445faf39d9f7"),
-                            Color = 6,
+                            Color = 0,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bandol RosÃ© Moulin des Costes",
                             Note = "Offers a lovely combination of zip and richness, with creamy edges around a core of delicious white cherry and white peach flavors, all offset by a pure beam of minerality that pierces through from start to finish. Drink now through 2017. 4,000 cases made.",
@@ -235,7 +235,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d436569f-4763-4579-81db-a7aaee2fc6bc"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco",
                             Note = "Stunning, almost buttery in its richness, smooth, rich and complex, has power and finesse, plus chocolatey richness that can only become greater. Has the fruit of Barbaresco, the finesse and elegance of Bordeaux and the power and intensity of California.  ",
@@ -249,7 +249,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("20d1bb3b-81be-4605-9251-8b96a2187dc4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco Asili Riserva",
                             Note = "Intense aromas of cherry, rose, licorice and tar pick up tobacco, spice and mineral elements on the palate. Concentrated, yet elegant and expressive, with more to give. Ends with a long aftertaste of fruit, underbrush and mineral. Best from 2018 through 2032. 1,110 cases made.",
@@ -263,7 +263,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1e342421-3c01-424b-8437-07c9e9b010d6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco Costa Russi",
                             Note = "Remarkable in its concentration and elegance, with marvelously focused raspberry and cherry flavors and hints of chocolate and anise. Muscular; without an ounce of excess weight and with just a touch of tannin to lose. Drink 1993-2005 .  ",
@@ -277,7 +277,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9c401376-3026-4cdd-8ce0-5cb67d0f0c38"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco Maria di Brun",
                             Note = "Very firm, tannic and austere, with hints of spice and earthiness on the reined-in raspberry and anise aromas and flavors that grow more complex on the finish. Drink now.  ",
@@ -291,7 +291,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("710b7ba2-b9c5-4a37-8705-45c95f8084f4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco Ovello",
                             Note = "This pretty red offers delicate flavors and subtle power, evoking flowers, red berry, mineral, tobacco and tar on the nose and palate. Firmly structured, this remains harmonious and long on the mineral- and tobacco-tinged finish.  Best from 2020 through 2036. 500 cases made.",
@@ -305,7 +305,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6fc38128-415a-442c-a9b2-84a56012c3e7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco RabajÃ ",
                             Note = "Bright, with cherry, strawberry and floral aromas and flavors, this is backed by a firm yet integrated underlying structure. Beautifully poised for development, so hands off for now. Juicy and long, delivering a lingering aftertaste of cherry, spice and mineral. Best from 2015 through 2027. 1,420 cases made.",
@@ -319,7 +319,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8bd1a9bf-a5c2-49d7-9d3b-e99999dfbe8c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco Sorì San Lorenzo",
                             Note = "A bit more austere than the others, but it hangs a lot of flavor on an elegant frame, showing toasty, spicy raspberry aromas and flavors, tightly wound and long.  ",
@@ -333,7 +333,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("42bb8416-166f-440b-ad99-38b9c6fdcb3b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbaresco Sorì Tildìn",
                             Note = "A majestic wine, beautifully harmonious, seamless and integrated, with magn ificent fruit, matchless complexity and stunning depth of flavor. Hints of violet, toast and nutmeg enrich the plummy raspberry fruit. Long and tight on the finish.  ",
@@ -347,7 +347,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4e903bdd-e5b4-42a3-9fbf-af0771acf71e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbera d'Asti Tre Vigne",
                             Note = "A bright, flashy version, featuring black currant and blackberry fruit that shows notes of vanilla and spice. The oak adds tannins, lending this a tight feel on the otherwise fine finish. Needs time. Best from 2016 through 2020. 5,000 cases made.",
@@ -361,7 +361,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c293aac8-b3cb-40ea-bf88-afff853f737f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barbera Piemonte",
                             Note = "  ",
@@ -375,7 +375,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e0ec2d0e-c021-4ca4-bd99-3c2232d7f934"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barolo",
                             Note = "A floral-, cherry- and berry-laced version, delicate and lively, with mineral and spice accents. The texture is supple, with a glycerol feel. Borders on racy, with woodsy and mineral notes emerging on the pleasantly long finish. Best from 2017 through 2035. 1,250 cases made.",
@@ -389,7 +389,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e1f49379-227d-4ade-bd46-9a4ad22e786e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barolo Bricco delle Viole",
                             Note = "Shows fine integration between fruit and wood, with sweet cherry and strawberry flavors matched to spice, floral and briar accents. Fresh, vibrant and firmly structured, this is long on the fruit-, spice- and mineral-tinged finish. Shows fine balance and expression. Best from 2018 through 2032. 333 cases made.",
@@ -403,7 +403,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fcc52810-1ac1-4dec-b05c-584bdd0a03d6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barolo Brunate",
                             Note = "Rose, peony, cherry and raspberry aromas and flavors are the main themes in this detailed red. Accents of tobacco and leather add depth, keeping this impeccably balanced and harmonious. The finish is long and echoes with notes of fruit, flowers and mineral. Best from 2017 through 2035. 700 cases made.",
@@ -417,7 +417,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d25dc204-8c63-43a0-ba17-b115af98f83c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barolo Cannubi Boschis",
                             Note = "Ripe, round and generous and smooth and spicy from aging in new oak barrels, but bursting with Barolo flavors that echo forever on the finish. With its layers of berry, cherry and anise flavors, it can only devlop more depth with cellaring through at least 1995.  ",
@@ -431,7 +431,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("092c8b48-0ff1-42df-9fc9-f8c1c2085b47"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barolo Ciabot Mentin Ginestra",
                             Note = "Smells like anise-flavored grappa at first, turning tannic and powerful on the palate, but the raspberry and vanilla flavors emerge forcefully from the grip of tannin. Big enough to need until the turn of the century, but it has the power and complexity to win in the end. Needs cellaring until 1998 to 2000. 800 cases made.",
@@ -445,7 +445,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fc6cc459-ee3c-4fc7-b3f1-405d4f1bf03c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barolo Santo Stefano di Perno",
                             Note = "Powerful, complex and elegant, with blackberry, plum, cedar, smoke and gamy aromas and flavors that carry through the long finish. Tannic but balanced. Cellar until 2000. A better showing than two previous tastings. 800 cases made.",
@@ -459,7 +459,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0734f106-7362-448a-8491-7796d83dad73"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Barsac",
                             Note = "This shows the vivid, racy side of Barsac, with streaming flavors of pineapple, yellow apple, green plum and white ginger, displaying lovely energy from start to finish. Ends with enough honeysuckle and orange blossom notes to balance the richness. Best from 2020 through 2035. 4,000 cases made.",
@@ -473,7 +473,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4b3de396-bb79-404e-ab4c-813653f50bd3"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bâtard-Montrachet",
                             Note = "Rich and lushly layered, with cascading flavors of pear, buttery, vanilla a nd more, concentrated, powerful, yet elegant and smooth. Absolutely delicio us now, but given time in the cellar it should be devastating.  ",
@@ -487,7 +487,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e8253559-472d-45db-bdc9-3138661312fe"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Beaune Clos des Fèves",
                             Note = "Rich, almost chocolaty on the nose, turning bright, berryish and satiny on the palate, with a lean texture but deep flavors; it's focused and long. Drink now through 1994.  ",
@@ -501,7 +501,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1371c3d6-b517-4d04-b05d-60a7477b82a4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Beaune Clos des Ursules",
                             Note = "Ripe, rich and velvety, with gorgeous buttery cherry, chocolate, toast and spice flavors, firmly supported with just enough acidity and tannin, an exotic, sexy wine. Complexity, richness and grace in one package. One of the great values of this vintage.  ",
@@ -515,7 +515,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("57830dcd-e33a-4b93-8c8d-00d8200a5b12"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Beaune Teurons Domaine",
                             Note = "Vibrant and juicy, this red offers black cherry flavors, with accents of licorice, spice and floral. Silky and rich, with fine balance and a lingering aftertaste of fruit and spice. Drink now through 2024. 200 cases imported.",
@@ -529,7 +529,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1a30cd5e-861d-4736-84aa-15c502636dcb"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bierzo PÃ©talos",
                             Note = "Expressive black cherry, currant, licorice, mineral and smoke flavors mingle in this focused red. The texture is gentle but firm, with well-integrated tannins and racy acidity providing structure. A compact wine that shows good intensity. Drink now through 2023. 30,000 cases made.",
@@ -543,7 +543,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0849ca43-2922-44b5-94df-98e586307752"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bolgheri",
                             Note = "Sleek and elegant, with concentrated flavors of black cherry, black currant, cedar and vanilla. A wild, aromatic underbrush character lingers on the beefy finish. Merlot, Cabernet Franc and Syrah. Best from 2018 through 2024. 900 cases imported.",
@@ -557,7 +557,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("89769689-3331-467f-bf55-0fcff9dc8511"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bolgheri Superiore",
                             Note = "A dark and inky red, featuring violet, black currant, cedar, sandalwood and iron aromas and flavors. Nonetheless, this comes across as elegant, even as the tannins prove formidable on the finish. A terrific young wine in the making. Cabernet Sauvignon, Merlot, Cabernet Franc and Petit Verdot. Best from 2017 through 2035. 2,200 cases imported.",
@@ -571,7 +571,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f623f58c-5a2b-47df-bf8e-e324cda5c4c5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bolgheri Superiore Guado al Tasso",
                             Note = "Alluring violet, black currant, blackberry, wild herb, spice and mineral aromas coat the dense underlying structure at first, but the latter emerges as this cruises to a long conclusion. Shows excellent balance and expression of fruit and place. Cabernet Sauvignon, Merlot, Cabernet Franc and Petit Verdot. Best from 2018 through 2033. 1,200 cases imported.",
@@ -585,7 +585,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7139810a-3980-4a83-921b-8cbf0d9a4695"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bolgheri Volpolo",
                             Note = "An enticing combination of black currant, black cherry, violet, cedar and cigar box flavors highlight this intense, structured red, which needs some time to resolve the tannins, but this shows ample fruit and balance. Cabernet Sauvignon, Merlot and Petit Verdot. Best from 2018 through 2033. 7,500 cases made.",
@@ -599,7 +599,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7b25520c-beb3-431b-b9d4-0442180b256d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bonnes Mares",
                             Note = "From the dense color to the intense aroma and the rich, complex flavors of strawberry, plum, rose petal and toast, this powerful but beautifully balanced wine commands your attention and delivers everything it has, with fines se. At the price, it s still a good value.  ",
@@ -613,7 +613,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a219fdb9-cbe9-4229-8e70-e0a80e6c61ce"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brunello di Montalcino",
                             Note = "Effusive aromas and flavors of raspberry, cherry, floral, mineral and tobacco are at the center of this linear, vibrant red. Well-structured, this offers terrific length on the sinewy finish. Best from 2020 through 2035. 6,054 cases made.",
@@ -627,7 +627,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("49ce6938-075d-44d1-afd9-75855b471556"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brunello di Montalcino Campogiovanni",
                             Note = "In a traditional style, featuring beefy tannins and savory earth notes, with a core of leather and cherry flavors. Shows some sweetness midpalate and picks up energy on the long finish. Hangs together, ending in an uplifting, resonant manner. Best from 2021 through 2036. 5,833 cases made.",
@@ -641,7 +641,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e851d836-a94f-43d8-b1c3-2441b7741543"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brunello di Montalcino Il Poggiolo",
                             Note = "Spicy, elegant and plush in texture, with supple tannins supporting beautifully focused raspberry, anise and toast aromas and flavors. A hint of tamarind adds an exotic note to this A-1 wine that ought to keep improving through at least the rest of the century. 480 cases made.",
@@ -655,7 +655,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4ccbb099-00a8-4824-ae46-fb58224b9fc9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brunello di Montalcino Montosoli",
                             Note = "A stunning red, delivering peony, strawberry, cherry and mineral flavors, accented by notes of wild herbs. Intense and deep, with great purity and elegance, a firmly wrought structure and a long finish. The harmony between fruit, tannins and acidity should allow this to age beautifully. Best from 2019 through 2036. 1,300 cases made.",
@@ -669,7 +669,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("87a20628-a13a-4c9d-abac-9f12e61a622b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brunello di Montalcino Our 40th Harvest",
                             Note = "Cherry, leather and iron notes mark this suave, elegant red. A bit reticent now, but the fruit is fresh and long on the finish. The dense tannins leave a mouthcoating impression, but this opens up beautifully over a few hours. Best from 2021 through 2035. 10,000 cases made.",
@@ -683,7 +683,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7dc7cf11-88eb-405f-8afc-8ecb8e1054fa"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brunello di Montalcino Pertimali",
                             Note = "This features depth and complexity, from the cherry and menthol notes to the earth and mineral elements. Tightly wound, with a core of sweet fruit offsetting the burly tannins, this lingers on the finish, showing fine equilibrium and the potential to develop. Best from 2019 through 2035. 3,400 cases made.",
@@ -697,7 +697,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9f4854d6-111b-4a9f-8bcb-7ec643827c80"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Brunello di Montalcino Riserva",
                             Note = "This is reminiscent of a fine Burgundy, showing berry, fading cherry, spice and chalky mineral notes. Juicy and elegant, firm yet harmonious, this lingers with a long, complex aftertaste. Best from 2018 through 2033. 1,000 cases made.",
@@ -935,7 +935,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ba60466c-0dba-46b8-9626-e461fff795fb"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Bual Madeira",
                             Note = "Deep, rich and exotic-tasting, with plenty of smoky accents to the dried mango, apricot and roasted pineapple flavors, featuring notes of crÃ¨me brÃ»lÃ©e. Very fresh midpalate, presenting an unctuous finish of ginger and cream. Drink now through 2050. 500 cases made.",
@@ -949,7 +949,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1ac29b74-1915-46f7-9663-13a0308dacf8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "CÃ´te-RÃ´tie Château d'Ampuis",
                             Note = "Rock-solid, offering dark currant and blackberry paste flavors that race along, thanks to well-embedded graphite and charcoal notes. The finish lets warm fruitcake, plum skin and singed juniper details fill in, with plenty of grip. Mouthwatering acidity and a long echo of sweet tapenade keep this racy and defined. Best from 2015 through 2035. 2,200 cases made.",
@@ -963,7 +963,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2790ef66-6eb2-4dc6-9d2c-462d63dee108"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "CÃ´tes du Jura Les Chamois du Paradis",
                             Note = "This is lovely, with verbena, citrus oil, white peach and Jonagold apple fruit flavors seamlessly layered, offset with a lovely quinine hint and carrying through a long, floral finish. Still a bit tightly coiled, this should unfurl nicely with a bit more cellaring. Chardonnay. Best from 2017 through 2023. 167 cases made.",
@@ -977,7 +977,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7438c44c-0249-466f-8f70-33082cb332cc"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "CÃ´tes du RhÃ´ne",
                             Note = "Ripe, with vivid blueberry and boysenberry fruit, harnessed on the back end by a bold graphite edge. Anise and violet notes add range. Drink now through 2019. 25,000 cases made.",
@@ -991,7 +991,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e40e8207-d4dc-4beb-a99c-3990a83bc9d8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "CÃ´tes du Roussillon-Villages",
                             Note = "A rich and extracted style, with luscious dark fruit, blackberry and tar flavors that are well-structured. Features hints of licorice snap midpalate, leading to a long finish of dark chocolate and cream. Grenache, Syrah, MourvÃ¨dre and Carignan. Drink now through 2020. 700 cases imported.",
@@ -1005,7 +1005,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0c4110f5-da98-48ef-bc3e-38514f865144"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "CÃ´tes du Roussillon-Villages Les Vignes de Bila-Haut",
                             Note = "This red is supple and fresh, showing a mix of dark berry, plum, herbal tea and peppery flavors. Lightly grippy tannins frame the licorice- and mineral-accented finish. Drink now through 2018. 55,000 cases made.",
@@ -1019,7 +1019,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a55f8516-ce13-42e3-948a-3aecc57081c9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Franc North Coast",
                             Note = "Rich, lush and elegant with ripe fruit, spicy, concentrated raspberry, cherry, herb and chocolate flavors that spread out on the palate. Impeccibly well balanced, seducitive now, but it should only get better.  ",
@@ -1033,7 +1033,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f6f34958-ce40-46a0-ac9e-bd793913238d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Adelaida District Estate",
                             Note = "Combines rich, deep flavors with a measure of finesse and refinement, allowing the earth-laced red berry and spicy herb notes to shine. Ripe, sturdy tannins lend this structure and traction. Best from 2020 through 2034. 1,000 cases made.",
@@ -1047,7 +1047,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f6fd005a-1f5f-46ef-ad01-3ebba7527028"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Alexander Valley",
                             Note = "A big, rich Cabernet, with firm, structured tannins that are powerful and edgy, framing the core of blackberry, black cherry, plum and espresso flavors. An impressive effort. Best from 2019 through 2029. 4,075 cases made.",
@@ -1061,7 +1061,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("32cc88e5-4f9c-47c7-b7aa-8cef352e9b81"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Alexander Valley Claret Style",
                             Note = "Delicious layers of complex, concentrated and rich cassis, currant, vanilla and plum flavors abound in this sharply focused, beautifully structured style. It's long and elegant, with just the right balance of tannin, oak and acidity. 1,200 cases made.",
@@ -1075,7 +1075,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("541c7765-2211-4a77-a3c7-8c8affd3e5b7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Alexander Valley Reserve",
                             Note = "Dense, rich and complex, this wine keeps unfolding with every sip, offering coffee, cherry, nutmeg, plum, and then herb and currant flavors and a velvety texture. Drink from 1995. 2,300 cases made.",
@@ -1089,7 +1089,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("889ccc0e-c658-4a9d-b735-3b05ed4bfd25"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Alexander Valley Rockaway Single Vineyard",
                             Note = "A remarkable wine that exhibits powerful flavors of ripe currant, blackberry and cherry along with pleasing notes of cedary cigar box, dried herb, green olive and tea. Ends with firm, dusty tannins and fine length. Drink now through 2028. 1,808 cases made.",
@@ -1103,7 +1103,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2b09d91c-54a0-4230-96c7-824ad840ee1f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon California Cardinale",
                             Note = "You'd have to travel far to find a more complex and concentrated wine, from the first taste of currant, cherry and plum to the last waft of buttery oak and plum on the long finish. The extraordinary structure and integrated tannins should last beyond 2000. 1,000 cases made.",
@@ -1117,7 +1117,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("16515610-dce7-4afe-a08b-eb6156299287"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon California Proprietor's Reserve",
                             Note = "Sleek and elegant with an overlay of toasty French oak, layers of spice, currant, cassis and cherry flavors that are very attractive, beautifully balanced, supple tannins and a long, satisfying finish. Best after 1992.  ",
@@ -1131,7 +1131,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("57977780-a864-446a-ac19-a605426e118e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Carneros",
                             Note = "Distinct for its richness and complexity, the tart cherry, currant and berry flavors are young and lively but quite enticing. Has smoke, vanilla and chocolate flavors on the finish. Tempting now but capable of aging. Best now through 1998. 9,865 cases made.",
@@ -1145,7 +1145,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8a280d7f-e059-4937-99bc-ac9c9a4f9e3f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Carneros Private Reserve",
                             Note = "Intense yet elegant with firm tannins and lively ripe currant, black cherry and cranberry flavors that are tart and sharply focused. Finishes with a mouthful of berries. Drink now to 2002. 2,900 cases made.",
@@ -1159,7 +1159,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("70d23c4d-7d76-463a-be14-97954454b255"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Colchagua Valley Classic Series",
                             Note = "There's minerally freshness to the ripe dark plum, blackberry and cherry flavors, with peppery hints. Well-structured and crisp midpalate, featuring Asian spice and black fig notes on the finish. Drink now through 2020. 50,000 cases imported.",
@@ -1173,7 +1173,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d33889b3-b43f-46a8-b9ad-a7d4fc50ed27"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Colchagua Valley El Caballero",
                             Note = "Firm and well-focused, with zesty red plum and wild berry flavors, supported by crisp acidity and chewy tannins. Green herb and spice notes appear on the finish. Drink now through 2018. 10,000 cases imported.",
@@ -1187,7 +1187,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a10b9dd2-824b-4d4d-aa51-7c63ba732677"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Colchagua Valley Royale Los Lingues Vineyard",
                             Note = "A ripe and muscular red, offering dark plum, dark cherry and currant flavors, filled with notes of dried beef and Asian spice. Grippy midpalate, with a creamy allure. Mint and dark chocolate accents underlie the long, rich finish. Drink now through 2020. 4,160 cases made.",
@@ -1201,7 +1201,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("238a0851-9cae-4144-adf3-b89f463a236c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Columbia Valley",
                             Note = "Firm in texture, brimming with raspberry, black cherry, violet and herb flavors that come together harmoniously on the finish against refined tannins. Offers presence and persistence. Best from 2018 through 2024. 30,000 cases made.",
@@ -1215,7 +1215,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c35e8a24-5e23-48a5-85c6-f2934506ab12"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Columbia Valley Holler",
                             Note = "Dense and focused, with a tangy edge to the dark plum and currant flavors, hinting at stony mineral and dusky spice flavors as the finish persists impressively against fine tannins. Best from 2018 through 2023. 912 cases made.",
@@ -1229,7 +1229,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("66c5f575-bcf5-4f2d-9ba2-e0d2bf7537b6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Coonawarra Phoenix",
                             Note = "Dense tannins and flavors are packed into this wine, with briny Kalamata olive and black licorice nuances to the core of plum, cassis, sage, tobacco and cedar flavors, which fan out on the finish. Drink now through 2030. 4,300 cases imported.",
@@ -1243,7 +1243,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("afb51422-a2da-48da-af3c-acbe498d3e05"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Darmagi",
                             Note = "Dense and concentrated, starting out very firm and tannic but opening up magically on the finish with a burst of plum, berry, leather and toast flavors that echo forever. May be best around 1995 to 2000. Best Cabernet yet from Gaja, but whoa, the price.  ",
@@ -1257,7 +1257,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1fe5539b-cc58-4c65-b140-bc8f7bbef0e4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Dominio de Valdepusa",
                             Note = "This dense and harmonious red delivers plum, tobacco, cedar and mineral flavors that mingle over muscular but polished tannins. A bit reticent, but balanced and deep. Drink now through 2025. 3,000 cases made.",
@@ -1271,7 +1271,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("804cbd86-65e6-4d02-a1a0-69b2b35dd607"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Dry Creek Valley",
                             Note = "Marvelously concentrated, with cassis and cherry aromas and flavors framed by toasty vanilla overtones that make it harmonious and balanced. Should develop through 2000, but worth trying now. Great price, too. 1,100 cases made.",
@@ -1285,7 +1285,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e47ac2db-1c14-4de6-a0ea-40cad557283c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Galilee",
                             Note = "A rich red, showing good power to the mineral-infused dried blackberry, dark plum and currant flavors. Engaging dried herbal notes emerge on the focused finish. Kosher. Drink now through 2017. 14,000 cases made.",
@@ -1299,7 +1299,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("df1cf649-136b-4909-a15c-d0650625c056"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Howell Mountain",
                             Note = "A beautifully defined wine, with deep, rich, intense and supple black currant flavors. It's pure and complex, with a pretty overlay of toasty oak flavors that blend together, creating a wine of great harmony and finesse. Has enough tannin to last a decade or more. Best after 1993. 2,700 cases made.",
@@ -1313,7 +1313,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("567dd001-d309-4cc3-b433-b0b75d064790"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Hunter Valley",
                             Note = "Concentrated and generous, a classically-structured wine with beautiful spice-tinged cassis and cherry aromas and flavors, supple texture, powerful and elegant at the same time. A terrific Cabernet at a reasonable price. Drink Now-1997.  ",
@@ -1327,7 +1327,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9e6504f1-875c-49f7-a49d-6467aee556e1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Maipo Valley 1865 Single Vineyard",
                             Note = "Rich and refined, with good cut to the red plum, crushed berry and raspberry flavors matched to notes of sandalwood and cardamom. Creamy midpalate, with a finish that's filled with chocolate and dark currant details. Drink now through 2021. 50,000 cases made.",
@@ -1341,7 +1341,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("535547c1-339f-40f8-8ace-c96d54ad707e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Maipo Valley Alto Gran Reserva",
                             Note = "A rich, well-spiced red, with luscious flavors of tar, licorice and dark plum, supported by ample acidity and firm tannins. Offers a lip-smacking finish of dark chocolate and pepper. Drink now through 2019. 20,000 cases made.",
@@ -1355,7 +1355,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b890df3e-03b9-47e0-ab24-94b8b4d9ce44"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Maipo Valley Legado Reserva",
                             Note = "This complex red unfurls with a lithe minerality, flanking the red berry, plum and dark cherry flavors. Notes of cedar and cigar provide richness. Offers a crisp texture, with a firm finish that lingers with slate and dark chocolate details. Drink now through 2019. 8,000 cases made.",
@@ -1369,7 +1369,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("313849c6-38f1-495d-b3a8-225afb3ba109"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Maipo Valley Reserva",
                             Note = "Dark plum and dried red berry flavors dominate this muscular red, with plenty of minty and savory accents. Medium-grained tannins support chocolate and cream details on the finish. Drink now through 2021. 25,000 cases made.",
@@ -1383,7 +1383,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("81aa3ea4-05e8-4eb9-955d-815e09f04054"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley",
                             Note = "Strikingly complex and detailed, with supple, harmonious blackberry, currant, anise, licorice and crushed rock flavors. Gains depth while holding focus and persistence. Drink now through 2032. 1,200 cases made.",
@@ -1397,7 +1397,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("43efee47-c9e4-4a95-8c9f-2fb741ac64c3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Cuvée",
                             Note = "Ripe style with attractive plum, spice, cherry and cassis fruit, packed wit h tannins and crisp acidity. Firm, tight and balanced, built for the next decade.  ",
@@ -1411,7 +1411,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6290a379-a585-4659-b20c-de639b39c4d1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Eighteen Seventy-Three",
                             Note = "Ultrarich, layered and tightly focused on a dense core of meaty blackberry, currant, loamy earth, anise, crushed rock and graphite notes. For all the flavor and depth, this features a persistent finish that folds in smoky, toasty oak, adding an extra dimension of texture, flavor and aroma. Drink now through 2028. 4,723 cases made.",
@@ -1425,7 +1425,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("df2d3418-4afd-4be7-b64a-dd3f72ff1b91"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Limited Reserve",
                             Note = "The first reserve from Silverado is a classic for the cellar. Plush and generous aromas, with rich and sharply focused flavors, and delicious cherry, plum, currant, oak and spice notes stay with you from start to finish. Tight and concentrated, with supple texture and firm tannins. Best from 1996 through 2005. 1,400 cases made.",
@@ -1439,7 +1439,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4215b335-1aae-442e-9138-9beb8828fad2"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Martha's Vineyard",
                             Note = "A beautiful wine, one of the great Martha's ever, rich, elegant, loaded with refreshing black cherry, mint, and chocolate flavors that are the hallmark of Martha's Vineyard. Smooth and supple yet with the stuffing and tannins for long aging. 4,421 cases made.",
@@ -1453,7 +1453,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4efd8237-6e64-494c-857f-62df12b87bc8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Private Reserve",
                             Note = "Enormously deep, rich and concentrated with layers of currant, cherry, plum, coffee and spice notes set off by toasty oak. A remarkably complex wine that echoes fruit flavors on the finish. Drink now. 8,000 cases made.",
@@ -1467,7 +1467,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f44e374e-0b9d-4f61-8d35-228eddef4b13"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Reserve",
                             Note = "Firm, intense and lively, with rich, elegant and concentrated plum, currant and spice flavors. A remarkably complex and tasty wine. Released at the same time as the '85 Reserve. Best after 1992.  ",
@@ -1481,7 +1481,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2227f15a-6021-48ea-b93b-9dbf70336726"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Signature",
                             Note = "A classy and classic Napa Cabernet, dark-colored, with rich blackberry, black licorice, cedar, tobacco and dusty, loamy earth notes. The brightness and density of the red and dark berry fruit gives this an immediate and alluring charm. Ends with gutsy, chewy tannins. Drink now through 2030. 11,200 cases made.",
@@ -1495,7 +1495,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f84f4b6e-8413-4ed0-9ab4-5a9bd6e26d02"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Special Selection",
                             Note = "This zeroes in on a rich, hedonistic core of wild berry, blackberry, plum and currant flavors, with a graceful, elegant mouthfeel and supple, caressing tannins. The long and powerful yet refined aftertaste keeps reverberating fruit generosity while maintaining Cabernet's strength of personality. Drink now through 2030. 21,249 cases made.",
@@ -1509,7 +1509,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b558cb38-c590-46c2-88fd-d389b2f7b221"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Vineyard Selection 82",
                             Note = "Incredibly intense and concentrated, with tart black cherry, currant, spice and cedar flavors that are sharply focused and framed by firm tannins and toasty oak. Drink now through 1996. 1,540 cases made.",
@@ -1523,7 +1523,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("70a0d8d9-93a6-4b4d-801d-5ed9a44f239f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Vintage Selection",
                             Note = "After showing minty, spicy aromas this settles into rich, mouthfilling currant and cherry flavors, smooth, supple and generous right through the finish. Delicious and drinkable.  ",
@@ -1537,7 +1537,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("557909e2-885a-44f2-99c3-e305d5d40eeb"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Napa Valley Volcanic Hill",
                             Note = "Incredibly intense and concentrated, deep and perfumed, firm and tannic, but with a rich core of currant, herb and cherry scented Cabernet flavors that promises a long life in the bottle. Best from 1998 through 2002. 726 cases made.",
@@ -1551,7 +1551,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ee76bfad-5f12-4d01-9e4e-6e4ca7a92354"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Oakville Au Paradis",
                             Note = "Deliciously pure and supple, with explosive dark berry and red berry flavors and a silky, polished texture. The tannins become more evident midway through, with a gravelly crushed rock profile that adds a dimension of dust and mineral. Drink now through 2030. 1,785 cases made.",
@@ -1565,7 +1565,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("71132342-c8f8-46cd-a568-0720b75695ba"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Puente Alto Don Melchor",
                             Note = "A ripe, rich and full-bodied red, with powerful flavors of dark cherry, plum pudding and currant that feature a lush creaminess. Firm and savory midpalate, ending with a long and refined finish that shows mineral and cocoa butter accents, supported by dusty tannins. Drink now through 2024. 7,850 cases made.",
@@ -1579,7 +1579,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("40969b87-e4d7-439c-8298-a30b96ac4dc1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Santa Cruz Mountains Monte Bello",
                             Note = "Rich, tannic, intense and young, but it's packed with concentrated plum, currant, mint, toast and chocolate flavors that unfold with elegance and finesse. Will only get better and more complex with time. Built to last. Drink now through 2000. 2,220 cases made.",
@@ -1593,7 +1593,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c44e716e-1f43-4289-9dfa-60ad3c80998c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Sonoma County",
                             Note = "A luscious Cabernet, supple and silky, elegant and stylish, loaded with str awberry, cherry and spicy plum flavors, supple tannins that are tightly reigned in. Graceful and attractive. Long full finish. Drink now, but it should only get better.  ",
@@ -1607,7 +1607,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bc4e59dc-6135-4398-8f17-838476f683ba"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Sonoma County 55% Slope",
                             Note = "Dark, rich and layered, with tiers of dense dark berry, graphite-crushed rock, cedar, mocha and brownie flavors, ending with dried herb and tobacco accents. The fruit density stands out. Drink now through 2024. 3,385 cases made.",
@@ -1621,7 +1621,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b0cf0237-06b2-48ea-a26c-d656628f43d8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Sonoma Mountain Counterpoint",
                             Note = "Deeply colored and aromatically pleasing. Young, ripe and concentrated with layers of cedar, currant, spice and cherry that linger on the finish. Drink now to 2000.  ",
@@ -1635,7 +1635,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6fd8defe-dba8-4106-a23e-9d3f6c6cb418"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Sonoma Valley Artist Series",
                             Note = "Rich and concentrated, with plenty of elegance and finesse to the currant, plum and tobacco flavors, which are long and harmonious on the finish. The tannins are present without being overwhelming. Drinkable now and well into the 21st century. 4,000 cases made.",
@@ -1649,7 +1649,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("91dcb3fc-ff03-40cf-90dc-f64be12fe639"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Sonoma Valley Monte Rosso",
                             Note = "Very ripe and rich, with aromas of cedar and fruit and well-integrated currant, cherry, berry, oak and toast flavors. The tannins are firm, but not overbearing on the finish. The best Martini Cabernet since the sensational 1970. Best from 1995 through 2000. 1,450 cases made.",
@@ -1663,7 +1663,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f1882ebb-62a3-4b67-bb73-90471ccc0aeb"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Sonoma Valley Olive Hill Vineyard",
                             Note = "Gorgeous fruit, rich, supple, satiny with beautiful structure, amazing intensity and depth, rich cassis, butter, toasty oak and spicy flavors, plenty of tannin, but impeccibly balanced. Distinct and exciting. Drink 1994 to 2000.  ",
@@ -1677,7 +1677,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f13e4375-e703-4fec-bd9f-c4ea6f4bc1cd"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Stags Leap District",
                             Note = "Elegant and polished, but plenty of tannin to carry the cedary, tobacco-tinged Cabernet flavors of currant and plum through to a long finish. Great depth and finesse now, so imagine what it will be like in 1995. 5,000 cases made.",
@@ -1691,7 +1691,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("04b4fa9d-b425-41b5-befc-30048d1e2e07"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Uco Valley Q",
                             Note = "A refined and savory red, featuring notes of white pepper to the cherry and crushed red plum flavors. Lengthens out on the palate, with medium-grained tannins. Silky finish. Drink now through 2020. 7,500 cases made.",
@@ -1705,7 +1705,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("70b854d3-0667-4196-b4eb-babc9ee95068"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Walla Walla Valley",
                             Note = "This fresh and vibrant red is tightly wound around fine tannins, offering a generous burst of currant and plum fruit, hinting at clove and pepper as the finish lingers harmoniously. Drink now through 2021. 5,244 cases made.",
@@ -1719,7 +1719,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("23f1da22-adb1-4a81-b0e5-72478aa4fd66"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Washington",
                             Note = "Loaded with layers of fresh currant, plum and cherry flavors framed by toasty, cedary oak that echoes vanilla and chocolate notes. Rich and concentrated, with flavors that linger on the finish. Elegantly balanced and tannic enough to cellar. Best after 1994. 605 cases made.",
@@ -1733,7 +1733,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f3c9657e-4d05-4cac-b90d-78082819515e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon Yakima Valley Otis Vineyard",
                             Note = "  ",
@@ -1747,7 +1747,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ceaf34a3-2063-4337-b2f8-bf2a8eeafb1d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cabernet Sauvignon-CarmenÃ¨re Colchagua Valley",
                             Note = "This suave version shows refined, mineral-infused flavors of dark currant, plum and dried blackberry. Anise and cocoa powder notes provide added complexity. Drink now through 2020. 8,000 cases imported.",
@@ -1761,7 +1761,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bfae271e-8a6c-4151-a06a-ee8f1e9c45e8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cahors",
                             Note = "There's a ripe plushness to the dried blackberry, fig and tobacco flavors that lengthen out on the spice-infused midpalate. Baker's chocolate, cream and vanilla notes power the finish. Malbec and Merlot. Drink now through 2019. 4,500 cases made.",
@@ -1775,7 +1775,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fc709a67-0471-449e-a717-6c2e307fcd25"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Calabria GB",
                             Note = "Finely balanced and creamy, this bold red offers a rich range of black cherry coulis, fig cake, dried marjoram and oak spice flavors, layered with sculpted tannins. Long on the palate, with a lasting spicy mineral note. Gaglioppo, Magliocco Canino, Nerello Cappuccio and Greco Nero. Drink now through 2027. 3,500 cases made.",
@@ -1789,7 +1789,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fe297b69-d471-4da3-948b-9c514efe2521"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cask 23 Napa Valley",
                             Note = "A big, powerful, distinctive wine that balances its intense currant and cherry flavor against an onslaught of earthy, tobacco aromas and flavors. It will not appeal to everyone. Enormously complex, deep and long, this is a wine whose flavors should keep developing. Best from 1995 through 2000. 1,018 cases made.",
@@ -1803,7 +1803,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("cd60d051-f0d1-47c8-8605-4f15f8f0cc5a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "ChÃ¢teauneuf-du-Pape Omnia",
                             Note = "Beguiling wood spice, Lapsang souchong tea and warmed raspberry and blackberry coulis aromas and flavors glide along in this gorgeous red, enhanced by a shiso leaf note and backed by a silky, iron-edged finish that is deceptively long. A very distinctive style. Best from 2017 through 2030. 1,000 cases made.",
@@ -1817,7 +1817,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c911b132-e665-4b78-a384-352e80059a41"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chablis",
                             Note = "Rich, with fine cut framing the apple, lemon and melon flavors. A chalky intensity leaves a puckering sensation, but the mineral element lingers. Give this time to settle down. Best from 2016 through 2024. 2,126 cases imported.",
@@ -1831,7 +1831,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("67e28491-9e4c-4757-b24d-df877e93dd24"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chablis Domaine",
                             Note = "This is delicate, featuring lemon, herb and stone flavors lifted by the fine acidity. Touches of seashore and oyster shell add depth as this coasts to a clean finish. Drink now through 2018. 4,000 cases imported.",
@@ -1845,7 +1845,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bfd08943-1843-416b-af27-8ae97eb16fb2"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chablis Les Clos",
                             Note = "Toasty and concentrated with rich pear, apple, spice and toasty spice flavo rs that explode on the palate. It's tart and vibrant with depth, complexity and a long full flinty finish that says Chablis.  ",
@@ -1859,7 +1859,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f4a7a77c-1bba-4166-8926-f409ed41dec4"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chablis Ste.-Claire",
                             Note = "A textbook flinty aroma gives way to green apple, lemon and mineral flavors in this white, which shows fine depth and richness, offset by vibrant acidity. Excellent length. Drink now through 2020. 50,000 cases made.",
@@ -1873,7 +1873,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("233d80f2-1ef7-426a-b46c-447e0b797cf2"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chablis Vaillons",
                             Note = "Ripe and generous, oozing butterscotch aromas and flavors to go with a core of lemon and pear flavor, all of it resting on a firm texture that allows some lovely honey and toast nuances to emerge on the finish. Drinkable now, but this one has a long future. Try 1993 to '96.  ",
@@ -1887,7 +1887,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e46e8979-4623-4ae2-940d-d1b9a1bdff32"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Alexander Valley",
                             Note = "Well defined apple, pear and spicy flavors in a crisp, elegant, concentrated style that bodes well for drinking now or for cellaring three or more years. Smoky pear aftertaste lingers.  ",
@@ -1901,7 +1901,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("400e44a1-64bb-42d5-b299-33e001a9552a"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Alexander Valley Belle Terre Vineyard",
                             Note = "  ",
@@ -1915,7 +1915,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f7337a22-2453-4318-b560-9b5d25cc6607"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Alexander Valley Robert Young Vineyard Reserve",
                             Note = "Beautifully ripe, fruity and gaining maturity, this is complex in aroma, full and pearlike in flavor and beginning to show the intriguing effects of age in the earthy, buttery notes and creamy, velvety texture. Stays crips and fruity on the finish. It can safely cellared through 1995.  ",
@@ -1929,7 +1929,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("11b117eb-2787-41ac-99ca-276d320389f0"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Alexander Valley Winemaker's Reserve",
                             Note = "A rich, smooth, creamy style that offers a broad array of pretty honey, melon, butterscotch and apple flavors along with a subtle touch of nutmeg and spice. Satiny smooth texture, and a long full finish. Better than previously reviewed. Drink now through 1993. 3,500 cases made.",
@@ -1943,7 +1943,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("79d1d10a-345f-4760-86b5-114aee8c72d8"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay California Reserve",
                             Note = "Beautifully defined Chardonnay, rich, intense and concentrated with layers of pear, spice, apple and pineapple with a touch of earthiness on the finish. Drink now.  ",
@@ -1957,7 +1957,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2c75cafe-939d-4259-994a-51ca22a1f4cd"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay California Select",
                             Note = "Lean, rich, crisp and flavorful with ripe fruit, layers of pear, spice, clove and nectarine notes that keep you coming back for another sip-and finding more complexity. Elegant and subtle, with a lingering finish. A new line for Hess. Drink now through 1994. 7,700 cases made.",
@@ -1971,7 +1971,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("94739707-7e7c-45ef-8e94-28bcefc13261"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay California Vintner's Reserve",
                             Note = "Plush, with loads of richness to the well-honed flavors of beeswax, baked pear and lemon tart. Minerally midpalate, with a fresh and zesty finish that finishes with pastry notes. Drink now through 2020. 100,000 cases made.",
@@ -1985,7 +1985,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("960b7499-af3e-4816-a5d0-15bf6654dec8"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Carneros",
                             Note = "A creamy-textured, charming style that's easy to drink yet is deceptively complex and layered, with a mix of vanilla-scented oak and vibrant peach, nectarine, honeydew and apricot flavors. Long on the finish. Drink now. 100,000 cases made.",
@@ -1999,7 +1999,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("00abe585-4c56-48bf-a33f-7214e9eaf959"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Carneros Hudson Vineyard",
                             Note = "Combines richness with a creamy texture, allowing the taut citrus, pear, melon and fig notes to fan out, gaining depth and length. Displays beautifully integrated smoky oak nuances. Drink now through 2020. 1,060 cases made.",
@@ -2013,7 +2013,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8992ab0a-665b-4198-9d3a-015fd9b4485c"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Central Coast",
                             Note = "Clean, pure and juicy, offering a refreshing mix of ripe pear, apple and melon flavors, shaded by a chalky minerality and followed by a long lingering finish. Drink now. 13,929 cases made.",
@@ -2027,7 +2027,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5e5cfc5e-4251-4a45-8d78-80f40eaf6710"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Dundee Hills Evenstad Reserve",
                             Note = "Focused and expressive, this is layered with wet stone, tangy citrus, pear and green guava flavors that swirl through an expansive finish, gaining momentum and extra dimensions with each sip. Drink now through 2024. 2,000 cases made.",
@@ -2041,7 +2041,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("825da60f-2595-43a2-9c74-3db5d97414c8"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Edna Valley MacGregor Vineyard",
                             Note = "Earthy, ripe and complex, without showing any heaviness. Elegant and ever-changing in the glass, mingling aromas and flavors of toast, honey, apple, pear and more. Drinkable now, but it can only improve with cellaring.  ",
@@ -2055,7 +2055,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e489c7e1-6bce-4c63-8964-29198a715763"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Hemel-en-Aarde Valley",
                             Note = "Ripe and rippling with tension, featuring Jonagold apple, white peach, mirabelle plum and honeysuckle notes coiled at the core. Accents of heather and hazelnut extend slowly through the citrus oilÂ and mineral-edged finish. Best from 2017 through 2022. 2,700 cases imported.",
@@ -2069,7 +2069,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f0728ef4-c028-4f45-8341-2c49471c7a9b"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Il Marzocco",
                             Note = "One of the greatest Italian whites ever. Rich and aromatic with apricot, nutmeg and honey on the nose, and full, concentrated fruit and a touch of oak on the palate, with moderate tannins and good extract. Has great complexity and weight.  ",
@@ -2083,7 +2083,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("24bd6f99-43c3-4d1d-826e-0112fb15a328"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay King Valley Reserve",
                             Note = "A Chardonnay that's rich, complex, delicious and beautifully balanced, with everything you could ask for. Flavors of fig, pear, butter and spice last from the aroma to the lingering finish. 35,000 cases made.",
@@ -2097,7 +2097,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c7f69fba-b9f8-4792-8d22-370fe257b7b5"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Knights Valley Ma Belle-Fille",
                             Note = "Captivating, sleek, elegant and graceful, this is rich without weight, offering a mix of ripe pear, fig, apricot and melon flavors, with subtle touches of nutmeg, hazelnut and toasted almond. For all its flavor and depth, this displays wonderful lift on the finish. Drink now through 2020. 2,080 cases made.",
@@ -2111,7 +2111,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("990c307a-7f2b-4838-a48e-7929e9d74a98"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Kumeu",
                             Note = "  ",
@@ -2125,7 +2125,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d9468e5d-bc39-459a-ab36-60b4feadf2f7"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Kumeu Estate",
                             Note = "Sleek and generous, with peach, pear, spice and honey notes, supported by refreshing, vibrant acidity. The spice and toasted nut notes gain momentum on the long, lingering finish. Drink now through 2022. 5,500 cases made.",
@@ -2139,7 +2139,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5f34a595-7d3a-4081-8809-ca43df94448e"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Long Island Grand Vineyard Selection",
                             Note = "Very smooth, harmonious and balanced, offering well-defined pear, orange and vanilla aromas and flavors, hinting at butterscotch and honey on the long finish. A delicious wine for current drinking, and probably worth aging. Drink now through 1993. 400 cases made.",
@@ -2153,7 +2153,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("190eb273-bd7c-44f8-bf34-bf74b049f202"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Margaret River Art Series",
                             Note = "Amazingly focused, layered and expressive, with pear, lime, guava and floral flavors that meld harmoniously and linger on the creamy finish. Deftly pulls all the elements together into a cohesive whole, lingering effectively and precisely. Drink now through 2022. 3,000 cases made.",
@@ -2167,7 +2167,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c1b648f9-5a86-4498-a657-529b09cd216e"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Marlborough",
                             Note = "Full of sweet-seeming honey, butter and vanilla flavors with a hint of nutm eg and pineapple. A forward, gorgeous wine that's nicely oily in texture, w ell structured with acid and lasts a long time on the finish.  ",
@@ -2181,7 +2181,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a95e817c-2d6f-4e26-89ca-7ba116674c8c"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Mendoza Felino",
                             Note = "A richly spiced white, with focused, well-structured flavors of dried apple, ripe citrus and guava. Brioche notes show on the firm finish. Drink now through 2019. 4,500 cases imported.",
@@ -2195,7 +2195,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0f6c9afd-085d-445d-9a9c-48b1ec821b58"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Napa Valley",
                             Note = "This offers a gorgeous mouthful of rich, buttery Chardonnay, loaded with exotic tropical fruit, pear, melon and pineapple flavors. Impressive for its opulence and silkiness, a nice combination. Drink now through 2022. 2,500 cases made.",
@@ -2209,7 +2209,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0f6101d6-15d6-49b1-b0d4-2b5cea045d4b"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Napa Valley Private Reserve",
                             Note = "Firm and concentrated, a tightly wound wine with toasty aromas and ripe but reined-in flavors of pear and butterscotch. Silky texture, beautifully foc used and long. Shows a great deal of subtlety and plenty of room to grow.  ",
@@ -2223,7 +2223,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("43afe621-da97-475d-9330-6160ad327120"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Napa Valley Reserve",
                             Note = "Big, rich and creamy, with buttery pear and subtle oak shadings that offer complexity and finesse and a rich toasty-smoky aftertaste that lingers. Elegant and stylish. Drink now. 600 cases made.",
@@ -2237,7 +2237,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3c5eca9a-3e3e-41a9-b4b3-805065581cdc"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Oregon Barrel Fermented",
                             Note = "Best Oregon Chardonnay we've ever tasted.Full-bodied and rich but graceful, with plenty offruit flavor and complex accents of honey, spiceand vanilla. Its elegant, supple style supportsclassic pear, apple and melon notes. Drink now. 1,000 cases made.",
@@ -2251,7 +2251,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7d1311f6-e83d-46bd-8a11-01cb8d702936"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Russian River Valley Dutton Ranch",
                             Note = "Ultrarich and extracted, offering a firm core of pear, apple, melon and spice flavors. A truly impressive effort, with depth and dimension. Drink now through 2022. 7,000 cases made.",
@@ -2265,7 +2265,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7f556daa-4b69-46da-90e5-9f5c21740ec9"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Russian River Valley Eastside",
                             Note = "Delicious from start to lingering finish, this is rich, broad and exotic, with tiers of complexity built around smoke, fig, apricot, citrus peel and bubble gum flavors. Features a silky smooth texture and just the right amount of tannins. Drink now. 825 cases made.",
@@ -2279,7 +2279,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c90bbd68-f2a3-45ec-abd8-c62d18616cdc"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Russian River Valley Ritchie Vineyard",
                             Note = "Shows amazing vibrancy and purity of flavor, brimming with juicy, lemon-scented green apple, white peach and tangerine notes, enlivened by zesty acidity and a long, persistent aftertaste that maintains focus and depth. Drink now through 2020. 1,250 cases made.",
@@ -2293,7 +2293,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("327443eb-ef3c-4201-9530-8ea6db9c6a70"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Santa Barbara County",
                             Note = "An outstanding wine that's reasonably priced. Rich, intense and concentrated, with sharply focused honey, apple and pineapple flavors that dance on the palate, framed by just the right amount of oak. Complex and intriguing. Drink now. 6,538 cases made.",
@@ -2307,7 +2307,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ed378853-0dcf-40c2-b1f0-7cb5f4728a4f"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Santa Barbara County Barrel Select",
                             Note = "A real hummer. Rich, lush and fruity without being heavy, it shows tons of fruit and a long, lingering aftertaste. Has bold, complex aromas and flavors of pineapple, butter, pear, cream and honey, full-bodied with firm acidity. 1,000 cases made.",
@@ -2321,7 +2321,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("118643cc-4702-497c-a236-f21d29cf3c1e"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Santa Cruz Mountains",
                             Note = "Spicy, toasty, aromatic oak offers an enticing start, with a fresh, vibrant core of lemon-lime, lemon curd, white peach and stone fruit that is very tight, dense, focused and persistent. Ends with a juicy Key lime aftertaste. Drink now through 2029. 1,986 cases made.",
@@ -2335,7 +2335,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("63dc8c09-2bd3-4723-bc0e-892317d5e5b4"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Sonoma Valley Kistler Vineyard",
                             Note = "Kistler is hot. Complex and delicious, with great balance and a long aftertaste. Brimming with ripe, butterscotchy flavors over ripe, round fruit. Big and full-bodied but elegant. Drink now through 1992.  ",
@@ -2349,7 +2349,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b7660440-fe08-4dce-8e69-cfe0d88035ca"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Washington Uncovered",
                             Note = "Dynamic, yet sleek and refined, driven by a core of minerally acidity that meshes with the delicately complex apple, Meyer lemon and spicy yeast accents that linger long on the finish. Drink now through 2021. 1,835 cases made.",
@@ -2363,7 +2363,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f855fe09-71a0-4d8c-831c-b06a6e0258d2"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chardonnay Yakima Valley Barrel Fermented",
                             Note = "With its lovely peach-vanilla aromas and flavors, this strikes an extraordinary balance between fruit and oak, all of which is supported firmly and harmoniously. Beautiful to drink now.  ",
@@ -2377,7 +2377,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6f8069f2-c0b5-430b-8c96-d4a002f286cd"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chassagne-Montrachet Morgeot",
                             Note = "Incredible depth and concentration with layers of fresh, ripe, rich honey, pear, spice and toasty vanilla flavors on the finish that echo on and on. You rarely see wines of this kind of depth, concentration and complexity anywhere. Drink now through 1995 200 cases made.",
@@ -2391,7 +2391,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0c50c281-3a9e-470d-956b-aa9f8398423f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Châteauneuf-du-Pape",
                             Note = "This offers a drop-dead gorgeous core of cassis and raspberry pâte de fruit flavors that hold center stage but still allow notes of Lapsang souchong tea, anise, incense and shiso leaf to chime in. Very long, with a sublime feel through the mineral-tinged finish. So seductive already, but this should cruise in the cellar. Drink now through 2040. 6,000 cases made.",
@@ -2405,7 +2405,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a87374ff-186c-4d43-99fd-46068e9b6474"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Châteauneuf-du-Pape Auguste Favier Réserve",
                             Note = "Vibrant and captivating, with exuberant fruitcake, cinnamon and black tea aromas leading the way for a fleshy core of raspberry pâte de fruit, plum sauce and cassis, all allied to a lovely velvety texture. Maintains intensity through the finish, showing a long echo of pastis. Best from 2020 through 2040. 1,300 cases made.",
@@ -2419,7 +2419,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c699b8a0-ba59-4d99-b439-ba69aa523e60"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Châteauneuf-du-Pape Pure",
                             Note = "Concentrated but remarkably refined, this features a large core of raspberry, red currant and black cherry fruit that is pure, silky and beautifully defined. Hints of shiso leaf, iron and black tea line the finish, which has serious length thanks to finely beaded acidity. A deft marriage of power and grace. Best from 2015 through 2030. 1,900 cases made.",
@@ -2433,7 +2433,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("541ed285-9a84-4c0b-9f3f-d2a84da6a8d4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Châteauneuf-du-Pape Réservé",
                             Note = "Deliciously rich, ripe and jammy with effusively ripe plum, cherry and raspberry fruit that's soft, smooth and silky. Opulent style, crisp acidity and enough tannin for a decade or more. A real mouthful of wine from a great producer. Drink now through 2000.  ",
@@ -2447,7 +2447,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a69f0802-4ca6-4e58-b2eb-62df1be05f02"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Châteauneuf-du-Pape White",
                             Note = "This is dreamy, with creamed melon, pear and green fig flavors gliding along, framed by light brioche and meringue notes. The long finish lets the fruit hang beautifully. Offers refined opulence. Drink now through 2022. 800 cases made.",
@@ -2461,7 +2461,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e82d464a-a587-4ef6-8174-74d8f5d9e413"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chenin Blanc Stellenbosch W Block",
                             Note = "This distinctive white shows a wide range of yellow apple, white ginger and quince notes, with intriguing blanched almond, Brazil nut and dried citrus peel flavors slightly reminiscent of Sherry. Very fresh and energetic, showing no oxidation. A lovely combination of ripeness and cut. Only available in 3-pack with other Single Vineyard Series bottlings. Drink now through 2020.  ",
@@ -2475,7 +2475,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5df0cde5-cb4f-464b-bd79-e0b9e3d7c9b4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico",
                             Note = "Firm and taut, with a core of cherry and berry flavors, accented by underbrush, tobacco and iron notes. Balanced in a lean way, with a lingering aftertaste of earth and mineral. Best from 2016 through 2025. 100,000 cases made.",
@@ -2489,7 +2489,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("22495a70-1ec7-43a4-9a06-e48f32d82471"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico Bellavista",
                             Note = "Very spicy, opulent and ripe, almost exotic in its heady fruit intensity both in aroma and flavor, round and rich on the palate, firmly supported by fine tannins. The fruit flavors seem to echo for hours. A great cellar candidate, perhaps best around 1996. 1,000 cases made.",
@@ -2503,7 +2503,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6cfe3ac8-c63b-494f-841a-3c671d1e3d94"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico Berardenga",
                             Note = "Rich and sumptuous, boasting pure flavors of cherry and raspberry, matched to a juicy texture. There are plenty of tannins neatly folded into the overall structure, with hints of mineral and tea on the long, expansive finish. Best from 2017 through 2024. 15,000 cases made.",
@@ -2517,7 +2517,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("74a92211-6867-4521-9c1b-c5a7b5fdd300"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico Berardenga Rancia Riserva",
                             Note = "Outstanding. Very rich and concentrated, almost chocolaty in flavor and full-bodied, with supple texture and plenty of cherry and ripe plum flavors, firm tannins and hints of smoke and spice. Needs more time to mature. Best from 1991 through 1994. 900 cases made.",
@@ -2531,7 +2531,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("588e7daa-8dea-4304-81da-bebc98c64d1b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico Il Grigio Riserva",
                             Note = "Remarkably youthful color and lovely violet-tinged fruit on the nose only hints at the rich, raspberry, cherry and plum fruit on the palate. Hints of toast and chocolate chime in on the velvety finish.  ",
@@ -2545,7 +2545,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3da06c20-251e-4d8c-8813-d55cb6810a4f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico Pèppoli",
                             Note = "Concentrated and beautifully formed, with sharply focused cherry, blackberr y and plum flavors, firm structure, long and ripe. Needs a year in the cell ar to tame the power.  ",
@@ -2559,7 +2559,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b2ff6278-49b5-4f35-8f0f-9a7ba10a7654"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico Riserva",
                             Note = "Pure cherry takes center stage, framed by tar, earth, tobacco and mineral elements. Vivid and elegant, showing fine intensity and equilibrium, with a lingering aftertaste. Drink now through 2020. 17,000 cases imported.",
@@ -2573,7 +2573,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1dc54d51-cfda-48c4-a087-736ad77f99da"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Classico San Lorenzo Gran Selezione",
                             Note = "Offers a combination of power and elegance, with a racy feel. Notes of wild cherry, strawberry and rose, with leafy, woodsy flavors, permeate this driving red. The finish is long, but this needs time to shed the tannins. Well-defined from start to finish. Sangiovese, Malvasia Nera and Merlot. Best from 2017 through 2030. 8,000 cases made.",
@@ -2587,7 +2587,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0dc6f485-913b-4daa-870f-937bc40d25c8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chianti Rufina Bucerchiale Riserva",
                             Note = "A great wine. It's beautifully focused, complex and deep in flavor, with notes of cherry, spice and chocolate and tannins that are firm but soft. The fruit complexity lingers a long time on the finish. Drink now to 1994. 500 cases made.",
@@ -2601,7 +2601,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("36544cfa-62a9-41f7-a456-892551b69e60"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Chinon",
                             Note = "Lovely cherry pit, damson plum and violet notes stream through, picking up light savory and olive details along the way. The fresh finish features an iron echo. Very pure from start to finish. Drink now through 2020. 2,300 cases made.",
@@ -2615,7 +2615,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("29319c12-29da-4c16-ba3e-137bede37c6f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Clancy's Barossa",
                             Note = "This red is supple, expressive and appealing, with pure blueberry and plum fruit, shading the finish with loamy earth and sweet spice hints. Shows presence and length. Cabernet Sauvignon, Shiraz and Merlot. Drink now through 2016. 15,000 cases imported.",
@@ -2629,7 +2629,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0c5fa61a-02ab-4463-8ba0-0ffb7dab17c9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Claret Columbia Valley",
                             Note = "Firm and focused, with crinkly tannins around a sleek core of blackberry, currant and plum flavors that keep singing on the expressive finish. This has room to grow. Cabernet Sauvignon, Cabernet Franc, Merlot, Malbec and Petit Verdot. Drink now through 2022. 2,129 cases made.",
@@ -2643,7 +2643,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c0cf7e80-9682-4608-9980-cdbd5cc9bec1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Clos Apalta Limited Release Colchagua Valley",
                             Note = "Big and rich, this red is filled with powerful flavors of blackberry, dark currant, black olive and dark chocolate that are built on an ironclad frame. Notes of cocoa powder and cream chime in as well, and the muscular finish lingers with hints of savory herb. CarmenÃ¨re, Cabernet Sauvignon and Merlot. Best from 2014 through 2022. 2,000 cases imported.",
@@ -2657,7 +2657,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bab6eeef-5c73-4924-89c6-97573b72792f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Clos de Vougeot",
                             Note = "Intense of flavor but delicate of structure, offering cranberry, violet, ci nnamon and caramel aromas and flavors folded neatly into a lean package tha t just seems to keep expanding on the finish. Defines finesse and elegance.  ",
@@ -2671,7 +2671,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c44994e9-67c9-4dbc-b142-247e3d782e4f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Colli della Toscana Centrale Flaccianello",
                             Note = "Aromas and flavors of violet, black currant, raspberry and spice gain intensity as this red builds to its lengthy conclusion. Vibrant and harmonious, this needs some time to shed its well-proportioned tannins. Sangiovese. Best from 2017 through 2030. 4,000 cases made.",
@@ -2685,7 +2685,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f977c6c6-6873-4aab-a5eb-3a037a770b4f"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Condrieu Pagus Luminis",
                             Note = "This has power, with a large core of creamed peach, nectarine and yellow apple fruit. Lengthy, pure and vibrant, with a mineral streak running underneath and chamomile and honeysuckle notes gilding the finish. Dreamy wine. Drink now through 2022. 1,200 cases made.",
@@ -2699,7 +2699,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2197312a-74fe-4f64-a9d6-f26801a3b0a1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cornas",
                             Note = "Dark and brooding, this has a deep well of black currant, fig and bitter plum fruit in reserve, shrouded for now in smoldering charcoal, bay leaf and alder notes. Tapenade and tar details hang in the background. Offers a steel beam of a finish. Tuck this away in the back corner of your cellar. Best from 2020 through 2035. 1,438 cases made.",
@@ -2713,7 +2713,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ce4f32ab-cd65-4b74-8dd9-8a94bbfffeed"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Cornas Terres Brûlées",
                             Note = "Plush in feel, with layers of dark fig, blueberry and blackberry reduction leading the way, inlaid with light charcoal and bay leaf accents that emerge steadily through the finish. Ends with a tug of tar. Best from 2020 through 2035. 1,300 cases made.",
@@ -2727,7 +2727,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("959a8c3b-b10e-4fb5-b890-e7bd7ced7f3a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Corse",
                             Note = "Lightly rustic, with bramble and dried anise notes weaving throughout. The core of violet plum sauce and raspberry coulis is pure and vibrant, extending through a lengthy finish. A fun, character-filled wine. Niellucciu, Syrah and Grenache. Drink now through 2019. 6,500 cases made.",
@@ -2741,7 +2741,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("16991974-15cb-4003-8e37-dd6d2c91dbef"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Corton",
                             Note = "Rich, rough and magnificently complex, a powerful wine with cascading plum, cedar, chocolate, decaying violets, smoke, and on and on. With a supple te xture underneath the tannin, this one is what Corton is all about.  ",
@@ -2755,7 +2755,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fbbaba5d-0e7e-4b69-b3f5-bdfe8a67f9a6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Corton Les Renardes",
                             Note = "Earthy, woody and tannic red Burgundy in a reined-in style, with a beautifu l core of rich, supple, concentrated strawberry, cherry and spice flavors. Wonderfully balanced; should age a decade with ease. Begin drinking in '92. 250 cases made.",
@@ -2769,7 +2769,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("46d72744-b9d4-451d-9d38-2a3ff4bfcae6"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Corton-Charlemagne",
                             Note = "A broad, charming white, featuring lemon, baked apple, vanilla, clove and nutmeg flavors, with fine concentration and length. Shows a bright structure and chalky intensity on the slightly tannic finish. Best from 2019 through 2032. 3,100 cases made.",
@@ -2783,7 +2783,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("859f1799-6b09-4682-b08b-5bde15365eb7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Côte-Rôtie",
                             Note = "Great concentration and firm structure carry the beautiful violet-tinged bl ack cherry and plum fruit, which turns spicy and bit leathery on the finish . Tannic and dense but not heavy-handed. Drink now through 2000.  ",
@@ -2797,7 +2797,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e48fbf0e-afab-4392-bd4f-880c5a7675ee"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Côte-Rôtie Brune et Blonde",
                             Note = "Full and generous, a peppery, spicy wine that's sweet with the scents of vanilla and black cherry. Long, silky and rich, with the structure and tannic bite to age. Should improve even more in the bottle. Drink now to 2000.  ",
@@ -2811,7 +2811,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("05e6c0a1-3c82-42ae-8d0c-3ff5c0e1fb22"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Côte-Rôtie La Turque",
                             Note = "A concentrated, powerful, flavorful wine, just oozing with plum, berry and spice aromas and flavors that are long and sweet on the finish. There 's lots of complexity here already, but it's so tight that it could keep developingwell into the next century 250 cases made.",
@@ -2825,7 +2825,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7ce1039a-f228-45de-84e8-42f8a701db19"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Côte-Rôtie Les Jumelles",
                             Note = "Full throttle Côte-Rôtie with gorgeous fruit, plums, cherries and berries, soft and sikly on the palate but with a firm tannic backbone that bodes wil l for the future. A massive but elegant offering. A great bottling of Les Jumelles.  ",
@@ -2839,7 +2839,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8b54e1cf-4e2f-4ec4-a8a5-b19a5719b646"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Côtes du Rhône-Villages Séguret Tradition",
                             Note = "A good bolt of graphite drives underneath while lightly mulled plum and blackberry fruit form the core. Singed mesquite and tobacco fill in on the finish. Grenache, Syrah and Carignan. Drink now through 2020. 3,500 cases made.",
@@ -2853,7 +2853,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("96038439-019e-4771-a67f-733dfcd975ac"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "DÃ£o",
                             Note = "A crisp and minerally red, with concentrated flavors of dark cherry, roasted plum and dried raspberry, layered with rich, spicy notes. White chocolate details show on the finish, accented by hints of pepper. Drink now through 2020. 208,000 cases made.",
@@ -2867,7 +2867,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("60e79b55-b2e8-45f7-9b89-6f9de315d12e"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dindori Reserve Viognier",
                             Note = "Dindori Reserve Viognier is an exotic elixir of peach and lychee flavours. Floral, spicy, stunning. Great as an aperitif and terrific with spicy food. Serve well chilled.",
@@ -2881,7 +2881,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a4cdf62b-9128-4275-b4f5-0a939829c766"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dogliani",
                             Note = "A beam of bracing acidity at the core of this intense, saturated red helps delineate the blackberry, boysenberry, blueberry and graphite flavors. This has grip and complexity, but just needs a little time. Best from 2018 through 2024. 9,000 cases made.",
@@ -2895,7 +2895,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0fc53232-33f2-4935-bd1a-324896b2b978"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro",
                             Note = "This has a delicate core of violet, plum and red berry flavors that are broad yet well-defined. Medium-grained tannins gain power midpalate, with mineral and shiso leaf notes on the taut finish. Drink now through 2020. 600 cases imported.",
@@ -2909,7 +2909,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0da6a81d-5046-49b5-a93e-c442ccf8ab1c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro Chryseia",
                             Note = "A powerful and concentrated red, featuring kirsch, red plum and baker's chocolate notes, balanced by tarragon, slate and violet details. Elegant, with supple tannins framing the long finish, which is laced with hot stone, olive and licorice accents. Drink now through 2023. 2,000 cases made.",
@@ -2923,7 +2923,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("eaada323-dfb6-4029-854e-d2ed181f877d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro Colheita",
                             Note = "Mocha, hot spice and chocolate notes fill this decadent red to the brim. Very long midpalate, with accents of slate and spice. Finishes with smoke, cream and cedar details. An exotic red from Portugal. Drink now through 2019. 8,160 cases made.",
@@ -2937,7 +2937,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("20283c6d-0173-475a-950a-0c2e0b3f4cc7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro Evel Red",
                             Note = "A lithe red, with good cut to the red berry and plum tart flavors, supported by fresh acidity, showing notes of pepper and hot stone on the minerally finish. Offers impressive purity to the fruit components. Drink now through 2020. 60,000 cases made.",
@@ -2951,7 +2951,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("25974673-6b43-4238-95cd-f5eac86dad74"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro Porca de MurÃ§a Red",
                             Note = "A taut, sinewy style, with notes of slate and white pepper to the roasted plum and dried red berry flavors. Medium-grained tannins emerge on the snappy finish, showing ferrous accents. Drink now through 2020. 250,000 cases made.",
@@ -2965,7 +2965,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9d866b90-ce0a-4efe-910b-ccce90e7e318"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro Quinta Vale D. Maria",
                             Note = "Ripe, rich and lushly spiced, this muscular red features dark cherry and plum compote flavors that are accented by light pepper notes. Dark chocolate and cardamom accents show on the creamy finish. Drink now through 2022. 1,800 cases made.",
@@ -2979,7 +2979,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("763e85cf-d343-4c44-a948-496c96d53041"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro Reserva",
                             Note = "Suave and rich, showing luscious sandalwood notes to the dried cherry and raspberry flavors. The creamy finish lingers with cocoa powder and white pepper accents. Drink now through 2020. 15,000 cases made.",
@@ -2993,7 +2993,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ff8ed3e1-0b44-4c57-8902-c93b6737ac34"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Douro Superior",
                             Note = "Well-crafted and suave, with refined flavors of raspberry tart, red plum and cherry pastry, matched to cardamom and savory spice notes. Silky tannins and a plush, creamy finish offer chocolate mousse accents.  Drink now through 2022. 15,166 cases made.",
@@ -3007,7 +3007,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("132c3fcd-9ed6-4066-a550-f54852b1e0cb"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Echézeaux",
                             Note = "Rich in flavor, highly polished and concentrated, with black cherry, plum, currant, spice, and a lovely touch of oak, put together with subtlety and g race. Power with elegance.  ",
@@ -3021,7 +3021,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4552a40f-b4c2-4f84-8e7d-616f804f4311"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Epanomi White",
                             Note = "A vibrant white, with piercing acidity to the crunchy apple, pear and quince flavors, featuring loads of scallion and green herbal notes. Dried tarragon and creamy accents linger on the complex finish. Malagousia and Assyrtiko. Drink now through 2018. 8,333 cases made.",
@@ -3035,7 +3035,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9453e0a0-bfec-4707-b446-e8ae3bdc48b6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Etna",
                             Note = "Elegant and well-knit, this tangy red is rich, with a baseline of smoke and grilled herb notes layered with flavors of wild strawberry, candied violet, dried cranberry and spice box, followed by a chewy finish. Drink now through 2023. 7,500 cases made.",
@@ -3049,7 +3049,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c5dca93e-795d-4f1e-90e6-b264a6ac71c8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Faithful Hound Stellenbosch",
                             Note = "Dark and muscular, with layers of fig, blackberry and black currant paste offset by espresso, bittersweet cocoa and smoldering tobacco notes. Fleshy and dense on the finish, but well-defined, with a backdrop of singed cedar and bay leaf. Cabernet Franc, Cabernet Sauvignon, Merlot, Malbec and Petit Verdot. Best from 2015 through 2020. Tasted twice, with consistent notes. 3,000 cases imported.",
@@ -3063,7 +3063,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b1499f93-8224-46c8-8f5d-2c6241b4570c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Frederick Walla Walla Valley",
                             Note = "Refined and impeccably structured, with floral black cherry and dusty dried spice aromas, and complex plum, olive and mocha flavors that glide toward polished tannins. Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot and Malbec. Drink now through 2023. 2,966 cases made.",
@@ -3077,7 +3077,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c75ccff1-d660-42cb-9a52-fd84286307f8"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Fumé Blanc Napa Valley",
                             Note = "Rich and opulent, with sharply focused sweet pea, fig, melon and herb notes that are intense and lively. Has fine depth, elegant balance and flavors that linger long and full on the finish. Drink now through 1993. 8,000 cases made.",
@@ -3091,7 +3091,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a68a6544-8b16-40b2-a80b-067ec44ef451"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Garnacha Campo de Borja Tres Picos",
                             Note = "A plush texture masks the firm structure of this red, as blackberry and boysenberry flavors mingle with notes of toast, menthol and mineral, backed by well-integrated tannins and juicy acidity. A modern style, with balance and depth. Drink now through 2020. 10,000 cases made.",
@@ -3105,7 +3105,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("00dd7fdd-26a5-4a24-8bb6-e216d4bf4708"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Garnacha Campo de Borja Veraton",
                             Note = "Expressive flavors of cherry, raspberry and dark chocolate mingle in this polished red, balanced by notes of licorice and wild herbs. The tannins are well-integrated, and balsamic acidity keeps this balanced. Dense and harmonious, in the modern style. Drink now through 2022. 3,000 cases made.",
@@ -3119,7 +3119,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("45aef150-3235-4795-a34b-690bdbaa0f25"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gevrey-Chambertin",
                             Note = "Firm and tannic, with concentrated raspberry, black cherry and red currant fruit, overtones of sweet oak and flowers, a many-faceted wine with mouthwa tering flavors, structure and texture. A lot of Burgundy for the price.  ",
@@ -3133,7 +3133,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("411016a2-6597-460a-b43c-afa1c265a937"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gevrey-Chambertin Clos Prieur",
                             Note = "Beautifully concentrated, focused, harmonious, artfully balanced between the generous blackberry and cherry flavors and the vanilla, toast and spice of oak. Full-bodied, bursting with fruit and already graceful. Has the stuffing to age well into the late '90s. 150 cases made.",
@@ -3147,7 +3147,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("544d29a1-802c-4d64-a349-5ebff1f558a4"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gewürztraminer Alsace",
                             Note = "A serious but eminently likeable Gewürz. Has clearly defined, concentrated peach, spice and grapefruit flavors backed by good acidity. Fruity, round in the mouth and well-balanced. Honey and more fruit come through on the finish.  ",
@@ -3161,7 +3161,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5214a509-4baa-43e7-afa3-295ab0b9e1ad"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gewürztraminer Anderson Valley",
                             Note = "Nearly identical to a fine Alsace Gewürz. Lovely rose petal and grapefruit aromas, with crisp, concentrated flavors of apple and grapefruit.  ",
@@ -3175,7 +3175,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9cce2815-7dcd-4947-9136-7dd80b25e7fe"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(1989, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gewürztraminer Anderson Valley Late Harvest Vineyard Selection",
                             Note = "Very ripe and honeyed, with rich apricot, honey and slightly floral flavors that are smooth and carefully balanced. Shows restraint, but is plenty tasty. Give it some time to open up.  ",
@@ -3189,7 +3189,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("932dcf1d-f1a5-43d1-957b-cbe19b25f1ff"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ghiaie della Furba",
                             Note = "Ripe and deep, with tightly furled raspberry, plum and cassis flavors beneath a veneer of minerally, earthy character. Not very tannic, but tight enough and powerful enough to require cellaring until it opens up. Best after 1993. 1,295 cases made.",
@@ -3203,7 +3203,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2865eb2d-9f98-48ce-9c36-1c334464e2e4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gigondas",
                             Note = "A textbook version of the brawny side of Gigondas, this offers a grippy alder bass line underneath layers of dark currant and fig fruit, while lots of tobacco, rosemary and bay leaf fill in throughout. Muscular and energetic, this is built for the cellar. Best from 2019 through 2030. 4,000 cases made.",
@@ -3217,7 +3217,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9b25c369-f6d5-4cca-b974-d1d2362065b2"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "GrÃ¼ner Veltliner Federspiel Trocken Wachau Terrassen",
                             Note = "This features a supple texture, with flavors of ripe pineapple and apple tart accented by a rich creaminess. Ginger snap and white chocolate details show on the airy, elegant finish. Drink now through 2017. 17,000 cases made.",
@@ -3231,7 +3231,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("13ea8060-81e6-48bc-a374-fa41a706a8d6"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "GrÃ¼ner Veltliner QualitÃ¤tswein Trocken Kamptal",
                             Note = "A bright, crisp white, with savory hints to the laserlike flavors of Fuji apple, Meyer lemon and melon. Long and richly spiced midpalate, presenting hints of ginger and kiwifruit on the finish. Drink now through 2019. 5,416 cases made.",
@@ -3245,7 +3245,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c44a3689-34c7-44d2-a1a5-e79c163ad511"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "GrÃ¼ner Veltliner QualitÃ¤tswein Trocken Kamptal Hasel Alte Reben Reserve",
                             Note = "Mouthfilling flavors of ripe citrus, baked apple and buttercream are loaded with luscious notes of custard and pastry. The ripe finish is long and rich-tasting.  Drink now through 2022. 1,000 cases made.",
@@ -3259,7 +3259,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c0002ac7-3a51-4919-aec3-2a2b32fe6d7a"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "GrÃ¼ner Veltliner Smaragd Trocken Wachau Terrassen",
                             Note = "Voluptuous and richly spiced, with some honeyed notes to the ripe apple, pear tart and glazed apricot flavors. Shows seductive smokiness midpalate, presenting a pastry-accented finish. Drink now through 2021. 6,000 cases made.",
@@ -3273,7 +3273,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c75e74a7-f70a-4c37-936f-895ee796cdb3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Grange Hermitage South Australia Bin 95",
                             Note = "A masterpiece, loaded with rich, smoky, plum, bacon, herbs and anise flavors woven together in a stylish packege, offering depth, complexity and impeccible balance, finishing with chocolate vanilla. Has intensity for decades.  ",
@@ -3287,7 +3287,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3e47b0eb-2c67-4063-bc12-805aa016913a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Graves",
                             Note = "Firm and concentrated with flavors that spread out on the palate. It's rich and woody, very structured and firm, packed with cassis and black cherry fruit and cedary tobacco. Offers an abundance of flavors in an elegant package. One of the finest Haut-Brions we've tasted.  ",
@@ -3301,7 +3301,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0fedad71-938d-4c6f-b241-f85903e51ec1"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Gravion Napa Valley",
                             Note = "Vivid and stylish, with crisp structure and sharply defined aromas and flavors. Full-bodied, with delicious oak, vanilla, orange peel and lemon flavors that are well-intergrated and deep; long, spicy finish. Sémillon and Sauvignon Blanc.  ",
@@ -3315,7 +3315,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("02c4fe01-e1fd-41a7-ad51-dfdd12c9a778"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Grechetto Colli Martani Grecante",
                             Note = "Thai basil and spice notes lace the creamy mix of Asian pear, white peach, stone and lemon zest in this well-knit white. Light- to medium-bodied and fresh, with a lingering, savory finish. Drink now through 2020. 10,800 cases made.",
@@ -3329,7 +3329,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("34dfadc8-4a08-4a07-aca6-d5e20bd85073"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Greco di Tufo G",
                             Note = "Tarragon and thyme notes lace flavors of green melon and lime granita in this juicy, light- to medium-bodied white. Fresh, balanced and minerally, with a spiced finish. Drink now through 2020. 5,500 cases made.",
@@ -3343,7 +3343,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("30178897-e29e-47a0-b136-e73fb4f3506c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Grenache California On the Road",
                             Note = "A robust style, brimming with rich, juicy blackberry, wild berry and boysenberry flavors. This is intense and vibrant, featuring a dense core of fruit complemented by black licorice, cedar and spice notes. Drink now through 2022. 682 cases made.",
@@ -3357,7 +3357,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c19d0a03-46fb-451d-9280-0a5ebbdcdeea"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Grenache Clarendon Romas",
                             Note = "This has terrific presence, with dark berry, cherry and floral flavors on a taut frame, expanding on the finish against nubby tannins that linger expressively and intensely. Best from 2017 through 2021. 500 cases imported.",
@@ -3371,7 +3371,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f247d3ab-abda-40d2-9051-968bd4c37357"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Grenache-Syrah-MourvÃ¨dre CorbiÃ¨res",
                             Note = "Full-bodied and powerful, with decadent layers of raspberry compote, kirsch and red plum notes that are met with savory details of herb and cured meat. Offers a tangy, hot stoneÂâaccented finish. Drink now through 2025. 18,000 cases made.",
@@ -3385,7 +3385,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("243f2128-2a86-4757-85eb-4d0b89d3dc82"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Hermitage",
                             Note = "Very firm and elegant, with a burst of raspberry and black pepper flavors that just go on forever on the finish. Soft tannins and a touch of new oak frame the wine beautifully, and with time it ought to emerge gorgeously. Drink starting 1993.  ",
@@ -3399,7 +3399,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f02e9451-acc6-4691-aa46-c06ec12f9afb"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1987, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Hermitage La Chapelle",
                             Note = "  ",
@@ -3413,7 +3413,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b7077a72-e2f3-402f-921f-f94f402e50bf"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Hermitage White Chante-Alouette",
                             Note = "Gorgeous, showing remarkable range, with jasmine, honeysuckle, acacia and chamomile notes leading the way, followed by star fruit, yellow apple and green fig fruit flavors. The long, mineral-edged finish adds just the right amount of tension, while the fruit and floral elements cascade over one another. Drink now through 2029. 500 cases imported.",
@@ -3427,7 +3427,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8b49e4da-4160-437b-ba0d-3da19cbbe172"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "I Sodi di San Niccolò",
                             Note = "Loaded with rich, ripe, spicy, plummy fruit, hints of violet and vanilla, beautifully shaped and framed with oak. Smooth and elegant, but containing e nough soft tannin to carry it for years. One of the greatest of the new Italian reds.  ",
@@ -3441,7 +3441,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8a70762b-b178-4484-986d-39c9ec5f4731"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Insignia Napa Valley",
                             Note = "Extremely herbal and earthy, very rich, supple and almost unctuous, but loaded with olive, spice, currant and plum flavors. Long and complex, but so distinctive that not everyone will love it. 4,700 cases made.",
@@ -3455,7 +3455,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("89512876-db41-4c3c-86a0-6eba2ebcefd6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Isola dei Nuraghi Montessu",
                             Note = "An elegant version, with Asian five-spice powder and cherry blossom notes wafting through flavors of black raspberry preserves, bresaola and cured tobacco. Long and supple, presenting a mineral-tinged finish. Carignano, Syrah, Cabernet Sauvignon, Cabernet Franc and Merlot. Drink now through 2021. 12,500 cases made.",
@@ -3469,7 +3469,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("197d0950-5ea5-431b-bee0-c1a551d2ca4e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "James Berry Vineyard Paso Robles Willow Creek District",
                             Note = "A dramatic wine that weds power and opulence, maintaining impeccable balance along the way. Brooding dark berry and loamy mineral aromas lead to rich flavors of currant, licorice, dried sage and smoky pepper. Ripe tannins frame the finish. Grenache, Mourvèdre, Syrah, Counoise and Roussanne. Best from 2018 through 2028. 1,400 cases made.",
@@ -3483,7 +3483,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("579a92c3-e868-414c-a319-53a619a55e62"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Johannisberg Riesling Napa Valley",
                             Note = "Distinctive for its earthy, slate-like aromas and juicy, crisp, nectarine, peach, spice, pine and pear flavors that are complex and very attractive. Exceptionally well-made Riesling. 4,500 cases made.",
@@ -3497,7 +3497,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1ae58c09-75c3-47da-8b3a-bc7df4ce226c"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(1990, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Johannisberg Riesling Napa Valley Edelwein Gold",
                             Note = "With its golden color and honey, apricot and subtle spice aromas and flavors, this is a knockout from the first whiff to the last echo of the long finish. A rich, sweet wine that is drinkable and seductive now and should continue to develop through 2000. 1,000 cases made.",
@@ -3511,7 +3511,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d8f8280e-b6ba-48b0-98a5-e96c3612bef8"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Johannisberg Riesling Yakima Valley",
                             Note = "Firm and flavorful with beautifully defined peach aromas and flavors and hints of the typical piney character as well; just a bit off-dry, balanced and very appealing.  ",
@@ -3525,7 +3525,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("cf60d341-eb4c-4f11-997c-cbe1fa6e372c"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Judean Hills White",
                             Note = "Offers a spicy aroma, with pure, mineral-infused flavors of Granny Smith apple, lemon curd and pineapple, accented by notes of toasted coconut. The finish has crÃ¨me brÃ»lÃ©e hints that linger with plenty of richness. Chardonnay and Sauvignon Blanc. Kosher. Drink now through 2020. 2,000 cases made.",
@@ -3539,7 +3539,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("442d1d5d-920a-44ab-b5bd-a75997ec81bf"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Justification Paso Robles",
                             Note = "Smooth-textured, graceful and refined, with a tenderness to the texture and tannins. Features a warm, inviting mix of red and dark berry flavors and subtle shades of licorice, light mocha and savory herbs, revealing floral scents and a long, persistent finish that echoes the core essence. Cabernet Franc and Merlot. Drink now through 2035. 11,000 cases made.",
@@ -3553,7 +3553,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d7da59df-82c8-4eab-844c-e73edce3ebd1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 2, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "La Tâche",
                             Note = "Impressive concentration and depth, the kind of intense flavor, firm tannin, grace and harmony that assures a great wine in 10 to12 years. Flavors are so complex and harmonious that it s hard to pick out the individual elements, but you can find plum, vanilla, lilac and nutmeg.  ",
@@ -3567,7 +3567,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6bf44a3b-0ceb-4612-93fb-ec3125d6d3bf"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Late Bottled Port",
                             Note = "Dense and rich, with amply spiced flavors of ripe dark plum and cherry compote. Mineral notes emerge midpalate, leading to a lush, chocolate-filled finish. A fresh and engaging style. Drink now. 5,600 cases imported.",
@@ -3581,7 +3581,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9fb0680a-582c-4aa8-ae7f-21464b5bc5ca"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2019, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Late Harvest Chenin Blanc",
                             Note = "Abounding with aromas of mango, honey and tropical fruit, our award winning Late Harvest Chenin Blanc is the perfect close to a delicious meal, but is also an elegant aperiti",
@@ -3595,7 +3595,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c8ebe02a-f2e8-465b-bb61-46060eaec63b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Le Cigare Volant California",
                             Note = "Big and rich, with incredibly deep cherry and blackberry fruit, massive concentration, long and turning spicy on the finish, but it's not at all heavy . Smooth and appealing now, but it can only get better with age. Drink now through 1995.  ",
@@ -3609,7 +3609,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fc26e640-1991-4689-9410-04efd02d0e1e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Lebanon",
                             Note = "An intriguing wine with great complexity. Leathery and smoky aromas and mature, ripe fruit flavors of spice and plum. The color and aromas seem mature but it is still tart and somewhat tannic and should age graciously.  ",
@@ -3623,7 +3623,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9b931d05-6b26-46c3-a350-aed5abab4d7e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Les Fleurs du Chaparral Napa Valley",
                             Note = "A terrific California novelty. With earthy flavors and aromas reminiscent of a good northern Rhône, it's big and luscious, with a core of plum and blackberry flavors and attractive accents of game and smoke. This is a well-balanced, beautifully structured wine. The tannins are firm but fine. It's tempting now, but should improve through 1993. 105 cases made.",
@@ -3637,7 +3637,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fe7e528a-f7ca-4a48-99a7-f4c62b1dccf8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Lisboa Colossal Reserva",
                             Note = "Plum and boysenberry notes weave together with dried herb and smoky mineral accents in this sleek red. Savory spice details chime in on the finish. Offers moderate, grippy tannins. Drink now through 2020. 55,000 cases made.",
@@ -3651,7 +3651,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("54c73740-3df1-46ba-b046-739985c1b214"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Machete California",
                             Note = "Generous and expressive, big and brawny, this offers a mouthful of tannins but also brims with flavors and aromas, including Earl Grey tea, dark chocolate, dried violet and toasted gingerbread. Rich notes of plum and black cherry are balanced by forest floor and earth accents, which linger on the long finish. Petite Sirah, Syrah and Grenache. Drink now through 2030. 15,500 cases made.",
@@ -3665,7 +3665,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("36ee3169-6b20-49dc-b403-ee62619fe9cf"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Madiran ChÃ¢teau BouscassÃ©",
                             Note = "Bright, tangy acidity and firm tannins provide solid structure to the dried raspberry, red currant and black tea flavors. Layers of new leather and tobacco leaf echo through the mouthwatering finish of sweet spice and mineral. Drink now. 20,000 cases made.",
@@ -3679,7 +3679,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8ee08d36-fcf2-427e-9bca-1adefcb9a59e"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malagouzia Florina Turtles Vineyard",
                             Note = "Rich and flush with fresh-cut green apple, honeydew melon and grapefruit flavors that feature a vibrant minerality. Delivers hints of savory herbs, leading to a lush finish of cream and spice. Drink now through 2018. 8,500 cases made.",
@@ -3693,7 +3693,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ee496f1c-dc01-4f43-b525-4b1e769fe0ef"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Agrelo Remolinos Vineyard",
                             Note = "An elegant style, with a core of vibrant cherry, plum and currant flavors that are supported by fresh acidity. This is supple midpalate, with a finish that lingers with dried ginger and white pepper details. Drink now through 2022. 18,000 cases imported.",
@@ -3707,7 +3707,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3bda89ea-3fa0-4774-a239-89660e754806"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec LujÃ¡n de Cuyo Premium Reserve",
                             Note = "Redolent of blueberry and dark currant, this fresh, pure style is matched with plenty of minerally components. The complex finish offers white pepper and bittersweet chocolate details. Drink now through 2019. 13,395 cases made.",
@@ -3721,7 +3721,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f4fed63a-2e60-4729-9c03-84f86fadb624"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec LujÃ¡n de Cuyo Single Vineyard",
                             Note = "Decadently spiced, with intense dark chocolate and roasted plum flavors that feature notes of paprika. Black pepper accents show on the lush, mineral-filled finish. Needs time to open up. Best from 2017 through 2021. 3,800 cases imported.",
@@ -3735,7 +3735,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("086a7bb6-4975-4f19-91fa-93334c1e24b4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Mendoza Reserva",
                             Note = "This has a silky mouthfeel, with rich, plush flavors of boysenberry, dark currant and black olive that carry plenty of creamy accents. Features dark chocolate and Asian spice details on the finely textured finish. Drink now through 2020. 125,000 cases imported.",
@@ -3749,7 +3749,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f4e7a95f-5478-48f6-9d70-f9311c6b3123"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Mendoza Ultra Las Rocas",
                             Note = "Dense and rich-tasting, with a muscular mix of dark currant and black olive flavors that are supported by firm tannins. Cocoa powder and slate notes fill the finish, along with peppery hints. Drink now through 2022. 10,000 cases made.",
@@ -3763,7 +3763,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("87761e4e-5a23-4e36-8ea7-610baf75b714"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Mendoza Zolo Reserve",
                             Note = "A deeply colored and robust red, with a core of lusciously spiced dark plum, blackberry and dark currant flavors that are long and pure. Medium-grained tannins and firm acidity lend this a muscular structure. The rich finish is filled with dark chocolate and Asian spice notes. Drink now through 2020. 4,000 cases made.",
@@ -3777,7 +3777,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("92c0079b-e826-4bf7-8aae-93a644f95fb7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Salta",
                             Note = "Refined and rich-tasting, with effusive minerality to the red berry and cherry flavors, lathered with plenty of creamy accents. Pepper and cigar box notes show on the long and complex finish. Drink now through 2022. 27,300 cases made.",
@@ -3791,7 +3791,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ef734f89-0025-44ec-b0c6-c1089a79547e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Salta AutÃ©ntico",
                             Note = "Fresh, rich and juicy, with lively raspberry, cherry and red plum flavors backed by fresh, crunchy acidity. Lengthens out nicely midpalate, showing mineral and pepper accents. Hints of slate and tangerine emerge on the complex finish. Drink now through 2020. 3,500 cases made.",
@@ -3805,7 +3805,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("90870c3b-0ebd-4a1e-89fd-739dbeb01944"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Uco Valley",
                             Note = "Very suave and polished, with ripe, pure flavors of blackberry, hoisin sauce and black pepper. Finely textured, this is packed with tar and roasted plum notes, showing plenty of licorice snap and dark chocolate accents on the powerful finish. Best after 2020. 7,000 cases imported.",
@@ -3819,7 +3819,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c522e593-bbe1-4f74-a32f-be240f882e82"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Malbec Uco Valley Alfa Crux",
                             Note = "Plush and rich, with concentrated flavors of dark plum, porcino, baker's chocolate and blackberry. This has a core of dried beef and Asian spice notes that linger on the powerfully creamy finish. Drink now through 2018. 1,250 cases made.",
@@ -3833,7 +3833,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5222369e-4f4a-4c79-bb8d-ec53719302e3"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Manzanilla SanlÃºcar de Barrameda Solear",
                             Note = "Very high-pitched, with bright chalk, chamomile, salt and lemon seed notes. The vigorous finish has serious cut. Drink now. 10,000 cases made.",
@@ -3847,7 +3847,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9dd8de0e-7085-4a29-a54e-91deba0d9bf5"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Manzanilla Sanlúcar de Barrameda La Guita",
                             Note = "Distinctive, with verbena and tarragon notes leading the way, followed by lemon pith and jicama flavors. Flashes of gooseberry and talc run through the finish. Bottled June 2016. Drink now. 200,000 cases made.",
@@ -3861,7 +3861,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a2783c97-ee5a-45ee-bae5-2150bbe07917"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Maremma Toscana Tenuta Belguardo",
                             Note = "A red of great purity and polish, offering black cherry, blackberry, spice and herb flavors, this evokes tobacco, graphite and leather nuances as it builds nicely on the palate. Finishes with grip, harmony and complexity, as well as terrific length. Cabernet Sauvignon and Cabernet Franc. Drink now through 2028. 1,083 cases made.",
@@ -3875,7 +3875,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d2843a08-3d2b-4275-89cb-5b1bc50adf4b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Margaux",
                             Note = "A beautifully structured and proportioned wine, soft yet rich with cascading flavors of ripe plum, cherry and cassis that are perfectly integrated with toasty oak, firm acidity and firm but polished tannins. Finish is long, full and deep.  ",
@@ -3889,7 +3889,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("98d51740-190c-4484-9be8-7f5ebccb9605"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Maurizio Zanella",
                             Note = "Smooth and supple, with rich berry, cherry and smoky flavors, velvety and expansive on the palate, yet elegant and balanced with acidity. Blends the best of Sangiovese and Cabernet, plus a nice touch of oak, and it feels like it can only get better. Drink now through 1992.  ",
@@ -3903,7 +3903,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e19135b4-4e97-489e-b8ee-3d48862bef59"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "MencÃ­a Bierzo",
                             Note = "Focused yet expressive, this balanced red offers cherry, boysenberry and currant fruit, with accents of toast, licorice and mineral. The flavors build through the long and spicy finish. Drink now through 2020. 6,660 cases made.",
@@ -3917,7 +3917,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("67c1eed8-21ef-4555-9df4-398f3d903c9d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "MencÃ­a Bierzo Cepas Viejas",
                             Note = "The plush texture delivers rich flavors of plum, blackberry and boysenberry, with accents of coffee, mountain herb, cedar and mineral. Fine-grained tannins give this structure, showing enough acidity to stay fresh. A modern-style red. Drink now through 2025. 10,000 cases made.",
@@ -3931,7 +3931,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0726010c-754a-4d6f-bcab-7f6f8e832ca2"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Mencía Bierzo Ultreia St.-Jacques",
                             Note = "Smoke, forest floor and mineral notes mingle in this savory red. Lively acidity and light, firm tannins give grip to the polished texture. Cherry and floral accents sing through the finish. Energetic. Drink now through 2023. 1,200 cases imported.",
@@ -3945,7 +3945,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1305caec-7ae5-47b4-a564-b95bdd9735a8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Mercurey Clos des Myglands",
                             Note = "Ripe and pure, featuring cherry, blackberry, raspberry, mineral and light toast notes. Balanced and intense, playing out on the long, mouthwatering finish. Best from 2019 through 2032. 1,400 cases imported.",
@@ -3959,7 +3959,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5882ea51-a027-4a1c-84fc-fdfadf3a392e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Alexander Valley",
                             Note = "Effusively fruity, bursting with cherry aroma and flavor, complicated by other berries and the right touch of oak, beautifully structured, firm, tight and long. Needs time to lose the tannic toughness on the finish. Best after 1991.  ",
@@ -3973,7 +3973,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7266f518-6a98-4188-9366-3df293f52ba9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Columbia Valley Reserve",
                             Note = "This unusually concentrated youthful wine is not yet elegant or complex, but it has vivid, focused black cherry and grape flavors in a lush texture, with stiff, young tannins that will need till 1993 or beyond to loosen up. 1,140 cases made.",
@@ -3987,7 +3987,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e3c93bf2-f285-419b-9f56-fd1d83b53367"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Long Island",
                             Note = "A polished texture carries balanced flavors of tart cherry, pomegranate, toasted hazelnut and espresso in this expressive red. Features firm, well-integrated tannins and lively acidity. Elegant. Drink now through 2022. 2,592 cases made.",
@@ -4001,7 +4001,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4f1ff8a2-efe2-448e-9675-239cd1d5fbfa"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Napa Valley",
                             Note = "A robust style, with inky notes to the dark currant, dried sage and fig flavors that glide across the palate. The sanguine finish is richly spiced. Drink now through 2020. 4,000 cases made.",
@@ -4015,7 +4015,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("00f00632-62a4-4ca5-ac43-1494113170e9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Napa Valley Reserve",
                             Note = "Deep in color and fairly tannic with deep berry fruit and oaky aromas. On the palate it's concentrated with rich, elegant, black cherry flavors. Has intensity but it's not overblown.  ",
@@ -4029,7 +4029,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("30cc3c32-40fe-439c-8a75-5de91c7b575e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Napa Valley Three Palms Vineyard",
                             Note = "A powerful red, with concentrated flavors of red plum, cherry and boysenberry that are layered with plenty of rich spice and mineral accents. Touches of slate and cardamom make for a complex finish. Drink now through 2023. 3,170 cases made.",
@@ -4043,7 +4043,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a279d4d2-03b8-45a8-85a5-5452c7ba2757"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Sonoma County",
                             Note = "Enormously rich, tannic and complex, with layers of concentrated cedar, plum, cherry and herb flavors framed by firm tannins and oak. Gets better with every sip. Drink now.  ",
@@ -4057,7 +4057,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("01fdffdd-3af7-4f8a-aea3-3609e9f65148"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Sonoma Valley Reserve",
                             Note = "Haul out the thesaurus. This one deserves all the adjectives you can find. Rich, opulent, supple and complex, with generous plum and vanilla aromas and flavors, magnificent depth and concentration. Drinkable now. 1,042 cases made.",
@@ -4071,7 +4071,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("375c0528-ef8c-48f1-bd43-21812fdb5748"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Sonoma Valley Rhinefarm Vineyards",
                             Note = "Defines Merlot character. Concentrated, intense and supple, with integrated plum, cherry, tobacco and cedar aromas and flavors and a lush, chocolaty finish. Delicious now but should develop until 1994. 5,320 cases made.",
@@ -4085,7 +4085,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2f5bfa8f-a5f6-4ab0-ac72-42124f3cbe76"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Stags Leap District",
                             Note = "Big and firm, with plenty of generous raspberry and plum aromas and flavors, opening up beautifully on the palate to a long finish. The tannins are tough enough to indicate cellaring until 1993 or '94. A harmonious wine that just needs time. 1,941 cases made.",
@@ -4099,7 +4099,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6d237809-ef7e-4e25-b126-d822ba4b0ece"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Merlot Washington Limited Bottling",
                             Note = "A deep color and dense, concentrated raspberry and spice aromas mark this as something special even before the elegant plummy richness hits the palate. A velvety texture and sense of harmony make it deceptively drinkable today, but it can age, at least through 1993 to '95.  ",
@@ -4113,7 +4113,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("78af4878-26b8-4619-8b4a-0a8741e49cc0"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Meursault Genevrières",
                             Note = "It's wound up tight, but this is a very polished and elegant wine underneath. A toasty, nutty, oaky quality accents the intense, tight grapefruit, apple and pineapple flavors that linger beautifully on the tangy finish. Won't show its best until 1993 to 400 cases made.",
@@ -4127,7 +4127,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("93913eaf-33f3-4c7b-b512-c4b74d73abce"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Molise Ramitello",
                             Note = "The up-front mulberry and plum fruit is ripe and fleshy in this balanced red, with polished tannins. Notes of licorice string, graphite, tarry smoke and grilled mushroom push through midpalate and on the finish. Drink now through 2021. 8,500 cases made.",
@@ -4141,7 +4141,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("848501b5-5adc-4bd0-aa60-0052b492a587"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 2, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Monte Bello Santa Cruz Mountains",
                             Note = "A beautifully structured wine, with firm acidity and tannins that show grip and grit amid a core of dense, tense currant and blackberry fruit, turning juicy. Those seeking classic old-school Cabernet will embrace this. Cellaring for five to seven years is the right approach. Cabernet Sauvignon, Merlot, Cabernet Franc and Petit Verdot. Best from 2020 through 2035. 5,243 cases made.",
@@ -4155,7 +4155,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d1219f0a-252a-4d00-bd0c-ff2c5ea57228"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Montefalco Sagrantino",
                             Note = "This finely balanced Sagrantino layers creamy tannins with a pretty array of raspberry ganache, fig cake and dried sage flavors, accented by aromatic hints of rose petal and spice. Elegant and lightly juicy, with a subtle mineral streak that gains momentum on the finish. Drink now through 2027. 4,000 cases made.",
@@ -4169,7 +4169,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("cbfe1f87-ef9c-45e7-82b8-f707d3cefcfe"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Montepulciano d'Abruzzo Marina Cveti  S. Martino Rosso",
                             Note = "A fresh, harmonious red, offering a subtle range of flavors, with rich notes of smoky mineral, crushed blackberry, olive tapenade, grilled herb and ground anise. Fine-grained tannins emerge on the finish. Drink now through 2024. 2,500 cases imported.",
@@ -4183,7 +4183,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6758150a-ac71-430c-8cdf-7e0b9b365696"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Montrachet Marquis de Laguiche",
                             Note = "Uncommon depth and complexity, the rich intense butterscotch, pear, peach a nd smoky flavors combine to give it a gorgeous supple texture. It's beautifully framed with toasty oak that's fully integrated. Graceful and subtle on the finish.  ",
@@ -4197,7 +4197,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b8256c1c-cbed-4094-844c-00586a08a9e7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Morgon La Chanaise",
                             Note = "This ripe, light- to medium-bodied red sports layers of pure blackberry, cassis and damson plum, edged with licorice, floral and apricot details. Tangy, mouthwatering acidity highlights the mineral and spice details on the long, lightly grippy finish. Drink now through 2020. 13,000 cases made.",
@@ -4211,7 +4211,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("361eb745-ed1f-496d-82b1-d51640887610"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Napa Valley",
                             Note = "Broad, rich and deep with layers of black cherry, mint and cassis flavors and a toasty, cedary overlay. Very nicely integrated, ample tannins that are firm but not rough, and a long full finish. Give this one at least five years. Best Opus One to date. 10,000 cases made.",
@@ -4225,7 +4225,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3f2e7d8a-22c9-44ef-bb56-2a2c4d3ec2c4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "NardÃ² NerÃ¬o Riserva",
                             Note = "A silky red, with sweet, ripe flavors of sun-dried black cherry and date, underscored by rich hints of wood smoke and mineral. This is well-knit, featuring sinewy tannins and accents of &lt;i&gt;garrigue&lt;/i&gt; and graphite. Drink now through 2025. 3,200 cases made.",
@@ -4239,7 +4239,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e7223180-0fd3-47f2-b584-fae3cd1e443f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nero d'Avola Terre Siciliane Versace",
                             Note = "A well-focused, rich red in a balanced, medium-bodied frame, this offers a subtle underpinning of tarry mineral notes layered over light, sculpted tannins and flavors of mulberry and dried fig, with hints of herbes de Provence and mocha. Drink now through 2025. 1,166 cases made.",
@@ -4253,7 +4253,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0f0db9d6-1005-4670-9c5c-6954b0f82195"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nuits-St.-Georges Clos des Corvées",
                             Note = "Big, rich and deep, with incredible balance and concentration of ripe plum- cherry fruit and mahogany wood, velvety texture, sweet toast tea leaf on th e finish. Couldn't ask for better balance or length.  ",
@@ -4267,7 +4267,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("10e43ae7-e9f5-4890-ba46-9adbe627a3b4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Nuits-St.-Georges Les Vignes Rondes",
                             Note = "Immediately attractive, with opulent cherry and plum flavors framed by sweet, toasty oak. The flavors unfold with complexity on the long finish. Intense and concentrated, but elegant enough to keep you coming back for another sip. Drink now through 1995. 300 cases made.",
@@ -4281,7 +4281,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b071f33b-0e42-4f85-a0e4-da54b25a2aef"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Oakley Cuvée Contra Costa County",
                             Note = "Well knit, supple and beautifully flavored with vivid black cherry, spice and blackberry. Elegant in texture and nicely balanced with good acidity and moderate tannins. Drink soon. 3,100 cases made.",
@@ -4295,7 +4295,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1890b074-1ac8-416f-ad77-77b192e5572f"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 2, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Oloroso Jerez Faraon",
                             Note = "Intense, with roasted almond, Brazil nut and walnut notes lending this a slightly burly aspect, while gunpowder tea, bitter orange and almond accents add a taut feel through the finish. This is a distinctive, edgy version that Sherry geeks will dig. Drink now. 1,500 cases made.",
@@ -4309,7 +4309,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("229fdb05-94a0-41e1-be89-0fe68e1139f2"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ornellaia",
                             Note = "An outstanding discovery. Ripe and tannic, with lots of tobacco flavor to add depth to the raisin and cherry flavors. Supple, harmonious and complex, a bit tough, built like a claret for long-term aging. Try it in 1993 to see how it is developing. 1,000 cases made.",
@@ -4323,7 +4323,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("309da374-fcd3-41eb-995b-cae9f998d4a3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Oublié Paso Robles",
                             Note = "Expressive and impressively structured, with savory blackberry aromas and accents of rosemary, thyme and crushed stone, opening to complex, densely layered flavors of currant, pepper and espresso. Grenache, Mourvèdre and Counoise. Best from 2018 through 2028. 1,500 cases made.",
@@ -4337,7 +4337,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0f362a7e-e3e9-4685-a082-7328ea99e5e5"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Palladius Swartland",
                             Note = "Intense, with ripe, lush layers of creamed Jonagold apple, Cavaillon melon and glazed peach fruit, enlivened by dried chamomile, quinine and bitter citrus oil notes. The long finish flows beautifully, with the fruit and floral elements draped over a well-embedded mineral edge. This has depth and energy, and should cellar well. Chenin Blanc, Roussanne, Grenache Blanc, SÃ©millon, SÃ©millon Gris, Palomino, Viognier, Clairette Blanche and Verdelho. Drink now through 2022. 750 cases made.",
@@ -4351,7 +4351,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("59297264-c951-400d-8d24-af245cf83de3"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Patelin de Tablas Blanc Paso Robles",
                             Note = "This vibrant and mouthwatering white shows green apple, Meyer lemon and dried pineapple flavors that are fresh and juicy. Lemon verbena and lime sherbet notes reverberate on the long, detailed finish. Grenache Blanc, Viognier, Roussanne and Marsanne. Drink now. 2,920 cases made.",
@@ -4365,7 +4365,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4c54466c-0648-4537-91a1-ecab5031edf5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Patriota Mendoza",
                             Note = "A rich red, packed with concentrated flavors of blackberry, dark plum and mocha, featuring plenty of dark chocolate notes. Offers a ripe texture, with creamy accents and hints of savory herb on the long finish. Drink now through 2020. 12,500 cases imported.",
@@ -4379,7 +4379,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("19592579-43bf-4fe5-a9a8-89a0cc1f099f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pauillac",
                             Note = "Rich and massively concentrated, with layers of plum, anise, black cherry and tobacco, firm acidity and structure and thick, chewy, balanced tannins. Beautiful, elegant and stylish. One of the greatest Lynch Bages ever made; will improve with five or more years in the cellar.  ",
@@ -4393,7 +4393,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0ef92f8f-24e8-49e7-a278-1469bc12cc50"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Penedès Gran Sangre de Toro Reserva",
                             Note = "Rich and complex, with earthy, leathery aromas and flavors around a solid core of cherry and berry fruit, all of which comes together in a complex finish that lasts and lasts. There's enough to take it at least four or five years.  ",
@@ -4407,7 +4407,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f8751182-e51f-4e18-b1e1-e65dec8a9e1f"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Penedès White Milmanda",
                             Note = "Stunning wine, beautifully balanced, smoothly knit, flavorful and long. It does a great impersonation of a Chevalier-Montrachet, with all the spice, toast and honey around a solid core of pear fruit. Will it age like it? Who knows, but it's pro.  ",
@@ -4421,7 +4421,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("dc04d0f6-8960-48ec-8052-aac1e6602710"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pessac-LÃ©ognan White",
                             Note = "This has a gorgeous feel, with opulent fruit offset by racy herb notes and acidity, showing lemon sherbet, shortbread and white peach flavors backed by a salted butterÂâ and tarragon-laced finish, with hints of talc and fennel skittering in the background. Seriously long and still a touch youthful on the finish, this is one for the cellar. Sauvignon Blanc, Sauvignon Gris and SÃ©millon. Best from 2017 through 2023. 2,500 cases made.",
@@ -4435,7 +4435,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8e32a449-7e81-4d64-a259-4fcd6a27c1de"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pessac-Léognan",
                             Note = "Rich and elegant with a firm, tannic structure, but the fruit comes rolling through on the finish. The Cabernet flavor is matched with more austere earth, cedar, mineral and plum flavors. Drink now or cellar until 1996.  ",
@@ -4449,7 +4449,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d4a2bb54-f487-458c-9fe2-a98d9a08dba1"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pessac-Léognan White",
                             Note = "One of the best Bordeaux whites we've tasted in a while, deliciously rich and complex with tiers of citric, earth, stone and fig flavors that are intense and lively. The finish goes on and on. Definitive style. Drink now through 1995. 3,500 cases made.",
@@ -4463,7 +4463,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5f024dc6-7156-48d1-824c-26318c5351f0"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Petite Syrah Howell Mountain Rattlesnake Ridge",
                             Note = "Bright, vivid and extremely aromatic, with lavender, white pepper and cinnamon notes up front, backed by a core of huckleberry, blackberry and blueberry flavors. The fleshy tannins have a rustic appeal, but never get in the way of the details on the long finish, accented by mineral, toasted herb and black tea elements. Drink now through 2030. 475 cases made.",
@@ -4477,7 +4477,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("64560474-0d38-4542-ba42-e2a9b161f2d5"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Grigio Friuli Colli Orientali",
                             Note = "This creamy, medium-bodied version is framed by finely cut acidity that focuses the rich minerality and flavors of guava, star fruit, pickled ginger and oak spice. Lingering finish. Drink now through 2022. 3,500 cases made.",
@@ -4491,7 +4491,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("92968c4c-aca8-4a3a-a4e2-713fc97b6828"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Gris Alsace Réserve Personnelle",
                             Note = "A mouthwatering Pinot Gris, with exotic notes of papaya and grated coconut accenting the peach, anise and almond blossom flavors. Sleek acidity focuses this through to the spicy, mineral-tinged finish. Drink now through 2029. 1,500 cases imported.",
@@ -4505,7 +4505,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("59bff81e-4d16-4382-96ea-fcbcea96ee81"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Carneros",
                             Note = "Distinct and well proportioned, rich and tasty with ripe strawberry, cherry, spice and oaky flavors that add up to complexity and dimension. The flavors stay with you from start to finish. Has enough tannin for three to five years in the cellar.  ",
@@ -4519,7 +4519,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("46adc1f5-9295-44a8-81f1-88b775a5d96a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Carneros Fleur de Carneros",
                             Note = "An elegant, precisely balanced wine for current drinking. Beautifully aromatic with spicy plum, cranberry and toast flavors and uncommon intensity. Has finesse and subtlety, finishing with spicy cinnamon and flavor complexities that linger on the finish.  ",
@@ -4533,7 +4533,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a2554abe-e0c4-43f1-a5bb-14882a4acf2d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Central Otago",
                             Note = "Fleshy and appealing, with vibrant cherry and plum notes that have nutmeg and black tea flavors lingering on the finish. Offers good intensity and a velvety texture. Drink now through 2026. 1,000 cases imported.",
@@ -4547,7 +4547,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8f94e719-e811-4da5-9f8f-50a31eb2ab21"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Central Otago Bannockburn",
                             Note = "Supple wild berry, cherry and plum flavors are both powerful and delicate, with details of Earl Grey tea, white pepper, anise and crushed rock. Expansive and expressive, the finish sails on and on, with satiny tannins that never get in the way. Drink now through 2030. 5,174 cases made.",
@@ -4561,7 +4561,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9bf95c20-b649-41a9-b30b-fbb1e52de8d9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Chehalem Mountains Dopp Creek",
                             Note = "Firm and focused, with cinnamon notes floating around red berry and floral flavors, finishing with gentle persistence against lively acidity and fine tannins. Best from 2018 through 2022. 3,100 cases made.",
@@ -4575,7 +4575,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8fdac8a0-0134-430d-b112-b6a6277dddea"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Chehalem Mountains Margo",
                             Note = "Lithe and expressive, shading black cherry fruit with glints of mint, loamy earth and walnut. Fine tannins underline a long, dancing finish. Best from 2016 through 2022. 1,711 cases made.",
@@ -4589,7 +4589,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0ca0a429-4be6-496c-bc0f-64b5c3f92135"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Dundee Hills Latchkey Vineyard",
                             Note = "Silky and harmonious, with an elegantly precise structure and black cherry, fresh violet and spice notes that glide expressively toward the long finish. Drink now through 2022. 600 cases made.",
@@ -4603,7 +4603,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("cbc9f7e3-7f42-453d-9b33-4d82baac2ea1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Eola-Amity Hills Seven Springs Vineyard La Source",
                             Note = "Seductive, silky and supple, this red layers its gorgeous currant, plum, blueberry and spice flavors on a lithe frame, coming together harmoniously on the long, expressive finish. Drink now through 2022. 1,176 cases made.",
@@ -4617,7 +4617,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bf76128f-de8f-419c-be28-3fefb69d0da5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Eola-Amity Hills Tongue 'N Cheek",
                             Note = "Lithe and delicately complex, offering rose petal and tart blueberry aromas, with effortlessly balanced raspberry, river rock and spice flavors that finish with refined tannins. Drink now through 2022. 594 cases made.",
@@ -4631,7 +4631,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9d2b3075-9466-4974-b678-62c857107dc7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Hemel-en-Aarde Valley",
                             Note = "This is alluring, with gorgeous toasted spice and cherry confiture aromas, backed by silky red currant, damson plum and cherry fruit flavors. The long, spice- and iron-tinged finish is very suave. Drink now through 2018. 2,700 cases imported.",
@@ -4645,7 +4645,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1561751b-25a1-4bb4-a064-d3b07ce06936"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Marlborough",
                             Note = "Detailed, with notes of dried lavender, white pepper, fresh loamy earth and black tea set against a core of strawberry and raspberry flavors. Smooth and plush, this becomes even more expressive on the finish, where spice details fan out. Drink now through 2025. 750 cases imported.",
@@ -4659,7 +4659,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("321a68f5-cf57-45bd-94d5-d9490c343fc8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Marlborough Pioneer Block 16 Awatere",
                             Note = "This offers a good mix of fresh, ripe raspberry and cherry flavors, with details of forest floor, black tea, cigar box and nutmeg, finishing with nuances of warm baking spices and a touch of firmness. Drink now through 2025. 1,000 cases made.",
@@ -4673,7 +4673,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("89dbaf35-42b3-4d49-a07a-e5c63e64615f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Martinborough Kupe Single Vineyard",
                             Note = "Complex, concentrated and intriguing, with fleshy blackberry and plum flavors at the core, showing highlights of black walnut, sandalwood, dried pine needle, black pepper and musky Darjeeling tea. The tannins are refined and plush, and the finish is epic. Drink now through 2030. 500 cases imported.",
@@ -4687,7 +4687,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("30b3232c-12ff-433f-92c1-88ea73ceb43c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Napa Valley Reserve",
                             Note = "Remarkably complex with toasty oak, fresh cherry, leather and spicy flavors that are rich and elegant, displaying uncommon complexity, depth and finesse. The spicy cinnamon finish lingers on and on. Best Mondavi Pinot yet.  ",
@@ -4701,7 +4701,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6f738c3b-3410-4fcd-981d-4fd92ccac70a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Oregon",
                             Note = "The crisp tannins and sleek structure give the up-front blackberry, currant and floral spice flavors good lift, coming together smoothly on the persistent finish. Drink now through 2016. 38,000 cases made.",
@@ -4715,7 +4715,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1400821b-5490-40cc-a7c1-640d0c646844"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Oregon Bethel Heights Vineyard",
                             Note = "Very pretty aromas and flavors, featuring violet, blackberry and a touch of lime, crisp balance, long and intense. Very tannic, but the rest is lovely .  ",
@@ -4729,7 +4729,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("44d95f7d-6ae0-47cb-86d5-90af626f63b7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Ribbon Ridge Le PrÃ© Du Col Vineyard",
                             Note = "Supple, seductive and distinctive, with pure blueberry fruit, shaded with white pepper, pear skin and floral character. The flavors dance merrily into the long, deftly balanced finish. Offers presence and intensity without extra weight. Drink now through 2023. 1,500 cases made.",
@@ -4743,7 +4743,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0e51fe72-4414-4d7a-978e-ff80ac792c8b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Ribbon Ridge The Beaux Frères Vineyard",
                             Note = "Supple, expressive and multilayered, exhibiting flavors of plum, currant, pomegranate and violet that come together harmoniously, persisting into the long and exceptionally well-balanced finish. Drink now through 2024. 2,405 cases made.",
@@ -4757,7 +4757,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("26a5d332-cfd2-44af-bde9-e08317affefd"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Russian River Valley Allen Vineyard",
                             Note = "A remarkably rich and complex wine, with layers of black cherry, raspberry, chocolate and vanilla flavors that are very harmonious and elegant, finishing with subtley and delicacy. Has the tannin to age three to five years, but it's hard to wait.  ",
@@ -4771,7 +4771,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d6a5ce98-5be3-4662-8d34-f7ce71f808ee"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Russian River Valley Altamont",
                             Note = "A seamless, fleshy expression of juicy, enticing plum, cherry blossom and rose petal, with black cherry flavors at the core. A remarkably charming and seductive effort. Drink now through 2022. 880 cases made.",
@@ -4785,7 +4785,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e8f09a9c-9795-4b3a-b1a7-b97b1413f488"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Russian River Valley Dutton Ranch",
                             Note = "Well-centered on a mix of cherry, plum and raspberry flavors, elegant and refined, with sufficient tannins to hold attention. Ends with a clean, mouthwatering aftertaste that echoes the fruit and spice notes. Drink now through 2024. 5,880 cases made.",
@@ -4799,7 +4799,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1a696aac-f8e0-41ff-9885-b5c41288d5cf"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Russian River Valley Hallberg Ranch",
                             Note = "Impressive, offering richness, vibrancy and subtle charm, marked by snappy blackberry, red berry, spice, sage and underbrush notes. Ends with a minerally edge that holds the flavors. Drink now through 2021. 11,100 cases made.",
@@ -4813,7 +4813,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("616a3ce2-13bd-4177-9b2e-7d6cdb7f057f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Russian River Valley Treehouse",
                             Note = "Combining power and finesse, this is rich and extracted, with a supple yet gutsy core of mineral-laced tannins that weave into a mix of gravelly, loamy earth, juicy blackberry and wild berry. Drink now through 2022. 1,748 cases made.",
@@ -4827,7 +4827,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("751bc084-5eed-4134-aa8c-fbf5d891e9e0"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Santa Barbara County Huntington",
                             Note = "Notably floral and spicy, with firm tannins amid the dark berry, mocha, roasted herb and fresh-turned earth flavors. This is complex, dense and persistent, gaining depth and length. Drink now through 2022. 9,218 cases made.",
@@ -4841,7 +4841,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("90b59cec-05dd-469b-988d-0bf3a295bff4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Santa Barbara County Reserve",
                             Note = "Very toasty and spicy, yet smooth as silk on the palate. Aromas and flavors of cinnamon, strawberry and raspberry are nicely supported by the right frame of oak. Superb balance.  ",
@@ -4855,7 +4855,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f0337a34-38a8-43ee-bb4d-652999dd1c28"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Santa Lucia Highlands Rosella's Vineyard",
                             Note = "Alluring, offering a mix of supple, graceful plum and blackberry flavors, with pretty floral scents. This is a delightfully harmonious and elegant offering, presenting deep, rich flavors and solid length and persistence. Drink now through 2022. 563 cases made.",
@@ -4869,7 +4869,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0d035927-fc0f-4eea-a267-b672f5933087"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Santa Lucia Highlands SLH",
                             Note = "The texture is plush, with lots of complex flavors, ranging from plum to anise to dusty, cedary oak. Satisfying from start to finish, ending with dusty, nutmeg-scented tannins. Drink now. 26,500 cases made.",
@@ -4883,7 +4883,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5bd93d73-780b-4849-b3ed-9a141e6f0631"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Sonoma Coast",
                             Note = "Bold, rich and assertive, with lively acidity and a tight, dense core of raspberry and blackberry, revealing rose, anise and spice scents. Supple, graceful and deep, this ends with a long, rich aftertaste and a supple, caressing texture. Drink now through 2024. 948 cases made.",
@@ -4897,7 +4897,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5106bbb0-666b-40fa-8608-bdddb4bbe859"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Sonoma Coast Gap's Crown Vineyard",
                             Note = "Lightly aromatic, but rich and layered, this offers excellent density and depth, with fine-grained tannic grip and a long, persistent finish that keeps flashing the core flavors. Drink now through 2020. 1,350 cases made.",
@@ -4911,7 +4911,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a491d7ec-1ff4-4a06-a087-9452e22f9ee4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Sonoma Coast Marcassin Vineyard",
                             Note = "Amazingly seductive, from the initial aromas of smoky, toasty, creamy vanillaÂscented oak to the richer mix of wild berry and raspberry fruit. Lifts midpalate and soars from there, finishing with a pleasing tannic grip and a long, persistent finish. Drink now through 2025. 1,800 cases made.",
@@ -4925,7 +4925,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a2a2a40f-0e33-42d2-a984-b45ba152cf09"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Sonoma Coast Riviera",
                             Note = "Juicy and generous, featuring a rich, smooth core of plum and raspberry flavors, highlighted by zesty floral scents that accentuate the aroma and fruitiness. Agreeably supple, with easygoing tannins. Drink now through 2022. 3,200 cases made.",
@@ -4939,7 +4939,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c31800eb-d637-416d-92ab-c3ef75d34329"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Sta. Rita Hills",
                             Note = "Pure, rich and vivid, with snappy wild berry, pomegranate, lavender, black tea and mint notes, ending with firm tannins and a stemmy edge, lending traction to the palate. Drink now through 2023. 1,226 cases made.",
@@ -4953,7 +4953,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b5d7d278-ca45-4418-b5a9-37ea32d26f1f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Willamette Valley",
                             Note = "Supple and elegantly structured, with expressive raspberry and orange zest aromas and polished flavors that pick up depth and momentum toward a spicy finish framed by refined tannins. Drink now through 2023. 4,000 cases made.",
@@ -4967,7 +4967,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9d96182c-820f-4b0d-951e-1318d21d23f9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Willamette Valley Grande CuvÃ©e",
                             Note = "Sleek, lithe and inviting, with juicy cherry, black cherry and gentle spice flavors that glide quickly over polished tannins into a long and vivid finish. This has presence, harmony, depth and persistence. Best from 2016 through 2022. 7,000 cases made.",
@@ -4981,7 +4981,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("609b8f53-d6b7-47f9-b7f5-67a27052067e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Willamette Valley Reserve",
                             Note = "Deliciously rich and complex, with ripe, concentrated plum, cherry and spice notes that offer depth and grace. The finish follows through, showcasing the plummy richness. The toasty oak echoes on the finish. Drink now to 1995.  ",
@@ -4995,7 +4995,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4c5391e7-138a-494c-8a0e-fdbb0e9b168f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Willamette Valley Tavola",
                             Note = "Fresh and inviting, with cherry and raspberry notes at the core, showing cinnamon and hibiscus hints around the edges. The flavors float easily into the long, expressive finish. Drink now through 2019. 12,000 cases made.",
@@ -5009,7 +5009,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fad34f74-ae68-4b06-8622-4063a3c65a8e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Willamette Valley Thea's Selection",
                             Note = "Polished, expressive and deftly balanced, this is generous with its baby powderâÂaccented cherry, lingonberry and floral flavors. Remains open and inviting through the long finish. Drink now through 2022. 9,950 cases made.",
@@ -5023,7 +5023,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5b168690-7f61-4e0c-b21f-a5423f001e62"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Yamhill-Carlton District Mineral Springs Ranch",
                             Note = "Vibrant, expressive and multi layered, offering black cherry, red plum, sassafras and dead leaf flavors on a long and silky frame. The tannins are submerged, allowing the gorgeous flavors to float through the finish. Drink now through 2022. 1,500 cases made.",
@@ -5037,7 +5037,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1b6a6444-dbf2-4070-93ad-88f8ccf2d4b5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pinot Noir Yarra Valley",
                             Note = "Plush and elegant, with raspberry, cherry and fresh sage notes that are harmonious, juicy and intense on the finish. Drink now through 2027. 1,900 cases imported.",
@@ -5051,7 +5051,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("60ed41cb-796a-46b8-883b-7cccc2782656"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Plexus Red Barossa Valley",
                             Note = "A sophisticated, spicy mix of date bread, cherry compote and clove flavors. Plump and velvety, with persistence and harmony on the finish. Shiraz, Grenache and MourvÃ¨dre. Drink now through 2026. 1,000 cases imported.",
@@ -5065,7 +5065,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ee1c259e-f16e-4789-857d-2e14b4f491ca"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pomerol",
                             Note = "A massive concentration of rich, intense plum, cherry, spice, smoke and cho colate flavors that are wrapped in thick, rich tannins and cedary oak. It g ains intensity and vibrancy on the palate, a powerful wine with a distinct personality that will stand 20 years of cellaring- and then some. A great Petrus.  ",
@@ -5079,7 +5079,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d580df72-cee2-496f-9fa3-224fe5145c75"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pomino Tenuta di Pomino Red",
                             Note = "Densely concentrated, both color and aroma, but lean and elegant, almost delicate of structure, showing beautifully focused plum, anise and cassis, with a touch of chocolate and wee bit of herbs on the finish. Remarkable and distinctive.  ",
@@ -5093,7 +5093,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d25e930f-390b-4f3d-b6c5-d98aadf0536a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pommard Clos de la Platière",
                             Note = "Unexpectedly deep and rich, big and mouthwatering, with ripe, sweet cherry, blackberry, raspberry fruit, a distinctive cedary character from oak, all in magnificent balance. A muscular wine with grace.  ",
@@ -5107,7 +5107,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3f1b2689-3405-4a9c-9e76-268fddbcb416"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Pouilly-Fuissé",
                             Note = "A sleek, stony version, this white exhibits lime blossom, apple, mineral and subtle spice flavors. Energetic, resonating on the long, citrus- and mineral-infused aftertaste. Drink now through 2024. 4,500 cases made.",
@@ -5121,7 +5121,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b161766a-f576-4d4b-9c29-5d1cc9c8bf34"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Predicato di Bitùrica",
                             Note = "Dark, dense and ripe, with concentrated cherry, berry and plum on the nose and palate, silky smooth, chocolatey, beautifully balanced. Drinkable already, but it has the stuff to grow.  ",
@@ -5135,7 +5135,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("73018591-4708-4b01-ae9f-d076c989388c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Primitivo di Manduria Antica Masseria del Sigillo",
                             Note = "There's a rich, mouthfilling quality to this medium-bodied red, offering a velvety mix of spiced cherry, mulberry and herbed olive, with accents of mocha and graphite. Plush tannins show on the juicy finish. Drink now through 2021. 2,500 cases made.",
@@ -5149,7 +5149,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0163d16c-b75b-416f-a94b-16c5def0be2e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Primitivo di Manduria LXXIV",
                             Note = "A rich red in a modern style, this offers supple, well-knit tannins and stylish hints of vanilla, mocha and graphite, accenting the ripe plum sauce and plump cherry fruit. Well-spiced, ending with a lingering, mineral-tinged finish. Drink now through 2025. 8,000 cases made.",
@@ -5163,7 +5163,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("525943df-283e-49c1-b3bd-37b64a99d661"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Prunaio",
                             Note = "A Sangiovese blend with lots of complexity on a tight, elegant frame. Shows anise and smoke aromas and cherry, strawberry and blackberry flavors wrapped in a veil of tannin that will need until 1993 to '95 to soften. Offers plenty of style and finesse. 2,820 cases made.",
@@ -5177,7 +5177,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0f9b3bbe-78ac-4eaf-be1e-55c810ebdb6e"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Puligny-Montrachet",
                             Note = "Incredibly rich and toasty, with butterscotch and oak, but has the fruit integrity to stand up to the flavors imparted by heavily toasted barrels. It's big and full-bodied, with pear and tangerine notes and generous acidity. Drink now through 1994. 3,000 cases made.",
@@ -5191,7 +5191,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("403178e5-fdbd-4a0f-be9d-7547f5c1f51e"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Puligny-Montrachet Clos de la Pucelle Domaine Jean Chartron",
                             Note = "Hums with intensity, yet it sits lightly on the palate, beautifully focused with pear, apple, toast and honey in exquisite balance. The flavors seem t o get even more concentrated on the finish.  ",
@@ -5205,7 +5205,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("576e7c0b-671d-4829-b9e3-0d9bfc8d5a09"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Puligny-Montrachet Les Chalumaux",
                             Note = "Gorgeous Puligny with richness and complexity, well-honed honey, toast, pear and spicy nutmeg flavors and a silky-smooth texture and a pretty aftertaste that lingers.  ",
@@ -5219,7 +5219,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1ed24265-42a7-4e99-b840-67c395b842cf"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Puligny-Montrachet Les Folatières Domaine Jean Chartron",
                             Note = "Pear, honey and spice aromas and flavors merge effortlessly on an elegant, supple structure, becoming smooth and harmonious. A classy wine from first whiff to last echo of the aftertaste. Drink now. 1,000 cases made.",
@@ -5233,7 +5233,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a05164df-2bdb-4675-9afa-9f5cbd9e69bd"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2018, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rasa Shiraz",
                             Note = "It is a complex wine, with power and finesse. Crafted from handpicked grapes from our own estate vineyards, Rasa Shiraz is aged for 12 months in premium French oak barrels and then further matured in the bottle before release.",
@@ -5247,7 +5247,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1cace916-48f5-4c05-a791-368bd830808c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Reserve Napa Valley",
                             Note = "Textbook Cabernet aromas and flavors packed into a firm, elegant package, powerful, smooth and supple, finely focused, glowing with plum, cherry and cassis flavors, extremely long. Drink now.  ",
@@ -5261,7 +5261,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("31032e27-d612-4825-876e-4a9cd3a75d0c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ribera del Duero",
                             Note = "This rich red shows a deep core of plum, bramble and mineral, with notes of loam and game that impart a savory character. Solid tannins support a thick texture, while balsamic acidity keeps this balanced. Austere but harmonious. Drink now through 2024. 35,000 cases made.",
@@ -5275,7 +5275,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c89a46c2-3e51-4023-aa38-d0c9ef90b90a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ribera del Duero Hacienda Monasterio",
                             Note = "This rich red delivers blueberry compote, dark chocolate, licorice and smoke flavors in a firm texture, supported by solid tannins. Ample acidity keeps this fresh through the floral, cola-accented finish. Drink now through 2026. 1,000 cases imported.",
@@ -5289,7 +5289,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("61b1abc6-4e0d-4361-b139-66c0cd088e04"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ribera del Duero Pesquera Crianza",
                             Note = "Jam-packed with concentrated rapsberry and plum aromas and flavors, plus plenty of tannin to earmark this for the cellar, perhaps until 1993-95. Beautifully balanced and focused.  ",
@@ -5303,7 +5303,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("98e301d2-61c4-44c3-bc57-b23acc526855"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ribera del Duero Pesquera Janus Reserva",
                             Note = "Deep, rich, ripe and powerful, with slightly earthy-herbal plum and cherry flavors, big and complex, tannic, with a touch of anise on the finish. Complex and fascinating. It will need a good 5-10 years to shed its tannin, but the concentration is superb.  ",
@@ -5317,7 +5317,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e3fabab8-d229-4117-81bc-b7dd6684730d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ribera del Duero Pesquera Reserva",
                             Note = "This tight, concentrated and complex Spanish red oozes with fruit flavor and has very firm tannins and acidity. Blackberry and raspberry flavors linger on the finish, joined by hints of butter and spice. Tempting to drink now, but better to cellar throug 2,500 cases made.",
@@ -5331,7 +5331,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("255e4f77-9667-40a1-8bb6-532645f9db97"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ribera del Duero Unico Gran Reserva",
                             Note = "Sappy aromas and flavors detract from an otherwise nicely built, smooth and buttery wine. Drinkable now, but don't wait. 1,000 cases made.",
@@ -5345,7 +5345,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("595d9fd1-0881-48fb-918b-b13fc629a8f4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ribera del Duero Valbuena 3.° Reserva",
                             Note = "A vivid, vibrant Spanish wine, with focused, concentrated wild berry and plum aromas and flavors framed by sweet oak and a touch of anise. There is so much fruit it is tempting to drink it now, but it has the structure to last through at least 1994 or 1995. 1,000 cases made.",
@@ -5359,7 +5359,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f1fcedd9-3486-45b7-a279-228b68124833"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 2, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Richebourg",
                             Note = "A truly great wine. Amazing concentration, brimming with focused cherry, plum, smoke and cinnamon flavors, all tied together into a harmonious package that keeps echoing and changing with every sip. Beautfiully smooth but firm on the palate, it has the uncanny feeling of power with no weight, only mass.  ",
@@ -5373,7 +5373,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e0b8fd83-8f34-4746-a130-13eec8bdf902"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Alsace",
                             Note = "The piercing acidity and pronounced minerality weave a fine tapestry in this lovely Riesling, supporting flavors of white peach, slivered almond, lemon confit and oyster shell with a long, mouthwatering finish. Drink now through 2024. 6,000 cases imported.",
@@ -5387,7 +5387,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9f7518d4-a0fd-4c16-835d-0dd987103e67"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Alsace Cuvée Frédéric Émile",
                             Note = "  ",
@@ -5401,7 +5401,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c5581084-18b2-469f-9d4c-f6d91734a4a2"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Alsace Grand Cru Kitterlé",
                             Note = "  ",
@@ -5415,7 +5415,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("dbe4c2f7-16e3-4ed7-9958-38f3b6b200eb"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Alsace Grand Cru Schoenenbourg",
                             Note = "  ",
@@ -5429,7 +5429,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("cab9712a-b307-4fff-9cc6-1e49eef694ac"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Ancient Lakes Of Columbia Valley Kung Fu Girl Evergreen",
                             Note = "Tangy and zingy, with lively acidity that balances against gobs of ripe pear and apricot flavors, carrying through the long, lime-accented finish. Drink now through 2020. 160,000 cases made.",
@@ -5443,7 +5443,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("740c6ff8-b4e2-4d13-9d5b-0b5644c62ccf"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Clare Valley Springvale",
                             Note = "Lithe, vibrant and light-footed, but explosive, with flavors of pear, honeysuckle, apple and cinnamon, glowing brightly on the long and expressive finish. Drink now through 2024. 2,800 cases made.",
@@ -5457,7 +5457,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("39649d12-11db-4f70-8e19-afe726b384d9"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Clare Valley The Lodge Hill Dry",
                             Note = "A taut and linear white, with a lip-smacking blend of peach, lime and green apple flavors, finishing on a refreshing note. Drink now. 3,000 cases imported.",
@@ -5471,7 +5471,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c5358054-b229-42cd-ab8b-62c4f03efafd"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Columbia Valley Kung Fu Girl Evergreen",
                             Note = "Crisp and sleek, with juicy, expansive nectarine and peach flavors that play against citrusy acidity, finishing with zing and a sense of softness that lets the finish keep singing. Drink now through 2020. 128,806 cases made.",
@@ -5485,7 +5485,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5daf2cf8-16ab-4f99-9527-41ac95c55bb9"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Eden Valley Dry",
                             Note = "Taut, sleek, polished and distinctively spicy, with black pepper, white pepper, floral and citrus flavors on a lively frame. Best from 2019 through 2030. 4,000 cases imported.",
@@ -5499,7 +5499,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9c69a269-517f-4eda-915e-ca2e9760864d"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Federspiel Trocken Wachau Steinriegl",
                             Note = "A fruity style, boasting apricot, ripe apple, white pepper, mineral and floral notes, this is harmonious and fresh, leaving a sapid, mineral aftertaste.  Drink now. 2,083 cases made.",
@@ -5513,7 +5513,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f878d2ed-bd8f-4d22-b0ac-86b03232da19"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Finger Lakes Classique",
                             Note = "Weighty for a Riesling, with a rounded feel and layers of creamed yellow apple, white peach and persimmon flavors. Delivers energy and cut throughout, with lemon pith, citrus oil and chamomile accents filling in. Shows length and range through the finish. Drink now through 2021. 1,800 cases made.",
@@ -5527,7 +5527,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a692d6c8-39cf-4e1e-8c68-16aad1109064"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 2, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Finger Lakes Dry",
                             Note = "A taut, dry style, with pure lime, kiwifruit and pippin apple flavors backed by a slate note that gives the finish good tension and length. Very solid. Drink now through 2017. 5,475 cases made.",
@@ -5541,7 +5541,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9785178f-ff30-401c-a417-f8fdad161a1a"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Finger Lakes Dry Argetsinger Vineyard",
                             Note = "Taut, lip-smacking acidity harnesses the core of Jonagold apple, heather, white peach and candied citrus peel notes in this ripe white, keeping this focused and energetic through the finish. Drink now through 2018. 285 cases made.",
@@ -5555,7 +5555,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a5c3506e-3c8c-4894-aeff-3e4113e5f7a0"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Kabinett Halbtrocken Mosel Zeltinger Himmelreich",
                             Note = "Pungent, with aromas of slate and ripe orchard fruit, this sleek white displays complex flavors of flowers, peach, quince and slate. A hint of chive works into the mix as this remains persistent on the finish. Drink now through 2024. 140 cases imported.",
@@ -5569,7 +5569,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("97cd9540-e202-41e2-be76-3b3aa44ee49c"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling QbA Mosel Dr. L",
                             Note = "This succulent white is filled with plush red peach, cherry and white currant flavors that are supported by zesty acidity. Long and creamy on the finish, offering plenty of spicy overtones. This is impressive for the category. Drink now through 2016. 100,000 cases made.",
@@ -5583,7 +5583,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("67fc0136-f3dd-489a-afd7-3c44d136cfa4"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling QbA Mosel Old Vines",
                             Note = "This version is richly spiced and filled with luscious flavors of glazed apricot, ripe melon and peach cobbler. Shows minerally notes, offering a finish of golden raisin and nutmeg. Drink now through 2016. 10,000 cases made.",
@@ -5597,7 +5597,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b94ac3d0-b5d0-495b-b4e2-eda7c542d932"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling QbA Rheinhessen Fritz's",
                             Note = "Redolent of white raspberry jam and mint, this white is lush and creamy midpalate, with crackling acidity. The off-dry finish delivers honey and spice details. Drink now through 2018. 20,000 cases made.",
@@ -5611,7 +5611,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5531601a-b27e-45ef-8e75-6965baa75e5a"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Qualitätswein Trocken Rheingau Kiedricher Gräfenberg GG",
                             Note = "Very rich and complex, with enveloping flavors of baked apple, ripe citrus, nectarine and dried pear supported by a powerful structure. Lush midpalate, with a notes of dried guava, followed by unctuous spiciness on the finish, with accents of white chocolate, chamomile and dried herbs. Best from 2018 through 2026. 2,500 cases made.",
@@ -5625,7 +5625,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("126e998b-44af-44b8-97ae-89dc4f6cb2a0"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling SpÃ¤tlese Rheingau",
                             Note = "A honeyed style, filled to the brim with rich minerality and luscious creaminess. Very lush, with flavors of baked pineapple and pear sauce. Fresh and juicy on the finish. Drink now through 2035. 1,500 cases made.",
@@ -5639,7 +5639,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0569e304-9646-471f-8dd7-f7cf92af3d74"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Spätlese Mosel-Saar-Ruwer Maximin Grünhäuser Abstberg",
                             Note = "  ",
@@ -5653,7 +5653,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b7417e75-3249-4626-9db5-6ea95c64dbc8"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Spätlese Mosel-Saar-Ruwer Saarburger Rausch",
                             Note = "  ",
@@ -5667,7 +5667,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("40c8567e-5400-4c12-a67b-dfadc5fc11e3"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1989, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riesling Spätlese Mosel-Saar-Ruwer Wehlener Sonnenuhr (AP 2)",
                             Note = "  ",
@@ -5681,7 +5681,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9a659427-7510-4aa3-a746-b15297504f51"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja 904 Gran Reserva",
                             Note = "This supple red delivers bright, focused flavors of dried cherry, orange peel, vanilla, sandalwood, tobacco and spice, with light tannins and fresh acidity. An elegant rendering of the traditional style. Drink now through 2022. 12,500 cases made.",
@@ -5695,7 +5695,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("6d0931b6-0397-446e-bc7d-b5014d3fbe21"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja Castillo Ygay Gran Reserva Especial",
                             Note = "Bold and rich, this red fills the palate with blackberry, plum sauce, soy, chocolate and spice flavors. Broad and deep, in a modern style, with plenty of oak and enough backbone to stay focused. Drink now through 2020. Tasted twice, with consistent notes. 750 cases imported.",
@@ -5709,7 +5709,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5419dabf-534f-4f3b-bee8-7efef6c04bc6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja EdiciÃ³n Limitada",
                             Note = "This rich red delivers ripe, racy flavors of blackberry, kirsch, toast, spice and mineral. Plush but dense, with subtle yet powerful tannins and tangy acidity. A big wine, showing energy and style. Drink now through 2031. 6,250 cases made.",
@@ -5723,7 +5723,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b61191ad-70eb-461b-9d83-0e2d12c750ae"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja Finca San MartÃ­n Crianza",
                             Note = "This red is focused and polished, delivering harmonious flavors of black cherry, olive, smoke and mineral. The tannins are well-integrated, the acidity fresh. A bit reserved, but has depth. Drink now through 2022. 10,500 cases made.",
@@ -5737,7 +5737,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("da2cfd34-e35c-40de-b57d-2196bb3309d9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja Gran Reserva",
                             Note = "This generous red shows a traditional character, with leafy, dried herb, tea and spice notes framing dried cherry, licorice and leather flavors. Firm tannins and balsamic acidity impart structure, and this shows plenty of depth, with a juicy, spicy finish. Drink now through 2025. 600 cases imported.",
@@ -5751,7 +5751,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c8ce772c-1485-4cbe-97be-85c94a18d87b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja Imperial Reserva",
                             Note = "Smoky and tarry notes give this rich red an austere character, but plum, licorice, soy and mineral notes promise an expressive future. The tannins and acidity are balanced and unobtrusive. Best from 2016 through 2030. 1,500 cases imported.",
@@ -5765,7 +5765,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1204d3e9-3be4-4ae7-a373-927ed3c188ef"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja La Montesa Crianza",
                             Note = "A thick texture carries plum tart, orange peel, toasted vanilla and anise flavors in this ripe version, balanced by juicy acidity. The spicy, berry-scented finish is long and pure. Drink now through 2023. 10,800 cases imported.",
@@ -5779,7 +5779,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5e4ded26-2e4c-4c68-a4ab-46280f181838"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja La Vendimia",
                             Note = "This red shows good density, with black cherry, plum, espresso and black olive flavors mingling over firm tannins and balsamic acidity. Stays balanced and focused through the smoky finish. Drink now through 2027. 3,552 cases imported.",
@@ -5793,7 +5793,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e856efb9-ac33-4dbf-8ded-4e71f82c2d1b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja Reserva",
                             Note = "Black cherry, currant and floral notes are expressive and alluring, balanced by loamy earth, tobacco and mineral elements that add a savory quality. Firm, well-integrated tannins give support to the polished texture, while orange peel acidity fuels the fresh finish. Drink now through 2027. 10,000 cases imported.",
@@ -5807,7 +5807,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c4a18ddf-9e28-4c24-8cba-7c63021f9105"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja Viña Ardanza Reserva",
                             Note = "This traditional red offers dried cherry, orange peel, tobacco and sanguine flavors in a silky texture, supported by light, firm tannins and balsamic acidity. Focused and fresh, with a juicy finish. Drink now. 50,000 cases made.",
@@ -5821,7 +5821,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f32b1e40-0e86-49bb-b788-99ed435424c2"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja Viña Cumbrero Crianza",
                             Note = "The polished texture carries crisp flavors of tart cherry, fresh herb, anise and mineral, supported by light, firm tannins and lively acidity. Graceful, with balanced fruity and savory notes that give way to a spicy, floral finish. Drink now through 2022. 103,700 cases made.",
@@ -5835,7 +5835,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a33c6597-8e97-490e-bb88-e5ab5ca55139"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rioja White Monopole",
                             Note = "This focused white shows bright, juicy flavors of white peach and Meyer lemon, with herbal and mineral accents. The texture is quite rich, but crisp, citrusy acidity keeps this lively. Drink now through 2017. 4,000 cases imported.",
@@ -5849,7 +5849,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("72b8810d-af3b-402c-a9d5-3e7b1692a004"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Riverside Barossa",
                             Note = "A supple, seamless mix of cherry and raspberry flavors, with dried violet, savory and smoky details, accented by hints of sarsaparilla. Polished and refined, especially on the effortless finish. Grenache, Mataro and Shiraz. Drink now through 2030. 2,000 cases made.",
@@ -5863,7 +5863,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d1d00485-e13e-438e-8bb3-01e098611be5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Romanée St.-Vivant",
                             Note = "Indescribably concentrated and elegant at the same time, starting off deceptively smooth and gentle, then building up the intensity and vibrancy until it climaxes to a sensational finish that echoes cherry, tobacco, berry and vanilla seemingly forever. Tannic enough to need until at least 1995 to soften.  ",
@@ -5877,7 +5877,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e6f5ddb6-2fea-4d40-8fbd-60bac427d9c3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Romanée St.-Vivant Les Quatre Journaux",
                             Note = "Seamlessly complex, full of flavor yet so beautifully knit it's hard to pic k out the nutmeg-tinged black cherry, chocolate and vanilla flavors. Velvet y in texture, filled with intense, sweet fruit. Full-bodied, toasty, yet de licate, it has all the attributes of greatness.  ",
@@ -5891,7 +5891,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("75e11080-10be-40cd-95e5-92aa21e6cf55"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Rosso di Montalcino",
                             Note = "Bright, delicate and vibrant, with berry and floral flavors. Accents of earth, tobacco and spice add interest as they linger on the finish. Well-rounded and long. Drink now through 2023. 16,666 cases made.",
@@ -5905,7 +5905,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2d9a9d90-0e2e-455c-8589-d45a0608e0fb"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sancerre",
                             Note = "Crunchy, with lots of gooseberry and thyme notes bouncing around, while flint and fleur de sel accents drive the mouthwatering finish. Drink now through 2020. 3,125 cases imported.",
@@ -5919,7 +5919,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5f3be585-a3f7-4d77-b265-181b792fbe97"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sancerre Les Belles Vignes",
                             Note = "Very pure and chiseled, with gooseberry, straw and flint flavors tightly coiled, driven by a mouthwatering fleur de sel note through the long, bone-dry finish, which is built on minerality. Drink now through 2021. 7,000 cases imported.",
@@ -5933,7 +5933,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("53dd9080-6994-46f1-99b9-d016a698ff8f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sangiovese-Cabernet Sauvignon Toscana Poggio al Tufo Rompicollo",
                             Note = "Presents a whiff of blackberry, bacon and ink, followed by dark berry, black pepper and spice notes. Rich and supple, with ample structure for support and a long, fruit-, spice- and mineral-filled aftertaste. Sangiovese and Cabernet Sauvignon. Best from 2015 through 2022. 3,000 cases imported.",
@@ -5947,7 +5947,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("948a2eea-0fa8-4064-ada4-2ebd215322b4"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Santa Cristina",
                             Note = "A stylish wine that offers great value. Good concentration of cherry and ra spberry fruit with overtones of smoke, chocolate and ripe plum. Delicious n ow but it will be even better to drink after 1991 when the tannins have smo othed out.  ",
@@ -5961,7 +5961,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fafd447c-c733-4334-b3a2-2fb0e54ad8f1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sassicaia",
                             Note = "Remarkably flavorful and complex for such a lean wine. It's beautifully balanced, harmonious, seamless. Hints of plum, spice, anise, tobacco and toasty oak compete for attention, but the wholeis greater than the sum of its parts. Drink now through 2005.  ",
@@ -5975,7 +5975,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("258f1c13-de2b-4f22-8904-becba67cbd12"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2014, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauternes",
                             Note = "A large-scale version, with seamlessly layered notes of almond cream, apricot, ginger, mango, piecrust, papaya and toasted hazelnut. The long, spice-infused finish shows ample depth, echoing with an enticing tarte Tatin note. Best from 2016 through 2035. 7,000 cases made.",
@@ -5989,7 +5989,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fd44b6df-07e2-4f32-9971-9b2a9e1eadd4"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc California",
                             Note = "Graceful, with fragrant orange blossom, ruby grapefruit and white peach flavors that are fresh and lively, set on a light, lithe body. Appealing lime zest and passion fruit accents show on the long finish. Drink now. 38,000 cases made.",
@@ -6003,7 +6003,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7ba3b3db-9f53-4df6-bee7-1290a558da30"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Constantia Bayten",
                             Note = "Very solid, with a crunchy feel along the edges and pure white peach, flint and honeysuckle notes racing along. Drink now. 4,000 cases imported.",
@@ -6017,7 +6017,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8a52cec9-c037-4ba4-8348-49bd3d14a76d"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc High Valley",
                             Note = "Focused and precise, with detailed lemon meringue, orange blossom and lime zest flavors that are intense, fragrant and harmonious on the long, crisp finish. Drink now. 2,198 cases made.",
@@ -6031,7 +6031,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("55841857-8f94-44e1-9b90-fb2488f41f8c"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Lake County",
                             Note = "Juicy, ripe, fruity and complex, distinctive, with very pretty grapefruit, melon, apple, and herb flavors. Soft, delicate and broad in structure, this is the second great Sauvignon Blanc in a row from this winery.  ",
@@ -6045,7 +6045,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5628fb8f-28aa-457a-bd22-bdaba72a5e9d"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Lake County Vintner's Reserve",
                             Note = "With powerful grassy, fruity aromas, full, crisp flavors and a lingering, light finish, this is unmistakably Sauvignon Blanc. Herbs, vanilla and tasty peach flavors fill out the profile. 80,000 cases made.",
@@ -6059,7 +6059,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("86c9bccf-ad41-4b8e-b28b-ddc3cec977c2"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Marlborough",
                             Note = "Succulent, fleshy peach and nectarine flavors are accented by Key lime, mango and ruby grapefruit notes. Shows nice intensity on the long, expressive finish. Drink now. 589,000 cases made.",
@@ -6073,7 +6073,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8da7c429-e9e1-4e0b-97ae-081a66d33cdf"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Marlborough Single Vineyard",
                             Note = "Offers a succulent mix of citrus and tropical fruit, with Meyer lemon, passion fruit and lemon verbena notes accented by a distinct sea salt hint. Generous and refreshing, with a long, persistent finish. Drink now. 16,000 cases made.",
@@ -6087,7 +6087,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d9a48b38-d08e-4b6f-b259-12aa2c1b3841"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Napa Valley",
                             Note = "Hard to imagine a better California Sauvignon Blanc. Rich, intense and loaded with rip fig, lemon, herb, and spice flavors, it has a very enticing, fine structure with lively flavors that build to the finish and carry on. Best from 1990 through 1992. 15,500 cases made.",
@@ -6101,7 +6101,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("06bf99d1-bca1-4579-a823-07a1b074cbed"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Napa Valley Yount Mill Vineyard",
                             Note = "Clean, smooth and crisp, offering a lip-smacking mix of pear, melon and Key lime flavors, with plenty of intensity on the finish. Drink now. 4,900 cases made.",
@@ -6115,7 +6115,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4562dc63-15a6-42ab-9722-a84cefceef33"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Russian River Valley",
                             Note = "Succulent, lush and rich, with fleshy mango, melon and peach flavors up front, leading to a core of pineapple, lemon and honeysuckle notes. The smoky edge and nervy acidity weave in and out, giving this a fresh finish. Drink now. 9,500 cases made.",
@@ -6129,7 +6129,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3333413e-b8e7-4523-b444-7b944ae30bd3"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Rutherford",
                             Note = "Opens up with lemon verbena, citrus and melon notes that are round and juicy, balanced with sophisticated details of honeysuckle and grapefruit zest. This finishes with a crescendo of flavors, lingering on the finish. Drink now. 9,700 cases made.",
@@ -6143,7 +6143,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bc99ad82-0522-47be-92ab-3e328092fdf9"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sauvignon Blanc Sonoma County",
                             Note = "A polished, distinctive wine that's crisp and flavorful, with ripe, spicy, concentrated flavors of rich, honeyed quince and fig. Has hints of grassiness and impressive length. Drinkable now. 10,000 cases made.",
@@ -6157,7 +6157,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a6539dc3-7657-4670-8da1-cbe075f2892f"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Savennières",
                             Note = "Alluring, with quince, creamed pear, verbena and green almond flavors allied to a creamy texture, all offset beautifully through the finish by light quinine and mineral hints. Approachable, but this seems built for the cellar. Best from 2018 through 2030. 1,500 cases imported.",
@@ -6171,7 +6171,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2d2485ac-8b37-4ccf-a33d-78df06a9a502"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1990, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Savennières-Coulée de Serrant Clos de la Coulée de Serrant",
                             Note = "Distinctive, unusually ripe and complex, offering loads of apricot, pineapple and almost plummy aromas and flavors that just sail on and on through the long finish. Not steely and austere, like mnay Savennières, but almost silky and honeyed. Tempting now, but better with time. Drink now through 2005. 2,500 cases made.",
@@ -6185,7 +6185,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1fde6446-51fc-431e-9892-f093254973d9"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Savoie Apremont CuvÃ©e Gastronomie",
                             Note = "Yellow apple, fennel and lemon zest notes form the core, while lively floral and quinine accents stretch out the finish. Not big, but offers lovely cut and purity. Very refreshing. Drink now through 2017. 9,500 cases made.",
@@ -6199,7 +6199,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b39e8a58-3c57-460d-b5b3-77c40f4bd369"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shiraz Barossa Valley Bella's Garden",
                             Note = "Utterly seamless, focused, powerful and elegant, layered with cherry, boysenberry and red plum fruit, revealing glints of coffee, jasmine and cardamom that add extra nuances. Delivers complexity without extra weight. The finish won't quit. Drink now through 2022. 6,000 cases made.",
@@ -6213,7 +6213,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f180c9e8-bb66-4de4-ac5e-f549dce7c3cf"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shiraz Hunter Valley",
                             Note = "Amazingly rich and complex already, and it's just a baby. Firm, fine tannins support a classic structure and a panoply of aromas and flavors. Built around a solid core of plum fruit, it also hints at cedar, leather, cinnamon and sandalwood. Almost drinkable now, but best 1994 to 1998.  ",
@@ -6227,7 +6227,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e71701ce-88ae-4826-9eba-29c55405eba3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shiraz McLaren Vale Carnival of Love",
                             Note = "Bold, expressive, velvety and generous, with ripe cherry and plum flavors at the core. Complex details of vanilla bean, licorice, Earl Grey tea and gingerbread explode on the long finish. Drink now through 2030. 1,467 cases made.",
@@ -6241,7 +6241,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("dfb2f13c-a2ba-48e2-ae67-53de807a7935"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shiraz McLaren Vale Lily's Garden",
                             Note = "Notes of espresso and toasted hazelnut are rich and thick, with mocha-accented tannins that lend a velvety backdrop to the polished blackberry, licorice and black cherry flavors, lingering generously on the long finish. Drink now through 2030. 2,470 cases made.",
@@ -6255,7 +6255,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c4927e1f-2986-4d2d-964b-a9646aed7ae0"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shiraz Victoria Are You Game?",
                             Note = "Vivid, peppery and appealing, with cherry and blueberry fruit, revealing black pepper overtones and a polished texture. Lingers easily on the refined finish. Lively and graceful. Drink now through 2018. 5,000 cases made.",
@@ -6269,7 +6269,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("eddb73d5-ae0e-44b6-b21c-aa712741e8f9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Shiraz-Viognier Victoria",
                             Note = "Fresh and expressive, medium-weight but vivid, with black cherry and floral notes, balanced by a stony minerality that glides into the long finish against fine tannins. Drink now through 2020. 4,500 cases made.",
@@ -6283,7 +6283,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c99bba23-0af2-44cf-8a94-1d5758445f6e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sicilia",
                             Note = "A lovely, medium-bodied red, with a pure beam of ripe cherry and fresh acidity layered with supple tannins and accents of star anise, dried thyme, loamy earth and mocha. Drink now through 2023. 10,000 cases made.",
@@ -6297,7 +6297,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("efbb5f6b-eeac-4aad-89fd-5226109738b5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Sicilia Santagostino Baglio Soria Red",
                             Note = "Aromas and flavors of bacon fat and mesquite smoke mix with ripe black cherry, licorice snap, mocha and mint in this expressive red, with fine-grained tannins and juicy acidity. Elegant through to the aromatic, coffee-tinged finish. Nero d'Avola and Syrah. Drink now through 2024. 70,000 cases made.",
@@ -6311,7 +6311,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a623dbbd-fec2-44a6-b3cc-39ce59efc9f8"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Soave Classico",
                             Note = "A lithe, light-bodied white, with racy acidity and a subtle streak of mineral, layered with nectarine, melon and pink grapefruit pith flavors. This is well-knit, with a lingering, lightly spiced finish. Drink now through 2020. 9,000 cases made.",
@@ -6325,7 +6325,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8fd643b4-a517-471c-9de2-50e607c10757"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "St.-Chinian-Roquebrun La Grange des Combes",
                             Note = "A muscular but polished red, with brooding blackberry pie, dark cherry and roasted plum notes complemented by iron, peppercorn and licorice details. Full but not overpowering tannins linger on the savory, herb-tinged finish. Syrah, Grenache and MourvÃ¨dre. Drink now through 2022. 12,000 cases made.",
@@ -6339,7 +6339,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("908b54de-b80d-4c0f-ac64-d933a695a2e7"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "St.-Emilion",
                             Note = "This cuts a wide swath, with mouthwatering tobacco and warm ganache notes leading the way, followed by a wave of fig, blackberry and black currant preserves. Shows remarkable definition already, even though the structure is strident. Tempting now, but just put this in the back of the cellar. Best from 2020 through 2035. 4,083 cases made.",
@@ -6353,7 +6353,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d42a3c07-e35e-42b2-b53f-ddefde0989e5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "St.-EstÃ¨phe",
                             Note = "This is generous and forward for a St.-EstÃ¨phe, with plum and kirsch notes lined with hints of blood orange and red licorice. Shows a juicy feel through the finish, balanced by honest grip. A modern rendition that maintains a tug of <i>terroir</i>. Drink now through 2019. 22,500 cases made.",
@@ -6367,7 +6367,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("1dbfbd11-742f-4473-8fb3-093533ec4736"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "St.-Estèphe",
                             Note = "Hard-edged St. Estephe with enough of a finish of smooth vanilla and fruit to suggest that it will be more likeable as it ages and the tough, tannic structure and tobacco-herbal flavors resolve. Has the stuff you'd expect from a classed growth.  ",
@@ -6381,7 +6381,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("66cbc862-36b4-4204-b4ae-3772d40debd2"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "St.-Julien",
                             Note = "Densely packed, with cassis, steeped plum and blackberry coulis notes that are compressed with layers of cold charcoal and graphite. Very pure, giving this a long, sleek and racy feel, while an iron underpinning drives the finish. Best from 2020 through 2040. 12,500 cases made.",
@@ -6395,7 +6395,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c4adfdf7-1f9f-45df-8652-d55741b9771b"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "St.-VÃ©ran",
                             Note = "Though rich, this is offset by vivid acidity, creating a nice tension to the lemon, apple and melon flavors. Long and tangy on the finish. Drink now through 2018. 8,000 cases imported.",
@@ -6409,7 +6409,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("40a549e3-e620-4700-860f-03834b84814c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "SUMÅ  Amador County",
                             Note = "Shows excellent purity and intensity to the huckleberry and blueberry coulis flavors, with supple, velvety tannins and an aromatic lift from violet and white pepper details. Notes of sandalwood, black walnut, Earl Grey tea and nutmeg gain momentum on the tremendous finish, where the details and elegance persist. Petite Sirah, Syrah and Viognier. Drink now through 2030. 220 cases made.",
@@ -6423,7 +6423,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f4db1c73-7734-410d-85d9-8bc828801037"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Colchagua Valley Alpha",
                             Note = "Deeply colored and voluptuous, with a lush, spicy aroma and rich flavors of blackberry, blueberry and dark plum. Concentrated chocolate mousse notes emerge midpalate, leading to a cream-filled finish that ends with plenty of mocha accents. Drink now through 2021. 2,000 cases imported.",
@@ -6437,7 +6437,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fc81f374-bddf-483c-8b33-8f5ddaa30eb1"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Colchagua Valley La Joya Gran Reserva",
                             Note = "Open-knit, creamy and lush-tasting, with spiced cherry, dark plum and boysenberry flavors that ooze with rich, spicy notes. Fig and chocolate mousse details flood the finish. Drink now through 2016. 10,000 cases imported.",
@@ -6451,7 +6451,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("310d933a-d29a-45af-83c6-00769e2d9ba0"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Columbia Valley The Pundit",
                             Note = "This shows nice tension between the ripe, dark flavors and crisp, lively structure, featuring a sleek core of plum and smoky tea flavors that carry easily into the long and deftly balanced finish. A little cellaring should soften the tannins. Best from 2017 through 2020. 8,000 cases made.",
@@ -6465,7 +6465,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ac4ce60a-a050-4e2c-852d-668438cc6cea"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Edna Valley Reva Alban Estate",
                             Note = "Refined yet dynamic, with a structured and balanced core of acidity and tannins framed by formidable black raspberry, smoky meat, licorice and orange zest flavors that build momentum toward polished tannins. Drink now through 2026. 2,000 cases made.",
@@ -6479,7 +6479,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2a652a1b-1346-40ba-832a-5e94ac5a633d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Marchigue",
                             Note = "A ripe, dense and rich red, with concentrated roasted plum and dark cherry flavors, flanked by notes of dried meat and Asian spice. Bittersweet chocolate details linger with hints of cream on the finish. Drink now through 2020. 3,500 cases made.",
@@ -6493,7 +6493,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9099c650-acba-4db3-b5f1-13d3c95aefb3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Napa Valley",
                             Note = "Polished and impeccably structured, with blackberry and smoky meat aromas and layered, rich flavors of licorice and espresso that linger toward big but firm tannins. Drink now through 2027. 1,124 cases made.",
@@ -6507,7 +6507,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("013b9ff7-a2a8-4c43-b85e-05f4dc0eff0e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Napa Valley Orion",
                             Note = "Dark, dense and remarkably supple, with gorgeous plum, peach and cherry flavor graced with hints of mint and spice, rounded out with delicious oak. Comes off like a Bordeaux with Rhône flavors, very seductive. Drinkable now if you don't mind some velvety tannins. Not cheap.  ",
@@ -6521,7 +6521,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5c6d51ad-50d6-482e-b7ca-590c5510fb25"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Paso Robles Fracture",
                             Note = "Bold and downright flamboyant, this manages to stay balanced and focused. Floral aromas of boysenberry, raspberry and roasted coffee open to rich, complex flavors that focus on licorice, smoky pepper beef and loamy mineral. Drink now through 2026. 1,000 cases made.",
@@ -6535,7 +6535,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("90c5e29a-c769-49a1-9a08-fb9606b4a116"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Russian River Valley",
                             Note = "This is plush, rich and impeccably structured, with floral blueberry and raspberry aromas accented by smoky pepper and complex, expressive flavors that combine mineral-tinged tannins with plump fruit. Best from 2018 through 2030. 1,100 cases made.",
@@ -6549,7 +6549,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c39a1337-1163-4610-8ac2-769ae1892b08"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Sonoma County",
                             Note = "Beautifully concentrated and long, with enough fine tannin to hold it for years in the cellar. After a touch of earthiness on the nose, blueberry, plum and anise aromas and flavors burst over the palate. Should be an elegant wine by 1992-93.  ",
@@ -6563,7 +6563,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("dec7d6c4-047b-4448-9760-4072c6413966"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Sonoma Valley Durell Vineyard",
                             Note = "Supple and rich, with spicy cherry aromas and flavors, beautiful overtones of sweet oak and cinnamon; voluptuous and succulent—you could drink it now in a fit of sheer hedonism, but give it till 1991 or '92 for the full effect.  ",
@@ -6577,7 +6577,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("eb2bce59-8922-4da4-82b9-ad3114ab6eae"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Stellenbosch",
                             Note = "This is well-rendered, with a core of bramble-edged boysenberry, blackberry and raspberry fruit laced with mouthwatering savory and anise notes. Shows judicious toast through the finish, as roasted apple wood details dance through, letting the fruit win out in the end. Drink now through 2024. 3,540 cases made.",
@@ -6591,7 +6591,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("78942d2d-a7d6-40b0-93d4-c0577fd667ef"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Walla Walla Valley Cailloux Vineyard",
                             Note = "Broad and expressive, playing the cherry, raspberry and pear notes against fine tannins. Picks up tobacco, tar and mineral notes as the finish sails on. Has terrific presence without weight. Drink now through 2025. 846 cases made.",
@@ -6605,7 +6605,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0ab06614-ac15-463a-af40-6845fc722d71"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Walla Walla Valley In The Rocks",
                             Note = "Supple and expressive, this opens up like a giant flower, spreading the dark plum, blackberry, crÃ¨me fraÃ®che and spice flavors throughout the seamless whole. The finish sails on against barely noticeable tannins. This has tremendous power, but feels like it's floating. Drink now through 2025. 602 cases made.",
@@ -6619,7 +6619,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3a0bb500-9de7-4162-ac3d-6d53f4b8510e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Walla Walla Valley Powerline Estate",
                             Note = "A knockout Syrah, precise and impeccably built but explosive with personality. Smoky roasted meat and floral blackberry aromas combine with bold, supple flavors of dark plum, pepper and licorice. The tannins are big but polished. Drink now through 2024. 1,319 cases made.",
@@ -6633,7 +6633,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("02bb2a4f-71ca-49d8-bdfd-97c4ec60f0c8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah Walla Walla Valley The Deuce",
                             Note = "Supple, ripe and provocative, with mineral, licorice and tapenade flavors running through a plush, generous core of dark plum and black cherry. Shows presence and polish. Drink now through 2022. 583 cases made.",
@@ -6647,7 +6647,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("e688278f-c406-456c-80bb-314c75da6ff8"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah-Grenache Languedoc",
                             Note = "A ripe aroma leads to rich, concentrated dark plum, kirsch and dried blueberry flavors, with a succulent spiciness. The finish shows touches of smoke, alongside notes of chocolate. Drink now through 2017. 18,000 cases made.",
@@ -6661,7 +6661,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4d0a5591-a154-4304-9f5b-6c1337eaef16"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Syrah-Sirah Dry Creek Valley",
                             Note = "Bursting with fresh, lively fruit. Lots of black cherry, blackberry and raspberry flavors in spades, It's fleshy and jammy with enough tannin and acidity to clean off your palate.  ",
@@ -6675,7 +6675,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("961ff8fa-7b49-404a-8ca6-ce1db4a120bb"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "'T Voetpad Swartland",
                             Note = "Dried lemon peel, fennel seed and honeysuckle notes give this a high-pitched entry, but the core offers up Jonagold apple and melon fruit while the finish pulls in fresh salted butter and verbena details, imparting remarkable range and length. Chenin Blanc, Sémillon, Palomino and Muscat. Drink now through 2024. 280 cases made.",
@@ -6689,7 +6689,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("275c3b06-b232-48e6-9608-67d0f0311539"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Tannat Uruguay Reserva",
                             Note = "Well-sculpted, with dense, rich flavors of dark plum, dried blackberry and dark currant that are supported by firm tannins. Christmas pudding and rich savory notes show on the finish. Drink now through 2022. 12,000 cases made.",
@@ -6703,7 +6703,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("281c39c0-3063-46fe-a35b-f6517b51ed8f"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(1989, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Tawny Port Australia Old Trafford",
                             Note = "Sensationally complex and rich, a dessert in a glass with sweet flavors of caramel, coffee and many spices, extraordinarily long and dynamic. It just stays with you forever.  ",
@@ -6717,7 +6717,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("59d9c022-c3cc-40ca-a03b-c469296b3ace"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Tempranillo Ribera del Duero",
                             Note = "Black cherry, red plum and currant flavors are fresh and lively in this firm red, backed by dark chocolate, licorice and toasty notes. Light, firm tannins and citrusy acidity keep this focused. Drink now through 2023. 58,333 cases made.",
@@ -6731,7 +6731,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b2c8ef8d-2e74-4797-bb31-40d857034722"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "The Ball Buster Barossa Valley",
                             Note = "Bold, with dense notes of dark chocolate-covered coffee bean, plum paste, wild blackberry, cigar box and date bread. Expressive and generous. The velvety tannins linger. Shiraz, Cabernet Sauvignon and Merlot. Drink now through 2027. 8,500 cases made.",
@@ -6745,7 +6745,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a7a803b9-baaa-4cff-a8cb-5c95b17cea3f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "The Bedrock Heritage Sonoma Valley",
                             Note = "An exceptional red that recalls the hearty old California field blends with style. Exotic aromas of cracked pepper, smoky beef and blackberry lead to plum, Asian spice and licorice flavors, lingering toward briary tannins. A blend of Zinfandel, Carignane and 20 other field-blended varieties. Drink now through 2022. 500 cases made.",
@@ -6759,7 +6759,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c566d70b-3768-456b-abf5-5b934b9ada81"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "The Creator Walla Walla Valley",
                             Note = "Supple, expressive, polished and generous, with layers of dark berry, cherry, black olive and spice flavors that merge harmoniously on the long and refined finish. Cabernet Sauvignon and Syrah. Drink now through 2022. 1,301 cases made.",
@@ -6773,7 +6773,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a1af7547-bf04-4b35-a76e-f2df8e5f686e"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Three Palms Vineyard Napa Valley",
                             Note = "Loaded with fruit and concentrated flavors that are rich and tannins, filled with pretty currant, black cherry and plum flavors, along with buttery oak that offers depth and dimension. Has tannin for aging. Drink 1993.  ",
@@ -6787,7 +6787,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("27f7d651-6e1a-48b8-a9b6-7e2f3a004fa3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Tierra de Barros Lar de Barros Reserva",
                             Note = "Earthy, ripe, complex and distinctive, with toast, cherry, prune and chocolate flavors intertwined in a soft, velvety package that firms up and gets a little tannic on the finish. Long and concentrated, this complex wine is unlike any other we have tasted. 12,500 cases made.",
@@ -6801,7 +6801,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("24a60140-0ada-4f60-8928-dbf88771645a"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2014, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Tokaji AszÃº 5 Puttonyos",
                             Note = "Intense and elegant at once, this is smooth, harmonious and vibrant. The citrus pÃ¢te de fruit, apple and lemon candy flavors are long and permeating. Terrific focus. Drink now through 2018. 2,144 cases made.",
@@ -6815,7 +6815,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f123684c-1a31-43e6-850b-b00c8081757a"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Toro San RomÃ¡n",
                             Note = "The polished texture masks depth and muscle in this powerful red, which shows blackberry, anise, tar and mineral flavors, with spicy and floral highlights. Firm tannins and fresh acidity lend good balance. Expressive, in an austere way. Drink now through 2027. 7,750 cases made.",
@@ -6829,7 +6829,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("485cea2f-2d88-4396-ab56-41e717e9d965"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Toscana Borgoforte",
                             Note = "Enticing aromas of violet, black currant and rosemary are accented by licorice and tobacco flavors in this fluid and harmonious red, with fine tannins gracing the long finish. Sangiovese, Cabernet Sauvignon and Merlot. Drink now through 2022. 12,500 cases made.",
@@ -6843,7 +6843,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("62c3a32f-d733-4aea-a580-7fc07df719d9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Toscana Il Fauno",
                             Note = "A polished, flavorful red, boasting floral, black currant, raspberry and spice flavors. Firm yet harmonious, with the fine aftertaste lingering with fruit, iron, tobacco and tea elements. Merlot, Cabernet Franc, Cabernet Sauvignon and Petit Verdot. Drink now through 2024. 11,829 cases made.",
@@ -6857,7 +6857,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("92a16f7a-874e-4aa7-ba5f-480e5873d856"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Toscana Ilatraia",
                             Note = "Dense and tightly wound, with a beam of black cherry and blueberry fruit. Cedar, smoke, tar and tobacco notes add nuance, giving this a complex impression overall. Balanced and long, with a compact finish that should expand as this integrates more fully. Cabernet Sauvignon, Petit Verdot and Cabernet Franc. Best from 2018 through 2032. 3,750 cases imported.",
@@ -6871,7 +6871,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0efaf329-e3b5-4597-955c-920ec5ca3467"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Toscana Le Cupole",
                             Note = "Alluring scents of ripe cherry, mulberry and fresh herbs complement concentrated flavors of cherry and sweet spice in this red. Offers a backbone of mouthcoating tannins and remains integrated as the finish lingers. Merlot, Cabernet Franc and Cabernet Sauvignon. Best from 2018 through 2027. 4,600 cases made.",
@@ -6885,7 +6885,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fcda0450-7fb7-49b9-9689-e037852efd58"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Toscana Luce",
                             Note = "Polished and complex, featuring ripe black cherry, plum, mint, vanilla, chocolate, leather and tobacco aromas and flavors. Dense and tannic, with concentrated sweet fruit for balance. Finishes long and harmonious. Merlot and Sangiovese. Best from 2017 through 2035. 1,600 cases imported.",
@@ -6899,7 +6899,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0915da9a-0999-4d74-baec-cc93cb9f9f10"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Toscana Tignanello",
                             Note = "Aromas of graphite, smoke and tobacco introduce the cherry flavor in this expressive, focused red. Firm tannins and lively acidity balance the fruit and purity, while herbal, spice and mineral elements all gather steam as this plays out on the long finish. Sangiovese, Cabernet Sauvignon and Cabernet Franc. Best from 2017 through 2027. 2,500 cases imported.",
@@ -6913,7 +6913,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("898d14b2-9241-4871-9bef-cd6ce2b4fe10"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Touriga Nacional Douro",
                             Note = "Supple but tightly knit, this focused red offers blackberry and currant fruit woven together with black olive, anise and grilled herb accents. Black tea and mineral notes chime in on the firm finish. Drink now through 2022. 7,500 cases made.",
@@ -6927,7 +6927,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("a280c618-4bba-4da0-8c3c-66bb1f1c44e3"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ursa Columbia Valley",
                             Note = "The core glows with ripe blackberry, dark plum, mint and floral flavors, gliding over lightly prickly tannins into the long and compelling finish. Feels almost weightless, but has tremendous depth. Merlot, Cabernet Franc, Cabernet Sauvignon and Malbec. Drink now through 2020. 1,219 cases made.",
@@ -6941,7 +6941,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ee57533c-b1a2-408e-be38-2d438afa648c"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Valdeorras Viña Godeval Cepas Vellas",
                             Note = "Pear, peach and quince flavors mingle in this expressive white, while notes of mineral, tangerine and ginger add complexity. Shows depth and focus, with a clean, juicy finish. Drink now. 1,800 cases imported.",
@@ -6955,7 +6955,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d090e59a-09a6-4916-a81c-2337b401512b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Valpolicella Classico Superiore San Michele Ripasso",
                             Note = "This mouthwatering red is medium-bodied and expressive, offering lightly chewy tannins and flavors of sun-dried cherry, strawberry preserves and star anise, with pleasing hints of herb and mineral on the finish. Drink now through 2022. 5,000 cases made.",
@@ -6969,7 +6969,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("34cb2451-5b59-41d2-ae29-d85fbcd18a02"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Valtellina Superiore Quadrio",
                             Note = "Rich, with a base note of tarry smoke, this remains elegant and medium-bodied overall, showing mouthwatering acidity and fine integration. Dried mint and thyme aromatics lace the dried strawberry and cherry fruit, offset with star anise and beef bouillon details. Offers a lightly chewy finish. Drink now through 2024. 3,300 cases imported.",
@@ -6983,7 +6983,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("5e6233cd-ae76-4b22-993d-725c1ada2515"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Veneto White San Vincenzo",
                             Note = "An expressive white, creamy and lightly juicy throughout, offering flavors of blood orange granita, fresh tarragon, yellow peach and mineral, set in a light-bodied frame. The finish is juicy. Garganega with Sauvignon Blanc and Chardonnay. Drink now through 2019. 41,660 cases made.",
@@ -6997,7 +6997,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("ebc0c632-e945-4345-9a2b-5fac6c0f62c2"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Verdicchio dei Castelli di Jesi Podium",
                             Note = "An elegant, creamy white, backed by sleek, citrusy acidity, this shows a subtle mix of poached pear, grated ginger and stony mineral flavors, accented by hints of crushed almond. Drink now through 2020. 3,500 cases made.",
@@ -7011,7 +7011,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("fbccb268-ef54-49a8-b275-d0acc0fadc25"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vernaccia di San Gimignano Tenuta Le Calcinaie",
                             Note = "A bright, juicy version, boasting floral, peach, grapefruit and honey aromas and flavors. Pure and elegant, finishing with a characteristic hint of bitterness. Drink now. 2,350 cases made.",
@@ -7025,7 +7025,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("31365364-a148-4746-aa81-06d83847a60c"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "ViÃ±o de la Tierra de Castilla y LeÃ³n Sardon de Duero SelecciÃ³n Especial",
                             Note = "Alluring for its plush texture and impressive for its depth, this red delivers plum, currant, licorice, tar and mineral flavors that are rich and focused. The firm tannins are well-integrated, kept lively by fresh acidity. Smoke and floral notes mingle on the long finish. Drink now through 2031. 30,000 cases made.",
@@ -7039,7 +7039,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("157c6f22-da2e-45dc-b7f1-0ad2ff6ffc52"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "ViÃ±o de la Tierra de Castilla y LeÃ³n SelecciÃ³n Especial Sardon de Duero",
                             Note = "A polished texture carries harmonious flavors of black cherry, cola, licorice and mineral in this focused red. Well-integrated tannins and balsamic acidity lend this a balanced structure. Reserved but deep. Drink now through 2022. 31,150 cases made.",
@@ -7053,7 +7053,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bbe64682-1fa8-4677-85c1-0f3fe9a53768"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2015, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vin de Constance Constantia",
                             Note = "Rich and unctuous, yet superbly racy, this offers a gorgeous panoply of dried apricot, fig, mango and quince flavors, underscored by a lively blood orange note and backed by a long, ginger- and green tea-filled finish. Youthfully tight, this should cruise for some time in the cellar. Muscat de Frontignan. Best from 2016 through 2030. 2,500 cases made.",
@@ -7067,7 +7067,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3ca944e0-ff00-41f9-9e45-16f400af9a1d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vin de Pays du Var St.-Auguste",
                             Note = "A dark, smoky version, with mulled plum and blackberry paste notes liberally lined with charcoal, dark olive and bay leaf flavors. Features a rugged feel through the toasty finish. Syrah, Cabernet Sauvignon and Merlot. Drink now through 2016. 1,125 cases made.",
@@ -7081,7 +7081,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d787ae35-a1a0-4e66-81b3-df0ae4da5f2d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vino Nobile di Montepulciano Incanto",
                             Note = "Rich and rangy, this black cherryÂ, plum-, tar- and spice-infused red is backed by a base of beefy tannins. Balanced overall, with a long finish of earth and spice. Best from 2016 through 2027. 22,000 cases made.",
@@ -7095,7 +7095,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("9c0be318-33db-4349-b18f-92fd51cd8807"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vino Nobile di Montepulciano Riserva",
                             Note = "A rich, powerful style, this evokes black cherry, black currant, plum, leather and tar flavors. Balanced and ready to enjoy, with lingering accents of spice and tobacco. Drink now through 2023. 15,000 cases made.",
@@ -7109,7 +7109,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("84d2fc7f-dc24-47c0-9be0-903def137d99"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2014, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vintage Port",
                             Note = "Powerful, refined and luscious, with a surplus of dark plum, kirsch and cassis flavors that are unctuous and long. Shows plenty of grip, presenting a long, full finish, filled with Asian spice and raspberry tart accents. Rich and chocolaty. One for the ages. Best from 2030 through 2060. 5,000 cases made.",
@@ -7123,7 +7123,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c7b17cda-85f8-49cb-be0b-29c57a9606ff"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2017, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vintage Port Guimaraens",
                             Note = "This is warm and lush in feel, and really well-built, with layers of blueberry, açaí berry and plum reduction flavors rolling through, laced with hints of ganache and fruitcake. Lots of graphite-edged grip lines the finish.  Best from 2027 through 2040. 4,500 cases made.",
@@ -7137,7 +7137,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2723df0e-843d-4234-9d17-8dcad645ccb3"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Viura Rioja CapellanÃ­a",
                             Note = "Aromatic notes of beeswax, chamomile and orange blossom frame the flavors of baked apple, coconut, ginger and tarragon in this generous white, whose fresh acidity and light tannins keep it structured, with the spicy accents lingering on the finish. A traditional style. Drink now through 2020. 3,244 cases made.",
@@ -7151,7 +7151,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4466118b-53d4-4ccb-89b4-c1fa5b49a349"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Viura Rioja Vetiver",
                             Note = "This bold white marries expressive flavors to a muscular texture. Pear and quince notes mingle with brioche, chamomile and dried pineapple details, with juicy acidity and light tannins lending support. Lively now, this should harmonize with time. Drink now through 2024. 2,000 cases made.",
@@ -7165,7 +7165,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("d60125e7-1405-4e34-a345-00e48d6de4bd"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vosne-Romanée Au Cros Parantoux",
                             Note = "A powerful Burgundy with a raw edge that needs cellaring to smooth the bristly texture, but it has gorgeous cherry, spice and chocolate-toast flavors that become deeper and deeper with every sip. Drink now through 2000.  ",
@@ -7179,7 +7179,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("dcbed947-5c49-40d8-9a72-30b6f301da99"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vosne-Romanée Aux Brûlées",
                             Note = "Stunningly beautiful berry and spice aromas and flavors capture your attention from the first sniff right through to the velvety finish, growing richer and more elegant with every sip. Has a bit of tannin to lose on the finish, so cellaring until 1994 is indicated. Delicious already.  ",
@@ -7193,7 +7193,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3f161b96-deeb-4b25-a7c6-7abd2322cb3f"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 2, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vosne-Romanée Les Beaux-Monts",
                             Note = "Tightly focused and concentrated, sending a current of flavor right down th pepper and vanilla, elegant and firm, gaining complexity on the finish. Even at the price, it s a deal.  ",
@@ -7207,7 +7207,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("dca20d4e-6b6e-471e-a8cb-e074379cf110"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vosne-Romanée Les Chaumes",
                             Note = "Generous and sweet on the nose, rich and velvety on the palate, bristling with chocolate, vanilla and cherry flavors, harmonious, elegant and long. Should develop at least through 1993. One of the few '86 red Burgundies worth time in your cellar.  ",
@@ -7221,7 +7221,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("405b1766-67e8-40b2-acaf-0ffa013fb24f"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2017, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vouvray Demi-Sec Le Mont",
                             Note = "This tilts toward the flattering side of off-dry, showing a plump feel to the core of creamed pear, white peach and yellow apple fruit. Lovely verbena, honeysuckle and mineral accents keep this balanced and driven, with a long finish that lets the fruit echo. Drink now through 2032. 2,000 cases made.",
@@ -7235,7 +7235,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bd06141c-c377-4f17-bd7f-28949d898ddb"),
-                            Color = 4,
+                            Color = 2,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vouvray Moelleux Clos du Bourg PremiÃ¨re Trie",
                             Note = "Concentrated, with a core of intense Jonagold apple, glazed Bosc pear, ginger cream and dried quince flavors, carried by filigreed acidity and backed by green tea, verbena, chamomile and persimmon notes. The finish is extremely long. Best from 2018 through 2040. 300 cases imported.",
@@ -7249,7 +7249,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("7e796bfd-9607-47d8-afc3-b5056eb63699"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "White Central Coast",
                             Note = "This expressive white is aromatic and juicy, featuring a rich, ripe, fleshy core of apricot and peach flavors, with accents of vanilla bean, honeysuckle and melon. A spicy note lingers on the long finish. Viognier, Roussanne, Grenache Blanc and Chardonnay. Drink now. 5,100 cases made.",
@@ -7263,7 +7263,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("f45b9215-eb15-4e61-9b51-17b8b9e73e9a"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(1988, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "White Riesling Anderson Valley",
                             Note = "A bit sweet, firmly balanced with crisp acidity, packed with juicy grapefruit and green apple flavors. There's a lovely hint of apricot on the nose. Very fine structure, vivid flavors and impressive length.  ",
@@ -7277,7 +7277,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4bcbc4fa-37fd-40d3-8c17-be9209f0ab59"),
-                            Color = 1,
+                            Color = 6,
                             IssueDate = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "White Santa Barbara County",
                             Note = "This is lush and powerful, offering fleshy peach and apricot flavors at the core, with plenty of aromatic highlights, including orange blossom and honeysuckle. The texture is appealingly smooth and mouthwatering, with the complex details gaining momentum on the finish, where this reveals hints of dried spice and matcha green tea. Viognier, Roussanne, Grenache Blanc and Chardonnay. Drink now through 2020. 3,500 cases made.",
@@ -7291,7 +7291,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bc9dfbc0-b8b7-4a4a-ab1d-6a9a55e8c241"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Yiron Galilee",
                             Note = "A rich and plush red, with a deep well of blackberry pie, dark plum and hot stone flavors that fold together seamlessly. Creamy midpalate, presenting a finish that oozes with chocolate mousse and Asian spice details. Unctuous. Cabernet Sauvignon, Merlot, Syrah and Petit Verdot. Kosher. Drink now through 2020. 10,800 cases made.",
@@ -7305,7 +7305,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("712b198b-8304-4d2a-901a-16b4be4f38b9"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zachary's Ladder Red Mountain",
                             Note = "Rich yet densely structured, with expressive black cherry and blueberry fruit, accented by smoky licorice and finishing with big but refined tannins. Cabernet Sauvignon, Syrah and Petit Verdot. Best from 2019 through 2025. 600 cases made.",
@@ -7319,7 +7319,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3f0f3a68-ab35-41cf-a0a7-cae25ce47d37"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Alexander Valley",
                             Note = "A classic claret-style Zinfandel at a great price showing elegant berry, cassis and pepper aromas and flavors, a gentle touch of toasty oak, long on the finish. A faultless Zin. Best around 1990 to 1992.  ",
@@ -7333,7 +7333,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("3edd50ad-c49a-4ca8-b3e1-92ac5a556706"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel California Juvenile",
                             Note = "Sleek, ripe and youthful, offering jammy raspberry aromas and flavors, with zesty notes of smoky spice and grilled anise. Drink now through 2019. 10,000 cases made.",
@@ -7347,7 +7347,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("dd1d74e7-fe20-44bd-8574-ef2ed9f63b85"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel California Old Vine",
                             Note = "Rich and supple, this is an explosion of pure, decadent fruit. Floral huckleberry and Chinese five-spice powder aromas open to layered blackberry, dark chocolate and licorice flavors that linger. Drink now through 2026. 4,500 cases made.",
@@ -7361,7 +7361,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("af6f1c87-5a1a-414e-8861-37587d8f76d6"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1988, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Dry Creek Valley",
                             Note = "Very firm and concentrated and focused, amazingly layered with blackberry, cassis and plum fruit, cedary overtones from spicy oak and a bracing touch of acidity and tannin to wrap it up and keep it from showing everything it has for 2-3 years.  ",
@@ -7375,7 +7375,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("11250735-0fb8-42d4-b441-ca91cd3ab9c5"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2014, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Mendocino County Wild Thing Old Vine",
                             Note = "Vibrant and zesty, offering smoky cherry aromas and complex briary raspberry, underbrush and cracked pepper flavors. Drink now through 2017. 3,500 cases made.",
@@ -7389,7 +7389,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c243f9b6-ced4-47c1-ac4f-35863bd09a23"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Paso Robles Ueberroth Vineyard",
                             Note = "An impressive combo of refinement and torque. This features ripe, rich fruit backed by great minerality and structure, with notes of raspberry and blackberry plus licorice, sage and pepper. Drink now through 2028. 1,380 cases made.",
@@ -7403,7 +7403,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("8610c9aa-704e-4a10-99f3-086b980a8c4f"),
-                            Color = 2,
+                            Color = 4,
                             IssueDate = new DateTime(2016, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Rosé",
                             Note = "Zinfandel Rose is ripe, fresh and fruity, with abundant aromas of cranberries and fresh strawberries. A versatile “anytime” wine great for picnics, parties and hot summer days. Lovely with poultry and spicy dishes. Serve well chilled.",
@@ -7417,7 +7417,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("0b93d66a-845c-4523-acc4-c683f979c22b"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2015, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Russian River Valley",
                             Note = "A knockout Zinfandel, balancing an opulent texture with great focus and depth. Aromas of rose petal and raspberry lead to rich and layered flavors of cherry, herbes de Provence and cracked white pepper. Finishes with a bounce of acidity and ripe, lively tannins. Drink now through 2020. 1,440 cases made.",
@@ -7431,7 +7431,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("c99550e4-09d6-4a60-8659-b5b8fb2dc792"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2016, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Russian River Valley Montafi Ranch",
                             Note = "Zinfandel doesn't get much better than this. Rich aromas of black raspberry and orange zest open to balanced, complex and luxurious flavors of blackberry, mint and baking spices. A knockout. Drink now through 2027. 871 cases made.",
@@ -7445,7 +7445,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("56018c4f-a478-4a43-afb6-7bff2ab106c0"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(2017, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Russian River Valley Old Vine",
                             Note = "This is what Russian River Zinfandel is all about. Rich, dynamic and layered, with complex fruit, offering notes of jammy black raspberry, stony mineral, herbes de Provence and licorice. The finish unfurls at length. Drink now through 2026. 1,700 cases made.",
@@ -7459,7 +7459,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("b5131dcb-8cf9-4dda-b01a-60d0b3e4769d"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1990, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Sonoma County",
                             Note = "Ripe and jammy, with beautifully defined raspberry aromas and flavors and hints of plum, nutmeg, vanilla and toast to make it more interesting. Claret-style in structure and well balanced. Lovely now but should continue to develop. Drink now through 1994. 6,500 cases made.",
@@ -7473,7 +7473,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("4b644c16-51a4-4f4e-87a4-97482c3be477"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Sonoma County Geyserville",
                             Note = "  ",
@@ -7487,7 +7487,7 @@ namespace WineryStore.Persistence.Migrations
                         new
                         {
                             Id = new Guid("2b528a22-1bb1-4bfc-8139-8ccf345f1aaf"),
-                            Color = 0,
+                            Color = 3,
                             IssueDate = new DateTime(1989, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Zinfandel Sonoma County Lytton Springs",
                             Note = "Enormously ripe, fruity and complex, teeming with jammy flavors and finishing with richness and finesse. Drink now to 1994. A blend: 82 percent Zinfandel, 13 percent Carignane, 5 percent Grenache. 3,448 cases made.",

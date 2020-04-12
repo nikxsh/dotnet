@@ -92,13 +92,13 @@ namespace WineryStore.Persistence.Datastore
 
 		public enum WineColor
 		{
-			Red,
-			White,
-			Rose,
+			Blush,
 			Champagne,
 			Dessert,
+			Red,
+			Rose,
 			Sparkling,
-			Blush
+			White
 		}
 	}
 }
