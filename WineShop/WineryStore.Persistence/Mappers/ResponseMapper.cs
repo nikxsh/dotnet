@@ -108,8 +108,6 @@ namespace WineryStore.Persistence
 							 .Where(x =>
 									x.Name.ToLower().Contains(token) ||
 									colorTokens.Any(tok => tok == (int)x.Color) ||
-									x.Rank.ToString().Contains(token) ||
-									x.Score.ToString().Contains(token) ||
 									x.IssueDate.ToString().Contains(token) ||
 									x.Price.ToString().Contains(token) ||
 									x.Vintage.ToLower().Contains(token)

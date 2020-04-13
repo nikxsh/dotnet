@@ -1,26 +1,24 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
-namespace Shared
+namespace Tools
 {
-	public class FileHandler
+	public class JsonHandler
 	{
-		public T ReadJsonData<T>(string path)
+		public static T ReadJsonData<T>(string path)
 		{
 			using var streamReader = new StreamReader(path);
 			string jsonData = streamReader.ReadToEnd();
 			return JsonConvert.DeserializeObject<T>(jsonData);
 		}
 
-		public void WriteJsonData<T>(string path, T Content)
+		public static void WriteJsonData<T>(string path, T Content)
 		{
 			var fileContent = JsonConvert.SerializeObject(Content);
-			WriteToFile(path, fileContent);
-		}
-
-		public void WriteToFile(string path, string content)
-		{
-			File.WriteAllText(path, content);
+			FileHandler.WriteToFile(path, fileContent);
 		}
 	}
 }

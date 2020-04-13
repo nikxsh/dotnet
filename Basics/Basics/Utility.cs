@@ -56,14 +56,6 @@ namespace Basics.Common
 
 		private static readonly Func<int, int, string> GetRandomName = (start, max) => MockData.Names[random.Next(start, max)];
 
-		public static void WriteToFile(string line)
-		{
-			using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\nikxsh.log"))
-			{
-				file.WriteLine(line);
-			}
-		}
-
 		public static T Cast<T>(object referenceObject)
 		{
 			Type objectType = referenceObject.GetType();

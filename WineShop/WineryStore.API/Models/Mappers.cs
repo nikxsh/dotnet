@@ -26,9 +26,6 @@ namespace WineryStore.API.Mappers
 				Name = wine.Name,
 				Price = wine.Price,
 				Color = (Contract.WineColor)wine.Color,
-				Score = wine.Score,
-				Rank = wine.Rank,
-				RankYear = wine.RankYear,
 				Vintage = wine.Vintage,
 				IssueDate = DateTime.Parse(wine.IssueDate),
 				Note = wine.Note
@@ -55,9 +52,6 @@ namespace WineryStore.API.Mappers
 				Name = wine.Name,
 				Price = wine.Price,
 				Color = (WineColor)wine.Color,
-				Score = wine.Score,
-				Rank = wine.Rank,
-				RankYear = wine.RankYear,
 				Vintage = wine.Vintage,
 				IssueDate = wine.IssueDate.ToString(),
 				Note = wine.Note

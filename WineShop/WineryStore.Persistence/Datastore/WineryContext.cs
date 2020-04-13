@@ -75,11 +75,8 @@ namespace WineryStore.Persistence.Datastore
 		{
 			public WineColor Color { get; set; }
 			public string Vintage { get; set; }
-			public int Score { get; set; }
 			public decimal Price { get; set; }
 			public DateTime IssueDate { get; set; }
-			public int Rank { get; set; }
-			public int RankYear { get; set; }
 			public string Note { get; set; }
 
 			//It is recommended to have a foreign key property defined in the dependent entity class, it is not required. 

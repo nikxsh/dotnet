@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WineryStore.Persistence.Datastore;
 
 namespace WineryStore.Persistence.Migrations
 {
     [DbContext(typeof(WineryContext))]
-    partial class WineryContextModelSnapshot : ModelSnapshot
+    [Migration("20200413120329_InitialWineShopCreate")]
+    partial class InitialWineShopCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

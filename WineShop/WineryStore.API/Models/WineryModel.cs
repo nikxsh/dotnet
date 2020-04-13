@@ -29,14 +29,10 @@ namespace WineryStore.API.Models
 		public WineColor Color { get; set; }
 		[StringLength(4)]
 		public string Vintage { get; set; }
-		[Range(0.01, 99.99)]
-		public int Score { get; set; }
 		[Required]
 		public decimal Price { get; set; }
 		[Required]
 		public string IssueDate { get; set; }
-		public int Rank { get; set; }
-		public int RankYear { get; set; }
 		public string Note { get; set; }
 	}
 
