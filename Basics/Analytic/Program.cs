@@ -7,7 +7,8 @@ namespace Analytic
 		static void Main(string[] args)
 		{
 			//new Matching();
-			new Math();
+			//new Math();
+			new TextManipulation();
 
 			Console.ReadKey();
 		}

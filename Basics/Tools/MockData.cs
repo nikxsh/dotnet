@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Basics.Common
+namespace Tools
 {
-	public class MockData
+    public class MockData
 	{
 		public static string[] Names = {
 			"Gaurav Shukla",

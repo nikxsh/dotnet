@@ -1,12 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Analytic
 {
-	public class Matching
+    public class Matching
 	{
-		public void StringInString(string input, string key)
+		public Matching()
+        {
+
+			PatternMatching1("xyzabxyz", "abc"); //Yes
+			PatternMatching1("xyzabcxyz", "ab"); //Yes
+			PatternMatching1("xyzaxyz", "ab"); //Yes
+			PatternMatching1("axyzxyz", "ab"); //Yes
+			PatternMatching1("xyzxyza", "ab"); //Yes
+			PatternMatching1("xyzxyz", "abc"); //No
+			PatternMatching1("xyzbcxyz", "abc"); //No
+			PatternMatching1("xyzcxyz", "abc"); //No
+			PatternMatching1("bxyzxyzc", "abc"); //No
+
+
+			//PatternMatching2("xyz", "abcd"); //0
+			//PatternMatching2("abcd", "abcd"); //1
+			//PatternMatching2("12abcdop", "abcd"); //2
+			//PatternMatching2("ab123cd", "*abcd"); //0
+			//PatternMatching2("ab123cd", "abcd*"); //0
+			//PatternMatching2("ab123cd", "a*bcd"); //0
+			//PatternMatching2("xab123cdyzxab987cd", "ab*cd"); //2
+			//PatternMatching2("xyzab123cd", "ab*cd"); //4
+			//PatternMatching2("xyzab123cxyzab678cd", "ab*cd"); //13
+		}
+
+		/// <summary>
+		/// 1. Print Yes or No for given conditions
+		/// 2. If given key's starting matches with input		
+		///   Case 1: 
+		///		Input: "China's communist party is expansionist and monstrous"
+		///		Key: "pa"
+		///		Output: Yes
+		///   Case 2: 
+		///		Input: "China's communist party is expansionist and monstrous"
+		///		Key: "par"
+		///		Output: Yes		
+		///	  Case 3: 
+		///		Input: "China's communist arty is expansionist and monstrous"
+		///		Key: "par"
+		///		Output: No
+		/// </summary>
+		public void PatternMatching1(string input, string key)
 		{
 			var charArray = key.ToCharArray();
 			var searchArray = input.ToCharArray();
@@ -56,7 +95,7 @@ namespace Analytic
 		///       tofind: ab*cd
 		///       output: 4  
 		/// </summary>
-		public void PatternMatching1(string input, string key)
+		public void PatternMatching2(string input, string key)
 		{
 			var keyIndex = 0;
 			var inputIndex = 0;

@@ -1,16 +1,11 @@
 ﻿using System;
 
-namespace Basics
+namespace ObjectOriented
 {
-	class DesignProblems
-	{
-		public void Play()
-		{
-
-		}
-
-		private void DesignProblem()
-		{
+    class MachineDesign
+    {
+        private void Problem()
+        {
 			//let say you have tank that shoot and drive and plane that fly and shoot, after that you 
 			//have to add new class Truck that can only drive. implement design
 
@@ -25,9 +20,8 @@ namespace Basics
 			Truck truck = new Truck();
 			truck.Drive();
 		}
-	}
+    }
 
-	#region Design problem Classes
 	public class GPS
 	{
 		public int Longitude { get; set; }
@@ -94,6 +88,4 @@ namespace Basics
 			throw new NotImplementedException();
 		}
 	}
-	#endregion
-
 }

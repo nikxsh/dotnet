@@ -1,16 +1,14 @@
-﻿using Basics;
-using Basics.Common;
-using System;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace Basics
+namespace CSharp
 {
-	/// <summary>
-	/// Language Integrated Query (LINQ)
-	/// </summary>
-	public class Linq
+    /// <summary>
+    /// Language Integrated Query (LINQ)
+    /// </summary>
+    public class Linq
 	{
 		public void Play()
 		{

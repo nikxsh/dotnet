@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 
-namespace Basics
+namespace CSharp
 {
 	public class MultiThreading
 	{

@@ -9,17 +9,6 @@ namespace Analytic
 
 		public Math()
 		{
-
-			//PatternMatching1("xyz", "abcd"); //0
-			//PatternMatching1("abcd", "abcd"); //1
-			//PatternMatching1("12abcdop", "abcd"); //2
-			//PatternMatching1("ab123cd", "*abcd"); //0
-			//PatternMatching1("ab123cd", "abcd*"); //0
-			//PatternMatching1("ab123cd", "a*bcd"); //0
-			//PatternMatching1("xab123cdyzxab987cd", "ab*cd"); //2
-			//PatternMatching1("xyzab123cd", "ab*cd"); //4
-			//PatternMatching1("xyzab123cxyzab678cd", "ab*cd"); //13
-
 			Problem2(new List<int> { 1, 1, 1, 2 });
 			Problem2(new List<int> { 1, 2, 1, 1, 2 });
 			Problem2(new List<int> { 100, 2, 4, 2, 3, 2, 100 });

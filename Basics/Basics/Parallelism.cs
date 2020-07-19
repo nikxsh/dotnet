@@ -1,7 +1,5 @@
-﻿using Basics.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,9 +7,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Basics
+namespace CSharp
 {
-	class AsynchronousProgramming
+    class AsynchronousProgramming
 	{
 		public void Play()
 		{

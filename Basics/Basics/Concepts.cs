@@ -1,17 +1,16 @@
-﻿using Basics.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Basics
+namespace CSharp
 {
-	class CsharpConcepts
+    class Concepts
 	{
 		public void Play()
 		{
 			//Delegates();
-			Events();
+			//Events();
 			//Actions();
 			//Functions();
 			//Identifiers();

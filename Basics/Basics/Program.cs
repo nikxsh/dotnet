@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Basics
+namespace CSharp
 {
 	internal class Program
 	{
@@ -10,8 +10,8 @@ namespace Basics
 			//new DataStructure().Play();
 			//new DesignPatterns().Play();
 
-			new CsharpConcepts().Play();
-			//new SystemInterfaces().Play();
+			//new CsharpConcepts().Play();
+			new SystemInterfaces().Play();
 			//new Collections().Play();
 			//new Linq().Play();
 			//new MultiThreading().Play();

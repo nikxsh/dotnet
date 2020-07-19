@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using static WineryStore.Persistence.Datastore.WineryContext;
 
 namespace WineryStore.Persistence.Datastore
 {
-	public class WineDataStore : IWineDataStore, IDisposable
+    public class WineDataStore : IWineDataStore, IDisposable
 	{
 		private bool disposed = false;
 		private readonly WineryContext WineContext;

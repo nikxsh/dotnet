@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Linq;
 
 namespace Basics
 {
-	internal class Oops
+    internal class Oops
 	{
 		public void Play()
 		{
-			//MethodHidingExample();
-			//Polymorphism();
-			//AbstractClassExample();
-			//Struct();
-			//ClassExample();
-			//ConstructorsExample();
-			//InterfaceExample();
-			//LSPExample();
-		}
+            MethodHidingExample();
+            Polymorphism();
+            AbstractClassExample();
+            ClassExample();
+            ConstructorsExample();
+            InterfaceExample();
+        }
 
 
 		#region Abstraction and Encapsulation
@@ -360,214 +357,17 @@ namespace Basics
 		}
 		#endregion
 
-		#region SOLID
-		/// <summary>
-		///  “S”- SRP(Single responsibility principle)
-		/// - So SRP says that a class should have only one responsibility and that resposibility should be encapsulated 
-		///   by the class.
-		/// - So if we apply SRP we can move that logging activity to some other class who will only look after logging 
-		///   activities.
-		/// </summary>
-		class SRP
-		{
-			private class Logger
-			{
-				public static void Log(string message)
-				{
-					System.IO.File.WriteAllText(@"c:\Error.txt", message);
-				}
-			}
-
-			internal class DBOperations
-			{
-				private readonly Logger _logger = new Logger();
-				public void SaveData()
-				{
-					try
-					{
-						//DB class
-
-					}
-					catch (Exception ex)
-					{
-						Logger.Log(ex.InnerException.ToString());
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// “O” - Open closed principle
-		/// States that software application source codes should be open for extension but should be closed for modification
-		/// </summary>
-		class OCP
-		{
-			class Customer
-			{
-				public virtual double GetDiscount(double TotalSales)
-				{
-					return TotalSales;
-				}
-			}
-
-			class SilverCustomer : Customer
-			{
-				public override double GetDiscount(double TotalSales)
-				{
-					return base.GetDiscount(TotalSales) - 50;
-				}
-			}
-			class GoldCustomer : SilverCustomer
-			{
-				public override double GetDiscount(double TotalSales)
-				{
-					return base.GetDiscount(TotalSales) - 100;
-				}
-			}
-		}
-
-		/// <summary>
-		/// “L” - Liskov Substitution Principle
-		/// - This principle is just an extension of the Open Close Principle.It means that we must make sure that new derived classes are extending
-		///    the base classes without changing their behavior.
-		/// - The Liskov Substitution Principle says that the object of a derived class should be able to replace an object  of the base class without 
-		///    bringing any errors in the system or modifying the behavior of the base class. 
-		/// - In short: if S is subset of T, an object of T could be replaced by object of S without impacting the program and
-		///    bringing any error in the system.
-		/// </summary>
-
-		public void LSPExample()
-		{
-			Console.WriteLine("-- LSP violation --");
-			var values = new[] { 1, 2, 3, 4, 5 };
-
-			Total average = new Total(values);
-			Console.WriteLine($" Total is {average.GetTotal()}"); //Prints 15
-
-			EvenTotal evenAverage = new EvenTotal(values);
-			Console.WriteLine($" Total is {evenAverage.GetTotal()}"); //Prints 6
-
-			Total evenAverageBase = new EvenTotal(values);
-			Console.WriteLine($" Total is {evenAverageBase.GetTotal()}"); //Prints 15, clear LSP violation
-		}
-
-		public class Total
-		{
-			protected readonly int[] numbers;
-
-			public Total(int[] numbers)
-			{
-				this.numbers = numbers;
-			}
-
-			public double GetTotal() => numbers.Sum();
-		}
-
-		public class EvenTotal : Total
-		{
-			public EvenTotal(int[] numbers) : base(numbers)
-			{ }
-
-			public new double GetTotal() => numbers.Where(x => (x % 2 == 0)).Sum();
-		}
-
-		/// <summary>
-		/// “I” - ISP (Interface Segregation principle)
-		///  ISP states that no clients should be forced to implement methods which it does not want to use and the contracts 
-		///  should be broken down to thin ones.
-		/// </summary>
-		class ISP
-		{
-			interface IDiscount
-			{
-				double GetDiscount(double TotalSales);
-			}
-
-			interface IDatabase
-			{
-				void Add();
-			}
-
-			class Customer : IDiscount, IDatabase
-			{
-				public void Add()
-				{
-					//ADD
-				}
-
-				public double GetDiscount(double TotalSales)
-				{
-					//Discount
-					return TotalSales - 2;
-				}
-			}
-
-			class Enquiry : IDiscount
-			{
-				public double GetDiscount(double TotalSales)
-				{
-					return TotalSales - 5;
-				}
-			}
-		}
-
-		/// <summary>
-		/// “D” - DIP (Dependency Inversion Principle)
-		///  DIP states that the higher level modules should be coupled with the lower level modules with complete 
-		///  abstraction
-		/// </summary>
-		class DIP
-		{
-			interface ILogger
-			{
-				void Log(string error);
-			}
-
-			class FileLogger : ILogger
-			{
-				public void Log(string error)
-				{
-					System.IO.File.WriteAllText(@"c:\Error.txt", error);
-				}
-			}
-
-			class DatabaseOperations
-			{
-				private ILogger _logger;
-				public DatabaseOperations(ILogger logger)
-				{
-					_logger = logger;
-				}
-
-				public void SaveData()
-				{
-					try
-					{
-					}
-					catch (Exception ex)
-					{
-						_logger.Log(ex.InnerException.ToString());
-					}
-				}
-			}
-
-			public void Action()
-			{
-				//If you watch closely the biggest problem is the “NEW” keyword.He is taking extra responsibilities of which object needs to be created.
-				//So if we INVERT / DELEGATE this responsibility to someone else rather the customer class doing it that would really solve the problem to a certain extent.
-
-				var op = new DatabaseOperations(new FileLogger());
-				op.SaveData();
-			}
-		}
-		#endregion
-
 		#region Abstract Class
 		/// <summary>
 		/// - The abstract keyword enables you to create classes and class members that are incomplete and must be implemented in a derived class.
 		/// - An abstract class cannot be instantiated. The purpose of an abstract class is to provide a common definition of a base class that 
 		///   multiple derived classes can share.
 		/// - You can consider an abstract class to be an interface, which already has some implementation
+		/// - Inshort Abstract classes are used for Modelling a class hierarchy of similar looking classes (For example Animal can be abstract class 
+		///   and Human , Lion, Tiger can be concrete derived classes)
+		///	- Whereas Interface is used for Communication between 2 unrelated classes which does not care about type of the class implementing
+		///	  Interface (e.g. Height can be interface property and it can be implemented by Human , Building , Tree. It does not matter if you can eat , 
+		///	  you can swim you can die or anything.. it matters only a thing that you need to have Height)
 		/// </summary>
 		public abstract class AbstractAccountBase
 		{
@@ -684,7 +484,24 @@ namespace Basics
 				Console.WriteLine($"SalaryAccount: Amount {amount} | Account {accountNumber}");
 			}
 
-			public sealed override void LoanApproval()
+			public override void LoanApproval()
+			{
+				if (amount > 50000)
+					Console.WriteLine($"Loan Approved");
+				else
+					Console.WriteLine($"Loan Rejcted");
+			}
+		}
+
+		public class XAccount : SalaryAccount
+        {
+            public XAccount(string accountNumber, decimal amount, int duration) : base(accountNumber, amount, duration)
+            {
+            }
+
+			//public override void DisplayAmount() {} //error as sealer in parent class
+
+			public override void LoanApproval()
 			{
 				if (amount > 50000)
 					Console.WriteLine($"Loan Approved");

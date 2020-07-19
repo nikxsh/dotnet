@@ -42,8 +42,6 @@ namespace WineryStore.API
 			//https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1
 			services.AddScoped<IWineryRepository, WineryRepository>();
 			services.AddScoped<IWineRepository, WineRepository>();
-			//services.AddScoped<IWineryDataStore, InMemoryWineryDataStore>();
-			//services.AddScoped<IWineDataStore, InMemoryWineDataStore>();
 			services.AddScoped<IWineryDataStore, WineryDataStore>();
 			services.AddScoped<IWineDataStore, WineDataStore>();
 
@@ -60,7 +58,7 @@ namespace WineryStore.API
 		{
 			app.Use(async (context, next) =>
 			{
-				Thread.Sleep(1500);
+				//Thread.Sleep(1500);
 				await next.Invoke();
 			});
 

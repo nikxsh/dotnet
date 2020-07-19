@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Basics.Common
+namespace Tools
 {
 	public class Singer
 	{
