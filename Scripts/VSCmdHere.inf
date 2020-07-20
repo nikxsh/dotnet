@@ -1,0 +1,48 @@
+;
+; "CMD Prompt Here" PowerToy
+;
+; Copyright 1996 Microsoft Corporation
+
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = VSCmdHere.Files.Inf
+AddReg    = VSCmdHere.Reg
+
+[DefaultUnInstall]
+DelFiles  = VSCmdHere.Files.Inf
+DelReg    = VS2019ProCmdHereUninstall.Reg
+
+[SourceDisksNames]
+55="%VS2019ProCmdHereName%","",1
+
+[SourceDisksFiles]
+vs2019cmdhere-enterprise.inf=55
+
+[DestinationDirs]
+VSCmdHere.Files.Inf = 17
+
+[VSCmdHere.Files.Inf]
+VSCmdHere.INF
+
+[VSCmdHere.Reg]
+HKLM,%UDHERE%,DisplayName,,"%VS2019ProCmdHereName%"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUnInstall 132 %17%\VSCmdHere.inf"
+HKCR,Directory\Background\Shell\VSCmdHere,,,"%VS2019ProCmdHereAccel%"
+HKCR,Directory\Background\Shell\VSCmdHere\command,,,"cmd.exe /k call ""C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat"" && pushd ""%V"""
+HKCR,Directory\Shell\VSCmdHere,,,"%VS2019ProCmdHereAccel%"
+HKCR,Directory\Shell\VSCmdHere\command,,,"cmd.exe /k call ""C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat"" && pushd ""%V"""
+HKCR,Drive\Shell\VSCmdHere,,,"%VS2019ProCmdHereAccel%"
+HKCR,Drive\Shell\VSCmdHere\command,,,"cmd.exe /k call ""C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat"" && pushd ""%1"""
+
+[VS2019ProCmdHereUninstall.Reg]
+HKLM,%UDHERE%
+HKCR,Directory\Shell\VSCmdHere
+HKCR,Drive\Shell\VSCmdHere
+HKCR,Directory\Background\Shell\VSCmdHere
+
+[Strings]
+VS2019ProCmdHereName="Developer Command Prompt Here for VS2019 Professional"
+VS2019ProCmdHereAccel="Developer Command Prompt Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\VSCmdHere"

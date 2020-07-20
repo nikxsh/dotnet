@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
+using Tools;
 
 namespace CSharp
 {
@@ -209,21 +210,21 @@ namespace CSharp
         {
             IEnumerable<int> enumerableRange = Enumerable.Range(1, 9999999);
             Console.WriteLine("-- IEnumerable --");
-            Utility.Watch.Start();
+            MockDataUtility.Watch.Start();
             var checkContainInEnumerable = enumerableRange.Contains(9999999);
-            Utility.Watch.Stop();
-            Console.WriteLine($"hashSet.Contains(8888888): {checkContainInEnumerable} | {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)}s");
+            MockDataUtility.Watch.Stop();
+            Console.WriteLine($"hashSet.Contains(8888888): {checkContainInEnumerable} | {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)}s");
 
-            Utility.Watch.Reset();
+            MockDataUtility.Watch.Reset();
 
             Console.WriteLine("-- HashSet --");
             //Add: O(1)
             HashSet<int> hashSet = new HashSet<int>(enumerableRange);
-            Utility.Watch.Start();
+            MockDataUtility.Watch.Start();
             //Search: O(1)
             var checkContainInHash = hashSet.Contains(9999999);
-            Utility.Watch.Stop();
-            Console.WriteLine($"hashSet.Contains(8888888): {checkContainInHash} | {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)}s");
+            MockDataUtility.Watch.Stop();
+            Console.WriteLine($"hashSet.Contains(8888888): {checkContainInHash} | {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)}s");
             //Enumeration: O(n*Log(n))
         }
 

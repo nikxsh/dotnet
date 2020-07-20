@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Tools;
+using Tools.Models;
 
 namespace DataStructures
 {

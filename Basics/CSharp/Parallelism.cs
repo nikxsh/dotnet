@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Tools;
 
 namespace CSharp
 {
@@ -64,7 +65,7 @@ namespace CSharp
 		/// </summary>
 		public async Task AsyncAndAwait()
 		{
-			Utility.Watch.Start();
+			MockDataUtility.Watch.Start();
 			Console.WriteLine($"Get the Tea!");
 			Console.WriteLine($"Get the Suger!");
 			await BoilMilk();
@@ -75,7 +76,7 @@ namespace CSharp
 			Console.WriteLine($"Get the peanuts!");
 			await FryPoha();
 			Console.WriteLine($"Lets eat now :)");
-			Utility.Watch.Stop();
+			MockDataUtility.Watch.Stop();
 		}
 
 		/// <summary>
@@ -85,7 +86,7 @@ namespace CSharp
 		/// </summary>
 		public async Task AsyncAndAwaiteWhenAll()
 		{
-			Utility.Watch.Start();
+			MockDataUtility.Watch.Start();
 			Console.WriteLine($"Get the Tea!");
 			Console.WriteLine($"Get the Suger!");
 			Console.WriteLine($"Get the vegies out of fridge!");
@@ -95,7 +96,7 @@ namespace CSharp
 			Console.WriteLine($"Get the Kontinbir");
 			await FryPoha();
 			Console.WriteLine($"Lets eat now :)");
-			Utility.Watch.Stop();
+			MockDataUtility.Watch.Stop();
 		}
 
 		/// <summary>
@@ -104,7 +105,7 @@ namespace CSharp
 		/// </summary>
 		public async Task AsyncAndAwaiteWhenAny()
 		{
-			Utility.Watch.Start();
+			MockDataUtility.Watch.Start();
 			var boilMilkTask = BoilMilk();
 			var prepareTea = PrepareTea();
 			var cutVegies = CutVegetables();
@@ -127,35 +128,35 @@ namespace CSharp
 
 				remainingTask.Remove(finished);
 			}
-			Utility.Watch.Stop();
+			MockDataUtility.Watch.Stop();
 		}
 
 		async Task BoilMilk()
 		{
 			Console.WriteLine($"Async : Milk is Boiling");
 			await Task.Run(() => Thread.Sleep(3000));
-			Console.WriteLine($"Milk is Ready! | Time Elapsed {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)} Secs");
+			Console.WriteLine($"Milk is Ready! | Time Elapsed {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)} Secs");
 		}
 
 		async Task PrepareTea()
 		{
 			Console.WriteLine($"Async : Preparing Tea");
 			await Task.Run(() => Thread.Sleep(10000));
-			Console.WriteLine($"Tea is Ready! | Time Elapsed {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)} Secs");
+			Console.WriteLine($"Tea is Ready! | Time Elapsed {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)} Secs");
 		}
 
 		async Task CutVegetables()
 		{
 			Console.WriteLine($"Async : Cutting Vegetables");
 			await Task.Run(() => Thread.Sleep(3000));
-			Console.WriteLine($"Vegies are Ready! | Time Elapsed {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)} Secs");
+			Console.WriteLine($"Vegies are Ready! | Time Elapsed {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)} Secs");
 		}
 
 		async Task FryPoha()
 		{
 			Console.WriteLine($"Async : Frying Poha");
 			await Task.Run(() => Thread.Sleep(5000));
-			Console.WriteLine($"Poha is Ready!| Time Elapsed {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)} Secs");
+			Console.WriteLine($"Poha is Ready!| Time Elapsed {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)} Secs");
 		}
 
 		public async Task AccessWebAsync()
@@ -402,7 +403,7 @@ namespace CSharp
 					Console.WriteLine($"Beginning Iteration {index}");
 					delay = rnd.Next(1000, 2000);
 					Thread.Sleep(delay);
-					Console.WriteLine($"Total execution time by Thread {Thread.CurrentThread.ManagedThreadId} of Iteration {index} is {Utility.EllapsedTime(delay)}");
+					Console.WriteLine($"Total execution time by Thread {Thread.CurrentThread.ManagedThreadId} of Iteration {index} is {MockDataUtility.EllapsedTime(delay)}");
 					Console.WriteLine($"Iteration {index} Completed");
 				}
 			);
@@ -459,22 +460,22 @@ namespace CSharp
 			Console.WriteLine("Calculate Prime Numbers of range (3 t0 1000)");
 			var numbers = Enumerable.Range(3, 100);
 
-			Utility.Watch.Start();
+			MockDataUtility.Watch.Start();
 			var sequentialQuery = from n in numbers
 										 where ExpensiveFunction(n)
 										 select n;
 			Console.WriteLine($"Total Prime Numbers: {sequentialQuery.Count()}");
-			Utility.Watch.Stop();
-			Console.WriteLine($"Sequential LINQ Execution took {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)}s");
+			MockDataUtility.Watch.Stop();
+			Console.WriteLine($"Sequential LINQ Execution took {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)}s");
 
-			Utility.Watch.Reset();
-			Utility.Watch.Start();
+			MockDataUtility.Watch.Reset();
+			MockDataUtility.Watch.Start();
 			var parallerQuery = from n in numbers.AsParallel()
 									  where ExpensiveFunction(n)
 									  select n;
 			Console.WriteLine($"Total Prime Numbers: {parallerQuery.Count()}");
-			Utility.Watch.Stop();
-			Console.WriteLine($"Parallel LINQ Execution took {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)}s");
+			MockDataUtility.Watch.Stop();
+			Console.WriteLine($"Parallel LINQ Execution took {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)}s");
 
 
 			//Parallel.Invoke executes an array of Action delegates in parallel, and then waits for them to complete
@@ -491,19 +492,19 @@ namespace CSharp
 			Console.WriteLine($"");
 			//Parallel.For and Parallel.ForEach perform the equivalent of a C# for and foreach loop, 
 			//but with each iteration executing in parallel instead of sequentially.
-			Utility.Watch.Reset();
+			MockDataUtility.Watch.Reset();
 			var totalIterations = 3000;
 
-			Utility.Watch.Start();
+			MockDataUtility.Watch.Start();
 			for (int i = 0; i < totalIterations; i++) { }
-			Utility.Watch.Stop();
-			Console.WriteLine($"for(,,) loop took {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)}s for {totalIterations} iterations");
+			MockDataUtility.Watch.Stop();
+			Console.WriteLine($"for(,,) loop took {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)}s for {totalIterations} iterations");
 
-			Utility.Watch.Reset();
-			Utility.Watch.Start();
+			MockDataUtility.Watch.Reset();
+			MockDataUtility.Watch.Start();
 			Parallel.For(0, totalIterations, i => { });
-			Utility.Watch.Stop();
-			Console.WriteLine($"Parallel.For loop took {Utility.EllapsedTime(Utility.Watch.ElapsedMilliseconds)}s for {totalIterations} iterations");
+			MockDataUtility.Watch.Stop();
+			Console.WriteLine($"Parallel.For loop took {MockDataUtility.EllapsedTime(MockDataUtility.Watch.ElapsedMilliseconds)}s for {totalIterations} iterations");
 		}
 
 		private bool ExpensiveFunction(int value)

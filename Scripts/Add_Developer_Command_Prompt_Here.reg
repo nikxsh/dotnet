@@ -1,0 +1,40 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CLASSES_ROOT\Directory\shell\VSCommandPrompt]
+
+[HKEY_CLASSES_ROOT\Directory\shell\VSCommandPrompt]
+@="Developer Command Prompt Here"
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Directory\shell\VSCommandPrompt\command]
+@="cmd.exe /k call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" && pushd "%1""
+
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\VSCommandPrompt]
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCommandPrompt]
+@="Developer Command Prompt Here"
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCommandPrompt\command]
+@="cmd.exe /k call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" && pushd "%1""
+
+
+
+[-HKEY_CLASSES_ROOT\Drive\shell\VSCommandPrompt]
+
+[HKEY_CLASSES_ROOT\Drive\shell\VSCommandPrompt]
+@="Developer Command Prompt Here"
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Drive\shell\VSCommandPrompt\command]
+@="cmd.exe /k call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" && pushd "%1""
+
+
+[-HKEY_CLASSES_ROOT\LibraryFolder\background\shell\VSCommandPrompt]
+
+[HKEY_CLASSES_ROOT\LibraryFolder\background\shell\VSCommandPrompt]
+"HasLUAShield"=""
+@="Developer Command Prompt Here"
+
+[HKEY_CLASSES_ROOT\LibraryFolder\background\shell\VSCommandPrompt\command]
+@="cmd.exe /k call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" && pushd "%1"" 	

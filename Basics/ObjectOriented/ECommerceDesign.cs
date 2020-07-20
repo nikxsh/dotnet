@@ -201,7 +201,7 @@ namespace ObjectOriented
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Password { get; set; };
+        public string Password { get; set; }
         public string Address { get; set; }
         public string CreditInfo { get; set; }
     }
@@ -210,10 +210,75 @@ namespace ObjectOriented
     class Guest : IGuest
     {
         private ShoppingCart shoppingCart;
+
+        public bool AddToCart(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Checkout()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CreateProfile(MemberDetails memberDetails)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int PlaceOrder()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ProcessPayment()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveFromCart(int productId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     class Member : IMember
     {
         private ShoppingCart shoppingCart;
+
+        public bool AddToCart(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Checkout()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool GetProfile(int memberId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int PlaceOrder()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ProcessPayment()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveFromCart(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateProfile(int memberId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

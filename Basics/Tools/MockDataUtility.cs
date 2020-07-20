@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using Tools.Models;
 
 namespace Tools
 {
-	public static class Utility
+	public static class MockDataUtility
 	{
 		public static Stopwatch Watch = new Stopwatch();
 		public static Random random = new Random();

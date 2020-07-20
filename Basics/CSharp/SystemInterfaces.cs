@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Tools;
+using Tools.Models;
 
 namespace CSharp
 {
@@ -27,7 +29,7 @@ namespace CSharp
         {
             try
             {
-                var employees = Utility
+                var employees = MockDataUtility
                     .GetEmployeeMockArray()
                     .Select(x => new Employee
                     {
@@ -44,7 +46,7 @@ namespace CSharp
                 Array.Sort(employees, new EmployeeIComparer());
 
                 Console.WriteLine("Sort with EmployeeComparer (By Rank)");
-                Utility.PrintployeeMockArray(employees);
+                MockDataUtility.PrintployeeMockArray(employees);
             }
             catch (ArgumentException ex)
             {
@@ -168,7 +170,7 @@ namespace CSharp
         {
             try
             {
-                var genericEmployees = Utility
+                var genericEmployees = MockDataUtility
                     .GetEmployeeMockArray()
                     .Select(x => new GenericEmployeeIComparable
                     {
@@ -180,7 +182,7 @@ namespace CSharp
 
                 Console.WriteLine("Sort as EmployeeAsComparable (By Salary)");
                 genericEmployees.Sort();
-                Utility.PrintployeeMockArray(genericEmployees);
+                MockDataUtility.PrintployeeMockArray(genericEmployees);
 
                 var employee1 = genericEmployees[0];
                 var employee2 = genericEmployees[1];
@@ -441,8 +443,8 @@ namespace CSharp
         {
             try
             {
-                var employees = Utility.GetEmployeeMockArray().ToArray();
-                Utility.PrintployeeMockArray(employees);
+                var employees = MockDataUtility.GetEmployeeMockArray().ToArray();
+                MockDataUtility.PrintployeeMockArray(employees);
 
                 Console.WriteLine();
                 Console.WriteLine($"Using Employee as IEnumerable");
@@ -538,10 +540,10 @@ namespace CSharp
                     new EmployeeIEquatable { Name = "Mad King", Rank = 3, Salary = 55000  },
                     new EmployeeIEquatable { Name = "Nikhilesh", Rank = 3, Salary = 65000  } //Same name will not be added
 				};
-                Utility.PrintployeeMockArray(employeeCollection.AsEnumerable());
+                MockDataUtility.PrintployeeMockArray(employeeCollection.AsEnumerable());
                 Console.WriteLine($"Remove Nikhilesh (Based on Name)");
                 employeeCollection.Remove(new EmployeeIEquatable { Name = "Nikhilesh" });
-                Utility.PrintployeeMockArray(employeeCollection.AsEnumerable());
+                MockDataUtility.PrintployeeMockArray(employeeCollection.AsEnumerable());
 
                 Console.WriteLine($"employeeCollection.Contains(new EmployeeIEquatable {{ Name = \"Nikhilesh\" }}) > " +
                     $"{employeeCollection.Contains(new EmployeeIEquatable { Name = "Nikhilesh" })}");

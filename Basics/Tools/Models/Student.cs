@@ -1,61 +1,10 @@
 ﻿using System;
 
-namespace Tools
+namespace Tools.Models
 {
-	public class Singer
-	{
-		public int Id { get; set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-	}
-
-	public class Concert
-	{
-		public int SingerId { get; set; }
-		public int ConcertCount { get; set; }
-		public int Year { get; set; }
-	}
-
-	public class Person
-	{
-		public int Id { get; set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-	}
-
-	public class Pet
-	{
-		public string Name { get; set; }
-		public int OwnerId { get; set; }
-	}
-
-	public class Product
-	{
-		public string Name { get; set; }
-		public int CategoryID { get; set; }
-	}
-
-	public struct Category
-	{
-		public string Name { get; set; }
-		public int ID { get; set; }
-	}
-
-	interface IStudent
+	public interface IStudent
 	{
 		void Display();
-	}
-
-	[AttributeUsage(AttributeTargets.Class)]
-	public class HelpAttribute : Attribute
-	{
-		public string Topic { get; set; }// Named parameter
-		private string Url { get; set; }
-
-		public HelpAttribute(string url)  // Positional parameter
-		{
-			Url = url;
-		}
 	}
 
 	[Help("http://www.dummy.com/100", Topic = "Class A")]
@@ -128,13 +77,5 @@ namespace Tools
 		B,
 		C,
 		D
-	}
-
-	public class Employee
-	{
-		public int EmployeeId { get; set; }
-		public string Name { get; set; }
-		public int Rank { get; set; }
-		public decimal Salary { get; set; }
 	}
 }
