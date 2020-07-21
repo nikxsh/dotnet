@@ -1,4 +1,6 @@
-﻿using ObjectOriented.Patterns;
+﻿using ObjectOriented.BehavioralPatterns;
+using ObjectOriented.CreationalPatterns;
+using ObjectOriented.StructuralPatterns;
 
 namespace ObjectOriented
 {
@@ -16,9 +18,11 @@ namespace ObjectOriented
             new CompositePattern();
             new DecoratorPattern();
             new FacadePattern();
-            //Behavioral Pattern
+            //Behavioral Patterns
             new ObserverPattern();
             new CommandPattern();
+
+            new Oops();
         }
     }
 }

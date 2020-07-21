@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectOriented.Patterns
+namespace ObjectOriented.StructuralPatterns
 {
 	/// <summary>
 	/// - Structural Patterns

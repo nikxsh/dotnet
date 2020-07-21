@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Basics
+namespace ObjectOriented
 {
     internal class Oops
 	{
-		public void Play()
+		public Oops()
 		{
             MethodHidingExample();
             Polymorphism();
@@ -191,7 +191,7 @@ namespace Basics
 			/// <summary>
 			/// - We talk about association between two objects when each one of them can use the other one, but also each one of them can exist without 
 			///   the other one. There is no dependency between them.
-			/// - Owners feed pets, pets please owners (association), we can see the relationship “has a”. That means a Owner can exist without his Pet, 
+			///   Eg. Owners feed pets, pets please owners (association), we can see the relationship “has a”. That means a Owner can exist without his Pet, 
 			///   and his Pet can also be assigned to another Owner. 
 			/// - If two classes in a model need to communicate with each other, there must be a link between them, and that can be represented by an 
 			///   association (connector)
@@ -328,11 +328,11 @@ namespace Basics
 		{
 			Console.WriteLine("-- Method Hiding --");
 			Baap obj1 = new Baap();
-			obj1.Display();
+			obj1.Display(); //"Display Baap"
 			Beta obj2 = new Beta();
-			obj2.Display();
+			obj2.Display(); //"Display Beta"
 			Baap obj3 = new Beta();
-			obj3.Display();
+			obj3.Display(); //"Display Baap"
 		}
 
 		class Baap

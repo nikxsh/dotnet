@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ObjectOriented.Patterns
+namespace ObjectOriented.CreationalPatterns
 {
 
 	/// <summary>
@@ -12,6 +12,7 @@ namespace ObjectOriented.Patterns
 	{
 		public SingletonPattern()
 		{
+			//LoadBalancer x = new LoadBalancer();
 			LoadBalancer b1 = LoadBalancer.GetInstance();
 			LoadBalancer b2 = LoadBalancer.GetInstance();
 			LoadBalancer b3 = LoadBalancer.GetInstance();

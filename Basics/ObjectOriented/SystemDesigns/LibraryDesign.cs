@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectOriented.LibraryDesign
+namespace ObjectOriented.SystemDesigns
 {
     enum Bookstatus { Waiting, Pending, Cancelled, None }
     enum AccountStatus { Active, Closed, Cancelled, Flagged, None }

@@ -6,7 +6,8 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            new BinaryTreeExample();
+            //new BinaryTreeExample();
+            new HeapExample();
         }
     }
 }

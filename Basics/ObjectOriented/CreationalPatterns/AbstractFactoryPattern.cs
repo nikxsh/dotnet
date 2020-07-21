@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectOriented.Patterns
+namespace ObjectOriented.CreationalPatterns
 {
     /// <summary>
     /// - Creational Patterns

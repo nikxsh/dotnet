@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ObjectOriented.Patterns
+namespace ObjectOriented.BehavioralPatterns
 {
     /// <summary>
     /// - Behavioral Pattern

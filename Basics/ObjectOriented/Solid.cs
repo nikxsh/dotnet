@@ -158,7 +158,10 @@ namespace ObjectOriented
 		/// <summary>
 		/// “D” - DIP (Dependency Inversion Principle)
 		///  DIP states that the higher level modules should be coupled with the lower level modules with complete 
-		///  abstraction
+		///  abstraction  
+		///  The general idea of this principle is as simple as it is important: High-level modules, which provide complex logic, should be easily 
+		///  reusable and unaffected by changes in low-level modules, which provide utility features.
+		///  To achieve that, you need to introduce an abstraction that decouples the high-level and low-level modules from each other.
 		/// </summary>
 		class DIP
 		{

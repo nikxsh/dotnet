@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectOriented
+namespace ObjectOriented.SystemDesigns
 {
     interface IProduct
     {

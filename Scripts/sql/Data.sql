@@ -6,7 +6,7 @@ CREATE TABLE ACCOUNT
 	Balance MONEY,
 	Score INT,
 	Country VARCHAR(30)
-)
+);
 
 CREATE TABLE LOAN
 (
@@ -14,14 +14,14 @@ CREATE TABLE LOAN
 	AccountNumber INT,
 	Amount MONEY,
 	Defaulter BIT
-)
+);
  
 CREATE TABLE DEPARTMENT
 (
 	Id INT,
 	Name VARCHAR(30),
 	ManagerId INT
-)
+);
 
 CREATE TABLE EMPLOYEE
 (
@@ -29,7 +29,7 @@ CREATE TABLE EMPLOYEE
 	Name VARCHAR(30),
 	Salary MONEY,
 	DeptId INT
-)
+);
 
 INSERT INTO ACCOUNT VALUES
 (1001, 'Jon Snow', 25, 15000.56, 99, 'UK'),
@@ -51,7 +51,7 @@ INSERT INTO ACCOUNT VALUES
 (1017, 'Joey Tribbiani', 28, 32963.21,  16, 'IT'),
 (1018, 'George Lucas', 88, 236036.36,  99, 'IT'),
 (1019, 'Luke Skywalker', 28, 144236.36,  88, 'USA'),
-(1020, 'Darth Vader', 28, 152000.23,  16, 'USA')
+(1020, 'Darth Vader', 28, 152000.23,  16, 'USA');
 
 INSERT INTO LOAN VALUES
 (1, 1006, 25000, 0),
@@ -63,7 +63,7 @@ INSERT INTO LOAN VALUES
 (7, 1022, 890000, 0),
 (8, 1023, 990000, 1),
 (9, 1013, 15000, 0),
-(10, 1017, 35200, 1)
+(10, 1017, 35200, 1);
 
 INSERT INTO DEPARTMENT VALUES
 (101, 'Retail', 1000),
@@ -71,7 +71,7 @@ INSERT INTO DEPARTMENT VALUES
 (103, 'TaxAccounting', 1010),
 (104, 'Wealth', 1015),
 (105, 'Insurance', 1022),
-(106, 'Investment', 1025)
+(106, 'Investment', 1025);
 
 INSERT INTO EMPLOYEE VALUES
 (1000, 'Employee 1', 10000, 101),
@@ -93,9 +93,9 @@ INSERT INTO EMPLOYEE VALUES
 (1016, 'Employee 17', 170000, 104),
 (1017, 'Employee 18', 180000, 102),
 (1018, 'Employee 19', 40000, 104),
-(1019, 'Employee 20', 20000, 103)
+(1019, 'Employee 20', 20000, 103);
 
-ALTER FUNCTION GetEmployeeReports
+CREATE FUNCTION GetEmployeeReports
 (	
 	@DeptId INT
 )
@@ -105,8 +105,8 @@ RETURN
 (
 	SELECT E.Name as EmployeeName, Salary
 	FROM [dbo].[EMPLOYEE] E
-	WHERE E.DeptId = @DeptId
-)
+	WHERE E.DeptId = @DeptId;
+);
 
 
 SELECT * FROM ACCOUNT
